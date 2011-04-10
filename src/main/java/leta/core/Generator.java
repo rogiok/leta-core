@@ -121,7 +121,7 @@ public class Generator {
 	CommonTreeNodeStream nodes = new CommonTreeNodeStream(ast);
 	LetaTreeGrammar semanticParser = new LetaTreeGrammar(nodes);
 
-	Reader templatesIn = new FileReader(ClassLoader.getSystemResource("atdd/transformer/LetaTemplate.stg").toURI().getPath());
+	Reader templatesIn = new FileReader(ClassLoader.getSystemResource("leta/core/template/LetaTemplate.stg").toURI().getPath());
 	StringTemplateGroup templates = new StringTemplateGroup(templatesIn);
 
 	semanticParser.setTemplateLib(templates);

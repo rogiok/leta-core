@@ -44,7 +44,7 @@ public abstract class <id>Test {
     // Gera todas as classes que correspondem aos termos
     <elements: { element | <generateClass(element)>}>
 
-    // Método que será implementado e enviará os dados ao SUT
+    // M√©todo que ser√° implementado e enviar√° os dados ao SUT
     abstract <verifyClause.element.className> sendToSut(<whenClause.element.className> <whenClause.element.instanceName>);
     
     <if (!setClause.matrix)>
@@ -52,13 +52,13 @@ public abstract class <id>Test {
     @Test
     public void test() {
 
-        // Gera as instâncias da cláusula Verify
+        // Gera as inst√°ncias da cl√°usula Verify
         <generateInstance(verifyClause.element)>
         
-        // Gera as instâncias da cláusula When
+        // Gera as inst√°ncias da cl√°usula When
         <generateInstance(whenClause.element)>
         
-        // Executa o método sendToSut
+        // Executa o m√©todo sendToSut
         <verifyClause.element.className> <verifyClause.element.instanceName>Result = sendToSut(<whenClause.element.instanceName>);
 	
         // Compara os resultados com os valores esperados

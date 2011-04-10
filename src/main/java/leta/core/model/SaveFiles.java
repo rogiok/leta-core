@@ -14,7 +14,7 @@ public class SaveFiles {
     public SaveFiles(String content, String outputDir) {
 	super();
 	this.content = content;
-	this.outputDir = outputDir;
+	this.outputDir = outputDir == null ? "." : outputDir;
     }
     
     public void execute() {
