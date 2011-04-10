@@ -1,4 +1,4 @@
-package leta.core.runner;
+package leta.core;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -21,6 +21,8 @@ import leta.core.grammar.LetaGrammarParser;
 import leta.core.grammar.LetaTreeGrammar;
 import leta.core.model.SaveFiles;
 import leta.core.model.TestCase;
+import leta.core.runner.SemanticException;
+import leta.core.runner.SyntaxException;
 
 public class Generator {
 

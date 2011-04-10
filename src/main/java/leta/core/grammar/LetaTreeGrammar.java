@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 14:05:07 /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2011-04-10 17:02:38
+// $ANTLR 3.2 Sep 23, 2009 14:05:07 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2011-04-10 17:10:41
 
   package leta.core.grammar;
   
@@ -134,7 +134,7 @@ public class LetaTreeGrammar extends TreeParser {
     }
 
     public String[] getTokenNames() { return LetaTreeGrammar.tokenNames; }
-    public String getGrammarFileName() { return "/Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g"; }
+    public String getGrammarFileName() { return "/Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g"; }
 
 
       private SemanticModel semanticModel = new SemanticModel();
@@ -164,7 +164,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "leta"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:36:1: leta : ^( LETA ( testPackage )? (testCases+= testCase )+ ) -> generateLeta(testCases=$testCases);
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:36:1: leta : ^( LETA ( testPackage )? (testCases+= testCase )+ ) -> generateLeta(testCases=$testCases);
     public final LetaTreeGrammar.leta_return leta() throws RecognitionException {
         LetaTreeGrammar.leta_return retval = new LetaTreeGrammar.leta_return();
         retval.start = input.LT(1);
@@ -172,13 +172,13 @@ public class LetaTreeGrammar extends TreeParser {
         List list_testCases=null;
         RuleReturnScope testCases = null;
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:3: ( ^( LETA ( testPackage )? (testCases+= testCase )+ ) -> generateLeta(testCases=$testCases))
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:5: ^( LETA ( testPackage )? (testCases+= testCase )+ )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:3: ( ^( LETA ( testPackage )? (testCases+= testCase )+ ) -> generateLeta(testCases=$testCases))
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:5: ^( LETA ( testPackage )? (testCases+= testCase )+ )
             {
             match(input,LETA,FOLLOW_LETA_in_leta53); 
 
             match(input, Token.DOWN, null); 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:12: ( testPackage )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:12: ( testPackage )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -187,7 +187,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt1) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:12: testPackage
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:12: testPackage
                     {
                     pushFollow(FOLLOW_testPackage_in_leta55);
                     testPackage();
@@ -200,7 +200,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             }
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:34: (testCases+= testCase )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:34: (testCases+= testCase )+
             int cnt2=0;
             loop2:
             do {
@@ -214,7 +214,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 switch (alt2) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:34: testCases+= testCase
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:37:34: testCases+= testCase
             	    {
             	    pushFollow(FOLLOW_testCase_in_leta60);
             	    testCases=testCase();
@@ -269,7 +269,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "testCase"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:41:1: testCase : ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause ) -> generateTestCase(id=$ID.textverifyClause=vcwhenClause=wcsetClause=scpackageName=this.semanticModel.getPackageName()elements=elements);
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:41:1: testCase : ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause ) -> generateTestCase(id=$ID.textverifyClause=vcwhenClause=wcsetClause=scpackageName=this.semanticModel.getPackageName()elements=elements);
     public final LetaTreeGrammar.testCase_return testCase() throws RecognitionException {
         LetaTreeGrammar.testCase_return retval = new LetaTreeGrammar.testCase_return();
         retval.start = input.LT(1);
@@ -288,14 +288,14 @@ public class LetaTreeGrammar extends TreeParser {
             this.semanticModel.addTestCase(testCase);
           
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:3: ( ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause ) -> generateTestCase(id=$ID.textverifyClause=vcwhenClause=wcsetClause=scpackageName=this.semanticModel.getPackageName()elements=elements))
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:5: ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:3: ( ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause ) -> generateTestCase(id=$ID.textverifyClause=vcwhenClause=wcsetClause=scpackageName=this.semanticModel.getPackageName()elements=elements))
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:5: ^( TESTCASE ID (sc= setClause )? vc= verifyClause wc= whenClause )
             {
             match(input,TESTCASE,FOLLOW_TESTCASE_in_testCase96); 
 
             match(input, Token.DOWN, null); 
             ID1=(CommonTree)match(input,ID,FOLLOW_ID_in_testCase98); 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:21: (sc= setClause )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:21: (sc= setClause )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -304,7 +304,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt3) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:21: sc= setClause
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:47:21: sc= setClause
                     {
                     pushFollow(FOLLOW_setClause_in_testCase102);
                     sc=setClause();
@@ -375,7 +375,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "verifyClause"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:66:1: verifyClause returns [Element element] : ^( VERIFY fc= factComposite ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:66:1: verifyClause returns [Element element] : ^( VERIFY fc= factComposite ) ;
     public final LetaTreeGrammar.verifyClause_return verifyClause() throws RecognitionException {
         LetaTreeGrammar.verifyClause_return retval = new LetaTreeGrammar.verifyClause_return();
         retval.start = input.LT(1);
@@ -384,8 +384,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:67:3: ( ^( VERIFY fc= factComposite ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:67:5: ^( VERIFY fc= factComposite )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:67:3: ( ^( VERIFY fc= factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:67:5: ^( VERIFY fc= factComposite )
             {
             match(input,VERIFY,FOLLOW_VERIFY_in_verifyClause174); 
 
@@ -422,7 +422,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "whenClause"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:73:1: whenClause returns [Element element] : ^( WHEN fc= factComposite ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:73:1: whenClause returns [Element element] : ^( WHEN fc= factComposite ) ;
     public final LetaTreeGrammar.whenClause_return whenClause() throws RecognitionException {
         LetaTreeGrammar.whenClause_return retval = new LetaTreeGrammar.whenClause_return();
         retval.start = input.LT(1);
@@ -431,8 +431,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:74:3: ( ^( WHEN fc= factComposite ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:74:5: ^( WHEN fc= factComposite )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:74:3: ( ^( WHEN fc= factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:74:5: ^( WHEN fc= factComposite )
             {
             match(input,WHEN,FOLLOW_WHEN_in_whenClause203); 
 
@@ -469,7 +469,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "setClause"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:80:1: setClause returns [Matrix matrix] : ^( SET set ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:80:1: setClause returns [Matrix matrix] : ^( SET set ) ;
     public final LetaTreeGrammar.setClause_return setClause() throws RecognitionException {
         LetaTreeGrammar.setClause_return retval = new LetaTreeGrammar.setClause_return();
         retval.start = input.LT(1);
@@ -478,8 +478,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:81:3: ( ^( SET set ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:81:5: ^( SET set )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:81:3: ( ^( SET set ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:81:5: ^( SET set )
             {
             match(input,SET,FOLLOW_SET_in_setClause232); 
 
@@ -522,7 +522,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "factComposite"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:93:1: factComposite returns [Element element] : ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:93:1: factComposite returns [Element element] : ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );
     public final LetaTreeGrammar.factComposite_return factComposite() throws RecognitionException {
         LetaTreeGrammar.factComposite_return retval = new LetaTreeGrammar.factComposite_return();
         retval.start = input.LT(1);
@@ -537,12 +537,12 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:99:3: ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:99:3: ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) )
             int alt4=9;
             alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:99:5: ^( 'And' f= fact fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:99:5: ^( 'And' f= fact fc= factComposite )
                     {
                     match(input,55,FOLLOW_55_in_factComposite266); 
 
@@ -564,7 +564,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:101:5: ^( 'Or' f= fact fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:101:5: ^( 'Or' f= fact fc= factComposite )
                     {
                     match(input,56,FOLLOW_56_in_factComposite288); 
 
@@ -586,7 +586,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:103:5: ^( 'And' fo= formula fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:103:5: ^( 'And' fo= formula fc= factComposite )
                     {
                     match(input,55,FOLLOW_55_in_factComposite310); 
 
@@ -608,7 +608,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:105:5: ^( 'Or' fo= formula fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:105:5: ^( 'Or' fo= formula fc= factComposite )
                     {
                     match(input,56,FOLLOW_56_in_factComposite332); 
 
@@ -630,7 +630,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:107:5: ^( 'And' fc= factComposite fc2= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:107:5: ^( 'And' fc= factComposite fc2= factComposite )
                     {
                     match(input,55,FOLLOW_55_in_factComposite354); 
 
@@ -652,7 +652,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:109:5: ^( 'Or' fc= factComposite fc2= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:109:5: ^( 'Or' fc= factComposite fc2= factComposite )
                     {
                     match(input,56,FOLLOW_56_in_factComposite376); 
 
@@ -674,7 +674,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:111:5: ^( FACTCOMPOSITE f= fact )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:111:5: ^( FACTCOMPOSITE f= fact )
                     {
                     match(input,FACTCOMPOSITE,FOLLOW_FACTCOMPOSITE_in_factComposite398); 
 
@@ -691,7 +691,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:113:5: ^( FACTCOMPOSITE fo= formula )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:113:5: ^( FACTCOMPOSITE fo= formula )
                     {
                     match(input,FACTCOMPOSITE,FOLLOW_FACTCOMPOSITE_in_factComposite416); 
 
@@ -708,7 +708,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:115:5: ^( FACTCOMPOSITE fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:115:5: ^( FACTCOMPOSITE fc= factComposite )
                     {
                     match(input,FACTCOMPOSITE,FOLLOW_FACTCOMPOSITE_in_factComposite434); 
 
@@ -750,7 +750,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "fact"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:119:1: fact returns [Element element] : ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:119:1: fact returns [Element element] : ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? ) ;
     public final LetaTreeGrammar.fact_return fact() throws RecognitionException {
         LetaTreeGrammar.fact_return retval = new LetaTreeGrammar.fact_return();
         retval.start = input.LT(1);
@@ -765,8 +765,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:3: ( ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:5: ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:3: ( ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:5: ^( FACT tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? )
             {
             match(input,FACT,FOLLOW_FACT_in_fact463); 
 
@@ -781,7 +781,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             state._fsp--;
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:42: (tc2= termComposite (fe= factExt )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:42: (tc2= termComposite (fe= factExt )? )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -790,14 +790,14 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt6) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:43: tc2= termComposite (fe= factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:43: tc2= termComposite (fe= factExt )?
                     {
                     pushFollow(FOLLOW_termComposite_in_fact476);
                     tc2=termComposite();
 
                     state._fsp--;
 
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:63: (fe= factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:63: (fe= factExt )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
@@ -806,7 +806,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     switch (alt5) {
                         case 1 :
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:63: fe= factExt
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:120:63: fe= factExt
                             {
                             pushFollow(FOLLOW_factExt_in_fact480);
                             fe=factExt();
@@ -868,7 +868,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "factExt"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:141:1: factExt returns [MethodElement methodElement, ClassElement classElement] : ( ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? ) | ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:141:1: factExt returns [MethodElement methodElement, ClassElement classElement] : ( ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? ) | ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? ) );
     public final LetaTreeGrammar.factExt_return factExt() throws RecognitionException {
         LetaTreeGrammar.factExt_return retval = new LetaTreeGrammar.factExt_return();
         retval.start = input.LT(1);
@@ -881,7 +881,7 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:3: ( ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? ) | ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:3: ( ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? ) | ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -919,7 +919,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt10) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:5: ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:5: ^( FACTEXT SEPARATOR tc= termComposite (fe= factExt )? )
                     {
                     match(input,FACTEXT,FOLLOW_FACTEXT_in_factExt511); 
 
@@ -930,7 +930,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                     state._fsp--;
 
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:44: (fe= factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:44: (fe= factExt )?
                     int alt7=2;
                     int LA7_0 = input.LA(1);
 
@@ -939,7 +939,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     switch (alt7) {
                         case 1 :
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:44: fe= factExt
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:143:44: fe= factExt
                             {
                             pushFollow(FOLLOW_factExt_in_factExt521);
                             fe=factExt();
@@ -971,7 +971,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:5: ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:5: ^( FACTEXT c= complement (tc= termComposite (fe= factExt )? )? )
                     {
                     match(input,FACTEXT,FOLLOW_FACTEXT_in_factExt536); 
 
@@ -981,7 +981,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                     state._fsp--;
 
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:28: (tc= termComposite (fe= factExt )? )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:28: (tc= termComposite (fe= factExt )? )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -990,14 +990,14 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     switch (alt9) {
                         case 1 :
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:29: tc= termComposite (fe= factExt )?
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:29: tc= termComposite (fe= factExt )?
                             {
                             pushFollow(FOLLOW_termComposite_in_factExt545);
                             tc=termComposite();
 
                             state._fsp--;
 
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:48: (fe= factExt )?
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:48: (fe= factExt )?
                             int alt8=2;
                             int LA8_0 = input.LA(1);
 
@@ -1006,7 +1006,7 @@ public class LetaTreeGrammar extends TreeParser {
                             }
                             switch (alt8) {
                                 case 1 :
-                                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:48: fe= factExt
+                                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:157:48: fe= factExt
                                     {
                                     pushFollow(FOLLOW_factExt_in_factExt549);
                                     fe=factExt();
@@ -1067,7 +1067,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "termComposite"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:176:1: termComposite returns [ClassElement classElement] : ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:176:1: termComposite returns [ClassElement classElement] : ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) ;
     public final LetaTreeGrammar.termComposite_return termComposite() throws RecognitionException {
         LetaTreeGrammar.termComposite_return retval = new LetaTreeGrammar.termComposite_return();
         retval.start = input.LT(1);
@@ -1082,14 +1082,14 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:3: ( ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:5: ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:3: ( ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:5: ^( TERMCOMPOSITE (q= quantifier )? (t= term )? (ti= termInstance )? (twa= termWithAssociation )? )
             {
             match(input,TERMCOMPOSITE,FOLLOW_TERMCOMPOSITE_in_termComposite577); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:22: (q= quantifier )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:22: (q= quantifier )?
                 int alt11=2;
                 int LA11_0 = input.LA(1);
 
@@ -1098,7 +1098,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt11) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:22: q= quantifier
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:22: q= quantifier
                         {
                         pushFollow(FOLLOW_quantifier_in_termComposite581);
                         q=quantifier();
@@ -1111,7 +1111,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 }
 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:36: (t= term )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:36: (t= term )?
                 int alt12=2;
                 int LA12_0 = input.LA(1);
 
@@ -1120,7 +1120,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt12) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:36: t= term
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:36: t= term
                         {
                         pushFollow(FOLLOW_term_in_termComposite586);
                         t=term();
@@ -1133,7 +1133,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 }
 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:45: (ti= termInstance )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:45: (ti= termInstance )?
                 int alt13=2;
                 int LA13_0 = input.LA(1);
 
@@ -1142,7 +1142,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt13) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:45: ti= termInstance
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:45: ti= termInstance
                         {
                         pushFollow(FOLLOW_termInstance_in_termComposite591);
                         ti=termInstance();
@@ -1155,7 +1155,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 }
 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:63: (twa= termWithAssociation )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:63: (twa= termWithAssociation )?
                 int alt14=2;
                 int LA14_0 = input.LA(1);
 
@@ -1164,7 +1164,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt14) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:63: twa= termWithAssociation
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:177:63: twa= termWithAssociation
                         {
                         pushFollow(FOLLOW_termWithAssociation_in_termComposite596);
                         twa=termWithAssociation();
@@ -1216,7 +1216,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "term"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:194:1: term returns [ClassElement classElement] : ^( TERM ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:194:1: term returns [ClassElement classElement] : ^( TERM ID ) ;
     public final LetaTreeGrammar.term_return term() throws RecognitionException {
         LetaTreeGrammar.term_return retval = new LetaTreeGrammar.term_return();
         retval.start = input.LT(1);
@@ -1224,8 +1224,8 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree ID3=null;
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:195:3: ( ^( TERM ID ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:195:5: ^( TERM ID )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:195:3: ( ^( TERM ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:195:5: ^( TERM ID )
             {
             match(input,TERM,FOLLOW_TERM_in_term622); 
 
@@ -1260,7 +1260,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "termInstance"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:203:1: termInstance returns [ClassElement classElement] : ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:203:1: termInstance returns [ClassElement classElement] : ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal ) ;
     public final LetaTreeGrammar.termInstance_return termInstance() throws RecognitionException {
         LetaTreeGrammar.termInstance_return retval = new LetaTreeGrammar.termInstance_return();
         retval.start = input.LT(1);
@@ -1273,8 +1273,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:3: ( ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:5: ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:3: ( ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:5: ^( TERMINSTANCE t= term (ro= relationalOperator )? l= literal )
             {
             match(input,TERMINSTANCE,FOLLOW_TERMINSTANCE_in_termInstance649); 
 
@@ -1284,7 +1284,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             state._fsp--;
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:29: (ro= relationalOperator )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:29: (ro= relationalOperator )?
             int alt15=2;
             int LA15_0 = input.LA(1);
 
@@ -1293,7 +1293,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt15) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:29: ro= relationalOperator
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:204:29: ro= relationalOperator
                     {
                     pushFollow(FOLLOW_relationalOperator_in_termInstance657);
                     ro=relationalOperator();
@@ -1346,7 +1346,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "termWithAssociation"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:218:1: termWithAssociation returns [ClassElement classElement] : ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:218:1: termWithAssociation returns [ClassElement classElement] : ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT ) ;
     public final LetaTreeGrammar.termWithAssociation_return termWithAssociation() throws RecognitionException {
         LetaTreeGrammar.termWithAssociation_return retval = new LetaTreeGrammar.termWithAssociation_return();
         retval.start = input.LT(1);
@@ -1358,8 +1358,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:3: ( ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:5: ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:3: ( ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:5: ^( TERMWITHASSOCIATION t= term (ro= relationalOperator )? INT )
             {
             match(input,TERMWITHASSOCIATION,FOLLOW_TERMWITHASSOCIATION_in_termWithAssociation687); 
 
@@ -1369,7 +1369,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             state._fsp--;
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:36: (ro= relationalOperator )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:36: (ro= relationalOperator )?
             int alt16=2;
             int LA16_0 = input.LA(1);
 
@@ -1378,7 +1378,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt16) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:36: ro= relationalOperator
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:36: ro= relationalOperator
                     {
                     pushFollow(FOLLOW_relationalOperator_in_termWithAssociation695);
                     ro=relationalOperator();
@@ -1433,7 +1433,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "quantifier"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:236:1: quantifier returns [String type, String operator, Integer value, Integer value2] : ( ^( QUANTIFIER 'each' ) | ^( QUANTIFIER 'some' ) | ^( QUANTIFIER 'atLeastOne' ) | ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMostOne' ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactlyOne' ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'moreThanOne' ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:236:1: quantifier returns [String type, String operator, Integer value, Integer value2] : ( ^( QUANTIFIER 'each' ) | ^( QUANTIFIER 'some' ) | ^( QUANTIFIER 'atLeastOne' ) | ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMostOne' ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactlyOne' ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'moreThanOne' ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) );
     public final LetaTreeGrammar.quantifier_return quantifier() throws RecognitionException {
         LetaTreeGrammar.quantifier_return retval = new LetaTreeGrammar.quantifier_return();
         retval.start = input.LT(1);
@@ -1445,12 +1445,12 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree INT7=null;
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:237:3: ( ^( QUANTIFIER 'each' ) | ^( QUANTIFIER 'some' ) | ^( QUANTIFIER 'atLeastOne' ) | ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMostOne' ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactlyOne' ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'moreThanOne' ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:237:3: ( ^( QUANTIFIER 'each' ) | ^( QUANTIFIER 'some' ) | ^( QUANTIFIER 'atLeastOne' ) | ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMostOne' ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactlyOne' ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'moreThanOne' ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) )
             int alt17=10;
             alt17 = dfa17.predict(input);
             switch (alt17) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:237:5: ^( QUANTIFIER 'each' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:237:5: ^( QUANTIFIER 'each' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier725); 
 
@@ -1463,7 +1463,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:239:5: ^( QUANTIFIER 'some' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:239:5: ^( QUANTIFIER 'some' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier741); 
 
@@ -1476,7 +1476,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:241:5: ^( QUANTIFIER 'atLeastOne' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:241:5: ^( QUANTIFIER 'atLeastOne' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier757); 
 
@@ -1489,7 +1489,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:243:5: ^( QUANTIFIER 'atLeast' INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:243:5: ^( QUANTIFIER 'atLeast' INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier773); 
 
@@ -1503,7 +1503,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:245:5: ^( QUANTIFIER 'atMostOne' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:245:5: ^( QUANTIFIER 'atMostOne' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier791); 
 
@@ -1516,7 +1516,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:247:5: ^( QUANTIFIER 'atMost' INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:247:5: ^( QUANTIFIER 'atMost' INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier807); 
 
@@ -1530,7 +1530,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 7 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:249:5: ^( QUANTIFIER 'exactlyOne' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:249:5: ^( QUANTIFIER 'exactlyOne' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier825); 
 
@@ -1543,7 +1543,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 8 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:251:5: ^( QUANTIFIER 'exactly' INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:251:5: ^( QUANTIFIER 'exactly' INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier841); 
 
@@ -1557,7 +1557,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 9 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:253:5: ^( QUANTIFIER 'moreThanOne' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:253:5: ^( QUANTIFIER 'moreThanOne' )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier859); 
 
@@ -1570,7 +1570,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 10 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:255:5: ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:255:5: ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier875); 
 
@@ -1605,7 +1605,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "complement"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:259:1: complement returns [MethodElement methodElement] : ^( COMPLEMENT ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:259:1: complement returns [MethodElement methodElement] : ^( COMPLEMENT ID ) ;
     public final LetaTreeGrammar.complement_return complement() throws RecognitionException {
         LetaTreeGrammar.complement_return retval = new LetaTreeGrammar.complement_return();
         retval.start = input.LT(1);
@@ -1613,8 +1613,8 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree ID8=null;
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:260:3: ( ^( COMPLEMENT ID ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:260:5: ^( COMPLEMENT ID )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:260:3: ( ^( COMPLEMENT ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:260:5: ^( COMPLEMENT ID )
             {
             match(input,COMPLEMENT,FOLLOW_COMPLEMENT_in_complement910); 
 
@@ -1647,7 +1647,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "formula"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:266:1: formula returns [Element element] : ^( FORMULA fi= formulaItem fe= formulaExpression ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:266:1: formula returns [Element element] : ^( FORMULA fi= formulaItem fe= formulaExpression ) ;
     public final LetaTreeGrammar.formula_return formula() throws RecognitionException {
         LetaTreeGrammar.formula_return retval = new LetaTreeGrammar.formula_return();
         retval.start = input.LT(1);
@@ -1658,8 +1658,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:267:3: ( ^( FORMULA fi= formulaItem fe= formulaExpression ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:267:5: ^( FORMULA fi= formulaItem fe= formulaExpression )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:267:3: ( ^( FORMULA fi= formulaItem fe= formulaExpression ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:267:5: ^( FORMULA fi= formulaItem fe= formulaExpression )
             {
             match(input,FORMULA,FOLLOW_FORMULA_in_formula937); 
 
@@ -1701,7 +1701,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "formulaExpression"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:273:1: formulaExpression returns [Element element] : ( ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? ) | ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:273:1: formulaExpression returns [Element element] : ( ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? ) | ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? ) );
     public final LetaTreeGrammar.formulaExpression_return formulaExpression() throws RecognitionException {
         LetaTreeGrammar.formulaExpression_return retval = new LetaTreeGrammar.formulaExpression_return();
         retval.start = input.LT(1);
@@ -1716,7 +1716,7 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:3: ( ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? ) | ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:3: ( ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? ) | ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? ) )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -1754,7 +1754,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt20) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:5: ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:5: ^( FORMULAEXPRESSION fi= formulaItem (mo= mathOperator fe= formulaExpression )? )
                     {
                     match(input,FORMULAEXPRESSION,FOLLOW_FORMULAEXPRESSION_in_formulaExpression970); 
 
@@ -1764,7 +1764,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                     state._fsp--;
 
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:40: (mo= mathOperator fe= formulaExpression )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:40: (mo= mathOperator fe= formulaExpression )?
                     int alt18=2;
                     int LA18_0 = input.LA(1);
 
@@ -1773,7 +1773,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     switch (alt18) {
                         case 1 :
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:41: mo= mathOperator fe= formulaExpression
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:274:41: mo= mathOperator fe= formulaExpression
                             {
                             pushFollow(FOLLOW_mathOperator_in_formulaExpression979);
                             mo=mathOperator();
@@ -1807,7 +1807,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:5: ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:5: ^( FORMULAEXPRESSION fe= formulaExpression (mo= mathOperator fe2= formulaExpression )? )
                     {
                     match(input,FORMULAEXPRESSION,FOLLOW_FORMULAEXPRESSION_in_formulaExpression999); 
 
@@ -1817,7 +1817,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                     state._fsp--;
 
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:46: (mo= mathOperator fe2= formulaExpression )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:46: (mo= mathOperator fe2= formulaExpression )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -1826,7 +1826,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     switch (alt19) {
                         case 1 :
-                            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:47: mo= mathOperator fe2= formulaExpression
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:285:47: mo= mathOperator fe2= formulaExpression
                             {
                             pushFollow(FOLLOW_mathOperator_in_formulaExpression1008);
                             mo=mathOperator();
@@ -1877,7 +1877,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "formulaItem"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:295:1: formulaItem returns [ClassElement classElement] : ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:295:1: formulaItem returns [ClassElement classElement] : ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) ;
     public final LetaTreeGrammar.formulaItem_return formulaItem() throws RecognitionException {
         LetaTreeGrammar.formulaItem_return retval = new LetaTreeGrammar.formulaItem_return();
         retval.start = input.LT(1);
@@ -1890,14 +1890,14 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:3: ( ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:5: ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:3: ( ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:5: ^( FORMULAITEM (t= term )? (ti= termInstance )? (twa= termWithAssociation )? )
             {
             match(input,FORMULAITEM,FOLLOW_FORMULAITEM_in_formulaItem1039); 
 
             if ( input.LA(1)==Token.DOWN ) {
                 match(input, Token.DOWN, null); 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:20: (t= term )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:20: (t= term )?
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
@@ -1906,7 +1906,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt21) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:20: t= term
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:20: t= term
                         {
                         pushFollow(FOLLOW_term_in_formulaItem1043);
                         t=term();
@@ -1919,7 +1919,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 }
 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:29: (ti= termInstance )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:29: (ti= termInstance )?
                 int alt22=2;
                 int LA22_0 = input.LA(1);
 
@@ -1928,7 +1928,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt22) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:29: ti= termInstance
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:29: ti= termInstance
                         {
                         pushFollow(FOLLOW_termInstance_in_formulaItem1048);
                         ti=termInstance();
@@ -1941,7 +1941,7 @@ public class LetaTreeGrammar extends TreeParser {
 
                 }
 
-                // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:47: (twa= termWithAssociation )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:47: (twa= termWithAssociation )?
                 int alt23=2;
                 int LA23_0 = input.LA(1);
 
@@ -1950,7 +1950,7 @@ public class LetaTreeGrammar extends TreeParser {
                 }
                 switch (alt23) {
                     case 1 :
-                        // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:47: twa= termWithAssociation
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:296:47: twa= termWithAssociation
                         {
                         pushFollow(FOLLOW_termWithAssociation_in_formulaItem1053);
                         twa=termWithAssociation();
@@ -1998,13 +1998,13 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "mathOperator"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:309:1: mathOperator returns [String operator] : ( ^( OPERATOR '+' ) | ^( OPERATOR '-' ) | ^( OPERATOR '/' ) | ^( OPERATOR '*' ) | ^( OPERATOR '%' ) | ^( OPERATOR '**' ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:309:1: mathOperator returns [String operator] : ( ^( OPERATOR '+' ) | ^( OPERATOR '-' ) | ^( OPERATOR '/' ) | ^( OPERATOR '*' ) | ^( OPERATOR '%' ) | ^( OPERATOR '**' ) );
     public final LetaTreeGrammar.mathOperator_return mathOperator() throws RecognitionException {
         LetaTreeGrammar.mathOperator_return retval = new LetaTreeGrammar.mathOperator_return();
         retval.start = input.LT(1);
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:310:3: ( ^( OPERATOR '+' ) | ^( OPERATOR '-' ) | ^( OPERATOR '/' ) | ^( OPERATOR '*' ) | ^( OPERATOR '%' ) | ^( OPERATOR '**' ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:310:3: ( ^( OPERATOR '+' ) | ^( OPERATOR '-' ) | ^( OPERATOR '/' ) | ^( OPERATOR '*' ) | ^( OPERATOR '%' ) | ^( OPERATOR '**' ) )
             int alt24=6;
             int LA24_0 = input.LA(1);
 
@@ -2066,7 +2066,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt24) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:310:5: ^( OPERATOR '+' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:310:5: ^( OPERATOR '+' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1079); 
 
@@ -2079,7 +2079,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:312:5: ^( OPERATOR '-' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:312:5: ^( OPERATOR '-' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1095); 
 
@@ -2092,7 +2092,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:314:5: ^( OPERATOR '/' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:314:5: ^( OPERATOR '/' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1111); 
 
@@ -2105,7 +2105,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:316:5: ^( OPERATOR '*' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:316:5: ^( OPERATOR '*' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1127); 
 
@@ -2118,7 +2118,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:318:5: ^( OPERATOR '%' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:318:5: ^( OPERATOR '%' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1143); 
 
@@ -2131,7 +2131,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:320:5: ^( OPERATOR '**' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:320:5: ^( OPERATOR '**' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1159); 
 
@@ -2164,13 +2164,13 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "relationalOperator"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:324:1: relationalOperator returns [String operator] : ( ^( OPERATOR '>' ) | ^( OPERATOR '<' ) | ^( OPERATOR '>=' ) | ^( OPERATOR '<=' ) | ^( OPERATOR '!=' ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:324:1: relationalOperator returns [String operator] : ( ^( OPERATOR '>' ) | ^( OPERATOR '<' ) | ^( OPERATOR '>=' ) | ^( OPERATOR '<=' ) | ^( OPERATOR '!=' ) );
     public final LetaTreeGrammar.relationalOperator_return relationalOperator() throws RecognitionException {
         LetaTreeGrammar.relationalOperator_return retval = new LetaTreeGrammar.relationalOperator_return();
         retval.start = input.LT(1);
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:325:3: ( ^( OPERATOR '>' ) | ^( OPERATOR '<' ) | ^( OPERATOR '>=' ) | ^( OPERATOR '<=' ) | ^( OPERATOR '!=' ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:325:3: ( ^( OPERATOR '>' ) | ^( OPERATOR '<' ) | ^( OPERATOR '>=' ) | ^( OPERATOR '<=' ) | ^( OPERATOR '!=' ) )
             int alt25=5;
             int LA25_0 = input.LA(1);
 
@@ -2227,7 +2227,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt25) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:325:5: ^( OPERATOR '>' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:325:5: ^( OPERATOR '>' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1186); 
 
@@ -2240,7 +2240,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:327:5: ^( OPERATOR '<' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:327:5: ^( OPERATOR '<' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1202); 
 
@@ -2253,7 +2253,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:329:5: ^( OPERATOR '>=' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:329:5: ^( OPERATOR '>=' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1218); 
 
@@ -2266,7 +2266,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:331:5: ^( OPERATOR '<=' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:331:5: ^( OPERATOR '<=' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1234); 
 
@@ -2279,7 +2279,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:333:5: ^( OPERATOR '!=' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:333:5: ^( OPERATOR '!=' )
                     {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1250); 
 
@@ -2312,7 +2312,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "set"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:337:1: set returns [ArrayList<MatrixItem> items = new ArrayList<MatrixItem>()] : ^( SET sb= subSet (s= set )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:337:1: set returns [ArrayList<MatrixItem> items = new ArrayList<MatrixItem>()] : ^( SET sb= subSet (s= set )? ) ;
     public final LetaTreeGrammar.set_return set() throws RecognitionException {
         LetaTreeGrammar.set_return retval = new LetaTreeGrammar.set_return();
         retval.start = input.LT(1);
@@ -2323,8 +2323,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:3: ( ^( SET sb= subSet (s= set )? ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:5: ^( SET sb= subSet (s= set )? )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:3: ( ^( SET sb= subSet (s= set )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:5: ^( SET sb= subSet (s= set )? )
             {
             match(input,SET,FOLLOW_SET_in_set1277); 
 
@@ -2334,7 +2334,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             state._fsp--;
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:22: (s= set )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:22: (s= set )?
             int alt26=2;
             int LA26_0 = input.LA(1);
 
@@ -2343,7 +2343,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt26) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:22: s= set
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:338:22: s= set
                     {
                     pushFollow(FOLLOW_set_in_set1285);
                     s=set();
@@ -2386,7 +2386,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "subSet"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:347:1: subSet returns [MatrixItem matrixItem = new MatrixItem()] : ^( SUBSET lt= literal (ss= subSet )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:347:1: subSet returns [MatrixItem matrixItem = new MatrixItem()] : ^( SUBSET lt= literal (ss= subSet )? ) ;
     public final LetaTreeGrammar.subSet_return subSet() throws RecognitionException {
         LetaTreeGrammar.subSet_return retval = new LetaTreeGrammar.subSet_return();
         retval.start = input.LT(1);
@@ -2397,8 +2397,8 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:3: ( ^( SUBSET lt= literal (ss= subSet )? ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:5: ^( SUBSET lt= literal (ss= subSet )? )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:3: ( ^( SUBSET lt= literal (ss= subSet )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:5: ^( SUBSET lt= literal (ss= subSet )? )
             {
             match(input,SUBSET,FOLLOW_SUBSET_in_subSet1311); 
 
@@ -2408,7 +2408,7 @@ public class LetaTreeGrammar extends TreeParser {
 
             state._fsp--;
 
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:27: (ss= subSet )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:27: (ss= subSet )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -2417,7 +2417,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt27) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:27: ss= subSet
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:348:27: ss= subSet
                     {
                     pushFollow(FOLLOW_subSet_in_subSet1319);
                     ss=subSet();
@@ -2467,7 +2467,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "literal"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:362:1: literal returns [String stringValue, Integer intValue, Double floatValue] : ( ^( LITERAL STRING ) | ^( LITERAL FLOAT ) | ^( LITERAL MINUS_FLOAT ) | ^( LITERAL INT ) | ^( LITERAL MINUS_INT ) | ^( LITERAL NULL ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:362:1: literal returns [String stringValue, Integer intValue, Double floatValue] : ( ^( LITERAL STRING ) | ^( LITERAL FLOAT ) | ^( LITERAL MINUS_FLOAT ) | ^( LITERAL INT ) | ^( LITERAL MINUS_INT ) | ^( LITERAL NULL ) );
     public final LetaTreeGrammar.literal_return literal() throws RecognitionException {
         LetaTreeGrammar.literal_return retval = new LetaTreeGrammar.literal_return();
         retval.start = input.LT(1);
@@ -2479,7 +2479,7 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree MINUS_INT13=null;
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:363:3: ( ^( LITERAL STRING ) | ^( LITERAL FLOAT ) | ^( LITERAL MINUS_FLOAT ) | ^( LITERAL INT ) | ^( LITERAL MINUS_INT ) | ^( LITERAL NULL ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:363:3: ( ^( LITERAL STRING ) | ^( LITERAL FLOAT ) | ^( LITERAL MINUS_FLOAT ) | ^( LITERAL INT ) | ^( LITERAL MINUS_INT ) | ^( LITERAL NULL ) )
             int alt28=6;
             int LA28_0 = input.LA(1);
 
@@ -2541,7 +2541,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt28) {
                 case 1 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:363:5: ^( LITERAL STRING )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:363:5: ^( LITERAL STRING )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1346); 
 
@@ -2554,7 +2554,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:365:5: ^( LITERAL FLOAT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:365:5: ^( LITERAL FLOAT )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1362); 
 
@@ -2567,7 +2567,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:367:5: ^( LITERAL MINUS_FLOAT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:367:5: ^( LITERAL MINUS_FLOAT )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1378); 
 
@@ -2580,7 +2580,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:369:5: ^( LITERAL INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:369:5: ^( LITERAL INT )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1394); 
 
@@ -2593,7 +2593,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:371:5: ^( LITERAL MINUS_INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:371:5: ^( LITERAL MINUS_INT )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1410); 
 
@@ -2606,7 +2606,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:373:5: ^( LITERAL NULL )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:373:5: ^( LITERAL NULL )
                     {
                     match(input,LITERAL,FOLLOW_LITERAL_in_literal1426); 
 
@@ -2637,7 +2637,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "testPackage"
-    // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:376:1: testPackage : ^( PACKAGE PACKAGE_ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:376:1: testPackage : ^( PACKAGE PACKAGE_ID ) ;
     public final LetaTreeGrammar.testPackage_return testPackage() throws RecognitionException {
         LetaTreeGrammar.testPackage_return retval = new LetaTreeGrammar.testPackage_return();
         retval.start = input.LT(1);
@@ -2645,8 +2645,8 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree PACKAGE_ID14=null;
 
         try {
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:377:3: ( ^( PACKAGE PACKAGE_ID ) )
-            // /Users/Rogerio/Projects/core/src/main/java/leta/core/grammar/LetaTreeGrammar.g:377:5: ^( PACKAGE PACKAGE_ID )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:377:3: ( ^( PACKAGE PACKAGE_ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:377:5: ^( PACKAGE PACKAGE_ID )
             {
             match(input,PACKAGE,FOLLOW_PACKAGE_in_testPackage1443); 
 
