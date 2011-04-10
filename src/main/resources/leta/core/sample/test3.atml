@@ -1,0 +1,169 @@
+Rule each [Car] must has atLeast 2 [Car ID]
+
+Rule each [Car] must not has atLeast 2 [Car ID]
+
+Rule [Fuel Level] of each [Rented Car] must <be> [FULL] at [Pick Up Date] of [Rental]
+
+Rule [A rental] may <be open> only if an [Estimated Rental Charge] <is provisionally charged to> a [Credit Card] of the [Renter] that <is responsible for> the [Rental]
+
+Rule each [Rental] always <specifies> exactly 1 [Car Group]
+
+Rule [Calculator] may <sums> only if [value X] with [value Y]
+Rule the [Calculator] may <sums> only if has [value X] and [value Y]
+the [Fuel Level] of each [Rented Car]
+
+the [FULL] at [Pick up Date] of [Rental]
+
+each [AAAA] has atLeastOne [BBBB]
+
+// Action
+Test One
+Verify
+User is Authenticated
+When I Have
+User has Login "User01", Password "Pass01" And
+User selects Button "Check", selects Button "Send"
+
+// Action + Negation
+Test One
+Verify
+User isNot Authenticated And
+Screen has Message "Invalid user/password."
+WhenHasNot
+User has Login "User01", hasNot Password "Pass01" And
+User selects Button "Send"
+
+Rule each [Car] must has atLeast 2 [Car ID]
+
+// Action + Operative (must)
+Test One
+Verify
+Car has atLeast 2 ID
+When
+Car mustHas ID "123", ID "abc"
+
+
+// Calculation + Table
+Test Two
+Verify
+Order returns TotalPrice "100"
+Order returns TotalPrice "200"
+When
+Order has TotalPrice "200" with Discount "50%"
+Order has TotalPrice "200" with Discount "0%"
+
+// Calculation + Table
+Test Two
+Verify
+Order returns TotalPrice "100"
+Order returns TotalPrice "200"
+WhenValueIs
+Order has TotalPrice "200"
+Order has TotalPrice "200"
+
+// Composite
+Test Three
+Verify
+Order has NumberOfItems "2" And
+Order has TotalPrice "$100"
+WhenHas
+Order has Item "Memory" And Item "Memory" has Value "$50" And
+Order has Item "CPU" And Item "CPU" has Value "$50"
+
+// Composite 2 + Ternary Fact Type + Other Verbs (includes and contains) And Pronouns
+Test Three
+Verify
+Order has AtLeast 2 Item And
+Order has TotalPrice "$100"
+When
+Order includes Item "Memory" with Value "$50" And
+Order contains Item "CPU" with Value "$50"
+
+// IF
+Test Four
+Verify
+Order Has TotalPrice "$80" And
+Order Has Discount "20%"
+If
+Order Has NumberOfMemories "2" And
+Order Has Item "Memory" And
+Item "Memory" Has Value "$50"
+
+
+
+// Others
+Test Five
+Verify
+AlbumPage is Loaded, has AlbumArtist "Rock Band", AlbumTitle "First Album"
+When
+User uses Permalink "http://abc.com/album/10"
+
+
+
+// Story
+A company can pay for a job posting with a credit card
+
+Test with Visa, MasterCard And American Express
+Test with Diner's Club
+Test with bad, good and missing card ID numbers
+Test with expired cards
+
+// Business Rule
+A company may pay a job posting with a credit card
+
+// Acceptance Tests
+Test VisaCard
+Verify
+Payment contains CreditCard @1 
+WhenIsPermitted
+Company paysA JobPosting withA CreditCard @1
+WithValues
+@1["Visa", "MasterCard"]
+
+Test InvalidNumber
+Verify
+Payment is Invalid
+When Is Permitted
+Company pays JobPosting with CreditCard with Number "123"
+
+
+// Story pg. 224
+A user can search for books by entering values in any combination of author, title and ISBN.
+
+// Tests
+Test SearchWithTitleAndAuthor
+VerifyTheFollowing
+Result has atLeast 1 Book with Author "John Smith" Or
+Result has atLeast 1 Book with Title "John's stories"
+WhenIsObligatedThat
+User puts SearchCriteria "John"
+
+Test SearchWithInvalidCriteria
+ItIsExpectedThat
+Result has Nothing
+WhenIsObligatedThat
+User puts SearchCriteria "abc"
+
+Test SearchWithISBN
+Verify
+Result has Book with ISBN "123"
+WhenIsObligatedThat
+User puts ISBN "123" on SearchCriteria
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

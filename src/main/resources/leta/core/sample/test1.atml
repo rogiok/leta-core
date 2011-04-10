@@ -1,0 +1,73 @@
+
+
+Class Track
+Attrib title, artist, audios:Audio[]
+
+Class Audio
+Attrib bitrate, type, duration
+
+Class Encoder
+
+Case track:Track
+Set title = "Track 1"
+Set artist = "Artist 1"
+
+Case Audio(audio1)
+Set type = "Full"
+Set bitrate = 320
+
+Case encoder:Encoder
+
+Test EncodeAudio
+When track.audios contains audio
+Verify encoder "encode" audio
+And audio "exists"
+
+Test TagAudio
+Decl audio1:Audio
+And audio2:Audio
+And track:Track
+And tagger:Tagger
+When (track.audios contains audio1
+Or track.audios contains audio2)
+And audio1.type = "Full"
+And audio1.bitrate = 320
+And audio2.type = "Full"
+And audio2.bitrate = 320
+Verify tagger "tag" audio1, audio2
+And audio1 "exists"
+And audio2 "exists"
+
+
+contains
+is
+do
+
+action(who, "")
+
+who "action"
+who "action" operator value
+who "action" complement
+who "action" complement operator value 
+
+value : STRING | True | False | Null | NUMBER 
+
+instance.attribute operator value
+
+instance "action"
+instance "action" instance
+instance "action" operator value
+instance "action" instance operator value
+
+
+instance("action", "something")
+
+Test CalcSum
+When Calc.X = 10
+And Calc.Y = 20
+Verify Sum(Calc.X, Calc.Y) = 30 
+
+
+
+
+

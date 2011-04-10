@@ -1,0 +1,106 @@
+Class Calculator
+Attrib x, y:Integer
+
+Test Sum
+When Calculator.x = 10
+And Calculator.y = 20
+Verify Calculator.Sum(Calculator.x, Calculator.y) = 30 
+
+Test Subtract
+When Calculator.x = 10
+And Calculator.y = 20
+Verify Calculator.Sub(Calculator.x, Calculator.y) = -10 
+
+Test Multiply
+When Calculator.x = 10
+And Calculator.y = 20
+Verify Calculator.Multiply(Calculator.x, Calculator.y) = 200 
+
+Test Divide
+When Calculator.x = 10
+And Calculator.y = 20
+Verify Calculator.Divide(Calculator.x, Calculator.y) = 0.5 
+
+Test DivideByZero
+When Calculator.x = 10
+And Calculator.y = 0
+Verify Calculator.Divide(Calculator.x, Calculator.y) = "Divide By Zero"
+
+Test DivideByZero
+When Calculator.x = 10
+And Calculator.y = 0
+Verify Calculator.Calculator "Divide" (Calculator.x, Calculator.y) = "Divide By Zero"
+
+
+
+
+
+class Calculator
+attrib x, y, x1, y1, x2, x3, y3, total:Total
+
+class Total
+attrib v
+
+test Sum
+when (Calculator.x = 10
+and Calculator.y = 20)
+or (Calculator.x1 = 10
+and Calculator.y1 = 20)
+or (Calculator.x2 = 10
+and (Calculator.x3 = 10
+or Calculator.y3 = 20))
+or Calculator.total.v = 10
+
+verify Calculator.total.v = 200
+
+
+Class Formula
+Attrib x, y, w, memoria:Memoria
+
+Class Memoria
+Attrib valor
+
+Test Sum
+When (Calculator.x = 10
+And Calculator.y = 20)
+Or (Calculator.w = 10
+And Calculator "
+Verify Calculator.memoria.valor = 200
+
+
+Class LoginScreen
+Attrib name:String, password, message
+
+Class User
+
+Test ValidAuthentication
+When LoginScreen.name = "usario"
+And LoginScreen.password = "senha"
+And User "Clicou no bot‹o OK" (LoginScreen)
+Verify User "ƒ v‡lido"
+
+Test InvalidAuthentication
+When LoginScreen.name = "usario incorreto"
+And LoginScreen.password = "senha"
+And User "Clicou no bot‹o OK" (LoginScreen)
+Verify User "ƒ inv‡lido"
+And LoginScreen.message = "Usu‡rio inv‡lido"
+
+
+Test <name>
+When <What> <Operator> <Value | "Value">
+And <Who> "Do Something" With [<What>, ]*
+Verify ...
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,239 @@
+// Formato 1
+Class Produto
+Attrib descricao,
+       valor
+
+Class 
+	Compra
+Attrib 
+	produto:Produto,
+	produtos[]:Produto,
+	desconto,
+	total
+
+Class Login
+Attrib user,
+       password,
+       authenticate
+
+Test "nome do teste"
+Set Login.user = "user"
+Set Login.password = "pass"
+Do Login.verifier
+Verify Login.authenticate = true
+
+
+Case Caso1
+Desc "uma descrição"
+Set Login.user = "user"
+
+Test "nome do teste"
+Case Caso1
+Verify Login.authenticate = true
+
+
+// Formato 2
+Class 
+	Lote
+
+Class 
+	FilaParaProcessamento
+Attrib 
+	lotes[]:Lote
+
+
+Case 
+	Lote1
+Set 
+	Lote.dir "/dir/lote1"
+
+
+Test "nome do teste"
+Desc "descrição do teste"
+Do 
+	Add(Lote1) FilaParaProcessamento.lotes
+Verify 
+	Lote1 In FilaParaProcessamento.lotes // Or FilaParaProcessamento.lotes Has Lote1
+//	FilaParaProcessamento.lotes contains Lote1
+
+
+Class Login
+Attrib 
+	user,
+	password,
+	status
+
+Case login1:Login
+Set 
+	Login.user "user",
+	Login.password "pass"
+
+Test "nome do teste"
+Verify
+	Login.verifier(Login1) = true
+
+Test "nome do teste"
+Set 
+	Login1.status "OK"
+Verify
+	Login.verifier(Login1) = true
+
+Test "nome do teste"
+Set 
+	Login1.status "Error"
+Verify
+	Login.verifier(Login1) = true
+
+
+Test "nome do teste"
+Do 
+	Login.status Login1.getStatus()
+Verify
+	Login.verifier(Login1) = "ERROR"
+//	Login.verifier(Login1) matches "\d*"
+
+
+Test "nome do teste"
+When Login.user = "user"
+And Login.password = "pass"
+And Login.authenticate()
+Verify Login.message = "Pass"
+End
+
+
+/*
+Quando usuario selecionar o lote da fila pronto para ser processado,
+o lote ira para a fila em processamento
+*/
+// Arrays
+Test "nome do teste"
+When Select Lote1 From Attribute lotes Of The FilaPronto
+And Add Lote1 In Attribute lotes From FilaProcessando
+Verify 
+End
+
+
+Phrase "Select {Instance} From Attribute {Class.Attrib} From {Class}"
+End
+
+Phrase "Validate {Class.Method} From {Class}"
+End
+
+Phrase "{Class.Method} {Class}"
+End
+
+Phrase "Authenticate User {login:Login}"
+Map 
+	login.authenticate();
+End
+
+Phrase "Authenticate User {login:Login}"
+Map 
+	login.validate();
+	login.authenticate();
+End
+
+// 
+Test "nome do teste"
+When Attribute user Of The Login1 Is "user"
+And Attribute password From Login1 Is "pass"
+And Validate Login1
+Verify Attribute message From Login1 Is Equal "Pass"
+End
+
+Test "nome do teste"
+When 
+
+
+Test ReadAlbumXML
+When XML.Album.Title = "Album Title"
+And XML.Album.MainArtist.Name = "Main Artist"
+And XML.Album.Participant[0].Name = "Participant 1"
+And XML.Album.Participant[0].Role = "Role 1"
+And album = ReadXML()
+Verify album.Title = "Album Title"
+And album.MainArtist.Name = "Main Artist"
+
+Test ReadAlbumXML2
+When XML.Album.Title = "Album Title"
+And XML.Album.MainArtist.Name = "Main Artist"
+And XML.Album.Participant[0].Name = "Participant 1"
+And XML.Album.Participant[0].Role = "Role 1"
+Verify album = ReadXML(XML)
+And album.Title = "Album Title"
+And album.MainArtist.Name = "Main Artist"
+
+
+Test AddBatchToProcess
+When Batch.Name = "First"
+And User.selectFirstBatchInListToProcess()
+And Batch.isSelected()
+Verify Batch.isProcessing() = true
+And ListInQueue.contains(Batch) = true
+
+Test AddBatchToProcess
+When Batch.Name equal "First"
+And ListToProcess("select", "First Batch")
+And Batch("is", "Selected")
+Verify isProcessing(Batch)
+And ListInQueueContains(Batch)
+
+Test AddBatchToProcess
+When Batch.Name equals "First"
+And User("Select Batch In List To Process", Batch)
+And Batch("Is Selected")
+Verify Batch("Is Processing") equals true
+And ListInQueue "Contains" Batch equals true
+
+Test AddBatchToProcess
+When Batch.Name = "First"
+And User("Select Batch In List To Process", Batch)
+And Batch("Is Selected")
+Verify Batch("Is Processing") == true
+And ListInQueue("Contains", Batch) == true
+
+Test AddBatchToProcess
+When Batch.Name Is "First"
+And User "Select" Batch // In List To Process
+And Batch "Is Selected"
+Verify Batch "Is Processing" Is True
+And ListInQueue "Contains" Batch Is True
+
+
+
+
+Test EncodeAudio
+When Audio 
+
+contains
+is
+do
+
+action(who, "")
+
+who "action"
+who "action" operator value
+who "action" complement
+who "action" complement operator value 
+
+value : STRING | True | False | Null | NUMBER 
+
+instance.attribute operator value
+
+instance "action"
+instance "action" instance
+instance "action" operator value
+instance "action" instance operator value
+
+
+instance("action", "something")
+
+Test CalcSum
+When Calc.X = 10
+And Calc.Y = 20
+Verify Sum(Calc.X, Calc.Y) = 30 
+
+
+
+
+

@@ -1,0 +1,149 @@
+
+Operative (Restrição)
+Calculation
+Structural (Composição, Associação)
+Inference (IF)
+
+
+// Story
+A company can pay for a job posting with a credit card
+
+Test with Visa, MasterCard And American Express
+Test with Diner's Club
+Test with bad, good and missing card ID numbers
+Test with expired cards
+
+// Business Rule
+A company may pay a job posting with a credit card
+
+// Acceptance Tests
+Test VisaCard
+Verify
+Payment contains CreditCard @1 
+WhenIsPermitted
+Company paysA JobPosting withA CreditCard @1
+WithValues
+@1["Visa", "MasterCard"]
+
+Test InvalidNumber
+Verify
+Payment is Invalid
+When Is Permitted
+Company pays JobPosting with CreditCard with Number "123"
+
+Test MasterCard
+ItIsExpectedThat
+Payment contains CreditCard "MasterCard"
+WhenItIsPermittedThat
+Company paysA JobPosting withA CreditCard "MasterCard"
+
+
+
+// Story pg. 224
+A user can search for books by entering values in any combination of author, title and ISBN.
+
+// Tests
+Test SearchWithTitleAndAuthor
+VerifyTheFollowing
+Result has atLeast 1 Book with Author "John Smith" Or
+Result has atLeast 1 Book with Title "John's stories"
+WhenIsObligatedThat
+User puts SearchCriteria "John"
+
+Test SearchWithInvalidCriteria
+ItIsExpectedThat
+Result has Nothing
+WhenItIsObligatedThat
+User puts SearchCriteria "abc"
+
+Test SearchWithISBN
+Verify
+Result has Book with ISBN "123"
+WhenIsObligatedThat
+User puts ISBN "123" on SearchCriteria
+
+Test SearchWithInvalidCriteria
+ItIsExpectedThat
+Result has Nothing
+WhenItIsPermittedThat
+User puts SearchCriteria "abc"
+
+
+
+// Calculation + Table
+Test Two
+Verify
+Order returns TotalPrice "100"
+Order returns TotalPrice "200"
+When
+Order has TotalPrice "200" with Discount "50%"
+Order has TotalPrice "200" with Discount "0%"
+
+// Calculation + Table
+Test Two
+Verify
+Order returns TotalPrice "100"
+Order returns TotalPrice "200"
+WhenValueIs
+Order has TotalPrice "200"
+Order has TotalPrice "200"
+
+
+// Calculation + Table Form Two
+Test Two
+Verify
+Order returns TotalPrice@1
+When
+Order has TotalPrice@2 with Discount@3
+Set
+{
+{100;200;"50%"};
+{100;1000;"90%"}
+}
+
+
+
+// Composite
+Test Three
+Verify
+Order has NumberOfItems "2" And
+Order has TotalPrice "$100"
+WhenHas
+Order has Item "Memory" And Item "Memory" has Value "$50" And
+Order has Item "CPU" And Item "CPU" has Value "$50"
+
+// Composite 2 + Ternary Fact Type + Other Verbs (includes and contains) And Pronouns
+Test Three
+Verify
+Order has AtLeast 2 Item And
+Order has TotalPrice "$100"
+When
+Order includes Item "Memory" with Value "$50" And
+Order contains Item "CPU" with Value "$50"
+
+
+
+
+// IF
+Test Four
+Verify
+Order Has TotalPrice "$80" And
+Order Has Discount "20%"
+If
+Order Has NumberOfMemories "2" And
+Order Has Item "Memory" And
+Item "Memory" Has Value "$50"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

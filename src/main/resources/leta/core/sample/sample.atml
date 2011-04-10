@@ -1,0 +1,84 @@
+// Teste de pacote
+Package atdd.transformer.generated.abc.def
+
+// Teste de formula
+Test TestCase03
+Verify
+Calculator has Result 10
+When
+Result 30 = Value 10 + Value 20 - Value 5
+
+
+Test Exemplo1
+Verify
+Desenho estaCorreto
+When
+Figura formadaPor Poligono And Poligono consisteDe Linha And Linha possui Ponto
+
+
+Test Exemplo1
+Verify
+Desenho estaCorreto
+When
+Figura formadaPor Poligono And Poligono consisteDe Linha And Linha possui Ponto
+
+
+Test NomeDoCasoDeTeste
+Verify
+Usuario eValido
+When
+Usuario tem Email "usuario@dominio.com.br" And
+Usuario tem Senha "usuario123"
+
+
+Test Quantifier
+Verify
+Result contains atLeast 10 Item > 20
+When
+Search has Keyword "test"
+
+
+// Teste de formula
+Test TestCase02
+Verify
+Calculator has Result@1
+When
+Result@2 = Value@3 + Value@4 - Value@5
+Set
+{
+	{10, 30, 10, 50, 4}, 
+	{"20", 4, 2, 18, 1}
+}
+
+
+// Teste de repetição de termos
+Test KeywordsOfTest
+Verify
+TestCase contains Keyword "Test" has Keyword "Verify" is Keyword "When" And User has atLeast 2 Name@1 Or UserOne has atLeast 1 Address
+When
+TestCase has Statement "Test One Verify User is Authenticated When User has Login 'user', Password 'pass'"
+
+
+// Teste de literais
+Test KeywordsOfTest2
+Verify
+Result has Statement "Test One Verify User is Authenticated When User has Login 'user', Password 'pass'"
+When
+Search contains Keyword < 100, Keyword != "Verify", Keyword > 10.5 with Attribute
+
+
+Test OneComplement
+Verify
+Result isQualified
+When
+Search has Keyword "test"
+
+
+/*
+// Teste de repetição de termos com os mesmos complementos
+Test KeywordsOfTest
+Verify
+TestCase contains Keyword "Test" has Keyword "Verify" has Keyword "When" And User has atLeast 2 Name@1 Or UserOne has atLeast 1 Address
+When
+TestCase has Statement "Test One Verify User is Authenticated When User has Login 'user', Password 'pass'"
+*/

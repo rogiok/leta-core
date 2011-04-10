@@ -1,0 +1,11 @@
+// Teste de pacote
+Package atdd.transformer.generated.abc.def
+
+Test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+Cartao has Nome "Joao da Silva" And
+Cartao has Tipo "American Express" And
+Cartao has Numero "344168608834057" And
+Cartao has Vencimento "01/2015"

@@ -1,0 +1,35 @@
+
+// Action
+Test Restriction
+Verify
+TestCase contains Keyword "returns"
+When
+TestCase has Statement 
+"Test One Verify Calc returns Total "100" When Calc sums X \"50\" with Y \"50\""
+
+
+// Essencial
+Test TestIdentification
+Verify
+TestCase includes ID "One"
+When
+TestCase has Statement 
+"Test One Verify User is Authenticated When User has Login \"user\", Password \"pass\""
+
+// Essencial
+Test FactInstanceInTheVerify
+Verify
+TestCase includes FactInstance with Subject "User", Verb "Is", Complement "Authenticated" inThe Keyword "Verify"
+When
+TestCase has Statement 
+"Test One Verify User is Authenticated When User has Login \"user\", Password \"pass\""
+
+// Essencial
+Test FactInstanceInTheWhen
+Verify
+TestCase includes FactInstance with Subject "User", Verb "has", Complement "Login \"user\"", Separator ",", Complement "Password \"pass\"" inThe Keyword "When"
+When
+TestCase has Statement 
+"Test One Verify User is Authenticated When User has Login \"user\", Password \"pass\""
+
+

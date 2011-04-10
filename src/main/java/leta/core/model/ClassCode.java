@@ -1,4 +1,4 @@
-package leta.core;
+package leta.core.model;
 
 public interface ClassCode {
 
