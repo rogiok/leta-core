@@ -9,7 +9,7 @@ public class GeneratorTest {
 	
 	String inputFile = ClassLoader.getSystemResource("leta/core/sample/sample.leta").toURI().getPath();
 	
-	new Generator(inputFile, "./src/main/java").generate();
+	new Generator(inputFile, "./src/test/java").generate();
 	
     }
 }
