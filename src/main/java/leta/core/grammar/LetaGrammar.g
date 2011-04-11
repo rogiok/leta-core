@@ -1,7 +1,10 @@
 grammar LetaGrammar;
 
 options {
+  language=Java;
   output=AST;
+  k=5;
+  backtrack=true;
 }
 
 tokens {
@@ -64,7 +67,7 @@ tokens {
 
     String msg = super.getErrorMessage(e, tokenNames);
     return msg;
-  }  
+  }
 }
 
 leta

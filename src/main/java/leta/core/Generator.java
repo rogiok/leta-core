@@ -35,6 +35,10 @@ public class Generator {
 	this.outputDir = outputDir;
     }
 
+    public Generator() {
+	super();
+    }
+
     public static void main(String[] args) {
 
 	String inputFile = "";
@@ -86,7 +90,7 @@ public class Generator {
 	
     }
     
-    private byte[] readFile(String inputFile) throws IOException {
+    protected byte[] readFile(String inputFile) throws IOException {
 	ByteArrayOutputStream baos = new ByteArrayOutputStream();
 	
 	byte[] line = new byte[1024];
@@ -112,9 +116,9 @@ public class Generator {
 	
 	CommonTree ast = (CommonTree) parser.leta().getTree();
 
-	if (parser.hasFoundErrors()) {
-	    throw new SyntaxException();
-	}
+//	if (parser.hasFoundErrors()) {
+//	    throw new SyntaxException();
+//	}
 	
 	System.out.println(ast.toStringTree());
 	
@@ -141,6 +145,27 @@ public class Generator {
 	String result = t.toString();
 
 	return result;
+    }
+    
+    protected CommonTree syntacticPhase(byte[] content) throws RecognitionException, SyntaxException, IOException {
+
+	ByteArrayInputStream atddStream = new ByteArrayInputStream(content);
+
+	ANTLRInputStream source = new ANTLRInputStream(atddStream);
+	LetaGrammarLexer lexer = new LetaGrammarLexer(source);
+	CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+	LetaGrammarParser parser = new LetaGrammarParser(tokens);
+	
+	CommonTree ast = (CommonTree) parser.leta().getTree();
+
+	System.out.println(ast.toStringTree());
+
+	if (parser.hasFoundErrors()) {
+	    throw new SyntaxException();
+	}
+	
+	return ast;
     }
 
 }

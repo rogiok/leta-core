@@ -1,0 +1,28 @@
+// Teste de pacote
+Package leta.core.sample.generated
+
+Test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+Cartao tem Nome "João" And
+Cartao tem Numero "123" And 
+Cartao tem Vencimento "03/2015"
+
+/*
+Test CartaoInvalido1
+Verify
+Cartao naoEValido
+When
+Cartao tem Nome "João"
+Cartao tem Numero "123" And 
+Cartao tem Vencimento "03/2015"
+
+Test CartaoInvalido2
+Verify
+Cartao naoEValido
+When
+Cartao tem And
+Cartao tem Numero "123" And 
+Cartao tem Vencimento "03/2015"
+*/
