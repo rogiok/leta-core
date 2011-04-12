@@ -5,7 +5,7 @@ Test CartaoInvalido
 Verify
 Cartao naoEValido
 When
-Cartao tem Nome "João" And
+Cartao tem Nome "João"
 Cartao tem Numero "123" And 
 Cartao tem Vencimento "03/2015"
 
