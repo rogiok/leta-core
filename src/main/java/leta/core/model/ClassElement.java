@@ -17,36 +17,24 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
 
     private List<MethodElement> methodElements;
     private MethodElement methodElement;
-    private ClassElement next;
     private boolean usedInstance;
-    
-    public ClassElement(String name) {
-	super();
-	
-	this.setName(name);
-//	this.setLeaf(true);
-	this.methodElements = new ArrayList<MethodElement>();
-    }
+
+//    @Deprecated
+//    private ClassElement next;
 
     public ClassElement() {
 	this(null);
     }
 
-    /**
-     * M�todo que retorna uma lista de MethodElements, pois uma classe pode ter mais de um m�todo.
-     * 
-     * @return
-     */
-    public List<MethodElement> getMethodElements() {
-        return methodElements;
+    public ClassElement(String name) {
+	super();
+	
+	this.setName(name);
+	this.methodElements = new ArrayList<MethodElement>();
     }
 
-    public void setMethodElement(List<MethodElement> methodElements) {
-        this.methodElements = methodElements;
-    }
-    
     /**
-     * Adiciona um MethodElement na lista para a gera��o da classe com todos os seus m�todos.
+     * Add a MethodElement in the list to generate this class and your methods.
      * 
      * @param methodElement
      */
@@ -68,10 +56,8 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
 	
     }
 
-    public void addMethodElements(MethodElement methodElement, List<ClassElement> classElements) {
-	for (ClassElement cl : classElements) {
-	    this.methodElements.add(new MethodElement(methodElement.getName(), cl));
-	}
+    public List<MethodElement> getMethodElements() {
+        return methodElements;
     }
 
     public Integer getSequence() {
@@ -166,38 +152,6 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
 	return false;
     }
     
-    public ClassElement getNext() {
-        return this.next;
-    }
-
-    public void setNext(ClassElement next) {
-        this.next = next;
-    }
-    
-    public List<ClassElement> getAllNext() {
-	List<ClassElement> result = new ArrayList<ClassElement>();
-
-	this.addNext(this, result);
-	
-	return result;
-    }
-    
-    public boolean getHasNext() {
-	if (this.next != null) {
-	    return true;
-	}
-	
-	return false;
-    }
-    
-    private void addNext(ClassElement classNode, List<ClassElement> classNodeList) {
-	classNodeList.add(classNode);
-	
-	if (classNode.getNext() != null) {
-	    this.addNext(classNode.getNext(), classNodeList);
-	}
-    }
-
     public String getClassName() {
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
     }
@@ -211,17 +165,64 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
     }
 
     public String toString() {
-	if (this.next == null)
+//	if (this.next == null)
 	    return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + (this.methodElement != null ? " " +this.methodElement.toString() : "") + "}";
-	else
-	    return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + "}, " + this.next.toString();
+//	else
+//	    return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + "}, " + this.next.toString();
     }
 
     public String getStructure() {
-	if (this.next == null)
+//	if (this.next == null)
 	    return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + "";
-	else
-	    return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + ", " + this.next.getStructure();
+//	else
+//	    return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + ", " + this.next.getStructure();
     }
 
+    
+    
+    /*
+    @Deprecated
+    public void addMethodElements(MethodElement methodElement, List<ClassElement> classElements) {
+	for (ClassElement cl : classElements) {
+	    this.methodElements.add(new MethodElement(methodElement.getName(), cl));
+	}
+    }
+
+    @Deprecated
+    public ClassElement getNext() {
+        return this.next;
+    }
+
+    @Deprecated
+    public void setNext(ClassElement next) {
+        this.next = next;
+    }
+    
+    @Deprecated
+    public List<ClassElement> getAllNext() {
+	List<ClassElement> result = new ArrayList<ClassElement>();
+
+	this.addNext(this, result);
+	
+	return result;
+    }
+    
+    @Deprecated
+    public boolean getHasNext() {
+	if (this.next != null) {
+	    return true;
+	}
+	
+	return false;
+    }
+    
+    @Deprecated
+    private void addNext(ClassElement classNode, List<ClassElement> classNodeList) {
+	classNodeList.add(classNode);
+	
+	if (classNode.getNext() != null) {
+	    this.addNext(classNode.getNext(), classNodeList);
+	}
+    }*/
+    
 }

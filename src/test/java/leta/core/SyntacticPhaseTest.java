@@ -7,7 +7,7 @@ public class SyntacticPhaseTest {
     @Test
     public void test() throws Exception {
 	
-	String inputFile = ClassLoader.getSystemResource("leta/core/sample/syntax.leta").toURI().getPath();
+	String inputFile = ClassLoader.getSystemResource("leta/core/sample/syntax-phase-test.leta").toURI().getPath();
 	
 	Generator gen = new Generator();
 	

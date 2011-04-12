@@ -37,7 +37,6 @@ tokens {
   OPERATOR;
   SET;
   SUBSET;
-  SEPARATOR;
   AND;
   OR;
   PACKAGE;
@@ -122,9 +121,7 @@ fact
   ;
 
 factExt
-  : ',' termComposite factExt?
-    -> ^(FACTEXT SEPARATOR termComposite factExt?)
-  | complement (termComposite factExt?)?
+  : complement (termComposite factExt?)?
     -> ^(FACTEXT complement (termComposite factExt?)?)
   ;
 
@@ -151,24 +148,12 @@ termWithAssociation
   ;
   
 quantifier
-  : 'each'
-    -> ^(QUANTIFIER 'each')
-  | 'some'
-    -> ^(QUANTIFIER 'some')
-  | 'atLeastOne'
-    -> ^(QUANTIFIER 'atLeastOne')
-  | 'atLeast' INT
+  : 'atLeast' INT
     -> ^(QUANTIFIER 'atLeast' INT)
-  | 'atMostOne'
-    -> ^(QUANTIFIER 'atMostOne')
   | 'atMost' INT
     -> ^(QUANTIFIER 'atMost' INT)
-  | 'exactlyOne'
-    -> ^(QUANTIFIER 'exactlyOne')
   | 'exactly' INT
     -> ^(QUANTIFIER 'exactly' INT)
-  | 'moreThanOne'
-    -> ^(QUANTIFIER 'moreThanOne')
   | 'atLeastAndAtMost' i1=INT i2=INT
     -> ^(QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
   ;

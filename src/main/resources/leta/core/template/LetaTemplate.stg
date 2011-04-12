@@ -54,13 +54,13 @@ public abstract class <id>Test {
 
         // Gera as instáncias da cláusula Verify
         <generateInstance(verifyClause.element)>
-        
+
         // Gera as instáncias da cláusula When
         <generateInstance(whenClause.element)>
-        
+
         // Executa o método sendToSut
         <verifyClause.element.className> <verifyClause.element.instanceName>Result = sendToSut(<whenClause.element.instanceName>);
-	
+
         // Compara os resultados com os valores esperados
         assertEquals(<verifyClause.element.instanceName>, <verifyClause.element.instanceName>Result);
 
@@ -84,7 +84,7 @@ public abstract class <id>Test {
                 && (obj2 instanceof Integer || obj2 instanceof Double));
         }
     }
-    
+
     class OperatorEqual extends OperatorString {
         boolean compare(Object obj1, Object obj2) {
             return obj1.equals(obj2);
@@ -133,24 +133,24 @@ public abstract class <id>Test {
         }
     }
     
-	class Ab extends org.hamcrest.BaseMatcher\<Object\> {
-	private Object obj;
-	    
-	public Ab(Object obj) {
-	super();
-	this.obj = obj;
-	}
-	
-	@Override
-	public boolean matches(Object arg0) {
-	return false;
-	}
-	
-	@Override
-	public void describeTo(org.hamcrest.Description arg0) {
-	arg0.appendText("Not OK");
-	}
-	}
+    class Ab extends org.hamcrest.BaseMatcher\<Object\> {
+    private Object obj;
+        
+    public Ab(Object obj) {
+    super();
+    this.obj = obj;
+    }
+    
+    @Override
+    public boolean matches(Object arg0) {
+    return false;
+    }
+    
+    @Override
+    public void describeTo(org.hamcrest.Description arg0) {
+    arg0.appendText("Not OK");
+    }
+    }
     
 }
 >>
@@ -180,6 +180,9 @@ void test<matrix.sequence>() {
 >>
 
 
+
+
+
 generateInstance(element) ::=
 <<
 <generateInstanceDeclarations(element)>
@@ -197,7 +200,7 @@ generateInstanceDeclarations(element) ::=
 <element.className> <element.instanceName> = new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><endif>);
 <if (element.methodElement)>
 <if (element.methodElement.classElement)>
-<element.methodElement.classElement.allNext: { cl | <generateInstanceDeclarations(cl)>}>
+<generateInstanceDeclarations(element.methodElement.classElement)>
 <endif>
 <endif>
 <endif>
@@ -214,13 +217,11 @@ generateInstanceAttributions(element) ::=
 <else>
 <if (element.methodElement)>
 <if (element.methodElement.classElement)>
-<element.methodElement.classElement.allNext: { cl |
-<if (cl.quantifier)>
-<element.instanceName>.add<element.methodElement.className><cl.className>(<cl.instanceName>);<\n><generateInstanceAttributions(cl)>
+<if (element.methodElement.classElement.quantifier)>
+<element.instanceName>.add<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
 <else> 
-<element.instanceName>.set<element.methodElement.className><cl.className>(<cl.instanceName>);<\n><generateInstanceAttributions(cl)>
+<element.instanceName>.set<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
 <endif>
-}>
 <endif>
 <endif>
 <endif>
@@ -247,14 +248,12 @@ class <classElement.className> {
     <classElement.className>(String value) { this.sValue = value; }
     <if (classElement.relationalOperator)><classElement.className>(OperatorString operator, String value) { this.operator = operator; this.sValue = value; }<endif>
     String getStringValue() { return this.sValue; }<\n>
-<endif>
-<if (classElement.floatValue)>
+<elseif (classElement.floatValue)>
     Double dValue;
 
     <classElement.className>(<if (classElement.relationalOperator)>OperatorNumber operator, <endif>Double value) { <if (classElement.relationalOperator)>this.operator = operator; <endif>this.dValue = value; }
     Double getDoubleValue() { return this.dValue; }<\n>
-<endif>
-<if (classElement.intValue)>
+<elseif (classElement.intValue)>
     Integer iValue;
 
     <classElement.className>(<if (classElement.relationalOperator)>OperatorNumber operator, <endif>Integer value) { <if (classElement.relationalOperator)>this.operator = operator; <endif>this.iValue = value; }
@@ -270,18 +269,18 @@ class <classElement.className> {
             boolean validValue = true;
             boolean valid = true;
 
-			<if (classElement.stringValue)>
+            <if (classElement.stringValue)>
             if (this.sValue != null && o.sValue != null && !operator.compare(this.sValue, o.sValue))
                 validValue = false;
-			<endif>
-			<if (classElement.floatValue)>
+            <endif>
+            <if (classElement.floatValue)>
             if (this.dValue != null && o.dValue != null && !operator.compare(this.dValue, o.dValue))
                 validValue = false;
-			<endif>
-			<if (classElement.intValue)>
+            <endif>
+            <if (classElement.intValue)>
             if (this.iValue != null && o.iValue != null && !operator.compare(this.iValue, o.iValue))
                 validValue = false;
-			<endif>
+            <endif>
             
             <classElement.methodElements: { m | <generateEqualsByMethodElement(m)>}>
             
@@ -303,7 +302,7 @@ generateMethod(methodElement) ::=
 <if (methodElement.classElement.quantifier)>
     // List\<Class> instance = new ArrayList\<Class>();
     java.util.List\<<methodElement.classElement.className>\> <methodInstanceName(methodElement)> = new java.util.ArrayList\<<methodElement.classElement.className>\>();
-    
+
     // List\<Class> getInstanceQuantifierValueClass() { return instance; }
     java.util.List\<<methodElement.classElement.className>\> get<methodNameAndQuantifier(methodElement)>() {
         return this.<methodInstanceName(methodElement)>; 
@@ -319,41 +318,39 @@ generateMethod(methodElement) ::=
         this.<methodInstanceName(methodElement)>.add(<methodInstanceName(methodElement)>);
     }
 <elseif (methodElement.classElement)>
-	// Class methodClass;
-	<methodElement.classElement.className> <methodInstanceName(methodElement)>;
-	
-	// Class getMethodClass() { return instance; }
-	<methodElement.classElement.className> get<methodClassName(methodElement)>() {
-	    return this.<methodInstanceName(methodElement)>; 
-	}
-	
-	// void setMethodClass(Class instance) { this.instance = instance; }
-	void set<methodClassName(methodElement)>(<methodElement.classElement.className> <methodInstanceName(methodElement)>) {
-	    this.<methodInstanceName(methodElement)> = <methodInstanceName(methodElement)>;
-	}
-	
-	// Class methodClassClass(String value) { this.instance = new Class(value); }
-	<if (methodElement.classElement.anyValue)>
-	<if (methodElement.classElement.stringValue)>
-	<methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorString operator, <endif>String value) {
+    // Class methodClass;
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>;
+    
+    // Class getMethodClass() { return instance; }
+    <methodElement.classElement.className> get<methodClassName(methodElement)>() {
+        return this.<methodInstanceName(methodElement)>; 
+    }
+    
+    // void setMethodClass(Class instance) { this.instance = instance; }
+    void set<methodClassName(methodElement)>(<methodElement.classElement.className> <methodInstanceName(methodElement)>) {
+        this.<methodInstanceName(methodElement)> = <methodInstanceName(methodElement)>;
+    }
+    
+    // Class methodClassClass(String value) { this.instance = new Class(value); }
+    <if (methodElement.classElement.anyValue)>
+    <if (methodElement.classElement.stringValue)>
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorString operator, <endif>String value) {
         return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
-	}
-	<endif>
-    <if (methodElement.classElement.floatValue)>
+    }
+    <elseif (methodElement.classElement.floatValue)>
     <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorNumber operator, <endif>Double value) {
         return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
     }
-    <endif>
-    <if (methodElement.classElement.intValue)>
+    <elseif (methodElement.classElement.intValue)>
     <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorNumber operator, <endif>Integer value) {
         return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
     }
     <endif>
-    <else>
+  <else>
     <methodElement.classElement.className> <methodInstanceName(methodElement)>() {
         return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>();
     }
-    <endif>
+  <endif>
 <else>
     // boolean instance;
     boolean <methodElement.instanceName> = true;
@@ -451,25 +448,5 @@ if (this.<classElement.instanceName> != null &&
     o.<classElement.instanceName> != null)
     valid = valid & this.<classElement.instanceName>.equals(o.<classElement.instanceName>);<\n>
 >>
-
-
-
-
-
-
-
-
-
-generateClassConstructor(classElement, methodElement) ::=
-<<
-
-<element.methodElements: { m | <generateClassConstructor(classElement=element, methodElement=m)>}>
-
-    <classElement.className>(<methodElement.classElement.allNext: { cl | <cl.className> <methodElement.instanceName><cl.className>}; separator=",">) {
-        <methodElement.classElement.allNext: { cl | this.<methodElement.instanceName><cl.className> = <methodElement.instanceName><cl.className>;<\n>}>
-    }
-
->>
-
 
 

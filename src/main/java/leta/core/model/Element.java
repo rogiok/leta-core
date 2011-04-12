@@ -8,6 +8,14 @@ public class Element {
     
     public Element() {
 	super();
+	
+	this.composite = false;
+    }
+
+    public Element(boolean composite) {
+	super();
+	
+	this.composite = composite;
     }
 
     public String getName() {
@@ -34,6 +42,7 @@ public class Element {
         return composite;
     }
 
+    @Deprecated
     public void setComposite(boolean composite) {
         this.composite = composite;
     }

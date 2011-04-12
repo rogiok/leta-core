@@ -8,10 +8,13 @@ public class TestCase {
     private String id;
     private Element verifyClause;
     private Element whenClause;
-//    private Element currentNode;
     private List<Element> elements;
     private Matrix matrix;
 
+    private List<ClassElement> classElements;
+    private List<JunctionElement> junctionElements;
+
+    
     public TestCase(String id) {
 	super();
 
@@ -20,6 +23,8 @@ public class TestCase {
 	this.whenClause = new Element();
 	
 	this.elements = new ArrayList<Element>();
+	this.classElements = new ArrayList<ClassElement>();
+	this.junctionElements = new ArrayList<JunctionElement>();
     }
 
     public TestCase() {
@@ -52,6 +57,7 @@ public class TestCase {
 	    
 	    ClassElement newClassElement = (ClassElement) this.findElement(element);
 
+	    // I see a problem here
 	    if (classElement.getStringValue() != null) {
 		newClassElement.setStringValue("");
 	    }
@@ -61,10 +67,12 @@ public class TestCase {
 	    if (classElement.getIntValue() != null) {
 		newClassElement.setIntValue(new Integer(0));
 	    }
-	    
+
+	    // Here too
 	    if (classElement.getRelationalOperator() != null) {
 		newClassElement.setRelationalOperator("*");
 	    }
+	    
 	    
 	    if (classElement.getMethodElement() != null) {
 		// Adiciona os m�todos numa lista para a gera��o do c�digo no template
@@ -72,10 +80,11 @@ public class TestCase {
 		newClassElement.addMethodElement(classElement.getMethodElement());
 
 		if (classElement.getMethodElement().getClassElement() != null) {
-
-		    for (ClassElement next : classElement.getMethodElement().getClassElement().getAllNext()) {
-			walk(next);    
-		    }
+		    walk(classElement.getMethodElement().getClassElement());
+		    
+//		    for (ClassElement next : classElement.getMethodElement().getClassElement().getAllNext()) {
+//			walk(next);
+//		    }
 		}
 	    }
 	}
@@ -103,6 +112,53 @@ public class TestCase {
 	
 	return newElement;
     }
+    
+    public void addSequenceCode(SequenceCode sequenceCode) {
+	
+	if (sequenceCode instanceof JunctionElement) {
+	    int seq = this.getSequenceOfJunctionElement(((JunctionElement) sequenceCode).getName());
+		      
+	    sequenceCode.setSequence(seq);
+		      
+	    this.junctionElements.add((JunctionElement) sequenceCode);
+	} else if (sequenceCode instanceof ClassElement) {
+	    int seq = this.getSequenceOfClassElement(((ClassElement) sequenceCode).getName());
+		      
+	    sequenceCode.setSequence(seq);
+		      
+	    this.classElements.add((ClassElement) sequenceCode);
+	}
+	
+    }
+
+    private int getSequenceOfClassElement(String id) {
+
+	int result = 0;
+	
+	for (ClassElement c : this.classElements) {
+	    if (c.getName().equals(id)) {
+		result = c.getSequence() + 1;
+	    }
+	}
+	
+	return result;
+    }
+
+    private int getSequenceOfJunctionElement(String id) {
+
+	int result = 0;
+	
+	for (JunctionElement c : this.junctionElements) {
+	    if (c.getName().equals(id)) {
+		result = c.getSequence() + 1;
+	    }
+	}
+	
+	return result;
+    }
+
+    
+    
     
     public List<Element> getElements() {
         return elements;
@@ -132,15 +188,6 @@ public class TestCase {
         this.whenClause = whenClause;
     }
 
-    /*
-    public Element getCurrentElement() {
-        return currentElement;
-    }
-
-    public void setCurrentElement(Element currentElement) {
-        this.currentElement = currentElement;
-    }*/
-    
     public Matrix getMatrix() {
         return matrix;
     }

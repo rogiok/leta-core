@@ -11,10 +11,9 @@ public class CompositeElement extends Element {
     private List<CompositeElement> constructors;
 
     public CompositeElement(String name, Element left, Element right) {
-	super();
+	super(true);
 	
 	this.setName(name);
-	this.setComposite(true);
 	this.left = left;
 	this.right = right;
 	

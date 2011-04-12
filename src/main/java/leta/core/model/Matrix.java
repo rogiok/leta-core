@@ -127,9 +127,10 @@ public class Matrix {
 		    this.getClassElements(((ClassElement) element).getMethodElement().getClassElement(), classElements);
 		}
 		
-		if (((ClassElement) element).getNext() != null) {
-		    this.getClassElements(((ClassElement) element).getNext(), classElements);
-		}
+//		if (((ClassElement) element).getNext() != null) {
+//		    throw new RuntimeException("Point with NEXT");
+//		    this.getClassElements(((ClassElement) element).getNext(), classElements);
+//		}
 	    }
 	}
 

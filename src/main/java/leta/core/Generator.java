@@ -116,9 +116,9 @@ public class Generator {
 	
 	CommonTree ast = (CommonTree) parser.leta().getTree();
 
-//	if (parser.hasFoundErrors()) {
-//	    throw new SyntaxException();
-//	}
+	if (parser.hasFoundErrors()) {
+	    throw new SyntaxException();
+	}
 	
 	System.out.println(ast.toStringTree());
 	
@@ -168,4 +168,35 @@ public class Generator {
 	return ast;
     }
 
+    protected LetaTreeGrammar.leta_return semanticPhase(CommonTree ast) throws IOException, RecognitionException, SyntaxException, URISyntaxException, SemanticException {
+
+	CommonTreeNodeStream nodes = new CommonTreeNodeStream(ast);
+	LetaTreeGrammar semanticParser = new LetaTreeGrammar(nodes);
+
+	Reader templatesIn = new FileReader(ClassLoader.getSystemResource("leta/core/template/LetaTemplate.stg").toURI().getPath());
+	StringTemplateGroup templates = new StringTemplateGroup(templatesIn);
+
+	semanticParser.setTemplateLib(templates);
+
+	LetaTreeGrammar.leta_return l = semanticParser.leta();
+
+	for (TestCase tc : semanticParser.getSemanticModel().getTestCases()) {
+	    System.out.println(tc.getStructure());
+	}
+
+	if (semanticParser.hasFoundErrors()) {
+	    throw new SemanticException();
+	}
+	
+	return l;
+    }
+    
+    protected String generateCode(LetaTreeGrammar.leta_return leta) throws RecognitionException {
+
+	StringTemplate t = (StringTemplate) leta.getTemplate();
+
+	String result = t.toString();
+
+	return result;
+    }
 }

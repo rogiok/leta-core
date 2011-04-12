@@ -6,18 +6,55 @@ import java.util.List;
 public class SemanticModel {
 
     private String packageName;
-    
     private List<TestCase> testCases;
     private TestCase currentTestCase;
     
-    private List<ClassElement> classElements;
-    private List<JunctionElement> junctionElements;
+//    @Deprecated
+//    private List<ClassElement> classElements;
+//    @Deprecated
+//    private List<JunctionElement> junctionElements;
     
 
     public SemanticModel() {
 	this.testCases = new ArrayList<TestCase>();
-	this.classElements = new ArrayList<ClassElement>();
-	this.junctionElements = new ArrayList<JunctionElement>();
+//	this.classElements = new ArrayList<ClassElement>();
+//	this.junctionElements = new ArrayList<JunctionElement>();
+    }
+    
+    /**
+     * Add a TestCase.
+     * 
+     * @param testCase
+     */
+    public void addTestCase(TestCase testCase) {
+	this.testCases.add(testCase);
+	
+	this.currentTestCase = testCase;
+    }
+
+    /**
+     * Remove a TestCase.
+     * 
+     * @param testCase
+     */
+    public void removeTestCase(TestCase testCase) {
+	this.testCases.remove(testCase);
+    }
+
+    /**
+     * Find a TestCase by your id.
+     * 
+     * @param id
+     * @return TestCase
+     */
+    public TestCase findTestCase(String id) {
+	for (TestCase tc : this.testCases) {
+	    if (tc.getId() != null && tc.getId().equals(id)) {
+		return tc;
+	    }
+	}
+	
+	return null;
     }
     
     public String getPackageName() {
@@ -28,12 +65,23 @@ public class SemanticModel {
         this.packageName = packageName;
     }
 
-    public void addTestCase(TestCase testCase) {
-	this.testCases.add(testCase);
-	
-	this.currentTestCase = testCase;
+    public List<TestCase> getTestCases() {
+	return this.testCases;
+    }
+
+    public TestCase getCurrentTestCase() {
+        return currentTestCase;
     }
     
+    
+    /*
+    @Deprecated
+    public void resetSequence() {
+	this.classElements.clear();
+	this.junctionElements.clear();
+    }
+    
+    @Deprecated
     public boolean hasTestCase(String id) {
 	
 	for (TestCase tc : this.testCases) {
@@ -44,19 +92,8 @@ public class SemanticModel {
 	
 	return false;
     }
-    
-    public void removeTestCase(TestCase testCase) {
-	this.testCases.remove(testCase);
-    }
-    
-    public List<TestCase> getTestCases() {
-	return this.testCases;
-    }
 
-    public TestCase getCurrentTestCase() {
-        return currentTestCase;
-    }
-
+    @Deprecated
     public void addSequenceCode(SequenceCode sequenceCode) {
 	
 	if (sequenceCode instanceof JunctionElement) {
@@ -75,6 +112,7 @@ public class SemanticModel {
 	
     }
 
+    @Deprecated
     private int getSequenceOfClassElement(String id) {
 
 	int result = 0;
@@ -88,6 +126,7 @@ public class SemanticModel {
 	return result;
     }
 
+    @Deprecated
     private int getSequenceOfJunctionElement(String id) {
 
 	int result = 0;
@@ -100,12 +139,8 @@ public class SemanticModel {
 	
 	return result;
     }
-    
-    public void resetSequence() {
-	this.classElements.clear();
-	this.junctionElements.clear();
-    }
-    
+
+    @Deprecated
     public ClassElement findClassElement(ClassElement classNode) {
 	
 	for (ClassElement cl : this.classElements) {
@@ -117,6 +152,6 @@ public class SemanticModel {
 	this.classElements.add(classNode);
 	
 	return classNode;
-    }
+    }*/
 
 }

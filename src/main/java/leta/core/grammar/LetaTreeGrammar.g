@@ -46,7 +46,7 @@ testCase
   }
   : ^(TESTCASE ID sc=setClause? vc=verifyClause wc=whenClause)
     {
-      if (this.semanticModel.hasTestCase($ID.text)) {
+      if (this.semanticModel.findTestCase($ID.text) != null) {
         throw new FailedPredicateException(input, "testCase", "Nome do teste ja existe.");
       }
 
@@ -55,8 +55,6 @@ testCase
       testCase.setWhenClause($wc.element);
       
       testCase.generateElements();
-      
-      this.semanticModel.resetSequence();
       
       List<Element> elements = testCase.getElements();
     }
@@ -93,7 +91,7 @@ setClause returns [Matrix matrix]
 factComposite returns [Element element]
   @after {
     if ($element instanceof SequenceCode) {
-      this.semanticModel.addSequenceCode((SequenceCode) $element);
+      this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $element);
     }
   }
   : ^('And' f=fact fc=factComposite)
@@ -124,13 +122,8 @@ fact returns [Element element]
       if (tc2 != null) {
         $c.methodElement.setClassElement($tc2.classElement);
       
-        if (fe != null) {
-          if ($fe.methodElement != null) {
-            $tc2.classElement.setMethodElement($fe.methodElement);
-	        } else if ($fe.classElement != null) {
-            $tc2.classElement.setNext($fe.classElement);
-            $tc2.classElement.setMethodElement($fe.classElement.getMethodElement());
-	        }
+        if (fe != null && $fe.methodElement != null) {
+          $tc2.classElement.setMethodElement($fe.methodElement);
 	      }
       }
 
@@ -138,34 +131,14 @@ fact returns [Element element]
     }
   ;
 
-factExt 
-  returns [MethodElement methodElement, ClassElement classElement]
-  : ^(FACTEXT SEPARATOR tc=termComposite fe=factExt?)
-    {
-      if (fe != null) {
-	      // Verifica se existe um factExt.methodElement
-        if ($fe.methodElement != null) {
-          $tc.classElement.setMethodElement($fe.methodElement);
-	      } else if ($fe.classElement != null) {
-          $tc.classElement.setNext($fe.classElement);
-          $tc.classElement.setMethodElement($fe.classElement.getMethodElement());
-	      }
-      }
-      
-      $classElement = $tc.classElement;
-    }
-  | ^(FACTEXT c=complement (tc=termComposite fe=factExt?)?)
+factExt returns [MethodElement methodElement]
+  : ^(FACTEXT c=complement (tc=termComposite fe=factExt?)?)
     {
       if (tc != null) {
         $c.methodElement.setClassElement($tc.classElement);
         
-        if (fe != null) {
-          if ($fe.methodElement != null) {
-            $tc.classElement.setMethodElement($fe.methodElement);
-		      } else if ($fe.classElement != null) {
-		        $tc.classElement.setNext($fe.classElement);
-		        $tc.classElement.setMethodElement($fe.classElement.getMethodElement());
-		      }
+        if (fe != null && $fe.methodElement != null) {
+          $tc.classElement.setMethodElement($fe.methodElement);
 	      }
       }
 
@@ -196,7 +169,7 @@ term returns [ClassElement classElement]
     {
       $classElement = new ClassElement($ID.text);
       
-      this.semanticModel.addSequenceCode((SequenceCode) $classElement);
+      this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $classElement);
     }
   ;
 
@@ -234,24 +207,12 @@ termWithAssociation returns [ClassElement classElement]
   ;
   
 quantifier returns [String type, String operator, Integer value, Integer value2]
-  : ^(QUANTIFIER 'each')
-    { $type = "each"; $operator = "=="; }
-  | ^(QUANTIFIER 'some')
-    { $type = "some"; $operator = "=="; }
-  | ^(QUANTIFIER 'atLeastOne')
-    { $type = "atLeastOne"; $operator = ">="; }
-  | ^(QUANTIFIER 'atLeast' INT)
+  : ^(QUANTIFIER 'atLeast' INT)
     { $type = "atLeast"; $operator = ">="; $value = Integer.parseInt($INT.text); }
-  | ^(QUANTIFIER 'atMostOne')
-    { $type = "atMostOne"; $operator = "<="; }
   | ^(QUANTIFIER 'atMost' INT)
     { $type = "atMost"; $operator = "<="; $value = Integer.parseInt($INT.text); }
-  | ^(QUANTIFIER 'exactlyOne')
-    { $type = "exactlyOne"; $operator = "=="; }
   | ^(QUANTIFIER 'exactly' INT)
     { $type = "exactly"; $operator = "=="; $value = Integer.parseInt($INT.text); }
-  | ^(QUANTIFIER 'moreThanOne')
-    { $type = "moreThanOne"; $operator = ">="; }
   | ^(QUANTIFIER 'atLeastAndAtMost' v1=INT v2=INT)
     { $type = "atLeastAndAtMost"; $operator = ">=&<="; $value = Integer.parseInt($v1.text); $value2 = Integer.parseInt($v2.text); }
   ;
@@ -278,7 +239,8 @@ formulaExpression returns [Element element]
           $mo.operator.equals("+") ? "sum" : 
           $mo.operator.equals("-") ? "minus" : 
           $mo.operator.equals("*") ? "multiply" : 
-          $mo.operator.equals("/") ? "divide" : "power"), $fi.classElement, $fe.element);
+          $mo.operator.equals("/") ? "divide" : 
+          $mo.operator.equals("\%") ? "remainder" : "power"), $fi.classElement, $fe.element);
       else
         $element = $fi.classElement;
     }
@@ -288,7 +250,8 @@ formulaExpression returns [Element element]
         $mo.operator.equals("+") ? "sum" : 
         $mo.operator.equals("-") ? "minus" : 
         $mo.operator.equals("*") ? "multiply" : 
-        $mo.operator.equals("/") ? "divide" : "power"), $fe.element, $fe2.element);
+        $mo.operator.equals("/") ? "divide" : 
+        $mo.operator.equals("\%") ? "remainder" : "power"), $fe.element, $fe2.element);
     }
   ;
 
