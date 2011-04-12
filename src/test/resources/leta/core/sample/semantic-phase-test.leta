@@ -1,0 +1,24 @@
+// Teste de pacote
+Package leta.core.sample.generated
+
+
+Test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+Cartao tem Nome "João" And
+Cartao tem Numero "123" And 
+Cartao tem Vencimento "03/2015"
+
+
+// Teste de formula
+Test TestCase02
+Verify
+Calculator has Result@1
+When
+Result@2 = Value@3 + Value@4 - Value@5
+Set
+{
+	{10, 30, 10, 50, 4}, 
+	{"20", 4, 2, 18, 1}
+}
