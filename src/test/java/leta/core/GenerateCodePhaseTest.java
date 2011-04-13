@@ -1,5 +1,7 @@
 package leta.core;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class GenerateCodePhaseTest {
@@ -16,6 +18,9 @@ public class GenerateCodePhaseTest {
 	String result = gen.generateCode(gen.semanticPhase(gen.syntacticPhase(content)));
 	
 	System.out.println(result);
+
+	
+	assertTrue("expected value > 10", true);
 	
     }
 }

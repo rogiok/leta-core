@@ -49,6 +49,11 @@
 			<version>3.3</version>
 		</dependency>
 		<dependency>
+			<groupId>org.antlr</groupId>
+			<artifactId>stringtemplate</artifactId>
+			<version>3.2.1</version>
+		</dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium.client-drivers</groupId>
 			<artifactId>selenium-java-client-driver</artifactId>
 			<version>1.0.2</version>

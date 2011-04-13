@@ -224,34 +224,51 @@ complement returns [MethodElement methodElement]
     }
   ;
 
-formula returns [Element element]
+formula returns [ClassElement element]
   : ^(FORMULA fi=formulaItem fe=formulaExpression)
     {
-      $element = new OperatorElement("equals", $fi.classElement, $fe.element);
+      $element = $fi.classElement;
+      
+      MethodElement me = new MethodElement("equals");
+      me.setClassElement($fe.classElement);
+      $element.setMethodElement(me);
     }
   ;
 
-formulaExpression returns [Element element]
+formulaExpression returns [ClassElement classElement]
   : ^(FORMULAEXPRESSION fi=formulaItem (mo=mathOperator fe=formulaExpression)?)
     {
-      if (mo != null)
-        $element = new OperatorElement((
+      $classElement = $fi.classElement;
+        
+      if (mo != null) {
+        MethodElement me = new MethodElement((
           $mo.operator.equals("+") ? "sum" : 
           $mo.operator.equals("-") ? "minus" : 
           $mo.operator.equals("*") ? "multiply" : 
           $mo.operator.equals("/") ? "divide" : 
-          $mo.operator.equals("\%") ? "remainder" : "power"), $fi.classElement, $fe.element);
-      else
-        $element = $fi.classElement;
+          $mo.operator.equals("\%") ? "remainder" : "power"));
+          
+        me.setClassElement($fe.classElement);
+        
+        $classElement.setMethodElement(me);
+      }
     }
   | ^(FORMULAEXPRESSION fe=formulaExpression (mo=mathOperator fe2=formulaExpression)?)
     {
-      $element = new OperatorElement((
-        $mo.operator.equals("+") ? "sum" : 
-        $mo.operator.equals("-") ? "minus" : 
-        $mo.operator.equals("*") ? "multiply" : 
-        $mo.operator.equals("/") ? "divide" : 
-        $mo.operator.equals("\%") ? "remainder" : "power"), $fe.element, $fe2.element);
+      $classElement = $fe.classElement;
+        
+      if (mo != null) {
+        MethodElement me = new MethodElement((
+          $mo.operator.equals("+") ? "sum" : 
+          $mo.operator.equals("-") ? "minus" : 
+          $mo.operator.equals("*") ? "multiply" : 
+          $mo.operator.equals("/") ? "divide" : 
+          $mo.operator.equals("\%") ? "remainder" : "power"));
+          
+        me.setClassElement($fe2.classElement);
+        
+        $classElement.setMethodElement(me);
+      }
     }
   ;
 

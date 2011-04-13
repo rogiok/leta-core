@@ -42,27 +42,27 @@ bodyTest(id, verifyClause, whenClause, setClause, elements) ::=
 public abstract class <id>Test {
 
     // Gera todas as classes que correspondem aos termos
-    <elements: { element | <generateClass(element)>}>
+    <elements: { element | <generateElement(element)>}>
 
     // Método que será implementado e enviará os dados ao SUT
-    abstract <verifyClause.element.className> sendToSut(<whenClause.element.className> <whenClause.element.instanceName>);
+    abstract TCOutput sendToSut(TCInput input);
     
     <if (!setClause.matrix)>
     // No Matrix
     @Test
     public void test() {
 
-        // Gera as instáncias da cláusula Verify
-        <generateInstance(verifyClause.element)>
+        // Verify
+        <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
 
-        // Gera as instáncias da cláusula When
-        <generateInstance(whenClause.element)>
+        // When
+        <generateInstanceDeclarations(object="input", initial="when", element=whenClause.element)>
 
         // Executa o método sendToSut
-        <verifyClause.element.className> <verifyClause.element.instanceName>Result = sendToSut(<whenClause.element.instanceName>);
+        TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertEquals(<verifyClause.element.instanceName>, <verifyClause.element.instanceName>Result);
+        assertEquals(expected, result);
 
     }
     
@@ -134,24 +134,23 @@ public abstract class <id>Test {
     }
     
     class Ab extends org.hamcrest.BaseMatcher\<Object\> {
-    private Object obj;
+        private Object obj;
         
-    public Ab(Object obj) {
-    super();
-    this.obj = obj;
-    }
+        public Ab(Object obj) {
+            super();
+            this.obj = obj;
+        }
     
-    @Override
-    public boolean matches(Object arg0) {
-    return false;
-    }
+        @Override
+        public boolean matches(Object arg0) {
+            return false;
+        }
     
-    @Override
-    public void describeTo(org.hamcrest.Description arg0) {
-    arg0.appendText("Not OK");
+        @Override
+        public void describeTo(org.hamcrest.Description arg0) {
+            arg0.appendText("Not OK");
+        }
     }
-    }
-    
 }
 >>
 
@@ -163,15 +162,15 @@ bodyMatrixTest(verifyClause, whenClause, matrix) ::=
 void test<matrix.sequence>() {
 
     // Verify
-    <generateInstance(verifyClause.element)>
+    <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
 
     // When
-    <generateInstance(whenClause.element)>
+    <generateInstanceDeclarations(object="input", initial="when", element=whenClause.element)>
         
 
-    <verifyClause.element.className> <verifyClause.element.instanceName>Result = sendToSut(<whenClause.element.instanceName>);
+    TCOutput result = sendToSut(input);
 
-    assertEquals(<verifyClause.element.instanceName>, <verifyClause.element.instanceName>Result);
+    assertEquals(expected, result);
 
 }
     
@@ -182,29 +181,27 @@ void test<matrix.sequence>() {
 
 
 
-
-generateInstance(element) ::=
-<<
-<generateInstanceDeclarations(element)>
-<generateInstanceAttributions(element)>
->>
-
-generateInstanceDeclarations(element) ::=
+// Generate instances
+generateInstanceDeclarations(object, initial, element) ::=
 <<
 <if (element.composite)>
-<element.className> <element.instanceName> = new <element.className>();
-<generateInstanceDeclarations(element.left)>
-<generateInstanceDeclarations(element.right)>
+<generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
+<generateInstanceDeclarations(object=object, initial=element.name, element=element.right)>
 <else>
-<if (!element.usedInstance)>
-<element.className> <element.instanceName> = new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><endif>);
 <if (element.methodElement)>
-<if (element.methodElement.classElement)>
-<generateInstanceDeclarations(element.methodElement.classElement)>
+<object>.<initial><generateInstanceDeclarationMethod(element)>(<generateInstanceDeclarationParameter(element)>);
 <endif>
 <endif>
-<endif>
-<endif>
+>>
+
+generateInstanceDeclarationMethod(element) ::=
+<<
+<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateInstanceDeclarationMethod(element.methodElement.classElement)><endif><endif>
+>>
+
+generateInstanceDeclarationParameter(element) ::=
+<<
+new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)>, <generateInstanceDeclarationParameter(element.methodElement.classElement)><endif><endif>
 >>
 
 generateInstanceAttributions(element) ::=
@@ -230,7 +227,7 @@ generateInstanceAttributions(element) ::=
 
 
 
-generateClass(classElement) ::=
+generateElement(classElement) ::=
 <<
 <if (classElement.composite)>
 <generateComposite(classElement)>
