@@ -138,8 +138,10 @@ term
   ;
 
 termInstance
-  : term relationalOperator? literal
-    -> ^(TERMINSTANCE term relationalOperator? literal)
+  : term notEqualOperator? stringLiteral
+    -> ^(TERMINSTANCE term notEqualOperator? stringLiteral)
+  | term relationalOperator? otherLiteral
+    -> ^(TERMINSTANCE term relationalOperator? otherLiteral)
   ;
 
 termWithAssociation
@@ -204,24 +206,33 @@ relationalOperator
     -> ^(OPERATOR '>=')
   | '<='
     -> ^(OPERATOR '<=')
-  | '!='
+  | notEqualOperator
+  ;
+
+notEqualOperator
+  : '!='
     -> ^(OPERATOR '!=')
   ;
 
 set
-  : '{' subSet '}' (',' set)?
-    -> ^(SET subSet set?)
+  : '{' list '}' (',' set)?
+    -> ^(SET list set?)
   ;
 
-subSet
-  : literal (',' subSet)?
-    -> ^(SUBSET literal subSet?)
+list
+  : (stringLiteral | otherLiteral) (',' list)?
+    -> ^(SUBSET stringLiteral? otherLiteral? list?)
   ;
 
-literal
+stringLiteral
   : STRING
     -> ^(LITERAL STRING)
-  | FLOAT
+  | 'null'
+    -> ^(LITERAL NULL)
+  ;
+
+otherLiteral
+  : FLOAT
     -> ^(LITERAL FLOAT)
   | MINUS_FLOAT
     -> ^(LITERAL MINUS_FLOAT)
@@ -229,6 +240,8 @@ literal
     -> ^(LITERAL INT)
   | MINUS_INT
     -> ^(LITERAL MINUS_INT)
+  | DATE_TIME
+    -> ^(LITERAL DATE_TIME)
   | 'null'
     -> ^(LITERAL NULL)
   ;
@@ -265,6 +278,10 @@ MINUS_FLOAT
 
 STRING
   : '"' (~('"' | '\\'))* '"'
+  ;
+
+DATE_TIME
+  : '[' DIGIT+ ('-' DIGIT+ ('-' DIGIT+)?)? (' ' DIGIT+ ':' DIGIT+ (':' DIGIT+ ('.' DIGIT+)?)? ('AM' | 'PM')? (('+' | '-') DIGIT+ ':' DIGIT+)?)? ']'
   ;
   
 PACKAGE_ID

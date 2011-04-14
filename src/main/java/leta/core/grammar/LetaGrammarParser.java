@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g 2011-04-13 14:38:22
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g 2011-04-13 23:18:37
 
   package leta.core.grammar;
   
@@ -16,10 +16,9 @@ import org.antlr.runtime.tree.*;
 
 public class LetaGrammarParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "SUBSET", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "PACKAGE_ID", "DIGIT", "COMMENT", "LINE_COMMENT", "WS", "'Test'", "'Verify'", "'When'", "'Set'", "'{'", "'}'", "'('", "')'", "'And'", "'Or'", "'@'", "'atLeast'", "'atMost'", "'exactly'", "'atLeastAndAtMost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "SUBSET", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "COMMENT", "LINE_COMMENT", "WS", "'Test'", "'Verify'", "'When'", "'Set'", "'{'", "'}'", "'('", "')'", "'And'", "'Or'", "'@'", "'atLeast'", "'atMost'", "'exactly'", "'atLeastAndAtMost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
     };
     public static final int EOF=-1;
-    public static final int T__46=46;
     public static final int T__47=47;
     public static final int T__48=48;
     public static final int T__49=49;
@@ -49,6 +48,7 @@ public class LetaGrammarParser extends Parser {
     public static final int T__73=73;
     public static final int T__74=74;
     public static final int T__75=75;
+    public static final int T__76=76;
     public static final int LETA=4;
     public static final int STMT=5;
     public static final int TESTCASE=6;
@@ -86,11 +86,12 @@ public class LetaGrammarParser extends Parser {
     public static final int FLOAT=38;
     public static final int MINUS_FLOAT=39;
     public static final int MINUS_INT=40;
-    public static final int PACKAGE_ID=41;
-    public static final int DIGIT=42;
-    public static final int COMMENT=43;
-    public static final int LINE_COMMENT=44;
-    public static final int WS=45;
+    public static final int DATE_TIME=41;
+    public static final int PACKAGE_ID=42;
+    public static final int DIGIT=43;
+    public static final int COMMENT=44;
+    public static final int LINE_COMMENT=45;
+    public static final int WS=46;
 
     // delegates
     // delegators
@@ -114,7 +115,7 @@ public class LetaGrammarParser extends Parser {
     }
 
     public String[] getTokenNames() { return LetaGrammarParser.tokenNames; }
-    public String getGrammarFileName() { return "C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g"; }
+    public String getGrammarFileName() { return "/Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g"; }
 
 
       private boolean foundErrors = false;
@@ -137,7 +138,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "leta"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:72:1: leta : ( testPackage )? ( testCase )+ -> ^( LETA ( testPackage )? ( testCase )+ ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:72:1: leta : ( testPackage )? ( testCase )+ -> ^( LETA ( testPackage )? ( testCase )+ ) ;
     public final LetaGrammarParser.leta_return leta() throws RecognitionException {
         LetaGrammarParser.leta_return retval = new LetaGrammarParser.leta_return();
         retval.start = input.LT(1);
@@ -152,19 +153,19 @@ public class LetaGrammarParser extends Parser {
         RewriteRuleSubtreeStream stream_testCase=new RewriteRuleSubtreeStream(adaptor,"rule testCase");
         RewriteRuleSubtreeStream stream_testPackage=new RewriteRuleSubtreeStream(adaptor,"rule testPackage");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:73:3: ( ( testPackage )? ( testCase )+ -> ^( LETA ( testPackage )? ( testCase )+ ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:73:5: ( testPackage )? ( testCase )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:73:3: ( ( testPackage )? ( testCase )+ -> ^( LETA ( testPackage )? ( testCase )+ ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:73:5: ( testPackage )? ( testCase )+
             {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:73:5: ( testPackage )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:73:5: ( testPackage )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==75) ) {
+            if ( (LA1_0==76) ) {
                 alt1=1;
             }
             switch (alt1) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: testPackage
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: testPackage
                     {
                     pushFollow(FOLLOW_testPackage_in_leta231);
                     testPackage1=testPackage();
@@ -178,21 +179,21 @@ public class LetaGrammarParser extends Parser {
 
             }
 
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:73:18: ( testCase )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:73:18: ( testCase )+
             int cnt2=0;
             loop2:
             do {
                 int alt2=2;
                 int LA2_0 = input.LA(1);
 
-                if ( (LA2_0==46) ) {
+                if ( (LA2_0==47) ) {
                     alt2=1;
                 }
 
 
                 switch (alt2) {
             	case 1 :
-            	    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: testCase
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: testCase
             	    {
             	    pushFollow(FOLLOW_testCase_in_leta234);
             	    testCase2=testCase();
@@ -217,7 +218,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: testPackage, testCase
+            // elements: testCase, testPackage
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -230,12 +231,12 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 74:5: -> ^( LETA ( testPackage )? ( testCase )+ )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:74:8: ^( LETA ( testPackage )? ( testCase )+ )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:74:8: ^( LETA ( testPackage )? ( testCase )+ )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LETA, "LETA"), root_1);
 
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:74:15: ( testPackage )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:74:15: ( testPackage )?
                 if ( stream_testPackage.hasNext() ) {
                     adaptor.addChild(root_1, stream_testPackage.nextTree());
 
@@ -284,7 +285,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "testCase"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:77:1: testCase : 'Test' ID verifyClause whenClause ( setClause )? -> ^( TESTCASE ID ( setClause )? verifyClause whenClause ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:77:1: testCase : 'Test' ID verifyClause whenClause ( setClause )? -> ^( TESTCASE ID ( setClause )? verifyClause whenClause ) ;
     public final LetaGrammarParser.testCase_return testCase() throws RecognitionException {
         LetaGrammarParser.testCase_return retval = new LetaGrammarParser.testCase_return();
         retval.start = input.LT(1);
@@ -302,17 +303,17 @@ public class LetaGrammarParser extends Parser {
 
         Object string_literal3_tree=null;
         Object ID4_tree=null;
-        RewriteRuleTokenStream stream_46=new RewriteRuleTokenStream(adaptor,"token 46");
+        RewriteRuleTokenStream stream_47=new RewriteRuleTokenStream(adaptor,"token 47");
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
         RewriteRuleSubtreeStream stream_verifyClause=new RewriteRuleSubtreeStream(adaptor,"rule verifyClause");
         RewriteRuleSubtreeStream stream_whenClause=new RewriteRuleSubtreeStream(adaptor,"rule whenClause");
         RewriteRuleSubtreeStream stream_setClause=new RewriteRuleSubtreeStream(adaptor,"rule setClause");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:78:3: ( 'Test' ID verifyClause whenClause ( setClause )? -> ^( TESTCASE ID ( setClause )? verifyClause whenClause ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:78:5: 'Test' ID verifyClause whenClause ( setClause )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:78:3: ( 'Test' ID verifyClause whenClause ( setClause )? -> ^( TESTCASE ID ( setClause )? verifyClause whenClause ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:78:5: 'Test' ID verifyClause whenClause ( setClause )?
             {
-            string_literal3=(Token)match(input,46,FOLLOW_46_in_testCase265); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_46.add(string_literal3);
+            string_literal3=(Token)match(input,47,FOLLOW_47_in_testCase265); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_47.add(string_literal3);
 
             ID4=(Token)match(input,ID,FOLLOW_ID_in_testCase267); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID4);
@@ -329,16 +330,16 @@ public class LetaGrammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_whenClause.add(whenClause6.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:78:39: ( setClause )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:78:39: ( setClause )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
-            if ( (LA3_0==49) ) {
+            if ( (LA3_0==50) ) {
                 alt3=1;
             }
             switch (alt3) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: setClause
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: setClause
                     {
                     pushFollow(FOLLOW_setClause_in_testCase273);
                     setClause7=setClause();
@@ -355,7 +356,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: ID, verifyClause, setClause, whenClause
+            // elements: setClause, whenClause, verifyClause, ID
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -368,13 +369,13 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 79:5: -> ^( TESTCASE ID ( setClause )? verifyClause whenClause )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:79:8: ^( TESTCASE ID ( setClause )? verifyClause whenClause )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:79:8: ^( TESTCASE ID ( setClause )? verifyClause whenClause )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TESTCASE, "TESTCASE"), root_1);
 
                 adaptor.addChild(root_1, stream_ID.nextNode());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:79:22: ( setClause )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:79:22: ( setClause )?
                 if ( stream_setClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_setClause.nextTree());
 
@@ -417,7 +418,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "verifyClause"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:82:1: verifyClause : 'Verify' factComposite -> ^( VERIFY factComposite ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:82:1: verifyClause : 'Verify' factComposite -> ^( VERIFY factComposite ) ;
     public final LetaGrammarParser.verifyClause_return verifyClause() throws RecognitionException {
         LetaGrammarParser.verifyClause_return retval = new LetaGrammarParser.verifyClause_return();
         retval.start = input.LT(1);
@@ -429,14 +430,14 @@ public class LetaGrammarParser extends Parser {
 
 
         Object string_literal8_tree=null;
-        RewriteRuleTokenStream stream_47=new RewriteRuleTokenStream(adaptor,"token 47");
+        RewriteRuleTokenStream stream_48=new RewriteRuleTokenStream(adaptor,"token 48");
         RewriteRuleSubtreeStream stream_factComposite=new RewriteRuleSubtreeStream(adaptor,"rule factComposite");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:83:3: ( 'Verify' factComposite -> ^( VERIFY factComposite ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:83:5: 'Verify' factComposite
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:83:3: ( 'Verify' factComposite -> ^( VERIFY factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:83:5: 'Verify' factComposite
             {
-            string_literal8=(Token)match(input,47,FOLLOW_47_in_verifyClause306); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_47.add(string_literal8);
+            string_literal8=(Token)match(input,48,FOLLOW_48_in_verifyClause306); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_48.add(string_literal8);
 
             pushFollow(FOLLOW_factComposite_in_verifyClause308);
             factComposite9=factComposite();
@@ -460,7 +461,7 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 84:5: -> ^( VERIFY factComposite )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:84:8: ^( VERIFY factComposite )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:84:8: ^( VERIFY factComposite )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(VERIFY, "VERIFY"), root_1);
@@ -501,7 +502,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "whenClause"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:87:1: whenClause : 'When' factComposite -> ^( WHEN factComposite ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:87:1: whenClause : 'When' factComposite -> ^( WHEN factComposite ) ;
     public final LetaGrammarParser.whenClause_return whenClause() throws RecognitionException {
         LetaGrammarParser.whenClause_return retval = new LetaGrammarParser.whenClause_return();
         retval.start = input.LT(1);
@@ -513,14 +514,14 @@ public class LetaGrammarParser extends Parser {
 
 
         Object string_literal10_tree=null;
-        RewriteRuleTokenStream stream_48=new RewriteRuleTokenStream(adaptor,"token 48");
+        RewriteRuleTokenStream stream_49=new RewriteRuleTokenStream(adaptor,"token 49");
         RewriteRuleSubtreeStream stream_factComposite=new RewriteRuleSubtreeStream(adaptor,"rule factComposite");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:88:3: ( 'When' factComposite -> ^( WHEN factComposite ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:88:5: 'When' factComposite
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:88:3: ( 'When' factComposite -> ^( WHEN factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:88:5: 'When' factComposite
             {
-            string_literal10=(Token)match(input,48,FOLLOW_48_in_whenClause333); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_48.add(string_literal10);
+            string_literal10=(Token)match(input,49,FOLLOW_49_in_whenClause333); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_49.add(string_literal10);
 
             pushFollow(FOLLOW_factComposite_in_whenClause335);
             factComposite11=factComposite();
@@ -544,7 +545,7 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 89:5: -> ^( WHEN factComposite )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:89:8: ^( WHEN factComposite )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:89:8: ^( WHEN factComposite )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(WHEN, "WHEN"), root_1);
@@ -585,7 +586,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "setClause"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:92:1: setClause : 'Set' '{' set '}' -> ^( SET set ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:92:1: setClause : 'Set' '{' set '}' -> ^( SET set ) ;
     public final LetaGrammarParser.setClause_return setClause() throws RecognitionException {
         LetaGrammarParser.setClause_return retval = new LetaGrammarParser.setClause_return();
         retval.start = input.LT(1);
@@ -601,19 +602,19 @@ public class LetaGrammarParser extends Parser {
         Object string_literal12_tree=null;
         Object char_literal13_tree=null;
         Object char_literal15_tree=null;
-        RewriteRuleTokenStream stream_49=new RewriteRuleTokenStream(adaptor,"token 49");
         RewriteRuleTokenStream stream_51=new RewriteRuleTokenStream(adaptor,"token 51");
+        RewriteRuleTokenStream stream_52=new RewriteRuleTokenStream(adaptor,"token 52");
         RewriteRuleTokenStream stream_50=new RewriteRuleTokenStream(adaptor,"token 50");
         RewriteRuleSubtreeStream stream_set=new RewriteRuleSubtreeStream(adaptor,"rule set");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:93:3: ( 'Set' '{' set '}' -> ^( SET set ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:93:5: 'Set' '{' set '}'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:93:3: ( 'Set' '{' set '}' -> ^( SET set ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:93:5: 'Set' '{' set '}'
             {
-            string_literal12=(Token)match(input,49,FOLLOW_49_in_setClause360); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_49.add(string_literal12);
+            string_literal12=(Token)match(input,50,FOLLOW_50_in_setClause360); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_50.add(string_literal12);
 
-            char_literal13=(Token)match(input,50,FOLLOW_50_in_setClause362); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_50.add(char_literal13);
+            char_literal13=(Token)match(input,51,FOLLOW_51_in_setClause362); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_51.add(char_literal13);
 
             pushFollow(FOLLOW_set_in_setClause364);
             set14=set();
@@ -621,8 +622,8 @@ public class LetaGrammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_set.add(set14.getTree());
-            char_literal15=(Token)match(input,51,FOLLOW_51_in_setClause366); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_51.add(char_literal15);
+            char_literal15=(Token)match(input,52,FOLLOW_52_in_setClause366); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_52.add(char_literal15);
 
 
 
@@ -640,7 +641,7 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 94:5: -> ^( SET set )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:94:8: ^( SET set )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:94:8: ^( SET set )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(SET, "SET"), root_1);
@@ -681,7 +682,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "factComposite"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:97:1: factComposite : ( (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )? -> {op != null && op.value.equals(\"And\") && f != null}? ^( 'And' $f $fc) -> {op != null && op.value.equals(\"Or\") && f != null}? ^( 'Or' $f $fc) -> {op != null && op.value.equals(\"And\") && fo != null}? ^( 'And' $fo $fc) -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc) -> {f != null}? ^( FACTCOMPOSITE $f) -> ^( FACTCOMPOSITE $fo) | '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )? -> {op != null && op.value.equals(\"And\")}? ^( 'And' $fc1 $fc2) -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2) -> ^( FACTCOMPOSITE $fc1) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:97:1: factComposite : ( (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )? -> {op != null && op.value.equals(\"And\") && f != null}? ^( 'And' $f $fc) -> {op != null && op.value.equals(\"Or\") && f != null}? ^( 'Or' $f $fc) -> {op != null && op.value.equals(\"And\") && fo != null}? ^( 'And' $fo $fc) -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc) -> {f != null}? ^( FACTCOMPOSITE $f) -> ^( FACTCOMPOSITE $fo) | '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )? -> {op != null && op.value.equals(\"And\")}? ^( 'And' $fc1 $fc2) -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2) -> ^( FACTCOMPOSITE $fc1) );
     public final LetaGrammarParser.factComposite_return factComposite() throws RecognitionException {
         LetaGrammarParser.factComposite_return retval = new LetaGrammarParser.factComposite_return();
         retval.start = input.LT(1);
@@ -705,21 +706,21 @@ public class LetaGrammarParser extends Parser {
 
         Object char_literal16_tree=null;
         Object char_literal17_tree=null;
-        RewriteRuleTokenStream stream_52=new RewriteRuleTokenStream(adaptor,"token 52");
         RewriteRuleTokenStream stream_53=new RewriteRuleTokenStream(adaptor,"token 53");
+        RewriteRuleTokenStream stream_54=new RewriteRuleTokenStream(adaptor,"token 54");
         RewriteRuleSubtreeStream stream_logicalOperator=new RewriteRuleSubtreeStream(adaptor,"rule logicalOperator");
         RewriteRuleSubtreeStream stream_fact=new RewriteRuleSubtreeStream(adaptor,"rule fact");
         RewriteRuleSubtreeStream stream_factComposite=new RewriteRuleSubtreeStream(adaptor,"rule factComposite");
         RewriteRuleSubtreeStream stream_formula=new RewriteRuleSubtreeStream(adaptor,"rule formula");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:3: ( (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )? -> {op != null && op.value.equals(\"And\") && f != null}? ^( 'And' $f $fc) -> {op != null && op.value.equals(\"Or\") && f != null}? ^( 'Or' $f $fc) -> {op != null && op.value.equals(\"And\") && fo != null}? ^( 'And' $fo $fc) -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc) -> {f != null}? ^( FACTCOMPOSITE $f) -> ^( FACTCOMPOSITE $fo) | '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )? -> {op != null && op.value.equals(\"And\")}? ^( 'And' $fc1 $fc2) -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2) -> ^( FACTCOMPOSITE $fc1) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:3: ( (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )? -> {op != null && op.value.equals(\"And\") && f != null}? ^( 'And' $f $fc) -> {op != null && op.value.equals(\"Or\") && f != null}? ^( 'Or' $f $fc) -> {op != null && op.value.equals(\"And\") && fo != null}? ^( 'And' $fo $fc) -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc) -> {f != null}? ^( FACTCOMPOSITE $f) -> ^( FACTCOMPOSITE $fo) | '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )? -> {op != null && op.value.equals(\"And\")}? ^( 'And' $fc1 $fc2) -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2) -> ^( FACTCOMPOSITE $fc1) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==ID||(LA7_0>=57 && LA7_0<=60)) ) {
+            if ( (LA7_0==ID||(LA7_0>=58 && LA7_0<=61)) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==52) ) {
+            else if ( (LA7_0==53) ) {
                 alt7=2;
             }
             else {
@@ -731,14 +732,14 @@ public class LetaGrammarParser extends Parser {
             }
             switch (alt7) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:5: (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:5: (f= fact | fo= formula ) (op= logicalOperator fc= factComposite )?
                     {
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:5: (f= fact | fo= formula )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:5: (f= fact | fo= formula )
                     int alt4=2;
                     alt4 = dfa4.predict(input);
                     switch (alt4) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:6: f= fact
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:6: f= fact
                             {
                             pushFollow(FOLLOW_fact_in_factComposite394);
                             f=fact();
@@ -750,7 +751,7 @@ public class LetaGrammarParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:15: fo= formula
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:15: fo= formula
                             {
                             pushFollow(FOLLOW_formula_in_factComposite400);
                             fo=formula();
@@ -764,16 +765,16 @@ public class LetaGrammarParser extends Parser {
 
                     }
 
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:27: (op= logicalOperator fc= factComposite )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:27: (op= logicalOperator fc= factComposite )?
                     int alt5=2;
                     int LA5_0 = input.LA(1);
 
-                    if ( ((LA5_0>=54 && LA5_0<=55)) ) {
+                    if ( ((LA5_0>=55 && LA5_0<=56)) ) {
                         alt5=1;
                     }
                     switch (alt5) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:98:28: op= logicalOperator fc= factComposite
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:98:28: op= logicalOperator fc= factComposite
                             {
                             pushFollow(FOLLOW_logicalOperator_in_factComposite406);
                             op=logicalOperator();
@@ -796,7 +797,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: 54, f, f, 55, fc, fc, fc, fo, f, fo, fc, 55, fo, 54
+                    // elements: fc, 55, f, fc, fo, fo, f, fc, 56, 56, fo, 55, fc, f
                     // token labels: 
                     // rule labels: f, retval, fo, fc
                     // token list labels: 
@@ -812,10 +813,10 @@ public class LetaGrammarParser extends Parser {
                     root_0 = (Object)adaptor.nil();
                     // 99:5: -> {op != null && op.value.equals(\"And\") && f != null}? ^( 'And' $f $fc)
                     if (op != null && op.value.equals("And") && f != null) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:99:61: ^( 'And' $f $fc)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:99:61: ^( 'And' $f $fc)
                         {
                         Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(54, "54"), root_1);
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(55, "55"), root_1);
 
                         adaptor.addChild(root_1, stream_f.nextTree());
                         adaptor.addChild(root_1, stream_fc.nextTree());
@@ -826,10 +827,10 @@ public class LetaGrammarParser extends Parser {
                     }
                     else // 100:5: -> {op != null && op.value.equals(\"Or\") && f != null}? ^( 'Or' $f $fc)
                     if (op != null && op.value.equals("Or") && f != null) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:100:60: ^( 'Or' $f $fc)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:100:60: ^( 'Or' $f $fc)
                         {
                         Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(55, "55"), root_1);
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(56, "56"), root_1);
 
                         adaptor.addChild(root_1, stream_f.nextTree());
                         adaptor.addChild(root_1, stream_fc.nextTree());
@@ -840,21 +841,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     else // 101:5: -> {op != null && op.value.equals(\"And\") && fo != null}? ^( 'And' $fo $fc)
                     if (op != null && op.value.equals("And") && fo != null) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:101:62: ^( 'And' $fo $fc)
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(54, "54"), root_1);
-
-                        adaptor.addChild(root_1, stream_fo.nextTree());
-                        adaptor.addChild(root_1, stream_fc.nextTree());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-                    else // 102:5: -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc)
-                    if (op != null && op.value.equals("Or") && fo != null) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:102:61: ^( 'Or' $fo $fc)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:101:62: ^( 'And' $fo $fc)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(55, "55"), root_1);
@@ -866,9 +853,23 @@ public class LetaGrammarParser extends Parser {
                         }
 
                     }
+                    else // 102:5: -> {op != null && op.value.equals(\"Or\") && fo != null}? ^( 'Or' $fo $fc)
+                    if (op != null && op.value.equals("Or") && fo != null) {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:102:61: ^( 'Or' $fo $fc)
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(56, "56"), root_1);
+
+                        adaptor.addChild(root_1, stream_fo.nextTree());
+                        adaptor.addChild(root_1, stream_fc.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
                     else // 103:5: -> {f != null}? ^( FACTCOMPOSITE $f)
                     if (f != null) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:103:21: ^( FACTCOMPOSITE $f)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:103:21: ^( FACTCOMPOSITE $f)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FACTCOMPOSITE, "FACTCOMPOSITE"), root_1);
@@ -881,7 +882,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     else // 104:5: -> ^( FACTCOMPOSITE $fo)
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:104:8: ^( FACTCOMPOSITE $fo)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:104:8: ^( FACTCOMPOSITE $fo)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FACTCOMPOSITE, "FACTCOMPOSITE"), root_1);
@@ -897,10 +898,10 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:105:5: '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:105:5: '(' fc1= factComposite ')' (op= logicalOperator fc2= factComposite )?
                     {
-                    char_literal16=(Token)match(input,52,FOLLOW_52_in_factComposite518); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_52.add(char_literal16);
+                    char_literal16=(Token)match(input,53,FOLLOW_53_in_factComposite518); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_53.add(char_literal16);
 
                     pushFollow(FOLLOW_factComposite_in_factComposite522);
                     fc1=factComposite();
@@ -908,19 +909,19 @@ public class LetaGrammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_factComposite.add(fc1.getTree());
-                    char_literal17=(Token)match(input,53,FOLLOW_53_in_factComposite524); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_53.add(char_literal17);
+                    char_literal17=(Token)match(input,54,FOLLOW_54_in_factComposite524); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_54.add(char_literal17);
 
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:105:31: (op= logicalOperator fc2= factComposite )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:105:31: (op= logicalOperator fc2= factComposite )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
-                    if ( ((LA6_0>=54 && LA6_0<=55)) ) {
+                    if ( ((LA6_0>=55 && LA6_0<=56)) ) {
                         alt6=1;
                     }
                     switch (alt6) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:105:32: op= logicalOperator fc2= factComposite
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:105:32: op= logicalOperator fc2= factComposite
                             {
                             pushFollow(FOLLOW_logicalOperator_in_factComposite529);
                             op=logicalOperator();
@@ -943,7 +944,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: fc1, 54, 55, fc1, fc1, fc2, fc2
+                    // elements: fc1, fc2, fc1, fc1, 56, 55, fc2
                     // token labels: 
                     // rule labels: retval, fc1, fc2
                     // token list labels: 
@@ -958,21 +959,7 @@ public class LetaGrammarParser extends Parser {
                     root_0 = (Object)adaptor.nil();
                     // 106:5: -> {op != null && op.value.equals(\"And\")}? ^( 'And' $fc1 $fc2)
                     if (op != null && op.value.equals("And")) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:106:48: ^( 'And' $fc1 $fc2)
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(54, "54"), root_1);
-
-                        adaptor.addChild(root_1, stream_fc1.nextTree());
-                        adaptor.addChild(root_1, stream_fc2.nextTree());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-                    else // 107:5: -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2)
-                    if (op != null && op.value.equals("Or")) {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:107:47: ^( 'Or' $fc1 $fc2)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:106:48: ^( 'And' $fc1 $fc2)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(55, "55"), root_1);
@@ -984,9 +971,23 @@ public class LetaGrammarParser extends Parser {
                         }
 
                     }
+                    else // 107:5: -> {op != null && op.value.equals(\"Or\")}? ^( 'Or' $fc1 $fc2)
+                    if (op != null && op.value.equals("Or")) {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:107:47: ^( 'Or' $fc1 $fc2)
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(56, "56"), root_1);
+
+                        adaptor.addChild(root_1, stream_fc1.nextTree());
+                        adaptor.addChild(root_1, stream_fc2.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
                     else // 108:5: -> ^( FACTCOMPOSITE $fc1)
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:108:8: ^( FACTCOMPOSITE $fc1)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:108:8: ^( FACTCOMPOSITE $fc1)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FACTCOMPOSITE, "FACTCOMPOSITE"), root_1);
@@ -1030,7 +1031,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "logicalOperator"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:111:1: logicalOperator returns [String value] : ( 'And' | 'Or' );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:111:1: logicalOperator returns [String value] : ( 'And' | 'Or' );
     public final LetaGrammarParser.logicalOperator_return logicalOperator() throws RecognitionException {
         LetaGrammarParser.logicalOperator_return retval = new LetaGrammarParser.logicalOperator_return();
         retval.start = input.LT(1);
@@ -1044,14 +1045,14 @@ public class LetaGrammarParser extends Parser {
         Object string_literal19_tree=null;
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:112:3: ( 'And' | 'Or' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:112:3: ( 'And' | 'Or' )
             int alt8=2;
             int LA8_0 = input.LA(1);
 
-            if ( (LA8_0==54) ) {
+            if ( (LA8_0==55) ) {
                 alt8=1;
             }
-            else if ( (LA8_0==55) ) {
+            else if ( (LA8_0==56) ) {
                 alt8=2;
             }
             else {
@@ -1063,11 +1064,11 @@ public class LetaGrammarParser extends Parser {
             }
             switch (alt8) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:112:5: 'And'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:112:5: 'And'
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    string_literal18=(Token)match(input,54,FOLLOW_54_in_logicalOperator601); if (state.failed) return retval;
+                    string_literal18=(Token)match(input,55,FOLLOW_55_in_logicalOperator601); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal18_tree = (Object)adaptor.create(string_literal18);
                     adaptor.addChild(root_0, string_literal18_tree);
@@ -1079,11 +1080,11 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:114:5: 'Or'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:114:5: 'Or'
                     {
                     root_0 = (Object)adaptor.nil();
 
-                    string_literal19=(Token)match(input,55,FOLLOW_55_in_logicalOperator613); if (state.failed) return retval;
+                    string_literal19=(Token)match(input,56,FOLLOW_56_in_logicalOperator613); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     string_literal19_tree = (Object)adaptor.create(string_literal19);
                     adaptor.addChild(root_0, string_literal19_tree);
@@ -1122,7 +1123,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "fact"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:118:1: fact : tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? -> ^( FACT $tc $c ( $tc2 ( $fe)? )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:118:1: fact : tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? -> ^( FACT $tc $c ( $tc2 ( $fe)? )? ) ;
     public final LetaGrammarParser.fact_return fact() throws RecognitionException {
         LetaGrammarParser.fact_return retval = new LetaGrammarParser.fact_return();
         retval.start = input.LT(1);
@@ -1142,8 +1143,8 @@ public class LetaGrammarParser extends Parser {
         RewriteRuleSubtreeStream stream_factExt=new RewriteRuleSubtreeStream(adaptor,"rule factExt");
         RewriteRuleSubtreeStream stream_termComposite=new RewriteRuleSubtreeStream(adaptor,"rule termComposite");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:119:3: (tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? -> ^( FACT $tc $c ( $tc2 ( $fe)? )? ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:119:5: tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:119:3: (tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )? -> ^( FACT $tc $c ( $tc2 ( $fe)? )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:119:5: tc= termComposite c= complement (tc2= termComposite (fe= factExt )? )?
             {
             pushFollow(FOLLOW_termComposite_in_fact634);
             tc=termComposite();
@@ -1157,12 +1158,12 @@ public class LetaGrammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_complement.add(c.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:119:35: (tc2= termComposite (fe= factExt )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:119:35: (tc2= termComposite (fe= factExt )? )?
             int alt10=2;
             alt10 = dfa10.predict(input);
             switch (alt10) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:119:36: tc2= termComposite (fe= factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:119:36: tc2= termComposite (fe= factExt )?
                     {
                     pushFollow(FOLLOW_termComposite_in_fact643);
                     tc2=termComposite();
@@ -1170,7 +1171,7 @@ public class LetaGrammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_termComposite.add(tc2.getTree());
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:119:56: (fe= factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:119:56: (fe= factExt )?
                     int alt9=2;
                     int LA9_0 = input.LA(1);
 
@@ -1179,7 +1180,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     switch (alt9) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: fe= factExt
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: fe= factExt
                             {
                             pushFollow(FOLLOW_factExt_in_fact647);
                             fe=factExt();
@@ -1202,34 +1203,34 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: tc2, c, fe, tc
+            // elements: tc, fe, tc2, c
             // token labels: 
-            // rule labels: retval, tc, c, tc2, fe
+            // rule labels: retval, c, tc, tc2, fe
             // token list labels: 
             // rule list labels: 
             // wildcard labels: 
             if ( state.backtracking==0 ) {
             retval.tree = root_0;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-            RewriteRuleSubtreeStream stream_tc=new RewriteRuleSubtreeStream(adaptor,"rule tc",tc!=null?tc.tree:null);
             RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.tree:null);
+            RewriteRuleSubtreeStream stream_tc=new RewriteRuleSubtreeStream(adaptor,"rule tc",tc!=null?tc.tree:null);
             RewriteRuleSubtreeStream stream_tc2=new RewriteRuleSubtreeStream(adaptor,"rule tc2",tc2!=null?tc2.tree:null);
             RewriteRuleSubtreeStream stream_fe=new RewriteRuleSubtreeStream(adaptor,"rule fe",fe!=null?fe.tree:null);
 
             root_0 = (Object)adaptor.nil();
             // 120:5: -> ^( FACT $tc $c ( $tc2 ( $fe)? )? )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:120:8: ^( FACT $tc $c ( $tc2 ( $fe)? )? )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:120:8: ^( FACT $tc $c ( $tc2 ( $fe)? )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FACT, "FACT"), root_1);
 
                 adaptor.addChild(root_1, stream_tc.nextTree());
                 adaptor.addChild(root_1, stream_c.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:120:22: ( $tc2 ( $fe)? )?
-                if ( stream_tc2.hasNext()||stream_fe.hasNext() ) {
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:120:22: ( $tc2 ( $fe)? )?
+                if ( stream_fe.hasNext()||stream_tc2.hasNext() ) {
                     adaptor.addChild(root_1, stream_tc2.nextTree());
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:120:28: ( $fe)?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:120:28: ( $fe)?
                     if ( stream_fe.hasNext() ) {
                         adaptor.addChild(root_1, stream_fe.nextTree());
 
@@ -1237,8 +1238,8 @@ public class LetaGrammarParser extends Parser {
                     stream_fe.reset();
 
                 }
-                stream_tc2.reset();
                 stream_fe.reset();
+                stream_tc2.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -1274,7 +1275,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "factExt"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:123:1: factExt : complement ( termComposite ( factExt )? )? -> ^( FACTEXT complement ( termComposite ( factExt )? )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:123:1: factExt : complement ( termComposite ( factExt )? )? -> ^( FACTEXT complement ( termComposite ( factExt )? )? ) ;
     public final LetaGrammarParser.factExt_return factExt() throws RecognitionException {
         LetaGrammarParser.factExt_return retval = new LetaGrammarParser.factExt_return();
         retval.start = input.LT(1);
@@ -1292,8 +1293,8 @@ public class LetaGrammarParser extends Parser {
         RewriteRuleSubtreeStream stream_factExt=new RewriteRuleSubtreeStream(adaptor,"rule factExt");
         RewriteRuleSubtreeStream stream_termComposite=new RewriteRuleSubtreeStream(adaptor,"rule termComposite");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:124:3: ( complement ( termComposite ( factExt )? )? -> ^( FACTEXT complement ( termComposite ( factExt )? )? ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:124:5: complement ( termComposite ( factExt )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:124:3: ( complement ( termComposite ( factExt )? )? -> ^( FACTEXT complement ( termComposite ( factExt )? )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:124:5: complement ( termComposite ( factExt )? )?
             {
             pushFollow(FOLLOW_complement_in_factExt689);
             complement20=complement();
@@ -1301,12 +1302,12 @@ public class LetaGrammarParser extends Parser {
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_complement.add(complement20.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:124:16: ( termComposite ( factExt )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:124:16: ( termComposite ( factExt )? )?
             int alt12=2;
             alt12 = dfa12.predict(input);
             switch (alt12) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:124:17: termComposite ( factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:124:17: termComposite ( factExt )?
                     {
                     pushFollow(FOLLOW_termComposite_in_factExt692);
                     termComposite21=termComposite();
@@ -1314,7 +1315,7 @@ public class LetaGrammarParser extends Parser {
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_termComposite.add(termComposite21.getTree());
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:124:31: ( factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:124:31: ( factExt )?
                     int alt11=2;
                     int LA11_0 = input.LA(1);
 
@@ -1323,7 +1324,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     switch (alt11) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: factExt
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: factExt
                             {
                             pushFollow(FOLLOW_factExt_in_factExt694);
                             factExt22=factExt();
@@ -1346,7 +1347,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: factExt, complement, termComposite
+            // elements: factExt, termComposite, complement
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1359,16 +1360,16 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 125:5: -> ^( FACTEXT complement ( termComposite ( factExt )? )? )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:125:8: ^( FACTEXT complement ( termComposite ( factExt )? )? )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:125:8: ^( FACTEXT complement ( termComposite ( factExt )? )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FACTEXT, "FACTEXT"), root_1);
 
                 adaptor.addChild(root_1, stream_complement.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:125:29: ( termComposite ( factExt )? )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:125:29: ( termComposite ( factExt )? )?
                 if ( stream_factExt.hasNext()||stream_termComposite.hasNext() ) {
                     adaptor.addChild(root_1, stream_termComposite.nextTree());
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:125:44: ( factExt )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:125:44: ( factExt )?
                     if ( stream_factExt.hasNext() ) {
                         adaptor.addChild(root_1, stream_factExt.nextTree());
 
@@ -1413,7 +1414,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "termComposite"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:128:1: termComposite : ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation ) -> {t != null}? ^( TERMCOMPOSITE ( quantifier )? term ) -> {ti != null}? ^( TERMCOMPOSITE ( quantifier )? termInstance ) -> ^( TERMCOMPOSITE ( quantifier )? termWithAssociation ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:128:1: termComposite : ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation ) -> {t != null}? ^( TERMCOMPOSITE ( quantifier )? term ) -> {ti != null}? ^( TERMCOMPOSITE ( quantifier )? termInstance ) -> ^( TERMCOMPOSITE ( quantifier )? termWithAssociation ) ;
     public final LetaGrammarParser.termComposite_return termComposite() throws RecognitionException {
         LetaGrammarParser.termComposite_return retval = new LetaGrammarParser.termComposite_return();
         retval.start = input.LT(1);
@@ -1434,19 +1435,19 @@ public class LetaGrammarParser extends Parser {
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         RewriteRuleSubtreeStream stream_termInstance=new RewriteRuleSubtreeStream(adaptor,"rule termInstance");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:3: ( ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation ) -> {t != null}? ^( TERMCOMPOSITE ( quantifier )? term ) -> {ti != null}? ^( TERMCOMPOSITE ( quantifier )? termInstance ) -> ^( TERMCOMPOSITE ( quantifier )? termWithAssociation ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:5: ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:3: ( ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation ) -> {t != null}? ^( TERMCOMPOSITE ( quantifier )? term ) -> {ti != null}? ^( TERMCOMPOSITE ( quantifier )? termInstance ) -> ^( TERMCOMPOSITE ( quantifier )? termWithAssociation ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:5: ( quantifier )? (t= term | ti= termInstance | twa= termWithAssociation )
             {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:5: ( quantifier )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:5: ( quantifier )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
-            if ( ((LA13_0>=57 && LA13_0<=60)) ) {
+            if ( ((LA13_0>=58 && LA13_0<=61)) ) {
                 alt13=1;
             }
             switch (alt13) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: quantifier
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: quantifier
                     {
                     pushFollow(FOLLOW_quantifier_in_termComposite730);
                     quantifier23=quantifier();
@@ -1460,12 +1461,12 @@ public class LetaGrammarParser extends Parser {
 
             }
 
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:17: (t= term | ti= termInstance | twa= termWithAssociation )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:17: (t= term | ti= termInstance | twa= termWithAssociation )
             int alt14=3;
             alt14 = dfa14.predict(input);
             switch (alt14) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:18: t= term
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:18: t= term
                     {
                     pushFollow(FOLLOW_term_in_termComposite736);
                     t=term();
@@ -1477,7 +1478,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:27: ti= termInstance
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:27: ti= termInstance
                     {
                     pushFollow(FOLLOW_termInstance_in_termComposite742);
                     ti=termInstance();
@@ -1489,7 +1490,7 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:129:45: twa= termWithAssociation
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:129:45: twa= termWithAssociation
                     {
                     pushFollow(FOLLOW_termWithAssociation_in_termComposite748);
                     twa=termWithAssociation();
@@ -1506,7 +1507,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: quantifier, termWithAssociation, quantifier, termInstance, term, quantifier
+            // elements: quantifier, term, termWithAssociation, quantifier, termInstance, quantifier
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1519,12 +1520,12 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 130:5: -> {t != null}? ^( TERMCOMPOSITE ( quantifier )? term )
             if (t != null) {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:130:21: ^( TERMCOMPOSITE ( quantifier )? term )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:130:21: ^( TERMCOMPOSITE ( quantifier )? term )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMCOMPOSITE, "TERMCOMPOSITE"), root_1);
 
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:130:37: ( quantifier )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:130:37: ( quantifier )?
                 if ( stream_quantifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_quantifier.nextTree());
 
@@ -1538,12 +1539,12 @@ public class LetaGrammarParser extends Parser {
             }
             else // 131:5: -> {ti != null}? ^( TERMCOMPOSITE ( quantifier )? termInstance )
             if (ti != null) {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:131:22: ^( TERMCOMPOSITE ( quantifier )? termInstance )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:131:22: ^( TERMCOMPOSITE ( quantifier )? termInstance )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMCOMPOSITE, "TERMCOMPOSITE"), root_1);
 
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:131:38: ( quantifier )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:131:38: ( quantifier )?
                 if ( stream_quantifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_quantifier.nextTree());
 
@@ -1557,12 +1558,12 @@ public class LetaGrammarParser extends Parser {
             }
             else // 132:5: -> ^( TERMCOMPOSITE ( quantifier )? termWithAssociation )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:132:8: ^( TERMCOMPOSITE ( quantifier )? termWithAssociation )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:132:8: ^( TERMCOMPOSITE ( quantifier )? termWithAssociation )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMCOMPOSITE, "TERMCOMPOSITE"), root_1);
 
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:132:24: ( quantifier )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:132:24: ( quantifier )?
                 if ( stream_quantifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_quantifier.nextTree());
 
@@ -1604,7 +1605,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "term"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:135:1: term : ID -> ^( TERM ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:135:1: term : ID -> ^( TERM ID ) ;
     public final LetaGrammarParser.term_return term() throws RecognitionException {
         LetaGrammarParser.term_return retval = new LetaGrammarParser.term_return();
         retval.start = input.LT(1);
@@ -1617,8 +1618,8 @@ public class LetaGrammarParser extends Parser {
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:136:3: ( ID -> ^( TERM ID ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:136:5: ID
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:136:3: ( ID -> ^( TERM ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:136:5: ID
             {
             ID24=(Token)match(input,ID,FOLLOW_ID_in_term811); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_ID.add(ID24);
@@ -1639,7 +1640,7 @@ public class LetaGrammarParser extends Parser {
             root_0 = (Object)adaptor.nil();
             // 137:5: -> ^( TERM ID )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:137:8: ^( TERM ID )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:137:8: ^( TERM ID )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERM, "TERM"), root_1);
@@ -1680,7 +1681,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "termInstance"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:140:1: termInstance : term ( relationalOperator )? literal -> ^( TERMINSTANCE term ( relationalOperator )? literal ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:140:1: termInstance : ( term ( notEqualOperator )? stringLiteral -> ^( TERMINSTANCE term ( notEqualOperator )? stringLiteral ) | term ( relationalOperator )? otherLiteral -> ^( TERMINSTANCE term ( relationalOperator )? otherLiteral ) );
     public final LetaGrammarParser.termInstance_return termInstance() throws RecognitionException {
         LetaGrammarParser.termInstance_return retval = new LetaGrammarParser.termInstance_return();
         retval.start = input.LT(1);
@@ -1689,87 +1690,177 @@ public class LetaGrammarParser extends Parser {
 
         LetaGrammarParser.term_return term25 = null;
 
-        LetaGrammarParser.relationalOperator_return relationalOperator26 = null;
+        LetaGrammarParser.notEqualOperator_return notEqualOperator26 = null;
 
-        LetaGrammarParser.literal_return literal27 = null;
+        LetaGrammarParser.stringLiteral_return stringLiteral27 = null;
+
+        LetaGrammarParser.term_return term28 = null;
+
+        LetaGrammarParser.relationalOperator_return relationalOperator29 = null;
+
+        LetaGrammarParser.otherLiteral_return otherLiteral30 = null;
 
 
-        RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
+        RewriteRuleSubtreeStream stream_otherLiteral=new RewriteRuleSubtreeStream(adaptor,"rule otherLiteral");
         RewriteRuleSubtreeStream stream_relationalOperator=new RewriteRuleSubtreeStream(adaptor,"rule relationalOperator");
-        RewriteRuleSubtreeStream stream_literal=new RewriteRuleSubtreeStream(adaptor,"rule literal");
+        RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
+        RewriteRuleSubtreeStream stream_notEqualOperator=new RewriteRuleSubtreeStream(adaptor,"rule notEqualOperator");
+        RewriteRuleSubtreeStream stream_stringLiteral=new RewriteRuleSubtreeStream(adaptor,"rule stringLiteral");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:141:3: ( term ( relationalOperator )? literal -> ^( TERMINSTANCE term ( relationalOperator )? literal ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:141:5: term ( relationalOperator )? literal
-            {
-            pushFollow(FOLLOW_term_in_termInstance836);
-            term25=term();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_term.add(term25.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:141:10: ( relationalOperator )?
-            int alt15=2;
-            alt15 = dfa15.predict(input);
-            switch (alt15) {
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:3: ( term ( notEqualOperator )? stringLiteral -> ^( TERMINSTANCE term ( notEqualOperator )? stringLiteral ) | term ( relationalOperator )? otherLiteral -> ^( TERMINSTANCE term ( relationalOperator )? otherLiteral ) )
+            int alt17=2;
+            alt17 = dfa17.predict(input);
+            switch (alt17) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: relationalOperator
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:5: term ( notEqualOperator )? stringLiteral
                     {
-                    pushFollow(FOLLOW_relationalOperator_in_termInstance838);
-                    relationalOperator26=relationalOperator();
+                    pushFollow(FOLLOW_term_in_termInstance836);
+                    term25=term();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_relationalOperator.add(relationalOperator26.getTree());
+                    if ( state.backtracking==0 ) stream_term.add(term25.getTree());
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:10: ( notEqualOperator )?
+                    int alt15=2;
+                    int LA15_0 = input.LA(1);
 
+                    if ( (LA15_0==73) ) {
+                        alt15=1;
+                    }
+                    switch (alt15) {
+                        case 1 :
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: notEqualOperator
+                            {
+                            pushFollow(FOLLOW_notEqualOperator_in_termInstance838);
+                            notEqualOperator26=notEqualOperator();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) stream_notEqualOperator.add(notEqualOperator26.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_stringLiteral_in_termInstance841);
+                    stringLiteral27=stringLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_stringLiteral.add(stringLiteral27.getTree());
+
+
+                    // AST REWRITE
+                    // elements: stringLiteral, notEqualOperator, term
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 142:5: -> ^( TERMINSTANCE term ( notEqualOperator )? stringLiteral )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:142:8: ^( TERMINSTANCE term ( notEqualOperator )? stringLiteral )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMINSTANCE, "TERMINSTANCE"), root_1);
+
+                        adaptor.addChild(root_1, stream_term.nextTree());
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:142:28: ( notEqualOperator )?
+                        if ( stream_notEqualOperator.hasNext() ) {
+                            adaptor.addChild(root_1, stream_notEqualOperator.nextTree());
+
+                        }
+                        stream_notEqualOperator.reset();
+                        adaptor.addChild(root_1, stream_stringLiteral.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:143:5: term ( relationalOperator )? otherLiteral
+                    {
+                    pushFollow(FOLLOW_term_in_termInstance864);
+                    term28=term();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_term.add(term28.getTree());
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:143:10: ( relationalOperator )?
+                    int alt16=2;
+                    alt16 = dfa16.predict(input);
+                    switch (alt16) {
+                        case 1 :
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: relationalOperator
+                            {
+                            pushFollow(FOLLOW_relationalOperator_in_termInstance866);
+                            relationalOperator29=relationalOperator();
+
+                            state._fsp--;
+                            if (state.failed) return retval;
+                            if ( state.backtracking==0 ) stream_relationalOperator.add(relationalOperator29.getTree());
+
+                            }
+                            break;
+
+                    }
+
+                    pushFollow(FOLLOW_otherLiteral_in_termInstance869);
+                    otherLiteral30=otherLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_otherLiteral.add(otherLiteral30.getTree());
+
+
+                    // AST REWRITE
+                    // elements: relationalOperator, otherLiteral, term
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 144:5: -> ^( TERMINSTANCE term ( relationalOperator )? otherLiteral )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:144:8: ^( TERMINSTANCE term ( relationalOperator )? otherLiteral )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMINSTANCE, "TERMINSTANCE"), root_1);
+
+                        adaptor.addChild(root_1, stream_term.nextTree());
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:144:28: ( relationalOperator )?
+                        if ( stream_relationalOperator.hasNext() ) {
+                            adaptor.addChild(root_1, stream_relationalOperator.nextTree());
+
+                        }
+                        stream_relationalOperator.reset();
+                        adaptor.addChild(root_1, stream_otherLiteral.nextTree());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
                     }
                     break;
 
             }
-
-            pushFollow(FOLLOW_literal_in_termInstance841);
-            literal27=literal();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_literal.add(literal27.getTree());
-
-
-            // AST REWRITE
-            // elements: relationalOperator, literal, term
-            // token labels: 
-            // rule labels: retval
-            // token list labels: 
-            // rule list labels: 
-            // wildcard labels: 
-            if ( state.backtracking==0 ) {
-            retval.tree = root_0;
-            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-            root_0 = (Object)adaptor.nil();
-            // 142:5: -> ^( TERMINSTANCE term ( relationalOperator )? literal )
-            {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:142:8: ^( TERMINSTANCE term ( relationalOperator )? literal )
-                {
-                Object root_1 = (Object)adaptor.nil();
-                root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMINSTANCE, "TERMINSTANCE"), root_1);
-
-                adaptor.addChild(root_1, stream_term.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:142:28: ( relationalOperator )?
-                if ( stream_relationalOperator.hasNext() ) {
-                    adaptor.addChild(root_1, stream_relationalOperator.nextTree());
-
-                }
-                stream_relationalOperator.reset();
-                adaptor.addChild(root_1, stream_literal.nextTree());
-
-                adaptor.addChild(root_0, root_1);
-                }
-
-            }
-
-            retval.tree = root_0;}
-            }
-
             retval.stop = input.LT(-1);
 
             if ( state.backtracking==0 ) {
@@ -1796,69 +1887,69 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "termWithAssociation"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:145:1: termWithAssociation : term ( relationalOperator )? '@' INT -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:147:1: termWithAssociation : term ( relationalOperator )? '@' INT -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT ) ;
     public final LetaGrammarParser.termWithAssociation_return termWithAssociation() throws RecognitionException {
         LetaGrammarParser.termWithAssociation_return retval = new LetaGrammarParser.termWithAssociation_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal30=null;
-        Token INT31=null;
-        LetaGrammarParser.term_return term28 = null;
+        Token char_literal33=null;
+        Token INT34=null;
+        LetaGrammarParser.term_return term31 = null;
 
-        LetaGrammarParser.relationalOperator_return relationalOperator29 = null;
+        LetaGrammarParser.relationalOperator_return relationalOperator32 = null;
 
 
-        Object char_literal30_tree=null;
-        Object INT31_tree=null;
+        Object char_literal33_tree=null;
+        Object INT34_tree=null;
         RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
-        RewriteRuleTokenStream stream_56=new RewriteRuleTokenStream(adaptor,"token 56");
+        RewriteRuleTokenStream stream_57=new RewriteRuleTokenStream(adaptor,"token 57");
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         RewriteRuleSubtreeStream stream_relationalOperator=new RewriteRuleSubtreeStream(adaptor,"rule relationalOperator");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:146:3: ( term ( relationalOperator )? '@' INT -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:146:5: term ( relationalOperator )? '@' INT
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:148:3: ( term ( relationalOperator )? '@' INT -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:148:5: term ( relationalOperator )? '@' INT
             {
-            pushFollow(FOLLOW_term_in_termWithAssociation871);
-            term28=term();
+            pushFollow(FOLLOW_term_in_termWithAssociation899);
+            term31=term();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_term.add(term28.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:146:10: ( relationalOperator )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            if ( state.backtracking==0 ) stream_term.add(term31.getTree());
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:148:10: ( relationalOperator )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( ((LA16_0>=68 && LA16_0<=72)) ) {
-                alt16=1;
+            if ( ((LA18_0>=69 && LA18_0<=73)) ) {
+                alt18=1;
             }
-            switch (alt16) {
+            switch (alt18) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:0:0: relationalOperator
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: relationalOperator
                     {
-                    pushFollow(FOLLOW_relationalOperator_in_termWithAssociation873);
-                    relationalOperator29=relationalOperator();
+                    pushFollow(FOLLOW_relationalOperator_in_termWithAssociation901);
+                    relationalOperator32=relationalOperator();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_relationalOperator.add(relationalOperator29.getTree());
+                    if ( state.backtracking==0 ) stream_relationalOperator.add(relationalOperator32.getTree());
 
                     }
                     break;
 
             }
 
-            char_literal30=(Token)match(input,56,FOLLOW_56_in_termWithAssociation876); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_56.add(char_literal30);
+            char_literal33=(Token)match(input,57,FOLLOW_57_in_termWithAssociation904); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_57.add(char_literal33);
 
-            INT31=(Token)match(input,INT,FOLLOW_INT_in_termWithAssociation878); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_INT.add(INT31);
+            INT34=(Token)match(input,INT,FOLLOW_INT_in_termWithAssociation906); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_INT.add(INT34);
 
 
 
             // AST REWRITE
-            // elements: term, INT, relationalOperator
+            // elements: INT, term, relationalOperator
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1869,15 +1960,15 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 147:5: -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT )
+            // 149:5: -> ^( TERMWITHASSOCIATION term ( relationalOperator )? INT )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:147:8: ^( TERMWITHASSOCIATION term ( relationalOperator )? INT )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:149:8: ^( TERMWITHASSOCIATION term ( relationalOperator )? INT )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(TERMWITHASSOCIATION, "TERMWITHASSOCIATION"), root_1);
 
                 adaptor.addChild(root_1, stream_term.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:147:35: ( relationalOperator )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:149:35: ( relationalOperator )?
                 if ( stream_relationalOperator.hasNext() ) {
                     adaptor.addChild(root_1, stream_relationalOperator.nextTree());
 
@@ -1919,7 +2010,7 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "quantifier"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:150:1: quantifier : ( 'atLeast' INT -> ^( QUANTIFIER 'atLeast' INT ) | 'atMost' INT -> ^( QUANTIFIER 'atMost' INT ) | 'exactly' INT -> ^( QUANTIFIER 'exactly' INT ) | 'atLeastAndAtMost' i1= INT i2= INT -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:152:1: quantifier : ( 'atLeast' INT -> ^( QUANTIFIER 'atLeast' INT ) | 'atMost' INT -> ^( QUANTIFIER 'atMost' INT ) | 'exactly' INT -> ^( QUANTIFIER 'exactly' INT ) | 'atLeastAndAtMost' i1= INT i2= INT -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2) );
     public final LetaGrammarParser.quantifier_return quantifier() throws RecognitionException {
         LetaGrammarParser.quantifier_return retval = new LetaGrammarParser.quantifier_return();
         retval.start = input.LT(1);
@@ -1928,111 +2019,70 @@ public class LetaGrammarParser extends Parser {
 
         Token i1=null;
         Token i2=null;
-        Token string_literal32=null;
-        Token INT33=null;
-        Token string_literal34=null;
-        Token INT35=null;
-        Token string_literal36=null;
-        Token INT37=null;
-        Token string_literal38=null;
+        Token string_literal35=null;
+        Token INT36=null;
+        Token string_literal37=null;
+        Token INT38=null;
+        Token string_literal39=null;
+        Token INT40=null;
+        Token string_literal41=null;
 
         Object i1_tree=null;
         Object i2_tree=null;
-        Object string_literal32_tree=null;
-        Object INT33_tree=null;
-        Object string_literal34_tree=null;
-        Object INT35_tree=null;
-        Object string_literal36_tree=null;
-        Object INT37_tree=null;
-        Object string_literal38_tree=null;
+        Object string_literal35_tree=null;
+        Object INT36_tree=null;
+        Object string_literal37_tree=null;
+        Object INT38_tree=null;
+        Object string_literal39_tree=null;
+        Object INT40_tree=null;
+        Object string_literal41_tree=null;
         RewriteRuleTokenStream stream_59=new RewriteRuleTokenStream(adaptor,"token 59");
         RewriteRuleTokenStream stream_58=new RewriteRuleTokenStream(adaptor,"token 58");
         RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
-        RewriteRuleTokenStream stream_57=new RewriteRuleTokenStream(adaptor,"token 57");
         RewriteRuleTokenStream stream_60=new RewriteRuleTokenStream(adaptor,"token 60");
+        RewriteRuleTokenStream stream_61=new RewriteRuleTokenStream(adaptor,"token 61");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:151:3: ( 'atLeast' INT -> ^( QUANTIFIER 'atLeast' INT ) | 'atMost' INT -> ^( QUANTIFIER 'atMost' INT ) | 'exactly' INT -> ^( QUANTIFIER 'exactly' INT ) | 'atLeastAndAtMost' i1= INT i2= INT -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2) )
-            int alt17=4;
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:153:3: ( 'atLeast' INT -> ^( QUANTIFIER 'atLeast' INT ) | 'atMost' INT -> ^( QUANTIFIER 'atMost' INT ) | 'exactly' INT -> ^( QUANTIFIER 'exactly' INT ) | 'atLeastAndAtMost' i1= INT i2= INT -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2) )
+            int alt19=4;
             switch ( input.LA(1) ) {
-            case 57:
-                {
-                alt17=1;
-                }
-                break;
             case 58:
                 {
-                alt17=2;
+                alt19=1;
                 }
                 break;
             case 59:
                 {
-                alt17=3;
+                alt19=2;
                 }
                 break;
             case 60:
                 {
-                alt17=4;
+                alt19=3;
+                }
+                break;
+            case 61:
+                {
+                alt19=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 17, 0, input);
+                    new NoViableAltException("", 19, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt17) {
+            switch (alt19) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:151:5: 'atLeast' INT
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:153:5: 'atLeast' INT
                     {
-                    string_literal32=(Token)match(input,57,FOLLOW_57_in_quantifier910); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_57.add(string_literal32);
+                    string_literal35=(Token)match(input,58,FOLLOW_58_in_quantifier938); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_58.add(string_literal35);
 
-                    INT33=(Token)match(input,INT,FOLLOW_INT_in_quantifier912); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_INT.add(INT33);
-
-
-
-                    // AST REWRITE
-                    // elements: INT, 57
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 152:5: -> ^( QUANTIFIER 'atLeast' INT )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:152:8: ^( QUANTIFIER 'atLeast' INT )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(QUANTIFIER, "QUANTIFIER"), root_1);
-
-                        adaptor.addChild(root_1, stream_57.nextNode());
-                        adaptor.addChild(root_1, stream_INT.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:153:5: 'atMost' INT
-                    {
-                    string_literal34=(Token)match(input,58,FOLLOW_58_in_quantifier932); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_58.add(string_literal34);
-
-                    INT35=(Token)match(input,INT,FOLLOW_INT_in_quantifier934); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_INT.add(INT35);
+                    INT36=(Token)match(input,INT,FOLLOW_INT_in_quantifier940); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_INT.add(INT36);
 
 
 
@@ -2048,9 +2098,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 154:5: -> ^( QUANTIFIER 'atMost' INT )
+                    // 154:5: -> ^( QUANTIFIER 'atLeast' INT )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:154:8: ^( QUANTIFIER 'atMost' INT )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:154:8: ^( QUANTIFIER 'atLeast' INT )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(QUANTIFIER, "QUANTIFIER"), root_1);
@@ -2066,14 +2116,14 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:155:5: 'exactly' INT
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:155:5: 'atMost' INT
                     {
-                    string_literal36=(Token)match(input,59,FOLLOW_59_in_quantifier954); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_59.add(string_literal36);
+                    string_literal37=(Token)match(input,59,FOLLOW_59_in_quantifier960); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_59.add(string_literal37);
 
-                    INT37=(Token)match(input,INT,FOLLOW_INT_in_quantifier956); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_INT.add(INT37);
+                    INT38=(Token)match(input,INT,FOLLOW_INT_in_quantifier962); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_INT.add(INT38);
 
 
 
@@ -2089,9 +2139,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 156:5: -> ^( QUANTIFIER 'exactly' INT )
+                    // 156:5: -> ^( QUANTIFIER 'atMost' INT )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:156:8: ^( QUANTIFIER 'exactly' INT )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:156:8: ^( QUANTIFIER 'atMost' INT )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(QUANTIFIER, "QUANTIFIER"), root_1);
@@ -2107,22 +2157,63 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 4 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:157:5: 'atLeastAndAtMost' i1= INT i2= INT
+                case 3 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:157:5: 'exactly' INT
                     {
-                    string_literal38=(Token)match(input,60,FOLLOW_60_in_quantifier976); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_60.add(string_literal38);
+                    string_literal39=(Token)match(input,60,FOLLOW_60_in_quantifier982); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_60.add(string_literal39);
 
-                    i1=(Token)match(input,INT,FOLLOW_INT_in_quantifier980); if (state.failed) return retval; 
+                    INT40=(Token)match(input,INT,FOLLOW_INT_in_quantifier984); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_INT.add(INT40);
+
+
+
+                    // AST REWRITE
+                    // elements: 60, INT
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 158:5: -> ^( QUANTIFIER 'exactly' INT )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:158:8: ^( QUANTIFIER 'exactly' INT )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(QUANTIFIER, "QUANTIFIER"), root_1);
+
+                        adaptor.addChild(root_1, stream_60.nextNode());
+                        adaptor.addChild(root_1, stream_INT.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 4 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:159:5: 'atLeastAndAtMost' i1= INT i2= INT
+                    {
+                    string_literal41=(Token)match(input,61,FOLLOW_61_in_quantifier1004); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_61.add(string_literal41);
+
+                    i1=(Token)match(input,INT,FOLLOW_INT_in_quantifier1008); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INT.add(i1);
 
-                    i2=(Token)match(input,INT,FOLLOW_INT_in_quantifier984); if (state.failed) return retval; 
+                    i2=(Token)match(input,INT,FOLLOW_INT_in_quantifier1012); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INT.add(i2);
 
 
 
                     // AST REWRITE
-                    // elements: 60, i2, i1
+                    // elements: 61, i1, i2
                     // token labels: i2, i1
                     // rule labels: retval
                     // token list labels: 
@@ -2135,14 +2226,14 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 158:5: -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
+                    // 160:5: -> ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:158:8: ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:160:8: ^( QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(QUANTIFIER, "QUANTIFIER"), root_1);
 
-                        adaptor.addChild(root_1, stream_60.nextNode());
+                        adaptor.addChild(root_1, stream_61.nextNode());
                         adaptor.addChild(root_1, stream_i1.nextNode());
                         adaptor.addChild(root_1, stream_i2.nextNode());
 
@@ -2182,24 +2273,24 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "complement"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:161:1: complement : ID -> ^( COMPLEMENT ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:163:1: complement : ID -> ^( COMPLEMENT ID ) ;
     public final LetaGrammarParser.complement_return complement() throws RecognitionException {
         LetaGrammarParser.complement_return retval = new LetaGrammarParser.complement_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token ID39=null;
+        Token ID42=null;
 
-        Object ID39_tree=null;
+        Object ID42_tree=null;
         RewriteRuleTokenStream stream_ID=new RewriteRuleTokenStream(adaptor,"token ID");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:162:3: ( ID -> ^( COMPLEMENT ID ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:162:5: ID
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:164:3: ( ID -> ^( COMPLEMENT ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:164:5: ID
             {
-            ID39=(Token)match(input,ID,FOLLOW_ID_in_complement1015); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_ID.add(ID39);
+            ID42=(Token)match(input,ID,FOLLOW_ID_in_complement1043); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_ID.add(ID42);
 
 
 
@@ -2215,9 +2306,9 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 163:5: -> ^( COMPLEMENT ID )
+            // 165:5: -> ^( COMPLEMENT ID )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:163:8: ^( COMPLEMENT ID )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:165:8: ^( COMPLEMENT ID )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(COMPLEMENT, "COMPLEMENT"), root_1);
@@ -2258,46 +2349,46 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "formula"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:166:1: formula : formulaItem '=' formulaExpression -> ^( FORMULA formulaItem formulaExpression ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:168:1: formula : formulaItem '=' formulaExpression -> ^( FORMULA formulaItem formulaExpression ) ;
     public final LetaGrammarParser.formula_return formula() throws RecognitionException {
         LetaGrammarParser.formula_return retval = new LetaGrammarParser.formula_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal41=null;
-        LetaGrammarParser.formulaItem_return formulaItem40 = null;
+        Token char_literal44=null;
+        LetaGrammarParser.formulaItem_return formulaItem43 = null;
 
-        LetaGrammarParser.formulaExpression_return formulaExpression42 = null;
+        LetaGrammarParser.formulaExpression_return formulaExpression45 = null;
 
 
-        Object char_literal41_tree=null;
-        RewriteRuleTokenStream stream_61=new RewriteRuleTokenStream(adaptor,"token 61");
+        Object char_literal44_tree=null;
+        RewriteRuleTokenStream stream_62=new RewriteRuleTokenStream(adaptor,"token 62");
         RewriteRuleSubtreeStream stream_formulaExpression=new RewriteRuleSubtreeStream(adaptor,"rule formulaExpression");
         RewriteRuleSubtreeStream stream_formulaItem=new RewriteRuleSubtreeStream(adaptor,"rule formulaItem");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:167:3: ( formulaItem '=' formulaExpression -> ^( FORMULA formulaItem formulaExpression ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:167:5: formulaItem '=' formulaExpression
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:169:3: ( formulaItem '=' formulaExpression -> ^( FORMULA formulaItem formulaExpression ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:169:5: formulaItem '=' formulaExpression
             {
-            pushFollow(FOLLOW_formulaItem_in_formula1040);
-            formulaItem40=formulaItem();
+            pushFollow(FOLLOW_formulaItem_in_formula1068);
+            formulaItem43=formulaItem();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_formulaItem.add(formulaItem40.getTree());
-            char_literal41=(Token)match(input,61,FOLLOW_61_in_formula1042); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_61.add(char_literal41);
+            if ( state.backtracking==0 ) stream_formulaItem.add(formulaItem43.getTree());
+            char_literal44=(Token)match(input,62,FOLLOW_62_in_formula1070); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_62.add(char_literal44);
 
-            pushFollow(FOLLOW_formulaExpression_in_formula1044);
-            formulaExpression42=formulaExpression();
+            pushFollow(FOLLOW_formulaExpression_in_formula1072);
+            formulaExpression45=formulaExpression();
 
             state._fsp--;
             if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression42.getTree());
+            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression45.getTree());
 
 
             // AST REWRITE
-            // elements: formulaExpression, formulaItem
+            // elements: formulaItem, formulaExpression
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2308,9 +2399,9 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 168:5: -> ^( FORMULA formulaItem formulaExpression )
+            // 170:5: -> ^( FORMULA formulaItem formulaExpression )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:168:8: ^( FORMULA formulaItem formulaExpression )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:170:8: ^( FORMULA formulaItem formulaExpression )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FORMULA, "FORMULA"), root_1);
@@ -2352,82 +2443,82 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "formulaExpression"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:171:1: formulaExpression : ( formulaItem ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? ) | '(' formulaExpression ')' ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:173:1: formulaExpression : ( formulaItem ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? ) | '(' formulaExpression ')' ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? ) );
     public final LetaGrammarParser.formulaExpression_return formulaExpression() throws RecognitionException {
         LetaGrammarParser.formulaExpression_return retval = new LetaGrammarParser.formulaExpression_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal46=null;
-        Token char_literal48=null;
-        LetaGrammarParser.formulaItem_return formulaItem43 = null;
+        Token char_literal49=null;
+        Token char_literal51=null;
+        LetaGrammarParser.formulaItem_return formulaItem46 = null;
 
-        LetaGrammarParser.mathOperator_return mathOperator44 = null;
+        LetaGrammarParser.mathOperator_return mathOperator47 = null;
 
-        LetaGrammarParser.formulaExpression_return formulaExpression45 = null;
-
-        LetaGrammarParser.formulaExpression_return formulaExpression47 = null;
-
-        LetaGrammarParser.mathOperator_return mathOperator49 = null;
+        LetaGrammarParser.formulaExpression_return formulaExpression48 = null;
 
         LetaGrammarParser.formulaExpression_return formulaExpression50 = null;
 
+        LetaGrammarParser.mathOperator_return mathOperator52 = null;
 
-        Object char_literal46_tree=null;
-        Object char_literal48_tree=null;
-        RewriteRuleTokenStream stream_52=new RewriteRuleTokenStream(adaptor,"token 52");
+        LetaGrammarParser.formulaExpression_return formulaExpression53 = null;
+
+
+        Object char_literal49_tree=null;
+        Object char_literal51_tree=null;
         RewriteRuleTokenStream stream_53=new RewriteRuleTokenStream(adaptor,"token 53");
+        RewriteRuleTokenStream stream_54=new RewriteRuleTokenStream(adaptor,"token 54");
         RewriteRuleSubtreeStream stream_formulaExpression=new RewriteRuleSubtreeStream(adaptor,"rule formulaExpression");
         RewriteRuleSubtreeStream stream_mathOperator=new RewriteRuleSubtreeStream(adaptor,"rule mathOperator");
         RewriteRuleSubtreeStream stream_formulaItem=new RewriteRuleSubtreeStream(adaptor,"rule formulaItem");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:172:3: ( formulaItem ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? ) | '(' formulaExpression ')' ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? ) )
-            int alt20=2;
-            int LA20_0 = input.LA(1);
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:174:3: ( formulaItem ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? ) | '(' formulaExpression ')' ( mathOperator formulaExpression )? -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? ) )
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA20_0==ID) ) {
-                alt20=1;
+            if ( (LA22_0==ID) ) {
+                alt22=1;
             }
-            else if ( (LA20_0==52) ) {
-                alt20=2;
+            else if ( (LA22_0==53) ) {
+                alt22=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 20, 0, input);
+                    new NoViableAltException("", 22, 0, input);
 
                 throw nvae;
             }
-            switch (alt20) {
+            switch (alt22) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:172:5: formulaItem ( mathOperator formulaExpression )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:174:5: formulaItem ( mathOperator formulaExpression )?
                     {
-                    pushFollow(FOLLOW_formulaItem_in_formulaExpression1071);
-                    formulaItem43=formulaItem();
+                    pushFollow(FOLLOW_formulaItem_in_formulaExpression1099);
+                    formulaItem46=formulaItem();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_formulaItem.add(formulaItem43.getTree());
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:172:17: ( mathOperator formulaExpression )?
-                    int alt18=2;
-                    alt18 = dfa18.predict(input);
-                    switch (alt18) {
+                    if ( state.backtracking==0 ) stream_formulaItem.add(formulaItem46.getTree());
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:174:17: ( mathOperator formulaExpression )?
+                    int alt20=2;
+                    alt20 = dfa20.predict(input);
+                    switch (alt20) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:172:18: mathOperator formulaExpression
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:174:18: mathOperator formulaExpression
                             {
-                            pushFollow(FOLLOW_mathOperator_in_formulaExpression1074);
-                            mathOperator44=mathOperator();
+                            pushFollow(FOLLOW_mathOperator_in_formulaExpression1102);
+                            mathOperator47=mathOperator();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            if ( state.backtracking==0 ) stream_mathOperator.add(mathOperator44.getTree());
-                            pushFollow(FOLLOW_formulaExpression_in_formulaExpression1076);
-                            formulaExpression45=formulaExpression();
+                            if ( state.backtracking==0 ) stream_mathOperator.add(mathOperator47.getTree());
+                            pushFollow(FOLLOW_formulaExpression_in_formulaExpression1104);
+                            formulaExpression48=formulaExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression45.getTree());
+                            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression48.getTree());
 
                             }
                             break;
@@ -2437,7 +2528,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: formulaExpression, mathOperator, formulaItem
+                    // elements: formulaExpression, formulaItem, mathOperator
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2448,15 +2539,15 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 173:5: -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? )
+                    // 175:5: -> ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:173:8: ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:175:8: ^( FORMULAEXPRESSION formulaItem ( mathOperator formulaExpression )? )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FORMULAEXPRESSION, "FORMULAEXPRESSION"), root_1);
 
                         adaptor.addChild(root_1, stream_formulaItem.nextTree());
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:173:40: ( mathOperator formulaExpression )?
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:175:40: ( mathOperator formulaExpression )?
                         if ( stream_formulaExpression.hasNext()||stream_mathOperator.hasNext() ) {
                             adaptor.addChild(root_1, stream_mathOperator.nextTree());
                             adaptor.addChild(root_1, stream_formulaExpression.nextTree());
@@ -2474,39 +2565,39 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:174:5: '(' formulaExpression ')' ( mathOperator formulaExpression )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:176:5: '(' formulaExpression ')' ( mathOperator formulaExpression )?
                     {
-                    char_literal46=(Token)match(input,52,FOLLOW_52_in_formulaExpression1103); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_52.add(char_literal46);
+                    char_literal49=(Token)match(input,53,FOLLOW_53_in_formulaExpression1131); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_53.add(char_literal49);
 
-                    pushFollow(FOLLOW_formulaExpression_in_formulaExpression1105);
-                    formulaExpression47=formulaExpression();
+                    pushFollow(FOLLOW_formulaExpression_in_formulaExpression1133);
+                    formulaExpression50=formulaExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression47.getTree());
-                    char_literal48=(Token)match(input,53,FOLLOW_53_in_formulaExpression1107); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_53.add(char_literal48);
+                    if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression50.getTree());
+                    char_literal51=(Token)match(input,54,FOLLOW_54_in_formulaExpression1135); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_54.add(char_literal51);
 
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:174:31: ( mathOperator formulaExpression )?
-                    int alt19=2;
-                    alt19 = dfa19.predict(input);
-                    switch (alt19) {
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:176:31: ( mathOperator formulaExpression )?
+                    int alt21=2;
+                    alt21 = dfa21.predict(input);
+                    switch (alt21) {
                         case 1 :
-                            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:174:32: mathOperator formulaExpression
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:176:32: mathOperator formulaExpression
                             {
-                            pushFollow(FOLLOW_mathOperator_in_formulaExpression1110);
-                            mathOperator49=mathOperator();
+                            pushFollow(FOLLOW_mathOperator_in_formulaExpression1138);
+                            mathOperator52=mathOperator();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            if ( state.backtracking==0 ) stream_mathOperator.add(mathOperator49.getTree());
-                            pushFollow(FOLLOW_formulaExpression_in_formulaExpression1112);
-                            formulaExpression50=formulaExpression();
+                            if ( state.backtracking==0 ) stream_mathOperator.add(mathOperator52.getTree());
+                            pushFollow(FOLLOW_formulaExpression_in_formulaExpression1140);
+                            formulaExpression53=formulaExpression();
 
                             state._fsp--;
                             if (state.failed) return retval;
-                            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression50.getTree());
+                            if ( state.backtracking==0 ) stream_formulaExpression.add(formulaExpression53.getTree());
 
                             }
                             break;
@@ -2516,7 +2607,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: formulaExpression, mathOperator, formulaExpression
+                    // elements: mathOperator, formulaExpression, formulaExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2527,22 +2618,22 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 175:5: -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? )
+                    // 177:5: -> ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:175:8: ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:177:8: ^( FORMULAEXPRESSION formulaExpression ( mathOperator formulaExpression )? )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FORMULAEXPRESSION, "FORMULAEXPRESSION"), root_1);
 
                         adaptor.addChild(root_1, stream_formulaExpression.nextTree());
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:175:46: ( mathOperator formulaExpression )?
-                        if ( stream_formulaExpression.hasNext()||stream_mathOperator.hasNext() ) {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:177:46: ( mathOperator formulaExpression )?
+                        if ( stream_mathOperator.hasNext()||stream_formulaExpression.hasNext() ) {
                             adaptor.addChild(root_1, stream_mathOperator.nextTree());
                             adaptor.addChild(root_1, stream_formulaExpression.nextTree());
 
                         }
-                        stream_formulaExpression.reset();
                         stream_mathOperator.reset();
+                        stream_formulaExpression.reset();
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -2580,64 +2671,64 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "formulaItem"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:178:1: formulaItem : ( term | termInstance | termWithAssociation ) -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:180:1: formulaItem : ( term | termInstance | termWithAssociation ) -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? ) ;
     public final LetaGrammarParser.formulaItem_return formulaItem() throws RecognitionException {
         LetaGrammarParser.formulaItem_return retval = new LetaGrammarParser.formulaItem_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        LetaGrammarParser.term_return term51 = null;
+        LetaGrammarParser.term_return term54 = null;
 
-        LetaGrammarParser.termInstance_return termInstance52 = null;
+        LetaGrammarParser.termInstance_return termInstance55 = null;
 
-        LetaGrammarParser.termWithAssociation_return termWithAssociation53 = null;
+        LetaGrammarParser.termWithAssociation_return termWithAssociation56 = null;
 
 
         RewriteRuleSubtreeStream stream_termWithAssociation=new RewriteRuleSubtreeStream(adaptor,"rule termWithAssociation");
         RewriteRuleSubtreeStream stream_term=new RewriteRuleSubtreeStream(adaptor,"rule term");
         RewriteRuleSubtreeStream stream_termInstance=new RewriteRuleSubtreeStream(adaptor,"rule termInstance");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:3: ( ( term | termInstance | termWithAssociation ) -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:5: ( term | termInstance | termWithAssociation )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:3: ( ( term | termInstance | termWithAssociation ) -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:5: ( term | termInstance | termWithAssociation )
             {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:5: ( term | termInstance | termWithAssociation )
-            int alt21=3;
-            alt21 = dfa21.predict(input);
-            switch (alt21) {
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:5: ( term | termInstance | termWithAssociation )
+            int alt23=3;
+            alt23 = dfa23.predict(input);
+            switch (alt23) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:6: term
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:6: term
                     {
-                    pushFollow(FOLLOW_term_in_formulaItem1148);
-                    term51=term();
+                    pushFollow(FOLLOW_term_in_formulaItem1176);
+                    term54=term();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_term.add(term51.getTree());
+                    if ( state.backtracking==0 ) stream_term.add(term54.getTree());
 
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:13: termInstance
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:13: termInstance
                     {
-                    pushFollow(FOLLOW_termInstance_in_formulaItem1152);
-                    termInstance52=termInstance();
+                    pushFollow(FOLLOW_termInstance_in_formulaItem1180);
+                    termInstance55=termInstance();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_termInstance.add(termInstance52.getTree());
+                    if ( state.backtracking==0 ) stream_termInstance.add(termInstance55.getTree());
 
                     }
                     break;
                 case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:179:28: termWithAssociation
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:181:28: termWithAssociation
                     {
-                    pushFollow(FOLLOW_termWithAssociation_in_formulaItem1156);
-                    termWithAssociation53=termWithAssociation();
+                    pushFollow(FOLLOW_termWithAssociation_in_formulaItem1184);
+                    termWithAssociation56=termWithAssociation();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_termWithAssociation.add(termWithAssociation53.getTree());
+                    if ( state.backtracking==0 ) stream_termWithAssociation.add(termWithAssociation56.getTree());
 
                     }
                     break;
@@ -2647,7 +2738,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: termWithAssociation, termInstance, term
+            // elements: term, termInstance, termWithAssociation
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2658,26 +2749,26 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 180:5: -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? )
+            // 182:5: -> ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:180:8: ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:182:8: ^( FORMULAITEM ( term )? ( termInstance )? ( termWithAssociation )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(FORMULAITEM, "FORMULAITEM"), root_1);
 
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:180:22: ( term )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:182:22: ( term )?
                 if ( stream_term.hasNext() ) {
                     adaptor.addChild(root_1, stream_term.nextTree());
 
                 }
                 stream_term.reset();
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:180:28: ( termInstance )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:182:28: ( termInstance )?
                 if ( stream_termInstance.hasNext() ) {
                     adaptor.addChild(root_1, stream_termInstance.nextTree());
 
                 }
                 stream_termInstance.reset();
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:180:42: ( termWithAssociation )?
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:182:42: ( termWithAssociation )?
                 if ( stream_termWithAssociation.hasNext() ) {
                     adaptor.addChild(root_1, stream_termWithAssociation.nextTree());
 
@@ -2718,118 +2809,81 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "mathOperator"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:183:1: mathOperator : ( '+' -> ^( OPERATOR '+' ) | '-' -> ^( OPERATOR '-' ) | '/' -> ^( OPERATOR '/' ) | '*' -> ^( OPERATOR '*' ) | '%' -> ^( OPERATOR '%' ) | '**' -> ^( OPERATOR '**' ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:185:1: mathOperator : ( '+' -> ^( OPERATOR '+' ) | '-' -> ^( OPERATOR '-' ) | '/' -> ^( OPERATOR '/' ) | '*' -> ^( OPERATOR '*' ) | '%' -> ^( OPERATOR '%' ) | '**' -> ^( OPERATOR '**' ) );
     public final LetaGrammarParser.mathOperator_return mathOperator() throws RecognitionException {
         LetaGrammarParser.mathOperator_return retval = new LetaGrammarParser.mathOperator_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal54=null;
-        Token char_literal55=null;
-        Token char_literal56=null;
         Token char_literal57=null;
         Token char_literal58=null;
-        Token string_literal59=null;
+        Token char_literal59=null;
+        Token char_literal60=null;
+        Token char_literal61=null;
+        Token string_literal62=null;
 
-        Object char_literal54_tree=null;
-        Object char_literal55_tree=null;
-        Object char_literal56_tree=null;
         Object char_literal57_tree=null;
         Object char_literal58_tree=null;
-        Object string_literal59_tree=null;
+        Object char_literal59_tree=null;
+        Object char_literal60_tree=null;
+        Object char_literal61_tree=null;
+        Object string_literal62_tree=null;
         RewriteRuleTokenStream stream_67=new RewriteRuleTokenStream(adaptor,"token 67");
         RewriteRuleTokenStream stream_66=new RewriteRuleTokenStream(adaptor,"token 66");
+        RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
         RewriteRuleTokenStream stream_64=new RewriteRuleTokenStream(adaptor,"token 64");
         RewriteRuleTokenStream stream_65=new RewriteRuleTokenStream(adaptor,"token 65");
-        RewriteRuleTokenStream stream_62=new RewriteRuleTokenStream(adaptor,"token 62");
         RewriteRuleTokenStream stream_63=new RewriteRuleTokenStream(adaptor,"token 63");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:184:3: ( '+' -> ^( OPERATOR '+' ) | '-' -> ^( OPERATOR '-' ) | '/' -> ^( OPERATOR '/' ) | '*' -> ^( OPERATOR '*' ) | '%' -> ^( OPERATOR '%' ) | '**' -> ^( OPERATOR '**' ) )
-            int alt22=6;
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:186:3: ( '+' -> ^( OPERATOR '+' ) | '-' -> ^( OPERATOR '-' ) | '/' -> ^( OPERATOR '/' ) | '*' -> ^( OPERATOR '*' ) | '%' -> ^( OPERATOR '%' ) | '**' -> ^( OPERATOR '**' ) )
+            int alt24=6;
             switch ( input.LA(1) ) {
-            case 62:
-                {
-                alt22=1;
-                }
-                break;
             case 63:
                 {
-                alt22=2;
+                alt24=1;
                 }
                 break;
             case 64:
                 {
-                alt22=3;
+                alt24=2;
                 }
                 break;
             case 65:
                 {
-                alt22=4;
+                alt24=3;
                 }
                 break;
             case 66:
                 {
-                alt22=5;
+                alt24=4;
                 }
                 break;
             case 67:
                 {
-                alt22=6;
+                alt24=5;
+                }
+                break;
+            case 68:
+                {
+                alt24=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 22, 0, input);
+                    new NoViableAltException("", 24, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt22) {
+            switch (alt24) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:184:5: '+'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:186:5: '+'
                     {
-                    char_literal54=(Token)match(input,62,FOLLOW_62_in_mathOperator1189); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_62.add(char_literal54);
-
-
-
-                    // AST REWRITE
-                    // elements: 62
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 185:5: -> ^( OPERATOR '+' )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:185:8: ^( OPERATOR '+' )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
-
-                        adaptor.addChild(root_1, stream_62.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:186:5: '-'
-                    {
-                    char_literal55=(Token)match(input,63,FOLLOW_63_in_mathOperator1207); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_63.add(char_literal55);
+                    char_literal57=(Token)match(input,63,FOLLOW_63_in_mathOperator1217); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_63.add(char_literal57);
 
 
 
@@ -2845,9 +2899,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 187:5: -> ^( OPERATOR '-' )
+                    // 187:5: -> ^( OPERATOR '+' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:187:8: ^( OPERATOR '-' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:187:8: ^( OPERATOR '+' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -2862,11 +2916,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:188:5: '/'
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:188:5: '-'
                     {
-                    char_literal56=(Token)match(input,64,FOLLOW_64_in_mathOperator1225); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_64.add(char_literal56);
+                    char_literal58=(Token)match(input,64,FOLLOW_64_in_mathOperator1235); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_64.add(char_literal58);
 
 
 
@@ -2882,9 +2936,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 189:5: -> ^( OPERATOR '/' )
+                    // 189:5: -> ^( OPERATOR '-' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:189:8: ^( OPERATOR '/' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:189:8: ^( OPERATOR '-' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -2899,11 +2953,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 4 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:190:5: '*'
+                case 3 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:190:5: '/'
                     {
-                    char_literal57=(Token)match(input,65,FOLLOW_65_in_mathOperator1243); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_65.add(char_literal57);
+                    char_literal59=(Token)match(input,65,FOLLOW_65_in_mathOperator1253); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_65.add(char_literal59);
 
 
 
@@ -2919,9 +2973,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 191:5: -> ^( OPERATOR '*' )
+                    // 191:5: -> ^( OPERATOR '/' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:191:8: ^( OPERATOR '*' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:191:8: ^( OPERATOR '/' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -2936,11 +2990,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 5 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:192:5: '%'
+                case 4 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:192:5: '*'
                     {
-                    char_literal58=(Token)match(input,66,FOLLOW_66_in_mathOperator1261); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_66.add(char_literal58);
+                    char_literal60=(Token)match(input,66,FOLLOW_66_in_mathOperator1271); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_66.add(char_literal60);
 
 
 
@@ -2956,9 +3010,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 193:5: -> ^( OPERATOR '%' )
+                    // 193:5: -> ^( OPERATOR '*' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:193:8: ^( OPERATOR '%' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:193:8: ^( OPERATOR '*' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -2973,11 +3027,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 6 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:194:5: '**'
+                case 5 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:194:5: '%'
                     {
-                    string_literal59=(Token)match(input,67,FOLLOW_67_in_mathOperator1279); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_67.add(string_literal59);
+                    char_literal61=(Token)match(input,67,FOLLOW_67_in_mathOperator1289); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_67.add(char_literal61);
 
 
 
@@ -2993,14 +3047,51 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 195:5: -> ^( OPERATOR '**' )
+                    // 195:5: -> ^( OPERATOR '%' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:195:8: ^( OPERATOR '**' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:195:8: ^( OPERATOR '%' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
 
                         adaptor.addChild(root_1, stream_67.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 6 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:196:5: '**'
+                    {
+                    string_literal62=(Token)match(input,68,FOLLOW_68_in_mathOperator1307); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_68.add(string_literal62);
+
+
+
+                    // AST REWRITE
+                    // elements: 68
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 197:5: -> ^( OPERATOR '**' )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:197:8: ^( OPERATOR '**' )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
+
+                        adaptor.addChild(root_1, stream_68.nextNode());
 
                         adaptor.addChild(root_0, root_1);
                         }
@@ -3038,110 +3129,72 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "relationalOperator"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:198:1: relationalOperator : ( '>' -> ^( OPERATOR '>' ) | '<' -> ^( OPERATOR '<' ) | '>=' -> ^( OPERATOR '>=' ) | '<=' -> ^( OPERATOR '<=' ) | '!=' -> ^( OPERATOR '!=' ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:200:1: relationalOperator : ( '>' -> ^( OPERATOR '>' ) | '<' -> ^( OPERATOR '<' ) | '>=' -> ^( OPERATOR '>=' ) | '<=' -> ^( OPERATOR '<=' ) | notEqualOperator );
     public final LetaGrammarParser.relationalOperator_return relationalOperator() throws RecognitionException {
         LetaGrammarParser.relationalOperator_return retval = new LetaGrammarParser.relationalOperator_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal60=null;
-        Token char_literal61=null;
-        Token string_literal62=null;
-        Token string_literal63=null;
-        Token string_literal64=null;
+        Token char_literal63=null;
+        Token char_literal64=null;
+        Token string_literal65=null;
+        Token string_literal66=null;
+        LetaGrammarParser.notEqualOperator_return notEqualOperator67 = null;
 
-        Object char_literal60_tree=null;
-        Object char_literal61_tree=null;
-        Object string_literal62_tree=null;
-        Object string_literal63_tree=null;
-        Object string_literal64_tree=null;
+
+        Object char_literal63_tree=null;
+        Object char_literal64_tree=null;
+        Object string_literal65_tree=null;
+        Object string_literal66_tree=null;
         RewriteRuleTokenStream stream_69=new RewriteRuleTokenStream(adaptor,"token 69");
-        RewriteRuleTokenStream stream_68=new RewriteRuleTokenStream(adaptor,"token 68");
         RewriteRuleTokenStream stream_70=new RewriteRuleTokenStream(adaptor,"token 70");
         RewriteRuleTokenStream stream_71=new RewriteRuleTokenStream(adaptor,"token 71");
         RewriteRuleTokenStream stream_72=new RewriteRuleTokenStream(adaptor,"token 72");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:199:3: ( '>' -> ^( OPERATOR '>' ) | '<' -> ^( OPERATOR '<' ) | '>=' -> ^( OPERATOR '>=' ) | '<=' -> ^( OPERATOR '<=' ) | '!=' -> ^( OPERATOR '!=' ) )
-            int alt23=5;
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:201:3: ( '>' -> ^( OPERATOR '>' ) | '<' -> ^( OPERATOR '<' ) | '>=' -> ^( OPERATOR '>=' ) | '<=' -> ^( OPERATOR '<=' ) | notEqualOperator )
+            int alt25=5;
             switch ( input.LA(1) ) {
-            case 68:
-                {
-                alt23=1;
-                }
-                break;
             case 69:
                 {
-                alt23=2;
+                alt25=1;
                 }
                 break;
             case 70:
                 {
-                alt23=3;
+                alt25=2;
                 }
                 break;
             case 71:
                 {
-                alt23=4;
+                alt25=3;
                 }
                 break;
             case 72:
                 {
-                alt23=5;
+                alt25=4;
+                }
+                break;
+            case 73:
+                {
+                alt25=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 23, 0, input);
+                    new NoViableAltException("", 25, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt23) {
+            switch (alt25) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:199:5: '>'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:201:5: '>'
                     {
-                    char_literal60=(Token)match(input,68,FOLLOW_68_in_relationalOperator1304); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_68.add(char_literal60);
-
-
-
-                    // AST REWRITE
-                    // elements: 68
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 200:5: -> ^( OPERATOR '>' )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:200:8: ^( OPERATOR '>' )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
-
-                        adaptor.addChild(root_1, stream_68.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:201:5: '<'
-                    {
-                    char_literal61=(Token)match(input,69,FOLLOW_69_in_relationalOperator1322); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_69.add(char_literal61);
+                    char_literal63=(Token)match(input,69,FOLLOW_69_in_relationalOperator1332); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_69.add(char_literal63);
 
 
 
@@ -3157,9 +3210,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 202:5: -> ^( OPERATOR '<' )
+                    // 202:5: -> ^( OPERATOR '>' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:202:8: ^( OPERATOR '<' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:202:8: ^( OPERATOR '>' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -3174,11 +3227,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:203:5: '>='
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:203:5: '<'
                     {
-                    string_literal62=(Token)match(input,70,FOLLOW_70_in_relationalOperator1340); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_70.add(string_literal62);
+                    char_literal64=(Token)match(input,70,FOLLOW_70_in_relationalOperator1350); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_70.add(char_literal64);
 
 
 
@@ -3194,9 +3247,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 204:5: -> ^( OPERATOR '>=' )
+                    // 204:5: -> ^( OPERATOR '<' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:204:8: ^( OPERATOR '>=' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:204:8: ^( OPERATOR '<' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -3211,11 +3264,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 4 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:205:5: '<='
+                case 3 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:205:5: '>='
                     {
-                    string_literal63=(Token)match(input,71,FOLLOW_71_in_relationalOperator1358); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_71.add(string_literal63);
+                    string_literal65=(Token)match(input,71,FOLLOW_71_in_relationalOperator1368); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_71.add(string_literal65);
 
 
 
@@ -3231,9 +3284,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 206:5: -> ^( OPERATOR '<=' )
+                    // 206:5: -> ^( OPERATOR '>=' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:206:8: ^( OPERATOR '<=' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:206:8: ^( OPERATOR '>=' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -3248,11 +3301,11 @@ public class LetaGrammarParser extends Parser {
                     retval.tree = root_0;}
                     }
                     break;
-                case 5 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:207:5: '!='
+                case 4 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:207:5: '<='
                     {
-                    string_literal64=(Token)match(input,72,FOLLOW_72_in_relationalOperator1376); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_72.add(string_literal64);
+                    string_literal66=(Token)match(input,72,FOLLOW_72_in_relationalOperator1386); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_72.add(string_literal66);
 
 
 
@@ -3268,9 +3321,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 208:5: -> ^( OPERATOR '!=' )
+                    // 208:5: -> ^( OPERATOR '<=' )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:208:8: ^( OPERATOR '!=' )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:208:8: ^( OPERATOR '<=' )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
@@ -3283,6 +3336,20 @@ public class LetaGrammarParser extends Parser {
                     }
 
                     retval.tree = root_0;}
+                    }
+                    break;
+                case 5 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:209:5: notEqualOperator
+                    {
+                    root_0 = (Object)adaptor.nil();
+
+                    pushFollow(FOLLOW_notEqualOperator_in_relationalOperator1404);
+                    notEqualOperator67=notEqualOperator();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) adaptor.addChild(root_0, notEqualOperator67.getTree());
+
                     }
                     break;
 
@@ -3307,81 +3374,35 @@ public class LetaGrammarParser extends Parser {
     }
     // $ANTLR end "relationalOperator"
 
-    public static class set_return extends ParserRuleReturnScope {
+    public static class notEqualOperator_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "set"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:211:1: set : '{' subSet '}' ( ',' set )? -> ^( SET subSet ( set )? ) ;
-    public final LetaGrammarParser.set_return set() throws RecognitionException {
-        LetaGrammarParser.set_return retval = new LetaGrammarParser.set_return();
+    // $ANTLR start "notEqualOperator"
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:212:1: notEqualOperator : '!=' -> ^( OPERATOR '!=' ) ;
+    public final LetaGrammarParser.notEqualOperator_return notEqualOperator() throws RecognitionException {
+        LetaGrammarParser.notEqualOperator_return retval = new LetaGrammarParser.notEqualOperator_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal65=null;
-        Token char_literal67=null;
-        Token char_literal68=null;
-        LetaGrammarParser.subSet_return subSet66 = null;
+        Token string_literal68=null;
 
-        LetaGrammarParser.set_return set69 = null;
-
-
-        Object char_literal65_tree=null;
-        Object char_literal67_tree=null;
-        Object char_literal68_tree=null;
-        RewriteRuleTokenStream stream_51=new RewriteRuleTokenStream(adaptor,"token 51");
+        Object string_literal68_tree=null;
         RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
-        RewriteRuleTokenStream stream_50=new RewriteRuleTokenStream(adaptor,"token 50");
-        RewriteRuleSubtreeStream stream_set=new RewriteRuleSubtreeStream(adaptor,"rule set");
-        RewriteRuleSubtreeStream stream_subSet=new RewriteRuleSubtreeStream(adaptor,"rule subSet");
+
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:212:3: ( '{' subSet '}' ( ',' set )? -> ^( SET subSet ( set )? ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:212:5: '{' subSet '}' ( ',' set )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:213:3: ( '!=' -> ^( OPERATOR '!=' ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:213:5: '!='
             {
-            char_literal65=(Token)match(input,50,FOLLOW_50_in_set1401); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_50.add(char_literal65);
-
-            pushFollow(FOLLOW_subSet_in_set1403);
-            subSet66=subSet();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_subSet.add(subSet66.getTree());
-            char_literal67=(Token)match(input,51,FOLLOW_51_in_set1405); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_51.add(char_literal67);
-
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:212:20: ( ',' set )?
-            int alt24=2;
-            int LA24_0 = input.LA(1);
-
-            if ( (LA24_0==73) ) {
-                alt24=1;
-            }
-            switch (alt24) {
-                case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:212:21: ',' set
-                    {
-                    char_literal68=(Token)match(input,73,FOLLOW_73_in_set1408); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_73.add(char_literal68);
-
-                    pushFollow(FOLLOW_set_in_set1410);
-                    set69=set();
-
-                    state._fsp--;
-                    if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_set.add(set69.getTree());
-
-                    }
-                    break;
-
-            }
+            string_literal68=(Token)match(input,73,FOLLOW_73_in_notEqualOperator1417); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_73.add(string_literal68);
 
 
 
             // AST REWRITE
-            // elements: set, subSet
+            // elements: 73
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3392,15 +3413,137 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 213:5: -> ^( SET subSet ( set )? )
+            // 214:5: -> ^( OPERATOR '!=' )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:213:8: ^( SET subSet ( set )? )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:214:8: ^( OPERATOR '!=' )
+                {
+                Object root_1 = (Object)adaptor.nil();
+                root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(OPERATOR, "OPERATOR"), root_1);
+
+                adaptor.addChild(root_1, stream_73.nextNode());
+
+                adaptor.addChild(root_0, root_1);
+                }
+
+            }
+
+            retval.tree = root_0;}
+            }
+
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+        }
+        return retval;
+    }
+    // $ANTLR end "notEqualOperator"
+
+    public static class set_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "set"
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:217:1: set : '{' list '}' ( ',' set )? -> ^( SET list ( set )? ) ;
+    public final LetaGrammarParser.set_return set() throws RecognitionException {
+        LetaGrammarParser.set_return retval = new LetaGrammarParser.set_return();
+        retval.start = input.LT(1);
+
+        Object root_0 = null;
+
+        Token char_literal69=null;
+        Token char_literal71=null;
+        Token char_literal72=null;
+        LetaGrammarParser.list_return list70 = null;
+
+        LetaGrammarParser.set_return set73 = null;
+
+
+        Object char_literal69_tree=null;
+        Object char_literal71_tree=null;
+        Object char_literal72_tree=null;
+        RewriteRuleTokenStream stream_51=new RewriteRuleTokenStream(adaptor,"token 51");
+        RewriteRuleTokenStream stream_52=new RewriteRuleTokenStream(adaptor,"token 52");
+        RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+        RewriteRuleSubtreeStream stream_set=new RewriteRuleSubtreeStream(adaptor,"rule set");
+        RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
+        try {
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:218:3: ( '{' list '}' ( ',' set )? -> ^( SET list ( set )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:218:5: '{' list '}' ( ',' set )?
+            {
+            char_literal69=(Token)match(input,51,FOLLOW_51_in_set1442); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_51.add(char_literal69);
+
+            pushFollow(FOLLOW_list_in_set1444);
+            list70=list();
+
+            state._fsp--;
+            if (state.failed) return retval;
+            if ( state.backtracking==0 ) stream_list.add(list70.getTree());
+            char_literal71=(Token)match(input,52,FOLLOW_52_in_set1446); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_52.add(char_literal71);
+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:218:18: ( ',' set )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
+
+            if ( (LA26_0==74) ) {
+                alt26=1;
+            }
+            switch (alt26) {
+                case 1 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:218:19: ',' set
+                    {
+                    char_literal72=(Token)match(input,74,FOLLOW_74_in_set1449); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_74.add(char_literal72);
+
+                    pushFollow(FOLLOW_set_in_set1451);
+                    set73=set();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_set.add(set73.getTree());
+
+                    }
+                    break;
+
+            }
+
+
+
+            // AST REWRITE
+            // elements: list, set
+            // token labels: 
+            // rule labels: retval
+            // token list labels: 
+            // rule list labels: 
+            // wildcard labels: 
+            if ( state.backtracking==0 ) {
+            retval.tree = root_0;
+            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+            root_0 = (Object)adaptor.nil();
+            // 219:5: -> ^( SET list ( set )? )
+            {
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:219:8: ^( SET list ( set )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(SET, "SET"), root_1);
 
-                adaptor.addChild(root_1, stream_subSet.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:213:21: ( set )?
+                adaptor.addChild(root_1, stream_list.nextTree());
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:219:19: ( set )?
                 if ( stream_set.hasNext() ) {
                     adaptor.addChild(root_1, stream_set.nextTree());
 
@@ -3435,59 +3578,87 @@ public class LetaGrammarParser extends Parser {
     }
     // $ANTLR end "set"
 
-    public static class subSet_return extends ParserRuleReturnScope {
+    public static class list_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "subSet"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:216:1: subSet : literal ( ',' subSet )? -> ^( SUBSET literal ( subSet )? ) ;
-    public final LetaGrammarParser.subSet_return subSet() throws RecognitionException {
-        LetaGrammarParser.subSet_return retval = new LetaGrammarParser.subSet_return();
+    // $ANTLR start "list"
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:222:1: list : ( stringLiteral | otherLiteral ) ( ',' list )? -> ^( SUBSET ( stringLiteral )? ( otherLiteral )? ( list )? ) ;
+    public final LetaGrammarParser.list_return list() throws RecognitionException {
+        LetaGrammarParser.list_return retval = new LetaGrammarParser.list_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token char_literal71=null;
-        LetaGrammarParser.literal_return literal70 = null;
+        Token char_literal76=null;
+        LetaGrammarParser.stringLiteral_return stringLiteral74 = null;
 
-        LetaGrammarParser.subSet_return subSet72 = null;
+        LetaGrammarParser.otherLiteral_return otherLiteral75 = null;
+
+        LetaGrammarParser.list_return list77 = null;
 
 
-        Object char_literal71_tree=null;
-        RewriteRuleTokenStream stream_73=new RewriteRuleTokenStream(adaptor,"token 73");
-        RewriteRuleSubtreeStream stream_subSet=new RewriteRuleSubtreeStream(adaptor,"rule subSet");
-        RewriteRuleSubtreeStream stream_literal=new RewriteRuleSubtreeStream(adaptor,"rule literal");
+        Object char_literal76_tree=null;
+        RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+        RewriteRuleSubtreeStream stream_otherLiteral=new RewriteRuleSubtreeStream(adaptor,"rule otherLiteral");
+        RewriteRuleSubtreeStream stream_stringLiteral=new RewriteRuleSubtreeStream(adaptor,"rule stringLiteral");
+        RewriteRuleSubtreeStream stream_list=new RewriteRuleSubtreeStream(adaptor,"rule list");
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:217:3: ( literal ( ',' subSet )? -> ^( SUBSET literal ( subSet )? ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:217:5: literal ( ',' subSet )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:3: ( ( stringLiteral | otherLiteral ) ( ',' list )? -> ^( SUBSET ( stringLiteral )? ( otherLiteral )? ( list )? ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:5: ( stringLiteral | otherLiteral ) ( ',' list )?
             {
-            pushFollow(FOLLOW_literal_in_subSet1440);
-            literal70=literal();
-
-            state._fsp--;
-            if (state.failed) return retval;
-            if ( state.backtracking==0 ) stream_literal.add(literal70.getTree());
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:217:13: ( ',' subSet )?
-            int alt25=2;
-            int LA25_0 = input.LA(1);
-
-            if ( (LA25_0==73) ) {
-                alt25=1;
-            }
-            switch (alt25) {
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:5: ( stringLiteral | otherLiteral )
+            int alt27=2;
+            alt27 = dfa27.predict(input);
+            switch (alt27) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:217:14: ',' subSet
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:6: stringLiteral
                     {
-                    char_literal71=(Token)match(input,73,FOLLOW_73_in_subSet1443); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_73.add(char_literal71);
-
-                    pushFollow(FOLLOW_subSet_in_subSet1445);
-                    subSet72=subSet();
+                    pushFollow(FOLLOW_stringLiteral_in_list1482);
+                    stringLiteral74=stringLiteral();
 
                     state._fsp--;
                     if (state.failed) return retval;
-                    if ( state.backtracking==0 ) stream_subSet.add(subSet72.getTree());
+                    if ( state.backtracking==0 ) stream_stringLiteral.add(stringLiteral74.getTree());
+
+                    }
+                    break;
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:22: otherLiteral
+                    {
+                    pushFollow(FOLLOW_otherLiteral_in_list1486);
+                    otherLiteral75=otherLiteral();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_otherLiteral.add(otherLiteral75.getTree());
+
+                    }
+                    break;
+
+            }
+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:36: ( ',' list )?
+            int alt28=2;
+            int LA28_0 = input.LA(1);
+
+            if ( (LA28_0==74) ) {
+                alt28=1;
+            }
+            switch (alt28) {
+                case 1 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:37: ',' list
+                    {
+                    char_literal76=(Token)match(input,74,FOLLOW_74_in_list1490); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_74.add(char_literal76);
+
+                    pushFollow(FOLLOW_list_in_list1492);
+                    list77=list();
+
+                    state._fsp--;
+                    if (state.failed) return retval;
+                    if ( state.backtracking==0 ) stream_list.add(list77.getTree());
 
                     }
                     break;
@@ -3497,7 +3668,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: literal, subSet
+            // elements: list, stringLiteral, otherLiteral
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3508,20 +3679,31 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 218:5: -> ^( SUBSET literal ( subSet )? )
+            // 224:5: -> ^( SUBSET ( stringLiteral )? ( otherLiteral )? ( list )? )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:218:8: ^( SUBSET literal ( subSet )? )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:224:8: ^( SUBSET ( stringLiteral )? ( otherLiteral )? ( list )? )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(SUBSET, "SUBSET"), root_1);
 
-                adaptor.addChild(root_1, stream_literal.nextTree());
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:218:25: ( subSet )?
-                if ( stream_subSet.hasNext() ) {
-                    adaptor.addChild(root_1, stream_subSet.nextTree());
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:224:17: ( stringLiteral )?
+                if ( stream_stringLiteral.hasNext() ) {
+                    adaptor.addChild(root_1, stream_stringLiteral.nextTree());
 
                 }
-                stream_subSet.reset();
+                stream_stringLiteral.reset();
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:224:32: ( otherLiteral )?
+                if ( stream_otherLiteral.hasNext() ) {
+                    adaptor.addChild(root_1, stream_otherLiteral.nextTree());
+
+                }
+                stream_otherLiteral.reset();
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:224:46: ( list )?
+                if ( stream_list.hasNext() ) {
+                    adaptor.addChild(root_1, stream_list.nextTree());
+
+                }
+                stream_list.reset();
 
                 adaptor.addChild(root_0, root_1);
                 }
@@ -3549,89 +3731,53 @@ public class LetaGrammarParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "subSet"
+    // $ANTLR end "list"
 
-    public static class literal_return extends ParserRuleReturnScope {
+    public static class stringLiteral_return extends ParserRuleReturnScope {
         Object tree;
         public Object getTree() { return tree; }
     };
 
-    // $ANTLR start "literal"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:221:1: literal : ( STRING -> ^( LITERAL STRING ) | FLOAT -> ^( LITERAL FLOAT ) | MINUS_FLOAT -> ^( LITERAL MINUS_FLOAT ) | INT -> ^( LITERAL INT ) | MINUS_INT -> ^( LITERAL MINUS_INT ) | 'null' -> ^( LITERAL NULL ) );
-    public final LetaGrammarParser.literal_return literal() throws RecognitionException {
-        LetaGrammarParser.literal_return retval = new LetaGrammarParser.literal_return();
+    // $ANTLR start "stringLiteral"
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:227:1: stringLiteral : ( STRING -> ^( LITERAL STRING ) | 'null' -> ^( LITERAL NULL ) );
+    public final LetaGrammarParser.stringLiteral_return stringLiteral() throws RecognitionException {
+        LetaGrammarParser.stringLiteral_return retval = new LetaGrammarParser.stringLiteral_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token STRING73=null;
-        Token FLOAT74=null;
-        Token MINUS_FLOAT75=null;
-        Token INT76=null;
-        Token MINUS_INT77=null;
-        Token string_literal78=null;
+        Token STRING78=null;
+        Token string_literal79=null;
 
-        Object STRING73_tree=null;
-        Object FLOAT74_tree=null;
-        Object MINUS_FLOAT75_tree=null;
-        Object INT76_tree=null;
-        Object MINUS_INT77_tree=null;
-        Object string_literal78_tree=null;
-        RewriteRuleTokenStream stream_MINUS_INT=new RewriteRuleTokenStream(adaptor,"token MINUS_INT");
-        RewriteRuleTokenStream stream_MINUS_FLOAT=new RewriteRuleTokenStream(adaptor,"token MINUS_FLOAT");
-        RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
-        RewriteRuleTokenStream stream_FLOAT=new RewriteRuleTokenStream(adaptor,"token FLOAT");
-        RewriteRuleTokenStream stream_74=new RewriteRuleTokenStream(adaptor,"token 74");
+        Object STRING78_tree=null;
+        Object string_literal79_tree=null;
+        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
         RewriteRuleTokenStream stream_STRING=new RewriteRuleTokenStream(adaptor,"token STRING");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:222:3: ( STRING -> ^( LITERAL STRING ) | FLOAT -> ^( LITERAL FLOAT ) | MINUS_FLOAT -> ^( LITERAL MINUS_FLOAT ) | INT -> ^( LITERAL INT ) | MINUS_INT -> ^( LITERAL MINUS_INT ) | 'null' -> ^( LITERAL NULL ) )
-            int alt26=6;
-            switch ( input.LA(1) ) {
-            case STRING:
-                {
-                alt26=1;
-                }
-                break;
-            case FLOAT:
-                {
-                alt26=2;
-                }
-                break;
-            case MINUS_FLOAT:
-                {
-                alt26=3;
-                }
-                break;
-            case INT:
-                {
-                alt26=4;
-                }
-                break;
-            case MINUS_INT:
-                {
-                alt26=5;
-                }
-                break;
-            case 74:
-                {
-                alt26=6;
-                }
-                break;
-            default:
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:228:3: ( STRING -> ^( LITERAL STRING ) | 'null' -> ^( LITERAL NULL ) )
+            int alt29=2;
+            int LA29_0 = input.LA(1);
+
+            if ( (LA29_0==STRING) ) {
+                alt29=1;
+            }
+            else if ( (LA29_0==75) ) {
+                alt29=2;
+            }
+            else {
                 if (state.backtracking>0) {state.failed=true; return retval;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 26, 0, input);
+                    new NoViableAltException("", 29, 0, input);
 
                 throw nvae;
             }
-
-            switch (alt26) {
+            switch (alt29) {
                 case 1 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:222:5: STRING
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:228:5: STRING
                     {
-                    STRING73=(Token)match(input,STRING,FOLLOW_STRING_in_literal1475); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_STRING.add(STRING73);
+                    STRING78=(Token)match(input,STRING,FOLLOW_STRING_in_stringLiteral1526); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_STRING.add(STRING78);
 
 
 
@@ -3647,9 +3793,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 223:5: -> ^( LITERAL STRING )
+                    // 229:5: -> ^( LITERAL STRING )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:223:8: ^( LITERAL STRING )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:229:8: ^( LITERAL STRING )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
@@ -3665,158 +3811,10 @@ public class LetaGrammarParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:224:5: FLOAT
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:230:5: 'null'
                     {
-                    FLOAT74=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_literal1493); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_FLOAT.add(FLOAT74);
-
-
-
-                    // AST REWRITE
-                    // elements: FLOAT
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 225:5: -> ^( LITERAL FLOAT )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:225:8: ^( LITERAL FLOAT )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
-
-                        adaptor.addChild(root_1, stream_FLOAT.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 3 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:226:5: MINUS_FLOAT
-                    {
-                    MINUS_FLOAT75=(Token)match(input,MINUS_FLOAT,FOLLOW_MINUS_FLOAT_in_literal1511); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_MINUS_FLOAT.add(MINUS_FLOAT75);
-
-
-
-                    // AST REWRITE
-                    // elements: MINUS_FLOAT
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 227:5: -> ^( LITERAL MINUS_FLOAT )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:227:8: ^( LITERAL MINUS_FLOAT )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
-
-                        adaptor.addChild(root_1, stream_MINUS_FLOAT.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 4 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:228:5: INT
-                    {
-                    INT76=(Token)match(input,INT,FOLLOW_INT_in_literal1529); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_INT.add(INT76);
-
-
-
-                    // AST REWRITE
-                    // elements: INT
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 229:5: -> ^( LITERAL INT )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:229:8: ^( LITERAL INT )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
-
-                        adaptor.addChild(root_1, stream_INT.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 5 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:230:5: MINUS_INT
-                    {
-                    MINUS_INT77=(Token)match(input,MINUS_INT,FOLLOW_MINUS_INT_in_literal1547); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_MINUS_INT.add(MINUS_INT77);
-
-
-
-                    // AST REWRITE
-                    // elements: MINUS_INT
-                    // token labels: 
-                    // rule labels: retval
-                    // token list labels: 
-                    // rule list labels: 
-                    // wildcard labels: 
-                    if ( state.backtracking==0 ) {
-                    retval.tree = root_0;
-                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-
-                    root_0 = (Object)adaptor.nil();
-                    // 231:5: -> ^( LITERAL MINUS_INT )
-                    {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:231:8: ^( LITERAL MINUS_INT )
-                        {
-                        Object root_1 = (Object)adaptor.nil();
-                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
-
-                        adaptor.addChild(root_1, stream_MINUS_INT.nextNode());
-
-                        adaptor.addChild(root_0, root_1);
-                        }
-
-                    }
-
-                    retval.tree = root_0;}
-                    }
-                    break;
-                case 6 :
-                    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:232:5: 'null'
-                    {
-                    string_literal78=(Token)match(input,74,FOLLOW_74_in_literal1565); if (state.failed) return retval; 
-                    if ( state.backtracking==0 ) stream_74.add(string_literal78);
+                    string_literal79=(Token)match(input,75,FOLLOW_75_in_stringLiteral1544); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_75.add(string_literal79);
 
 
 
@@ -3832,9 +3830,9 @@ public class LetaGrammarParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (Object)adaptor.nil();
-                    // 233:5: -> ^( LITERAL NULL )
+                    // 231:5: -> ^( LITERAL NULL )
                     {
-                        // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:233:8: ^( LITERAL NULL )
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:231:8: ^( LITERAL NULL )
                         {
                         Object root_1 = (Object)adaptor.nil();
                         root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
@@ -3869,7 +3867,327 @@ public class LetaGrammarParser extends Parser {
         }
         return retval;
     }
-    // $ANTLR end "literal"
+    // $ANTLR end "stringLiteral"
+
+    public static class otherLiteral_return extends ParserRuleReturnScope {
+        Object tree;
+        public Object getTree() { return tree; }
+    };
+
+    // $ANTLR start "otherLiteral"
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:234:1: otherLiteral : ( FLOAT -> ^( LITERAL FLOAT ) | MINUS_FLOAT -> ^( LITERAL MINUS_FLOAT ) | INT -> ^( LITERAL INT ) | MINUS_INT -> ^( LITERAL MINUS_INT ) | DATE_TIME -> ^( LITERAL DATE_TIME ) | 'null' -> ^( LITERAL NULL ) );
+    public final LetaGrammarParser.otherLiteral_return otherLiteral() throws RecognitionException {
+        LetaGrammarParser.otherLiteral_return retval = new LetaGrammarParser.otherLiteral_return();
+        retval.start = input.LT(1);
+
+        Object root_0 = null;
+
+        Token FLOAT80=null;
+        Token MINUS_FLOAT81=null;
+        Token INT82=null;
+        Token MINUS_INT83=null;
+        Token DATE_TIME84=null;
+        Token string_literal85=null;
+
+        Object FLOAT80_tree=null;
+        Object MINUS_FLOAT81_tree=null;
+        Object INT82_tree=null;
+        Object MINUS_INT83_tree=null;
+        Object DATE_TIME84_tree=null;
+        Object string_literal85_tree=null;
+        RewriteRuleTokenStream stream_DATE_TIME=new RewriteRuleTokenStream(adaptor,"token DATE_TIME");
+        RewriteRuleTokenStream stream_MINUS_INT=new RewriteRuleTokenStream(adaptor,"token MINUS_INT");
+        RewriteRuleTokenStream stream_MINUS_FLOAT=new RewriteRuleTokenStream(adaptor,"token MINUS_FLOAT");
+        RewriteRuleTokenStream stream_INT=new RewriteRuleTokenStream(adaptor,"token INT");
+        RewriteRuleTokenStream stream_FLOAT=new RewriteRuleTokenStream(adaptor,"token FLOAT");
+        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
+
+        try {
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:235:3: ( FLOAT -> ^( LITERAL FLOAT ) | MINUS_FLOAT -> ^( LITERAL MINUS_FLOAT ) | INT -> ^( LITERAL INT ) | MINUS_INT -> ^( LITERAL MINUS_INT ) | DATE_TIME -> ^( LITERAL DATE_TIME ) | 'null' -> ^( LITERAL NULL ) )
+            int alt30=6;
+            switch ( input.LA(1) ) {
+            case FLOAT:
+                {
+                alt30=1;
+                }
+                break;
+            case MINUS_FLOAT:
+                {
+                alt30=2;
+                }
+                break;
+            case INT:
+                {
+                alt30=3;
+                }
+                break;
+            case MINUS_INT:
+                {
+                alt30=4;
+                }
+                break;
+            case DATE_TIME:
+                {
+                alt30=5;
+                }
+                break;
+            case 75:
+                {
+                alt30=6;
+                }
+                break;
+            default:
+                if (state.backtracking>0) {state.failed=true; return retval;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 30, 0, input);
+
+                throw nvae;
+            }
+
+            switch (alt30) {
+                case 1 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:235:5: FLOAT
+                    {
+                    FLOAT80=(Token)match(input,FLOAT,FOLLOW_FLOAT_in_otherLiteral1569); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_FLOAT.add(FLOAT80);
+
+
+
+                    // AST REWRITE
+                    // elements: FLOAT
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 236:5: -> ^( LITERAL FLOAT )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:236:8: ^( LITERAL FLOAT )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, stream_FLOAT.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 2 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:237:5: MINUS_FLOAT
+                    {
+                    MINUS_FLOAT81=(Token)match(input,MINUS_FLOAT,FOLLOW_MINUS_FLOAT_in_otherLiteral1587); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_MINUS_FLOAT.add(MINUS_FLOAT81);
+
+
+
+                    // AST REWRITE
+                    // elements: MINUS_FLOAT
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 238:5: -> ^( LITERAL MINUS_FLOAT )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:238:8: ^( LITERAL MINUS_FLOAT )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, stream_MINUS_FLOAT.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 3 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:239:5: INT
+                    {
+                    INT82=(Token)match(input,INT,FOLLOW_INT_in_otherLiteral1605); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_INT.add(INT82);
+
+
+
+                    // AST REWRITE
+                    // elements: INT
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 240:5: -> ^( LITERAL INT )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:240:8: ^( LITERAL INT )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, stream_INT.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 4 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:241:5: MINUS_INT
+                    {
+                    MINUS_INT83=(Token)match(input,MINUS_INT,FOLLOW_MINUS_INT_in_otherLiteral1623); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_MINUS_INT.add(MINUS_INT83);
+
+
+
+                    // AST REWRITE
+                    // elements: MINUS_INT
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 242:5: -> ^( LITERAL MINUS_INT )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:242:8: ^( LITERAL MINUS_INT )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, stream_MINUS_INT.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 5 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:243:5: DATE_TIME
+                    {
+                    DATE_TIME84=(Token)match(input,DATE_TIME,FOLLOW_DATE_TIME_in_otherLiteral1641); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_DATE_TIME.add(DATE_TIME84);
+
+
+
+                    // AST REWRITE
+                    // elements: DATE_TIME
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 244:5: -> ^( LITERAL DATE_TIME )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:244:8: ^( LITERAL DATE_TIME )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, stream_DATE_TIME.nextNode());
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+                case 6 :
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:245:5: 'null'
+                    {
+                    string_literal85=(Token)match(input,75,FOLLOW_75_in_otherLiteral1659); if (state.failed) return retval; 
+                    if ( state.backtracking==0 ) stream_75.add(string_literal85);
+
+
+
+                    // AST REWRITE
+                    // elements: 
+                    // token labels: 
+                    // rule labels: retval
+                    // token list labels: 
+                    // rule list labels: 
+                    // wildcard labels: 
+                    if ( state.backtracking==0 ) {
+                    retval.tree = root_0;
+                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
+
+                    root_0 = (Object)adaptor.nil();
+                    // 246:5: -> ^( LITERAL NULL )
+                    {
+                        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:246:8: ^( LITERAL NULL )
+                        {
+                        Object root_1 = (Object)adaptor.nil();
+                        root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(LITERAL, "LITERAL"), root_1);
+
+                        adaptor.addChild(root_1, (Object)adaptor.create(NULL, "NULL"));
+
+                        adaptor.addChild(root_0, root_1);
+                        }
+
+                    }
+
+                    retval.tree = root_0;}
+                    }
+                    break;
+
+            }
+            retval.stop = input.LT(-1);
+
+            if ( state.backtracking==0 ) {
+
+            retval.tree = (Object)adaptor.rulePostProcessing(root_0);
+            adaptor.setTokenBoundaries(retval.tree, retval.start, retval.stop);
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+    	retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+
+        }
+        finally {
+        }
+        return retval;
+    }
+    // $ANTLR end "otherLiteral"
 
     public static class testPackage_return extends ParserRuleReturnScope {
         Object tree;
@@ -3877,30 +4195,30 @@ public class LetaGrammarParser extends Parser {
     };
 
     // $ANTLR start "testPackage"
-    // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:236:1: testPackage : 'Package' PACKAGE_ID -> ^( PACKAGE PACKAGE_ID ) ;
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:249:1: testPackage : 'Package' PACKAGE_ID -> ^( PACKAGE PACKAGE_ID ) ;
     public final LetaGrammarParser.testPackage_return testPackage() throws RecognitionException {
         LetaGrammarParser.testPackage_return retval = new LetaGrammarParser.testPackage_return();
         retval.start = input.LT(1);
 
         Object root_0 = null;
 
-        Token string_literal79=null;
-        Token PACKAGE_ID80=null;
+        Token string_literal86=null;
+        Token PACKAGE_ID87=null;
 
-        Object string_literal79_tree=null;
-        Object PACKAGE_ID80_tree=null;
+        Object string_literal86_tree=null;
+        Object PACKAGE_ID87_tree=null;
         RewriteRuleTokenStream stream_PACKAGE_ID=new RewriteRuleTokenStream(adaptor,"token PACKAGE_ID");
-        RewriteRuleTokenStream stream_75=new RewriteRuleTokenStream(adaptor,"token 75");
+        RewriteRuleTokenStream stream_76=new RewriteRuleTokenStream(adaptor,"token 76");
 
         try {
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:237:3: ( 'Package' PACKAGE_ID -> ^( PACKAGE PACKAGE_ID ) )
-            // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:237:5: 'Package' PACKAGE_ID
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:250:3: ( 'Package' PACKAGE_ID -> ^( PACKAGE PACKAGE_ID ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:250:5: 'Package' PACKAGE_ID
             {
-            string_literal79=(Token)match(input,75,FOLLOW_75_in_testPackage1590); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_75.add(string_literal79);
+            string_literal86=(Token)match(input,76,FOLLOW_76_in_testPackage1684); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_76.add(string_literal86);
 
-            PACKAGE_ID80=(Token)match(input,PACKAGE_ID,FOLLOW_PACKAGE_ID_in_testPackage1592); if (state.failed) return retval; 
-            if ( state.backtracking==0 ) stream_PACKAGE_ID.add(PACKAGE_ID80);
+            PACKAGE_ID87=(Token)match(input,PACKAGE_ID,FOLLOW_PACKAGE_ID_in_testPackage1686); if (state.failed) return retval; 
+            if ( state.backtracking==0 ) stream_PACKAGE_ID.add(PACKAGE_ID87);
 
 
 
@@ -3916,9 +4234,9 @@ public class LetaGrammarParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (Object)adaptor.nil();
-            // 238:5: -> ^( PACKAGE PACKAGE_ID )
+            // 251:5: -> ^( PACKAGE PACKAGE_ID )
             {
-                // C:\\Projects\\LetaCore\\src\\main\\java\\leta\\core\\grammar\\LetaGrammar.g:238:8: ^( PACKAGE PACKAGE_ID )
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:251:8: ^( PACKAGE PACKAGE_ID )
                 {
                 Object root_1 = (Object)adaptor.nil();
                 root_1 = (Object)adaptor.becomeRoot((Object)adaptor.create(PACKAGE, "PACKAGE"), root_1);
@@ -3953,94 +4271,190 @@ public class LetaGrammarParser extends Parser {
     }
     // $ANTLR end "testPackage"
 
+    // $ANTLR start synpred17_LetaGrammar
+    public final void synpred17_LetaGrammar_fragment() throws RecognitionException {   
+        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:5: ( term ( notEqualOperator )? stringLiteral )
+        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:5: term ( notEqualOperator )? stringLiteral
+        {
+        pushFollow(FOLLOW_term_in_synpred17_LetaGrammar836);
+        term();
+
+        state._fsp--;
+        if (state.failed) return ;
+        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:141:10: ( notEqualOperator )?
+        int alt35=2;
+        int LA35_0 = input.LA(1);
+
+        if ( (LA35_0==73) ) {
+            alt35=1;
+        }
+        switch (alt35) {
+            case 1 :
+                // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:0:0: notEqualOperator
+                {
+                pushFollow(FOLLOW_notEqualOperator_in_synpred17_LetaGrammar838);
+                notEqualOperator();
+
+                state._fsp--;
+                if (state.failed) return ;
+
+                }
+                break;
+
+        }
+
+        pushFollow(FOLLOW_stringLiteral_in_synpred17_LetaGrammar841);
+        stringLiteral();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred17_LetaGrammar
+
+    // $ANTLR start synpred38_LetaGrammar
+    public final void synpred38_LetaGrammar_fragment() throws RecognitionException {   
+        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:6: ( stringLiteral )
+        // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:223:6: stringLiteral
+        {
+        pushFollow(FOLLOW_stringLiteral_in_synpred38_LetaGrammar1482);
+        stringLiteral();
+
+        state._fsp--;
+        if (state.failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred38_LetaGrammar
+
     // Delegated rules
+
+    public final boolean synpred38_LetaGrammar() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred38_LetaGrammar_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred17_LetaGrammar() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred17_LetaGrammar_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
 
 
     protected DFA4 dfa4 = new DFA4(this);
     protected DFA10 dfa10 = new DFA10(this);
     protected DFA12 dfa12 = new DFA12(this);
     protected DFA14 dfa14 = new DFA14(this);
-    protected DFA15 dfa15 = new DFA15(this);
-    protected DFA18 dfa18 = new DFA18(this);
-    protected DFA19 dfa19 = new DFA19(this);
+    protected DFA17 dfa17 = new DFA17(this);
+    protected DFA16 dfa16 = new DFA16(this);
+    protected DFA20 dfa20 = new DFA20(this);
     protected DFA21 dfa21 = new DFA21(this);
+    protected DFA23 dfa23 = new DFA23(this);
+    protected DFA27 dfa27 = new DFA27(this);
     static final String DFA4_eotS =
-        "\u0091\uffff";
+        "\u0097\uffff";
     static final String DFA4_eofS =
-        "\u0091\uffff";
+        "\u0097\uffff";
     static final String DFA4_minS =
-        "\1\43\4\uffff\1\43\1\uffff\5\44\6\43\1\44\1\uffff\6\43\1\44\6\43"+
-        "\1\44\6\43\1\44\6\43\1\44\6\43\1\44\14\uffff\1\43\14\uffff\1\43"+
-        "\14\uffff\1\43\14\uffff\1\43\14\uffff\1\43\14\uffff\1\43\14\uffff";
+        "\1\43\4\uffff\1\43\1\uffff\1\44\2\43\4\44\5\43\1\44\1\uffff\7\43"+
+        "\1\44\4\uffff\6\43\1\44\6\43\1\44\6\43\1\44\6\43\1\44\12\uffff\1"+
+        "\43\16\uffff\1\43\14\uffff\1\43\14\uffff\1\43\14\uffff\1\43\14\uffff"+
+        "\1\43\14\uffff";
     static final String DFA4_maxS =
-        "\1\74\4\uffff\1\112\1\uffff\5\112\6\75\1\44\1\uffff\6\75\1\44\6"+
-        "\75\1\44\6\75\1\44\6\75\1\44\6\75\1\44\14\uffff\1\75\14\uffff\1"+
-        "\75\14\uffff\1\75\14\uffff\1\75\14\uffff\1\75\14\uffff\1\75\14\uffff";
+        "\1\75\4\uffff\1\113\1\uffff\1\113\2\76\4\113\5\76\1\44\1\uffff\7"+
+        "\76\1\44\4\uffff\6\76\1\44\6\76\1\44\6\76\1\44\6\76\1\44\12\uffff"+
+        "\1\76\16\uffff\1\76\14\uffff\1\76\14\uffff\1\76\14\uffff\1\76\14"+
+        "\uffff\1\76\14\uffff";
     static final String DFA4_acceptS =
-        "\1\uffff\1\1\21\uffff\1\2\175\uffff";
+        "\1\uffff\1\1\22\uffff\1\2\u0082\uffff";
     static final String DFA4_specialS =
-        "\u0091\uffff}>";
+        "\u0097\uffff}>";
     static final String[] DFA4_transitionS = {
-            "\1\5\25\uffff\4\1",
+            "\1\5\26\uffff\4\1",
             "",
             "",
             "",
             "",
-            "\1\1\1\17\1\14\1\15\1\16\1\20\17\uffff\1\22\4\uffff\1\23\6"+
-            "\uffff\1\7\1\10\1\11\1\12\1\13\1\uffff\1\21",
+            "\1\1\1\20\1\10\1\16\1\17\1\21\1\22\17\uffff\1\23\4\uffff\1"+
+            "\24\6\uffff\1\12\1\13\1\14\1\15\1\7\1\uffff\1\11",
             "",
-            "\1\27\1\24\1\25\1\26\1\30\17\uffff\1\32\21\uffff\1\31",
-            "\1\36\1\33\1\34\1\35\1\37\17\uffff\1\41\21\uffff\1\40",
-            "\1\45\1\42\1\43\1\44\1\46\17\uffff\1\50\21\uffff\1\47",
-            "\1\54\1\51\1\52\1\53\1\55\17\uffff\1\57\21\uffff\1\56",
-            "\1\63\1\60\1\61\1\62\1\64\17\uffff\1\66\21\uffff\1\65",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\103",
+            "\1\31\1\25\1\27\1\30\1\32\1\33\17\uffff\1\34\21\uffff\1\26",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\43\1\uffff\1\41\1\42\1\44\1\45\17\uffff\1\47\21\uffff\1"+
+            "\46",
+            "\1\52\1\uffff\1\50\1\51\1\53\1\54\17\uffff\1\56\21\uffff\1"+
+            "\55",
+            "\1\61\1\uffff\1\57\1\60\1\62\1\63\17\uffff\1\65\21\uffff\1"+
+            "\64",
+            "\1\70\1\uffff\1\66\1\67\1\71\1\72\17\uffff\1\74\21\uffff\1"+
+            "\73",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\107",
             "",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\120",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\135",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\152",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\167",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\1\31\uffff\1\23",
-            "\1\u0084",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\126",
             "",
             "",
             "",
             "",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\143",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\160",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\175",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\1\32\uffff\1\24",
+            "\1\u008a",
             "",
             "",
             "",
@@ -4049,9 +4463,9 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
             "",
             "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4062,11 +4476,11 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
             "",
             "",
             "",
             "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4075,11 +4489,11 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
             "",
             "",
             "",
             "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4088,11 +4502,11 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
             "",
             "",
             "",
             "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4101,11 +4515,11 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
             "",
             "",
             "",
             "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4114,7 +4528,11 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\1\1\31\uffff\1\23",
+            "",
+            "",
+            "",
+            "",
+            "\1\1\32\uffff\1\24",
             "",
             "",
             "",
@@ -4169,13 +4587,13 @@ public class LetaGrammarParser extends Parser {
     static final String DFA10_minS =
         "\1\43\14\uffff";
     static final String DFA10_maxS =
-        "\1\74\14\uffff";
+        "\1\75\14\uffff";
     static final String DFA10_acceptS =
         "\1\uffff\1\1\4\uffff\1\2\6\uffff";
     static final String DFA10_specialS =
         "\15\uffff}>";
     static final String[] DFA10_transitionS = {
-            "\1\1\12\uffff\1\6\1\uffff\2\6\3\uffff\3\6\1\uffff\4\1",
+            "\1\1\13\uffff\1\6\1\uffff\2\6\3\uffff\3\6\1\uffff\4\1",
             "",
             "",
             "",
@@ -4230,13 +4648,13 @@ public class LetaGrammarParser extends Parser {
     static final String DFA12_minS =
         "\1\43\14\uffff";
     static final String DFA12_maxS =
-        "\1\74\14\uffff";
+        "\1\75\14\uffff";
     static final String DFA12_acceptS =
         "\1\uffff\1\1\4\uffff\1\2\6\uffff";
     static final String DFA12_specialS =
         "\15\uffff}>";
     static final String[] DFA12_transitionS = {
-            "\1\1\12\uffff\1\6\1\uffff\2\6\3\uffff\3\6\1\uffff\4\1",
+            "\1\1\13\uffff\1\6\1\uffff\2\6\3\uffff\3\6\1\uffff\4\1",
             "",
             "",
             "",
@@ -4285,21 +4703,21 @@ public class LetaGrammarParser extends Parser {
         }
     }
     static final String DFA14_eotS =
-        "\71\uffff";
+        "\73\uffff";
     static final String DFA14_eofS =
-        "\1\uffff\1\2\67\uffff";
+        "\1\uffff\1\2\71\uffff";
     static final String DFA14_minS =
-        "\2\43\10\uffff\5\44\52\uffff";
+        "\2\43\10\uffff\1\44\2\uffff\4\44\52\uffff";
     static final String DFA14_maxS =
-        "\1\43\1\112\10\uffff\5\112\52\uffff";
+        "\1\43\1\113\10\uffff\1\113\2\uffff\4\113\52\uffff";
     static final String DFA14_acceptS =
-        "\2\uffff\1\1\14\uffff\1\2\5\uffff\1\3\43\uffff";
+        "\2\uffff\1\1\10\uffff\1\2\12\uffff\1\3\44\uffff";
     static final String DFA14_specialS =
-        "\71\uffff}>";
+        "\73\uffff}>";
     static final String[] DFA14_transitionS = {
             "\1\1",
-            "\1\2\5\17\5\uffff\1\2\1\uffff\2\2\3\uffff\3\2\1\25\13\uffff"+
-            "\1\12\1\13\1\14\1\15\1\16\1\uffff\1\17",
+            "\1\2\6\13\5\uffff\1\2\1\uffff\2\2\3\uffff\3\2\1\26\13\uffff"+
+            "\1\15\1\16\1\17\1\20\1\12\1\uffff\1\13",
             "",
             "",
             "",
@@ -4308,11 +4726,13 @@ public class LetaGrammarParser extends Parser {
             "",
             "",
             "",
-            "\5\17\17\uffff\1\25\21\uffff\1\17",
-            "\5\17\17\uffff\1\25\21\uffff\1\17",
-            "\5\17\17\uffff\1\25\21\uffff\1\17",
-            "\5\17\17\uffff\1\25\21\uffff\1\17",
-            "\5\17\17\uffff\1\25\21\uffff\1\17",
+            "\6\13\17\uffff\1\26\21\uffff\1\13",
+            "",
+            "",
+            "\1\13\1\uffff\4\13\17\uffff\1\26\21\uffff\1\13",
+            "\1\13\1\uffff\4\13\17\uffff\1\26\21\uffff\1\13",
+            "\1\13\1\uffff\4\13\17\uffff\1\26\21\uffff\1\13",
+            "\1\13\1\uffff\4\13\17\uffff\1\26\21\uffff\1\13",
             "",
             "",
             "",
@@ -4390,20 +4810,160 @@ public class LetaGrammarParser extends Parser {
             return "129:17: (t= term | ti= termInstance | twa= termWithAssociation )";
         }
     }
-    static final String DFA15_eotS =
+    static final String DFA17_eotS =
+        "\63\uffff";
+    static final String DFA17_eofS =
+        "\63\uffff";
+    static final String DFA17_minS =
+        "\1\43\2\44\1\uffff\1\0\12\uffff\1\0\43\uffff";
+    static final String DFA17_maxS =
+        "\1\43\2\113\1\uffff\1\0\12\uffff\1\0\43\uffff";
+    static final String DFA17_acceptS =
+        "\3\uffff\1\1\1\uffff\1\2\55\uffff";
+    static final String DFA17_specialS =
+        "\4\uffff\1\0\12\uffff\1\1\43\uffff}>";
+    static final String[] DFA17_transitionS = {
+            "\1\1",
+            "\1\5\1\3\4\5\33\uffff\4\5\1\2\1\uffff\1\4",
+            "\1\5\1\3\4\5\41\uffff\1\17",
+            "",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA17_eot = DFA.unpackEncodedString(DFA17_eotS);
+    static final short[] DFA17_eof = DFA.unpackEncodedString(DFA17_eofS);
+    static final char[] DFA17_min = DFA.unpackEncodedStringToUnsignedChars(DFA17_minS);
+    static final char[] DFA17_max = DFA.unpackEncodedStringToUnsignedChars(DFA17_maxS);
+    static final short[] DFA17_accept = DFA.unpackEncodedString(DFA17_acceptS);
+    static final short[] DFA17_special = DFA.unpackEncodedString(DFA17_specialS);
+    static final short[][] DFA17_transition;
+
+    static {
+        int numStates = DFA17_transitionS.length;
+        DFA17_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA17_transition[i] = DFA.unpackEncodedString(DFA17_transitionS[i]);
+        }
+    }
+
+    class DFA17 extends DFA {
+
+        public DFA17(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 17;
+            this.eot = DFA17_eot;
+            this.eof = DFA17_eof;
+            this.min = DFA17_min;
+            this.max = DFA17_max;
+            this.accept = DFA17_accept;
+            this.special = DFA17_special;
+            this.transition = DFA17_transition;
+        }
+        public String getDescription() {
+            return "140:1: termInstance : ( term ( notEqualOperator )? stringLiteral -> ^( TERMINSTANCE term ( notEqualOperator )? stringLiteral ) | term ( relationalOperator )? otherLiteral -> ^( TERMINSTANCE term ( relationalOperator )? otherLiteral ) );";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA17_4 = input.LA(1);
+
+                         
+                        int index17_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred17_LetaGrammar()) ) {s = 3;}
+
+                        else if ( (true) ) {s = 5;}
+
+                         
+                        input.seek(index17_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA17_15 = input.LA(1);
+
+                         
+                        int index17_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred17_LetaGrammar()) ) {s = 3;}
+
+                        else if ( (true) ) {s = 5;}
+
+                         
+                        input.seek(index17_15);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 17, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
+    static final String DFA16_eotS =
         "\14\uffff";
-    static final String DFA15_eofS =
+    static final String DFA16_eofS =
         "\14\uffff";
-    static final String DFA15_minS =
+    static final String DFA16_minS =
         "\1\44\13\uffff";
-    static final String DFA15_maxS =
-        "\1\112\13\uffff";
-    static final String DFA15_acceptS =
+    static final String DFA16_maxS =
+        "\1\113\13\uffff";
+    static final String DFA16_acceptS =
         "\1\uffff\1\1\4\uffff\1\2\5\uffff";
-    static final String DFA15_specialS =
+    static final String DFA16_specialS =
         "\14\uffff}>";
-    static final String[] DFA15_transitionS = {
-            "\5\6\33\uffff\5\1\1\uffff\1\6",
+    static final String[] DFA16_transitionS = {
+            "\1\6\1\uffff\4\6\33\uffff\5\1\1\uffff\1\6",
             "",
             "",
             "",
@@ -4417,52 +4977,52 @@ public class LetaGrammarParser extends Parser {
             ""
     };
 
-    static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
-    static final short[] DFA15_eof = DFA.unpackEncodedString(DFA15_eofS);
-    static final char[] DFA15_min = DFA.unpackEncodedStringToUnsignedChars(DFA15_minS);
-    static final char[] DFA15_max = DFA.unpackEncodedStringToUnsignedChars(DFA15_maxS);
-    static final short[] DFA15_accept = DFA.unpackEncodedString(DFA15_acceptS);
-    static final short[] DFA15_special = DFA.unpackEncodedString(DFA15_specialS);
-    static final short[][] DFA15_transition;
+    static final short[] DFA16_eot = DFA.unpackEncodedString(DFA16_eotS);
+    static final short[] DFA16_eof = DFA.unpackEncodedString(DFA16_eofS);
+    static final char[] DFA16_min = DFA.unpackEncodedStringToUnsignedChars(DFA16_minS);
+    static final char[] DFA16_max = DFA.unpackEncodedStringToUnsignedChars(DFA16_maxS);
+    static final short[] DFA16_accept = DFA.unpackEncodedString(DFA16_acceptS);
+    static final short[] DFA16_special = DFA.unpackEncodedString(DFA16_specialS);
+    static final short[][] DFA16_transition;
 
     static {
-        int numStates = DFA15_transitionS.length;
-        DFA15_transition = new short[numStates][];
+        int numStates = DFA16_transitionS.length;
+        DFA16_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA15_transition[i] = DFA.unpackEncodedString(DFA15_transitionS[i]);
+            DFA16_transition[i] = DFA.unpackEncodedString(DFA16_transitionS[i]);
         }
     }
 
-    class DFA15 extends DFA {
+    class DFA16 extends DFA {
 
-        public DFA15(BaseRecognizer recognizer) {
+        public DFA16(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 15;
-            this.eot = DFA15_eot;
-            this.eof = DFA15_eof;
-            this.min = DFA15_min;
-            this.max = DFA15_max;
-            this.accept = DFA15_accept;
-            this.special = DFA15_special;
-            this.transition = DFA15_transition;
+            this.decisionNumber = 16;
+            this.eot = DFA16_eot;
+            this.eof = DFA16_eof;
+            this.min = DFA16_min;
+            this.max = DFA16_max;
+            this.accept = DFA16_accept;
+            this.special = DFA16_special;
+            this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "141:10: ( relationalOperator )?";
+            return "143:10: ( relationalOperator )?";
         }
     }
-    static final String DFA18_eotS =
+    static final String DFA20_eotS =
         "\16\uffff";
-    static final String DFA18_eofS =
+    static final String DFA20_eofS =
         "\1\7\15\uffff";
-    static final String DFA18_minS =
-        "\1\56\15\uffff";
-    static final String DFA18_maxS =
-        "\1\103\15\uffff";
-    static final String DFA18_acceptS =
+    static final String DFA20_minS =
+        "\1\57\15\uffff";
+    static final String DFA20_maxS =
+        "\1\104\15\uffff";
+    static final String DFA20_acceptS =
         "\1\uffff\1\1\5\uffff\1\2\6\uffff";
-    static final String DFA18_specialS =
+    static final String DFA20_specialS =
         "\16\uffff}>";
-    static final String[] DFA18_transitionS = {
+    static final String[] DFA20_transitionS = {
             "\1\7\1\uffff\2\7\3\uffff\3\7\6\uffff\6\1",
             "",
             "",
@@ -4479,165 +5039,53 @@ public class LetaGrammarParser extends Parser {
             ""
     };
 
-    static final short[] DFA18_eot = DFA.unpackEncodedString(DFA18_eotS);
-    static final short[] DFA18_eof = DFA.unpackEncodedString(DFA18_eofS);
-    static final char[] DFA18_min = DFA.unpackEncodedStringToUnsignedChars(DFA18_minS);
-    static final char[] DFA18_max = DFA.unpackEncodedStringToUnsignedChars(DFA18_maxS);
-    static final short[] DFA18_accept = DFA.unpackEncodedString(DFA18_acceptS);
-    static final short[] DFA18_special = DFA.unpackEncodedString(DFA18_specialS);
-    static final short[][] DFA18_transition;
+    static final short[] DFA20_eot = DFA.unpackEncodedString(DFA20_eotS);
+    static final short[] DFA20_eof = DFA.unpackEncodedString(DFA20_eofS);
+    static final char[] DFA20_min = DFA.unpackEncodedStringToUnsignedChars(DFA20_minS);
+    static final char[] DFA20_max = DFA.unpackEncodedStringToUnsignedChars(DFA20_maxS);
+    static final short[] DFA20_accept = DFA.unpackEncodedString(DFA20_acceptS);
+    static final short[] DFA20_special = DFA.unpackEncodedString(DFA20_specialS);
+    static final short[][] DFA20_transition;
 
     static {
-        int numStates = DFA18_transitionS.length;
-        DFA18_transition = new short[numStates][];
+        int numStates = DFA20_transitionS.length;
+        DFA20_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA18_transition[i] = DFA.unpackEncodedString(DFA18_transitionS[i]);
+            DFA20_transition[i] = DFA.unpackEncodedString(DFA20_transitionS[i]);
         }
     }
 
-    class DFA18 extends DFA {
+    class DFA20 extends DFA {
 
-        public DFA18(BaseRecognizer recognizer) {
+        public DFA20(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 18;
-            this.eot = DFA18_eot;
-            this.eof = DFA18_eof;
-            this.min = DFA18_min;
-            this.max = DFA18_max;
-            this.accept = DFA18_accept;
-            this.special = DFA18_special;
-            this.transition = DFA18_transition;
+            this.decisionNumber = 20;
+            this.eot = DFA20_eot;
+            this.eof = DFA20_eof;
+            this.min = DFA20_min;
+            this.max = DFA20_max;
+            this.accept = DFA20_accept;
+            this.special = DFA20_special;
+            this.transition = DFA20_transition;
         }
         public String getDescription() {
-            return "172:17: ( mathOperator formulaExpression )?";
-        }
-    }
-    static final String DFA19_eotS =
-        "\16\uffff";
-    static final String DFA19_eofS =
-        "\1\7\15\uffff";
-    static final String DFA19_minS =
-        "\1\56\15\uffff";
-    static final String DFA19_maxS =
-        "\1\103\15\uffff";
-    static final String DFA19_acceptS =
-        "\1\uffff\1\1\5\uffff\1\2\6\uffff";
-    static final String DFA19_specialS =
-        "\16\uffff}>";
-    static final String[] DFA19_transitionS = {
-            "\1\7\1\uffff\2\7\3\uffff\3\7\6\uffff\6\1",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            ""
-    };
-
-    static final short[] DFA19_eot = DFA.unpackEncodedString(DFA19_eotS);
-    static final short[] DFA19_eof = DFA.unpackEncodedString(DFA19_eofS);
-    static final char[] DFA19_min = DFA.unpackEncodedStringToUnsignedChars(DFA19_minS);
-    static final char[] DFA19_max = DFA.unpackEncodedStringToUnsignedChars(DFA19_maxS);
-    static final short[] DFA19_accept = DFA.unpackEncodedString(DFA19_acceptS);
-    static final short[] DFA19_special = DFA.unpackEncodedString(DFA19_specialS);
-    static final short[][] DFA19_transition;
-
-    static {
-        int numStates = DFA19_transitionS.length;
-        DFA19_transition = new short[numStates][];
-        for (int i=0; i<numStates; i++) {
-            DFA19_transition[i] = DFA.unpackEncodedString(DFA19_transitionS[i]);
-        }
-    }
-
-    class DFA19 extends DFA {
-
-        public DFA19(BaseRecognizer recognizer) {
-            this.recognizer = recognizer;
-            this.decisionNumber = 19;
-            this.eot = DFA19_eot;
-            this.eof = DFA19_eof;
-            this.min = DFA19_min;
-            this.max = DFA19_max;
-            this.accept = DFA19_accept;
-            this.special = DFA19_special;
-            this.transition = DFA19_transition;
-        }
-        public String getDescription() {
-            return "174:31: ( mathOperator formulaExpression )?";
+            return "174:17: ( mathOperator formulaExpression )?";
         }
     }
     static final String DFA21_eotS =
-        "\77\uffff";
+        "\16\uffff";
     static final String DFA21_eofS =
-        "\1\uffff\1\2\75\uffff";
+        "\1\7\15\uffff";
     static final String DFA21_minS =
-        "\1\43\1\44\16\uffff\5\44\52\uffff";
+        "\1\57\15\uffff";
     static final String DFA21_maxS =
-        "\1\43\1\112\16\uffff\5\112\52\uffff";
+        "\1\104\15\uffff";
     static final String DFA21_acceptS =
-        "\2\uffff\1\1\22\uffff\1\2\5\uffff\1\3\43\uffff";
+        "\1\uffff\1\1\5\uffff\1\2\6\uffff";
     static final String DFA21_specialS =
-        "\77\uffff}>";
+        "\16\uffff}>";
     static final String[] DFA21_transitionS = {
-            "\1\1",
-            "\5\25\5\uffff\1\2\1\uffff\2\2\3\uffff\3\2\1\33\4\uffff\7\2"+
-            "\1\20\1\21\1\22\1\23\1\24\1\uffff\1\25",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\5\25\17\uffff\1\33\21\uffff\1\25",
-            "\5\25\17\uffff\1\33\21\uffff\1\25",
-            "\5\25\17\uffff\1\33\21\uffff\1\25",
-            "\5\25\17\uffff\1\33\21\uffff\1\25",
-            "\5\25\17\uffff\1\33\21\uffff\1\25",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
+            "\1\7\1\uffff\2\7\3\uffff\3\7\6\uffff\6\1",
             "",
             "",
             "",
@@ -4683,106 +5131,316 @@ public class LetaGrammarParser extends Parser {
             this.transition = DFA21_transition;
         }
         public String getDescription() {
-            return "179:5: ( term | termInstance | termWithAssociation )";
+            return "176:31: ( mathOperator formulaExpression )?";
+        }
+    }
+    static final String DFA23_eotS =
+        "\101\uffff";
+    static final String DFA23_eofS =
+        "\1\uffff\1\2\77\uffff";
+    static final String DFA23_minS =
+        "\1\43\1\44\16\uffff\1\44\2\uffff\4\44\52\uffff";
+    static final String DFA23_maxS =
+        "\1\43\1\113\16\uffff\1\113\2\uffff\4\113\52\uffff";
+    static final String DFA23_acceptS =
+        "\2\uffff\1\1\16\uffff\1\2\12\uffff\1\3\44\uffff";
+    static final String DFA23_specialS =
+        "\101\uffff}>";
+    static final String[] DFA23_transitionS = {
+            "\1\1",
+            "\6\21\5\uffff\1\2\1\uffff\2\2\3\uffff\3\2\1\34\4\uffff\7\2"+
+            "\1\23\1\24\1\25\1\26\1\20\1\uffff\1\21",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\6\21\17\uffff\1\34\21\uffff\1\21",
+            "",
+            "",
+            "\1\21\1\uffff\4\21\17\uffff\1\34\21\uffff\1\21",
+            "\1\21\1\uffff\4\21\17\uffff\1\34\21\uffff\1\21",
+            "\1\21\1\uffff\4\21\17\uffff\1\34\21\uffff\1\21",
+            "\1\21\1\uffff\4\21\17\uffff\1\34\21\uffff\1\21",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA23_eot = DFA.unpackEncodedString(DFA23_eotS);
+    static final short[] DFA23_eof = DFA.unpackEncodedString(DFA23_eofS);
+    static final char[] DFA23_min = DFA.unpackEncodedStringToUnsignedChars(DFA23_minS);
+    static final char[] DFA23_max = DFA.unpackEncodedStringToUnsignedChars(DFA23_maxS);
+    static final short[] DFA23_accept = DFA.unpackEncodedString(DFA23_acceptS);
+    static final short[] DFA23_special = DFA.unpackEncodedString(DFA23_specialS);
+    static final short[][] DFA23_transition;
+
+    static {
+        int numStates = DFA23_transitionS.length;
+        DFA23_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA23_transition[i] = DFA.unpackEncodedString(DFA23_transitionS[i]);
+        }
+    }
+
+    class DFA23 extends DFA {
+
+        public DFA23(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 23;
+            this.eot = DFA23_eot;
+            this.eof = DFA23_eof;
+            this.min = DFA23_min;
+            this.max = DFA23_max;
+            this.accept = DFA23_accept;
+            this.special = DFA23_special;
+            this.transition = DFA23_transition;
+        }
+        public String getDescription() {
+            return "181:5: ( term | termInstance | termWithAssociation )";
+        }
+    }
+    static final String DFA27_eotS =
+        "\13\uffff";
+    static final String DFA27_eofS =
+        "\13\uffff";
+    static final String DFA27_minS =
+        "\1\44\1\uffff\1\0\10\uffff";
+    static final String DFA27_maxS =
+        "\1\113\1\uffff\1\0\10\uffff";
+    static final String DFA27_acceptS =
+        "\1\uffff\1\1\1\uffff\1\2\7\uffff";
+    static final String DFA27_specialS =
+        "\2\uffff\1\0\10\uffff}>";
+    static final String[] DFA27_transitionS = {
+            "\1\3\1\1\4\3\41\uffff\1\2",
+            "",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA27_eot = DFA.unpackEncodedString(DFA27_eotS);
+    static final short[] DFA27_eof = DFA.unpackEncodedString(DFA27_eofS);
+    static final char[] DFA27_min = DFA.unpackEncodedStringToUnsignedChars(DFA27_minS);
+    static final char[] DFA27_max = DFA.unpackEncodedStringToUnsignedChars(DFA27_maxS);
+    static final short[] DFA27_accept = DFA.unpackEncodedString(DFA27_acceptS);
+    static final short[] DFA27_special = DFA.unpackEncodedString(DFA27_specialS);
+    static final short[][] DFA27_transition;
+
+    static {
+        int numStates = DFA27_transitionS.length;
+        DFA27_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA27_transition[i] = DFA.unpackEncodedString(DFA27_transitionS[i]);
+        }
+    }
+
+    class DFA27 extends DFA {
+
+        public DFA27(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 27;
+            this.eot = DFA27_eot;
+            this.eof = DFA27_eof;
+            this.min = DFA27_min;
+            this.max = DFA27_max;
+            this.accept = DFA27_accept;
+            this.special = DFA27_special;
+            this.transition = DFA27_transition;
+        }
+        public String getDescription() {
+            return "223:5: ( stringLiteral | otherLiteral )";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA27_2 = input.LA(1);
+
+                         
+                        int index27_2 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred38_LetaGrammar()) ) {s = 1;}
+
+                        else if ( (true) ) {s = 3;}
+
+                         
+                        input.seek(index27_2);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 27, _s, input);
+            error(nvae);
+            throw nvae;
         }
     }
  
 
-    public static final BitSet FOLLOW_testPackage_in_leta231 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_testCase_in_leta234 = new BitSet(new long[]{0x0000400000000002L});
-    public static final BitSet FOLLOW_46_in_testCase265 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_ID_in_testCase267 = new BitSet(new long[]{0x0000800000000000L});
-    public static final BitSet FOLLOW_verifyClause_in_testCase269 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_whenClause_in_testCase271 = new BitSet(new long[]{0x0002000000000002L});
+    public static final BitSet FOLLOW_testPackage_in_leta231 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_testCase_in_leta234 = new BitSet(new long[]{0x0000800000000002L});
+    public static final BitSet FOLLOW_47_in_testCase265 = new BitSet(new long[]{0x0000000800000000L});
+    public static final BitSet FOLLOW_ID_in_testCase267 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_verifyClause_in_testCase269 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_whenClause_in_testCase271 = new BitSet(new long[]{0x0004000000000002L});
     public static final BitSet FOLLOW_setClause_in_testCase273 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_47_in_verifyClause306 = new BitSet(new long[]{0x1E10000800000000L});
+    public static final BitSet FOLLOW_48_in_verifyClause306 = new BitSet(new long[]{0x3C20000800000000L});
     public static final BitSet FOLLOW_factComposite_in_verifyClause308 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_48_in_whenClause333 = new BitSet(new long[]{0x1E10000800000000L});
+    public static final BitSet FOLLOW_49_in_whenClause333 = new BitSet(new long[]{0x3C20000800000000L});
     public static final BitSet FOLLOW_factComposite_in_whenClause335 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_setClause360 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_50_in_setClause362 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_set_in_setClause364 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_setClause366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_fact_in_factComposite394 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_formula_in_factComposite400 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_logicalOperator_in_factComposite406 = new BitSet(new long[]{0x1E10000800000000L});
+    public static final BitSet FOLLOW_50_in_setClause360 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_51_in_setClause362 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_set_in_setClause364 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_setClause366 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_fact_in_factComposite394 = new BitSet(new long[]{0x0180000000000002L});
+    public static final BitSet FOLLOW_formula_in_factComposite400 = new BitSet(new long[]{0x0180000000000002L});
+    public static final BitSet FOLLOW_logicalOperator_in_factComposite406 = new BitSet(new long[]{0x3C20000800000000L});
     public static final BitSet FOLLOW_factComposite_in_factComposite410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_factComposite518 = new BitSet(new long[]{0x1E10000800000000L});
-    public static final BitSet FOLLOW_factComposite_in_factComposite522 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_factComposite524 = new BitSet(new long[]{0x00C0000000000002L});
-    public static final BitSet FOLLOW_logicalOperator_in_factComposite529 = new BitSet(new long[]{0x1E10000800000000L});
+    public static final BitSet FOLLOW_53_in_factComposite518 = new BitSet(new long[]{0x3C20000800000000L});
+    public static final BitSet FOLLOW_factComposite_in_factComposite522 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_factComposite524 = new BitSet(new long[]{0x0180000000000002L});
+    public static final BitSet FOLLOW_logicalOperator_in_factComposite529 = new BitSet(new long[]{0x3C20000800000000L});
     public static final BitSet FOLLOW_factComposite_in_factComposite533 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_logicalOperator601 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_logicalOperator613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_logicalOperator601 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_logicalOperator613 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_termComposite_in_fact634 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_complement_in_fact638 = new BitSet(new long[]{0x1E00000800000002L});
+    public static final BitSet FOLLOW_complement_in_fact638 = new BitSet(new long[]{0x3C00000800000002L});
     public static final BitSet FOLLOW_termComposite_in_fact643 = new BitSet(new long[]{0x0000000800000002L});
     public static final BitSet FOLLOW_factExt_in_fact647 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_complement_in_factExt689 = new BitSet(new long[]{0x1E00000800000002L});
+    public static final BitSet FOLLOW_complement_in_factExt689 = new BitSet(new long[]{0x3C00000800000002L});
     public static final BitSet FOLLOW_termComposite_in_factExt692 = new BitSet(new long[]{0x0000000800000002L});
     public static final BitSet FOLLOW_factExt_in_factExt694 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_quantifier_in_termComposite730 = new BitSet(new long[]{0x1E00000800000000L});
+    public static final BitSet FOLLOW_quantifier_in_termComposite730 = new BitSet(new long[]{0x3C00000800000000L});
     public static final BitSet FOLLOW_term_in_termComposite736 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_termInstance_in_termComposite742 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_termWithAssociation_in_termComposite748 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ID_in_term811 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_term_in_termInstance836 = new BitSet(new long[]{0x000001F000000000L,0x00000000000005F0L});
-    public static final BitSet FOLLOW_relationalOperator_in_termInstance838 = new BitSet(new long[]{0x000001F000000000L,0x00000000000005F0L});
-    public static final BitSet FOLLOW_literal_in_termInstance841 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_term_in_termWithAssociation871 = new BitSet(new long[]{0x0100000000000000L,0x00000000000001F0L});
-    public static final BitSet FOLLOW_relationalOperator_in_termWithAssociation873 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_56_in_termWithAssociation876 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_INT_in_termWithAssociation878 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_quantifier910 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_INT_in_quantifier912 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_58_in_quantifier932 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_INT_in_quantifier934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_59_in_quantifier954 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_INT_in_quantifier956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_60_in_quantifier976 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_INT_in_quantifier980 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_term_in_termInstance836 = new BitSet(new long[]{0x0000002000000000L,0x0000000000000A00L});
+    public static final BitSet FOLLOW_notEqualOperator_in_termInstance838 = new BitSet(new long[]{0x0000002000000000L,0x0000000000000A00L});
+    public static final BitSet FOLLOW_stringLiteral_in_termInstance841 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_termInstance864 = new BitSet(new long[]{0x000003D000000000L,0x0000000000000BE0L});
+    public static final BitSet FOLLOW_relationalOperator_in_termInstance866 = new BitSet(new long[]{0x000003D000000000L,0x0000000000000BE0L});
+    public static final BitSet FOLLOW_otherLiteral_in_termInstance869 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_termWithAssociation899 = new BitSet(new long[]{0x0200000000000000L,0x00000000000003E0L});
+    public static final BitSet FOLLOW_relationalOperator_in_termWithAssociation901 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_57_in_termWithAssociation904 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_INT_in_termWithAssociation906 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_58_in_quantifier938 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_INT_in_quantifier940 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_59_in_quantifier960 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_INT_in_quantifier962 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_60_in_quantifier982 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier984 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ID_in_complement1015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formulaItem_in_formula1040 = new BitSet(new long[]{0x2000000000000000L});
-    public static final BitSet FOLLOW_61_in_formula1042 = new BitSet(new long[]{0x1E10000800000000L});
-    public static final BitSet FOLLOW_formulaExpression_in_formula1044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_formulaItem_in_formulaExpression1071 = new BitSet(new long[]{0xC000000000000002L,0x000000000000000FL});
-    public static final BitSet FOLLOW_mathOperator_in_formulaExpression1074 = new BitSet(new long[]{0x1E10000800000000L});
-    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1076 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_formulaExpression1103 = new BitSet(new long[]{0x1E10000800000000L});
-    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1105 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_53_in_formulaExpression1107 = new BitSet(new long[]{0xC000000000000002L,0x000000000000000FL});
-    public static final BitSet FOLLOW_mathOperator_in_formulaExpression1110 = new BitSet(new long[]{0x1E10000800000000L});
-    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1112 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_term_in_formulaItem1148 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_termInstance_in_formulaItem1152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_termWithAssociation_in_formulaItem1156 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_62_in_mathOperator1189 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_63_in_mathOperator1207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_64_in_mathOperator1225 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_65_in_mathOperator1243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_66_in_mathOperator1261 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_67_in_mathOperator1279 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_68_in_relationalOperator1304 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_69_in_relationalOperator1322 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_70_in_relationalOperator1340 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_71_in_relationalOperator1358 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_72_in_relationalOperator1376 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_50_in_set1401 = new BitSet(new long[]{0x000001F000000000L,0x00000000000005F0L});
-    public static final BitSet FOLLOW_subSet_in_set1403 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_51_in_set1405 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
-    public static final BitSet FOLLOW_73_in_set1408 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_set_in_set1410 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_subSet1440 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000200L});
-    public static final BitSet FOLLOW_73_in_subSet1443 = new BitSet(new long[]{0x000001F000000000L,0x00000000000005F0L});
-    public static final BitSet FOLLOW_subSet_in_subSet1445 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STRING_in_literal1475 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FLOAT_in_literal1493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_FLOAT_in_literal1511 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INT_in_literal1529 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_INT_in_literal1547 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_74_in_literal1565 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_75_in_testPackage1590 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_PACKAGE_ID_in_testPackage1592 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_61_in_quantifier1004 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_INT_in_quantifier1008 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_INT_in_quantifier1012 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ID_in_complement1043 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formulaItem_in_formula1068 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_62_in_formula1070 = new BitSet(new long[]{0x3C20000800000000L});
+    public static final BitSet FOLLOW_formulaExpression_in_formula1072 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_formulaItem_in_formulaExpression1099 = new BitSet(new long[]{0x8000000000000002L,0x000000000000001FL});
+    public static final BitSet FOLLOW_mathOperator_in_formulaExpression1102 = new BitSet(new long[]{0x3C20000800000000L});
+    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1104 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_formulaExpression1131 = new BitSet(new long[]{0x3C20000800000000L});
+    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1133 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_54_in_formulaExpression1135 = new BitSet(new long[]{0x8000000000000002L,0x000000000000001FL});
+    public static final BitSet FOLLOW_mathOperator_in_formulaExpression1138 = new BitSet(new long[]{0x3C20000800000000L});
+    public static final BitSet FOLLOW_formulaExpression_in_formulaExpression1140 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_formulaItem1176 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_termInstance_in_formulaItem1180 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_termWithAssociation_in_formulaItem1184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_63_in_mathOperator1217 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_64_in_mathOperator1235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_65_in_mathOperator1253 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_66_in_mathOperator1271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_67_in_mathOperator1289 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_68_in_mathOperator1307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_69_in_relationalOperator1332 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_70_in_relationalOperator1350 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_71_in_relationalOperator1368 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_72_in_relationalOperator1386 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_notEqualOperator_in_relationalOperator1404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_73_in_notEqualOperator1417 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_51_in_set1442 = new BitSet(new long[]{0x000003F000000000L,0x0000000000000BE0L});
+    public static final BitSet FOLLOW_list_in_set1444 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_52_in_set1446 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+    public static final BitSet FOLLOW_74_in_set1449 = new BitSet(new long[]{0x0008000000000000L});
+    public static final BitSet FOLLOW_set_in_set1451 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_stringLiteral_in_list1482 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+    public static final BitSet FOLLOW_otherLiteral_in_list1486 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000400L});
+    public static final BitSet FOLLOW_74_in_list1490 = new BitSet(new long[]{0x000003F000000000L,0x0000000000000BE0L});
+    public static final BitSet FOLLOW_list_in_list1492 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STRING_in_stringLiteral1526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_stringLiteral1544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FLOAT_in_otherLiteral1569 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_FLOAT_in_otherLiteral1587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INT_in_otherLiteral1605 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_INT_in_otherLiteral1623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DATE_TIME_in_otherLiteral1641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_75_in_otherLiteral1659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_76_in_testPackage1684 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_PACKAGE_ID_in_testPackage1686 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_term_in_synpred17_LetaGrammar836 = new BitSet(new long[]{0x0000002000000000L,0x0000000000000A00L});
+    public static final BitSet FOLLOW_notEqualOperator_in_synpred17_LetaGrammar838 = new BitSet(new long[]{0x0000002000000000L,0x0000000000000A00L});
+    public static final BitSet FOLLOW_stringLiteral_in_synpred17_LetaGrammar841 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_stringLiteral_in_synpred38_LetaGrammar1482 = new BitSet(new long[]{0x0000000000000002L});
 
 }
