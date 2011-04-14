@@ -6,11 +6,11 @@ Test CartaoInvalido
 Verify
 Cartao naoEValido
 When
-Cartao tem Nome "João" And
+Cartao tem Nome "João" possui Sobrenome And
 Cartao tem Numero 123 And 
-Cartao tem Vencimento > "03/2015"
+Cartao tem Vencimento > [2015-03]
 
-
+/*
 // Teste de formula
 Test TestCase02
 Verify
@@ -23,7 +23,7 @@ Set
 	{"20", 4, 2, 18, 1}
 }
 
-/*
+
 Test CartaoInvalido
 Verify
 Cartao naoEValido

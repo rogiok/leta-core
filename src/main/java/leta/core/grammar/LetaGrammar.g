@@ -3,7 +3,7 @@ grammar LetaGrammar;
 options {
   language=Java;
   output=AST;
-  k=5;
+  k=3;
   backtrack=true;
 }
 
@@ -36,7 +36,7 @@ tokens {
   FORMULAITEM;
   OPERATOR;
   SET;
-  SUBSET;
+  LIST;
   AND;
   OR;
   PACKAGE;
@@ -221,7 +221,7 @@ set
 
 list
   : (stringLiteral | otherLiteral) (',' list)?
-    -> ^(SUBSET stringLiteral? otherLiteral? list?)
+    -> ^(LIST stringLiteral? otherLiteral? list?)
   ;
 
 stringLiteral

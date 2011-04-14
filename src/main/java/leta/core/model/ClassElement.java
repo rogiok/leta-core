@@ -14,6 +14,7 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
     private String stringValue;
     private Integer intValue;
     private Double floatValue;
+    private String dateValue;
 
     private List<MethodElement> methodElements;
     private MethodElement methodElement;
@@ -144,8 +145,16 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
         this.floatValue = floatValue;
     }
     
+    public String getDateValue() {
+        return dateValue;
+    }
+
+    public void setDateValue(String dateValue) {
+        this.dateValue = dateValue;
+    }
+
     public boolean isAnyValue() {
-	if (this.stringValue != null || this.floatValue != null || this.intValue != null) {
+	if (this.stringValue != null || this.floatValue != null || this.intValue != null || this.dateValue != null) {
 	    return true;
 	}
 	

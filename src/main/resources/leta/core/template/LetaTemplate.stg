@@ -62,7 +62,11 @@ public abstract class <id>Test {
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertEquals(expected, result);
+        <generateAsserts(initial="verify", element=verifyClause.element)>
+        
+        //sassertEquals(expected, result);
+        
+        <generateAsserts(initial="when", element=whenClause.element)>
 
     }
     
@@ -71,86 +75,7 @@ public abstract class <id>Test {
     <bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=setClause.matrix)>
     <endif>
     
-    abstract class Operator {
-        abstract boolean compare(Object obj1, Object obj2);
-    }
-    
-    abstract class OperatorString extends Operator {
-    }
-
-    abstract class OperatorNumber extends Operator {
-        boolean verify(Object obj1, Object obj2) {
-            return ((obj1 instanceof Integer || obj1 instanceof Double)
-                && (obj2 instanceof Integer || obj2 instanceof Double));
-        }
-    }
-
-    class OperatorEqual extends OperatorString {
-        boolean compare(Object obj1, Object obj2) {
-            return obj1.equals(obj2);
-        }
-    }
-
-    class OperatorNotEqual extends OperatorString {
-        boolean compare(Object obj1, Object obj2) {
-            return !obj1.equals(obj2);
-        }
-    }
-
-    class OperatorLessThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) \< 0;
-
-            return false;
-        }
-    }
-
-    class OperatorEqualOrLessThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) \<= 0;
-
-            return false;
-        }
-    }
-
-    class OperatorMoreThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) \> 0;
-            
-            return false;
-        }
-    }
-
-    class OperatorEqualOrMoreThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) \>= 0;
-            
-            return false;
-        }
-    }
-    
-    class Ab extends org.hamcrest.BaseMatcher\<Object\> {
-        private Object obj;
-        
-        public Ab(Object obj) {
-            super();
-            this.obj = obj;
-        }
-    
-        @Override
-        public boolean matches(Object arg0) {
-            return false;
-        }
-    
-        @Override
-        public void describeTo(org.hamcrest.Description arg0) {
-            arg0.appendText("Not OK");
-        }
-    }
+    <operators()>
 }
 >>
 
@@ -166,11 +91,11 @@ void test<matrix.sequence>() {
 
     // When
     <generateInstanceDeclarations(object="input", initial="when", element=whenClause.element)>
-        
+
 
     TCOutput result = sendToSut(input);
 
-    assertEquals(expected, result);
+    //assertEquals(expected, result);
 
 }
     
@@ -180,17 +105,73 @@ void test<matrix.sequence>() {
 
 
 
+generateAsserts(initial, element) ::=
+<<
+<if (element.composite)>
+<generateAsserts(initial=initial, element=element.left)>
+<generateAsserts(initial=element.name, element=element.right)>
+<elseif (element.methodElement)>
+<generateAssertItem(initial=initial, parent=element, current=element)>
+<endif>
+>>
+
+generateAssertItem(initial, parent, current) ::=
+<<
+<if (current.methodElement)>
+<if (current.methodElement.classElement)>
+<if (current.anyValue)>
+assertTrue(
+    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
+        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+    )
+);
+<endif>
+<else>
+assertTrue(
+    OperatorEqual.compare(
+        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+    )
+);
+<endif>
+<else>
+<if (current.anyValue)>
+assertTrue(
+    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
+        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+    )
+);
+<endif>
+<endif>
+
+<if (current.methodElement)><if (current.methodElement.classElement)>
+<generateAssertItem(initial=initial, parent=parent, current=current.methodElement.classElement)>
+<endif><endif>
+>>
+
+generateAssertFact(element) ::=
+<<
+<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateAssertFact(element.methodElement.classElement)><endif><endif>
+>>
+
+generateAssertTerm(element) ::=
+<<
+<if (element.anyValue)>
+get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Int<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
+<else>
+get<element.className>().is<element.methodElement.methodName>()
+<endif>
+>>
+
 
 // Generate instances
 generateInstanceDeclarations(object, initial, element) ::=
 <<
 <if (element.composite)>
 <generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
+
 <generateInstanceDeclarations(object=object, initial=element.name, element=element.right)>
-<else>
-<if (element.methodElement)>
+<elseif (element.methodElement)>
 <object>.<initial><generateInstanceDeclarationMethod(element)>(<generateInstanceDeclarationParameter(element)>);
-<endif>
 <endif>
 >>
 
@@ -201,8 +182,10 @@ generateInstanceDeclarationMethod(element) ::=
 
 generateInstanceDeclarationParameter(element) ::=
 <<
-new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)>, <generateInstanceDeclarationParameter(element.methodElement.classElement)><endif><endif>
+new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)><element.dateValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)>, <generateInstanceDeclarationParameter(element.methodElement.classElement)><endif><endif>
 >>
+
+
 
 generateInstanceAttributions(element) ::=
 <<
@@ -421,6 +404,94 @@ generateCompositeConstructor(composite) ::=
 >>
 
 
+operators() ::=
+<<
+abstract class Operator {
+    abstract boolean compare(Object obj1, Object obj2);
+}
+
+abstract class OperatorString extends Operator {
+}
+
+abstract class OperatorNumber extends Operator {
+    boolean verify(Object obj1, Object obj2) {
+        return ((obj1 instanceof Integer || obj1 instanceof Double)
+            && (obj2 instanceof Integer || obj2 instanceof Double));
+    }
+}
+
+class OperatorEqual extends OperatorString {
+    boolean compare(Object obj1, Object obj2) {
+        return obj1.equals(obj2);
+    }
+}
+
+class OperatorNotEqual extends OperatorString {
+    boolean compare(Object obj1, Object obj2) {
+        return !obj1.equals(obj2);
+    }
+}
+
+class OperatorLessThan extends OperatorNumber {
+    boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \< 0;
+
+        return false;
+    }
+}
+
+class OperatorEqualOrLessThan extends OperatorNumber {
+    boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \<= 0;
+
+        return false;
+    }
+}
+
+class OperatorMoreThan extends OperatorNumber {
+    boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \> 0;
+        
+        return false;
+    }
+}
+
+class OperatorEqualOrMoreThan extends OperatorNumber {
+    boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \>= 0;
+       
+       return false;
+    }
+}
+
+class Ab extends org.hamcrest.BaseMatcher\<Object\> {
+    private Object obj;
+    
+    public Ab(Object obj) {
+        super();
+        this.obj = obj;
+    }
+
+    @Override
+    public boolean matches(Object arg0) {
+        return false;
+    }
+
+    @Override
+    public void describeTo(org.hamcrest.Description arg0) {
+        arg0.appendText("Not OK");
+    }
+}
+>>
+
+
+
+
+
 
 
 generateEqualsByMethodElement(methodElement) ::=
@@ -445,5 +516,9 @@ if (this.<classElement.instanceName> != null &&
     o.<classElement.instanceName> != null)
     valid = valid & this.<classElement.instanceName>.equals(o.<classElement.instanceName>);<\n>
 >>
+
+
+
+
 
 

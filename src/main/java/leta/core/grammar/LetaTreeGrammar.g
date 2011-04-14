@@ -4,6 +4,8 @@ options {
   tokenVocab=LetaGrammar;
   ASTLabelType=CommonTree;
   output=template;
+  k=3;
+  backtrack=true;
 }
 
 @header {
@@ -43,6 +45,8 @@ testCase
     TestCase testCase = new TestCase();
     
     this.semanticModel.addTestCase(testCase);
+    
+    List<Element> elements = null;
   }
   : ^(TESTCASE ID sc=setClause? vc=verifyClause wc=whenClause)
     {
@@ -56,7 +60,7 @@ testCase
       
       testCase.generateElements();
       
-      List<Element> elements = testCase.getElements();
+      elements = testCase.getElements();
     }
     -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, setClause={sc}, packageName={this.semanticModel.getPackageName()}, elements={elements})
   ;
@@ -174,17 +178,25 @@ term returns [ClassElement classElement]
   ;
 
 termInstance returns [ClassElement classElement]
-  : ^(TERMINSTANCE t=term ro=relationalOperator? l=literal)
+  : ^(TERMINSTANCE t=term neo=notEqualOperator? sl=stringLiteral)
+    {
+      $classElement = $t.classElement;
+      $classElement.setRelationalOperator($neo.operator);
+      
+      if ($sl.stringValue != null)
+        $classElement.setStringValue($sl.stringValue);
+    }
+  | ^(TERMINSTANCE t=term ro=relationalOperator? ol=otherLiteral)
     {
       $classElement = $t.classElement;
       $classElement.setRelationalOperator($ro.operator);
       
-      if ($l.stringValue != null)
-        $classElement.setStringValue($l.stringValue);
-      else if ($l.floatValue != null)
-        $classElement.setFloatValue($l.floatValue);
-      else if ($l.intValue != null)
-        $classElement.setIntValue($l.intValue);
+      if ($ol.floatValue != null)
+        $classElement.setFloatValue($ol.floatValue);
+      else if ($ol.intValue != null)
+        $classElement.setIntValue($ol.intValue);
+      else if ($ol.dateValue != null)
+        $classElement.setDateValue($ol.dateValue);
     }
   ;
 
@@ -310,39 +322,51 @@ relationalOperator returns [String operator]
     { $operator = "EqualOrMoreThan"; }
   | ^(OPERATOR '<=')
     { $operator = "EqualOrLessThan"; }
-  | ^(OPERATOR '!=')
+  | notEqualOperator
+  ;
+
+notEqualOperator returns [String operator]
+  : ^(OPERATOR '!=')
     { $operator = "NotEqual"; }
   ;
 
 set returns [ArrayList<MatrixItem> items = new ArrayList<MatrixItem>()]
-  : ^(SET sb=subSet s=set?)
+  : ^(SET ls=list s=set?)
     {
-      $items.add($sb.matrixItem);
+      $items.add($ls.matrixItem);
       
       if (s != null)
        $items.addAll($s.items); 
     }
   ;
 
-subSet returns [MatrixItem matrixItem = new MatrixItem()]
-  : ^(SUBSET lt=literal ss=subSet? )
+list returns [MatrixItem matrixItem = new MatrixItem()]
+  : ^(LIST sl=stringLiteral? ol=otherLiteral? ss=list? )
     {
-      if ($lt.stringValue != null)
-        $matrixItem.addColumn($lt.stringValue);
-      else if ($lt.intValue != null)
-        $matrixItem.addColumn($lt.intValue);
-      if ($lt.floatValue != null)
-        $matrixItem.addColumn($lt.floatValue);
+      if (sl != null && $sl.stringValue != null)
+        $matrixItem.addColumn($sl.stringValue);
 
+      if (ol != null)
+	      if ($ol.intValue != null)
+	        $matrixItem.addColumn($ol.intValue);
+	      else if ($ol.floatValue != null)
+	        $matrixItem.addColumn($ol.floatValue);
+	      else if ($ol.dateValue != null)
+	        $matrixItem.addColumn($ol.dateValue);
+        
       if (ss != null)
         $matrixItem.addColumns($ss.matrixItem.getColumns());
     }
   ;
 
-literal returns [String stringValue, Integer intValue, Double floatValue]
+stringLiteral returns [String stringValue]
   : ^(LITERAL STRING)
     { $stringValue = $STRING.text; }
-  | ^(LITERAL FLOAT)
+  | ^(LITERAL NULL)
+  ;
+
+otherLiteral returns [Integer intValue, Double floatValue, String dateValue]
+  : ^(LITERAL FLOAT)
     { $floatValue = new Double($FLOAT.text); }
   | ^(LITERAL MINUS_FLOAT)
     { $floatValue = new Double($MINUS_FLOAT.text); }
@@ -350,6 +374,8 @@ literal returns [String stringValue, Integer intValue, Double floatValue]
     { $intValue = new Integer($INT.text); }
   | ^(LITERAL MINUS_INT)
     { $intValue = new Integer($MINUS_INT.text); }
+  | ^(LITERAL DATE_TIME)
+    { $dateValue = $DATE_TIME.text; }
   | ^(LITERAL NULL)
   ;
 
