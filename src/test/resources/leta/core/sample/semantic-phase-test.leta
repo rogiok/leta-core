@@ -6,9 +6,10 @@ Test CartaoInvalido
 Verify
 Cartao naoEValido
 When
-Cartao tem Nome "João" possui Sobrenome And
+Cartao tem Nome "João" possui Sobrenome "Silva" And
 Cartao tem Numero 123 And 
-Cartao tem Vencimento > [2015-03]
+Cartao tem Vencimento > [2015-03] And
+Cartao ok
 
 /*
 // Teste de formula

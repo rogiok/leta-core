@@ -109,7 +109,7 @@ generateAsserts(initial, element) ::=
 <<
 <if (element.composite)>
 <generateAsserts(initial=initial, element=element.left)>
-<generateAsserts(initial=element.name, element=element.right)>
+<generateAsserts(initial=element.instanceName, element=element.right)>
 <elseif (element.methodElement)>
 <generateAssertItem(initial=initial, parent=element, current=element)>
 <endif>
@@ -169,9 +169,10 @@ generateInstanceDeclarations(object, initial, element) ::=
 <if (element.composite)>
 <generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
 
-<generateInstanceDeclarations(object=object, initial=element.name, element=element.right)>
+<generateInstanceDeclarations(object=object, initial=element.instanceName, element=element.right)>
 <elseif (element.methodElement)>
-<object>.<initial><generateInstanceDeclarationMethod(element)>(<generateInstanceDeclarationParameter(element)>);
+<object>.<initial><generateInstanceDeclarationMethod(element)>(
+    <generateInstanceDeclarationParameter(element)>);
 <endif>
 >>
 
@@ -182,7 +183,8 @@ generateInstanceDeclarationMethod(element) ::=
 
 generateInstanceDeclarationParameter(element) ::=
 <<
-new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)><element.dateValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)>, <generateInstanceDeclarationParameter(element.methodElement.classElement)><endif><endif>
+<if (element.anyValue)>new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)><element.dateValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateInstanceDeclarationParameter(element.methodElement.classElement)><else>true<\n><endif><endif>
 >>
 
 
@@ -435,7 +437,7 @@ class OperatorNotEqual extends OperatorString {
 class OperatorLessThan extends OperatorNumber {
     boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \< 0;
+            return ((Double) obj1).compareTo((Double) obj2) \> 0;
 
         return false;
     }
@@ -444,7 +446,7 @@ class OperatorLessThan extends OperatorNumber {
 class OperatorEqualOrLessThan extends OperatorNumber {
     boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \<= 0;
+            return ((Double) obj1).compareTo((Double) obj2) \>= 0;
 
         return false;
     }
@@ -453,7 +455,7 @@ class OperatorEqualOrLessThan extends OperatorNumber {
 class OperatorMoreThan extends OperatorNumber {
     boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \> 0;
+            return ((Double) obj1).compareTo((Double) obj2) \< 0;
         
         return false;
     }
@@ -462,7 +464,7 @@ class OperatorMoreThan extends OperatorNumber {
 class OperatorEqualOrMoreThan extends OperatorNumber {
     boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \>= 0;
+            return ((Double) obj1).compareTo((Double) obj2) \<= 0;
        
        return false;
     }
