@@ -533,25 +533,6 @@ static class OperatorEqualOrMoreThan extends OperatorNumber {
        return false;
     }
 }
-
-class Ab extends org.hamcrest.BaseMatcher\<Object\> {
-    private Object obj;
-    
-    public Ab(Object obj) {
-        super();
-        this.obj = obj;
-    }
-
-    @Override
-    public boolean matches(Object arg0) {
-        return false;
-    }
-
-    @Override
-    public void describeTo(org.hamcrest.Description arg0) {
-        arg0.appendText("Not OK");
-    }
-}
 >>
 
 
