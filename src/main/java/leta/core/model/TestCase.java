@@ -67,6 +67,9 @@ public class TestCase {
 	    if (classElement.getIntValue() != null) {
 		newClassElement.setIntValue(new Integer(0));
 	    }
+	    if (classElement.getDateValue() != null) {
+		newClassElement.setDateValue("");
+	    }
 
 	    // Here too
 	    if (classElement.getRelationalOperator() != null) {

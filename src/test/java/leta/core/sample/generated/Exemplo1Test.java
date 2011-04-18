@@ -1,4 +1,3 @@
-
 package leta.core.sample.generated;
 
 import org.junit.Test;
@@ -7,398 +6,492 @@ import static org.junit.Assert.*;
 public abstract class Exemplo1Test {
 
     // Gera todas as classes que correspondem aos termos
-    class Desenho {
-        // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-        Operator operator = new OperatorEqual();
+    class Cartao {
         
-        Desenho() {
+        Cartao() {
         }
         
-
-        // boolean instance;
-        boolean estaCorreto = true;
+        // Class methodClass;
+        private Nome temNome;
+        
+        // Class getMethodClass() { return instance; }
+        Nome getTemNome() {
+            return this.temNome; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setTemNome(Nome temNome) {
+            this.temNome = temNome;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Nome temNome(String value) {
+            return this.temNome = new Nome(value);
+        }
+        // Class methodClass;
+        private Numero temNumero;
+        
+        // Class getMethodClass() { return instance; }
+        Numero getTemNumero() {
+            return this.temNumero; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setTemNumero(Numero temNumero) {
+            this.temNumero = temNumero;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Numero temNumero(Integer value) {
+            return this.temNumero = new Numero(value);
+        }
+        // Class methodClass;
+        private Vencimento temVencimento;
+        
+        // Class getMethodClass() { return instance; }
+        Vencimento getTemVencimento() {
+            return this.temVencimento; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setTemVencimento(Vencimento temVencimento) {
+            this.temVencimento = temVencimento;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Vencimento temVencimento(String value) {
+            return this.temVencimento = new Vencimento(value);
+        }    // boolean instance;
+        private boolean ok = true;
         
         // boolean isInstance() { return instance; }
-        boolean isEstaCorreto() {
-            return this.estaCorreto; 
+        boolean isOk() {
+            return this.ok; 
         }
         
         // void setInstance(boolean instance) { this.instance = instance; }
-        void setEstaCorreto(boolean estaCorreto) {
-            this.estaCorreto = estaCorreto;
+        void setOk(boolean ok) {
+            this.ok = ok;
+        }
+        // boolean instance;
+        private boolean naoEValido = true;
+        
+        // boolean isInstance() { return instance; }
+        boolean isNaoEValido() {
+            return this.naoEValido; 
+        }
+        
+        // void setInstance(boolean instance) { this.instance = instance; }
+        void setNaoEValido(boolean naoEValido) {
+            this.naoEValido = naoEValido;
         }
 
-        public boolean equals(Object obj) {
-            if (obj instanceof Desenho) {
-                Desenho o = (Desenho) obj;
-                boolean validValue = true;
-                boolean valid = true;
 
-                
-                valid = valid & (this.isEstaCorreto() == o.isEstaCorreto());
+    }
+    class Nome {
+        
+        Nome() {
+        }
+        
+        private String sValue;
 
-                
-                return validValue && valid;
-            }
-            
-            return false;
+        Nome(String value) { this.sValue = value; }
+        String getStringValue() { return this.sValue; }
+
+        // Class methodClass;
+        private Sobrenome possuiSobrenome;
+        
+        // Class getMethodClass() { return instance; }
+        Sobrenome getPossuiSobrenome() {
+            return this.possuiSobrenome; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setPossuiSobrenome(Sobrenome possuiSobrenome) {
+            this.possuiSobrenome = possuiSobrenome;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Sobrenome possuiSobrenome(String value) {
+            return this.possuiSobrenome = new Sobrenome(value);
         }
 
     }
-    class And {
-        And() {
+    class Sobrenome {
+        
+        Sobrenome() {
         }
+        
+        private String sValue;
 
-        Figura figura;
-        And and;
-        Poligono poligono1;
-        Linha linha2;
+        Sobrenome(String value) { this.sValue = value; }
+        String getStringValue() { return this.sValue; }
 
-        And(Figura figura, And and) {
-            this.figura = figura;
-            this.and = and;
-        }And(Poligono poligono1, Linha linha2) {
-            this.poligono1 = poligono1;
-            this.linha2 = linha2;
+        // boolean instance;
+        private boolean abc = true;
+        
+        // boolean isInstance() { return instance; }
+        boolean isAbc() {
+            return this.abc; 
         }
-
-        Figura getFigura() {
-            return figura;
-        }
-
-        void setFigura(Figura figura) {
-            this.figura = figura;
-        }
-
-        And getAnd() {
-            return and;
-        }
-
-        void setAnd(And and) {
-            this.and = and;
-        }
-
-        Poligono getPoligono1() {
-            return poligono1;
-        }
-
-        void setPoligono1(Poligono poligono1) {
-            this.poligono1 = poligono1;
-        }
-
-        Linha getLinha2() {
-            return linha2;
-        }
-
-        void setLinha2(Linha linha2) {
-            this.linha2 = linha2;
+        
+        // void setInstance(boolean instance) { this.instance = instance; }
+        void setAbc(boolean abc) {
+            this.abc = abc;
         }
 
 
-        public boolean equals(Object obj) {
-            if (obj instanceof And) {
-                And o = (And) obj;
-                boolean valid = true;
-                
-                if (this.figura != null &&
-                    o.figura != null)
-                    valid = valid & this.figura.equals(o.figura);
-                if (this.and != null &&
-                    o.and != null)
-                    valid = valid & this.and.equals(o.and);
-                if (this.poligono1 != null &&
-                    o.poligono1 != null)
-                    valid = valid & this.poligono1.equals(o.poligono1);
-                if (this.linha2 != null &&
-                    o.linha2 != null)
-                    valid = valid & this.linha2.equals(o.linha2);
+    }
+    class Numero {
+        
+        Numero() {
+        }
+        
+        private Integer iValue;
 
-                return valid;
-            }
-            
-            return false;
+        Numero(Integer value) { this.iValue = value; }
+        Integer getIntegerValue() { return this.iValue; }
+
+    }
+    class Vencimento {
+        
+        Vencimento() {
+        }
+        
+        private String dtValue;
+        
+        Vencimento(String value) { this.dtValue = value; }
+        String getDateValue() { return this.dtValue; }
+    }
+
+    
+    
+    // TCOutput
+    class VerifyCartaoTemNomePossuiSobrenomeAbc {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+        private Nome nome = new Nome();
+        Nome getNome() { return this.nome; }
+        private Sobrenome sobrenome = new Sobrenome();
+        Sobrenome getSobrenome() { return this.sobrenome; }
+
+        VerifyCartaoTemNomePossuiSobrenomeAbc(
+            Nome nome, 
+            Sobrenome sobrenome
+            , boolean value
+
+            ) {
+            this.nome = nome;
+            this.sobrenome = sobrenome;
+
+            this.cartao.setTemNome(this.nome);
+            this.nome.setPossuiSobrenome(this.sobrenome);
+            this.sobrenome.setAbc(value);
+        }
+    }
+
+    class AndCartaoTemNumero {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+        private Numero numero = new Numero();
+        Numero getNumero() { return this.numero; }
+
+        AndCartaoTemNumero(
+            Numero numero
+
+            ) {
+            this.numero = numero;
+
+            this.cartao.setTemNumero(this.numero);
+
+        }
+    }
+
+    class AndCartaoTemVencimento {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+        private Vencimento vencimento = new Vencimento();
+        Vencimento getVencimento() { return this.vencimento; }
+
+        AndCartaoTemVencimento(
+            Vencimento vencimento
+
+            ) {
+            this.vencimento = vencimento;
+
+            this.cartao.setTemVencimento(this.vencimento);
+
+        }
+    }
+
+    class AndCartaoOk {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+
+        AndCartaoOk(
+            boolean value
+
+            ) {
+            this.cartao.setOk(value);
+        }
+    }
+    
+    class TCOutput {
+        private VerifyCartaoTemNomePossuiSobrenomeAbc verifyCartaoTemNomePossuiSobrenomeAbc;
+
+        VerifyCartaoTemNomePossuiSobrenomeAbc verifyCartaoTemNomePossuiSobrenomeAbc(
+                Nome nome, 
+                Sobrenome sobrenome
+                , boolean value
+
+                ) {
+            return this.verifyCartaoTemNomePossuiSobrenomeAbc = new
+                VerifyCartaoTemNomePossuiSobrenomeAbc(
+                    nome, 
+                    sobrenome
+                    , value
+
+                    );
+        }
+        VerifyCartaoTemNomePossuiSobrenomeAbc verifyCartaoTemNomePossuiSobrenomeAbc() {
+            return this.verifyCartaoTemNomePossuiSobrenomeAbc;
+        }
+
+        private AndCartaoTemNumero andCartaoTemNumero;
+
+        AndCartaoTemNumero andCartaoTemNumero(
+                Numero numero
+
+                ) {
+            return this.andCartaoTemNumero = new
+                AndCartaoTemNumero(
+                    numero
+
+                    );
+        }
+        AndCartaoTemNumero andCartaoTemNumero() {
+            return this.andCartaoTemNumero;
+        }
+
+        private AndCartaoTemVencimento andCartaoTemVencimento;
+
+        AndCartaoTemVencimento andCartaoTemVencimento(
+                Vencimento vencimento
+
+                ) {
+            return this.andCartaoTemVencimento = new
+                AndCartaoTemVencimento(
+                    vencimento
+
+                    );
+        }
+        AndCartaoTemVencimento andCartaoTemVencimento() {
+            return this.andCartaoTemVencimento;
+        }
+
+        private AndCartaoOk andCartaoOk;
+
+        AndCartaoOk andCartaoOk(
+                boolean value
+
+                ) {
+            return this.andCartaoOk = new
+                AndCartaoOk(
+                    value
+
+                    );
+        }
+        AndCartaoOk andCartaoOk() {
+            return this.andCartaoOk;
         }
 
     }
-    class Figura {
-        // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-        Operator operator = new OperatorEqual();
-        
-        Figura() {
-        }
-        
 
-    	// Class methodClass;
-    	Poligono formadaPorPoligono;
-    	
-    	// Class getMethodClass() { return instance; }
-    	Poligono getFormadaPorPoligono() {
-    	    return this.formadaPorPoligono; 
-    	}
-    	
-    	// void setMethodClass(Class instance) { this.instance = instance; }
-    	void setFormadaPorPoligono(Poligono formadaPorPoligono) {
-    	    this.formadaPorPoligono = formadaPorPoligono;
-    	}
-    	
-    	// Class methodClassClass(String value) { this.instance = new Class(value); }
-        Poligono formadaPorPoligono() {
-            return this.formadaPorPoligono = new Poligono();
-        }
-        public boolean equals(Object obj) {
-            if (obj instanceof Figura) {
-                Figura o = (Figura) obj;
-                boolean validValue = true;
-                boolean valid = true;
+    // TCInput
+    class WhenCartaoNaoEValido {
 
-                
-                if (this.formadaPorPoligono != null &&
-                    o.formadaPorPoligono != null)
-                    valid = valid & this.formadaPorPoligono.equals(o.formadaPorPoligono);
-                
-                return validValue && valid;
-            }
-            
-            return false;
-        }
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
 
+        WhenCartaoNaoEValido(
+            boolean value
+
+            ) {
+            this.cartao.setNaoEValido(value);
+        }
     }
-    class Poligono {
-        // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-        Operator operator = new OperatorEqual();
-        
-        Poligono() {
+    
+    class TCInput {
+        private WhenCartaoNaoEValido whenCartaoNaoEValido;
+
+        WhenCartaoNaoEValido whenCartaoNaoEValido(
+                boolean value
+
+                ) {
+            return this.whenCartaoNaoEValido = new
+                WhenCartaoNaoEValido(
+                    value
+
+                    );
         }
-        
-
-    	// Class methodClass;
-    	Linha consisteDeLinha;
-    	
-    	// Class getMethodClass() { return instance; }
-    	Linha getConsisteDeLinha() {
-    	    return this.consisteDeLinha; 
-    	}
-    	
-    	// void setMethodClass(Class instance) { this.instance = instance; }
-    	void setConsisteDeLinha(Linha consisteDeLinha) {
-    	    this.consisteDeLinha = consisteDeLinha;
-    	}
-    	
-    	// Class methodClassClass(String value) { this.instance = new Class(value); }
-        Linha consisteDeLinha() {
-            return this.consisteDeLinha = new Linha();
-        }
-        public boolean equals(Object obj) {
-            if (obj instanceof Poligono) {
-                Poligono o = (Poligono) obj;
-                boolean validValue = true;
-                boolean valid = true;
-
-                
-                if (this.consisteDeLinha != null &&
-                    o.consisteDeLinha != null)
-                    valid = valid & this.consisteDeLinha.equals(o.consisteDeLinha);
-                
-                return validValue && valid;
-            }
-            
-            return false;
-        }
-
-    }
-    class Linha {
-        // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-        Operator operator = new OperatorEqual();
-        
-        Linha() {
-        }
-        
-
-    	// Class methodClass;
-    	Ponto possuiPonto;
-    	
-    	// Class getMethodClass() { return instance; }
-    	Ponto getPossuiPonto() {
-    	    return this.possuiPonto; 
-    	}
-    	
-    	// void setMethodClass(Class instance) { this.instance = instance; }
-    	void setPossuiPonto(Ponto possuiPonto) {
-    	    this.possuiPonto = possuiPonto;
-    	}
-    	
-    	// Class methodClassClass(String value) { this.instance = new Class(value); }
-        Ponto possuiPonto() {
-            return this.possuiPonto = new Ponto();
-        }
-        public boolean equals(Object obj) {
-            if (obj instanceof Linha) {
-                Linha o = (Linha) obj;
-                boolean validValue = true;
-                boolean valid = true;
-
-                
-                if (this.possuiPonto != null &&
-                    o.possuiPonto != null)
-                    valid = valid & this.possuiPonto.equals(o.possuiPonto);
-                
-                return validValue && valid;
-            }
-            
-            return false;
-        }
-
-    }
-    class Ponto {
-        // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-        Operator operator = new OperatorEqual();
-        
-        Ponto() {
-        }
-        
-
-
-        public boolean equals(Object obj) {
-            if (obj instanceof Ponto) {
-                return true;
-            }
-            
-            return false;
+        WhenCartaoNaoEValido whenCartaoNaoEValido() {
+            return this.whenCartaoNaoEValido;
         }
 
     }
 
 
     // Método que será implementado e enviará os dados ao SUT
-    abstract Desenho sendToSut(And and1);
+    abstract TCOutput sendToSut(TCInput input);
     
     // No Matrix
     @Test
     public void test() {
 
-        // Gera as instáncias da cláusula Verify
-        Desenho desenho1 = new Desenho();
+        // Verify
+        TCOutput expected = new TCOutput();
+        expected.verifyCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        expected.andCartaoTemNumero(
+            new Numero(123)
+        );
+        expected.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        expected.andCartaoOk(
+            true
+        );
 
 
-        
-        // Gera as instáncias da cláusula When
-        And and1 = new And();
-        Figura figura = new Figura();
-        Poligono poligono = new Poligono();
-
-        And and = new And();
-        Poligono poligono1 = new Poligono();
-        Linha linha = new Linha();
-
-        Linha linha2 = new Linha();
-        Ponto ponto = new Ponto();
-
-        and1.setFigura(figura);
-        and1.setAnd(and);
-
-         
-        figura.setFormadaPorPoligono(poligono);
-
-        and.setPoligono1(poligono1);
-        and.setLinha2(linha2);
-
-         
-        poligono1.setConsisteDeLinha(linha);
-
-
-         
-        linha2.setPossuiPonto(ponto);
 
         
+        // When
+        TCInput input = new TCInput();
+        input.whenCartaoNaoEValido(
+            true
+        );
         // Executa o método sendToSut
-        Desenho desenho1Result = sendToSut(and1);
-	
+        TCOutput result = sendToSut(input);
+
         // Compara os resultados com os valores esperados
-        assertEquals(desenho1, desenho1Result);
+        assertTrue(
+            OperatorEqual.compare(
+                expected.verifyCartaoTemNomePossuiSobrenomeAbc().getNome().getStringValue(), 
+                result.verifyCartaoTemNomePossuiSobrenomeAbc().getNome().getStringValue()
+            )
+        );
+        assertTrue(
+            OperatorEqual.compare(
+                expected.verifyCartaoTemNomePossuiSobrenomeAbc().getSobrenome().getStringValue(), 
+                result.verifyCartaoTemNomePossuiSobrenomeAbc().getSobrenome().getStringValue()
+            )
+        );
+        assertTrue(
+            OperatorEqual.compare(
+                expected.andCartaoTemNumero().getNumero().getIntegerValue(), 
+                result.andCartaoTemNumero().getNumero().getIntegerValue()
+            )
+        );
+        assertTrue(
+            OperatorMoreThan.compare(
+                expected.andCartaoTemVencimento().getVencimento().getDateValue(), 
+                result.andCartaoTemVencimento().getVencimento().getDateValue()
+            )
+        );
+        assertTrue(
+            OperatorEqual.compare(
+                expected.andCartaoOk().getCartao().isOk(), 
+                result.andCartaoOk().getCartao().isOk()
+            )
+        );
 
     }
     
     
-    abstract class Operator {
-        abstract boolean compare(Object obj1, Object obj2);
-    }
-    
-    abstract class OperatorString extends Operator {
+    static abstract class Operator {
     }
 
-    abstract class OperatorNumber extends Operator {
-        boolean verify(Object obj1, Object obj2) {
+    static abstract class OperatorString extends Operator {
+    }
+
+    static abstract class OperatorNumber extends Operator {
+        static boolean verify(Object obj1, Object obj2) {
             return ((obj1 instanceof Integer || obj1 instanceof Double)
                 && (obj2 instanceof Integer || obj2 instanceof Double));
         }
     }
-    
-    class OperatorEqual extends OperatorString {
-        boolean compare(Object obj1, Object obj2) {
+
+    static class OperatorEqual extends OperatorString {
+        static boolean compare(Object obj1, Object obj2) {
             return obj1.equals(obj2);
         }
     }
 
-    class OperatorNotEqual extends OperatorString {
-        boolean compare(Object obj1, Object obj2) {
+    static class OperatorNotEqual extends Operator {
+        static boolean compare(Object obj1, Object obj2) {
             return !obj1.equals(obj2);
         }
     }
 
-    class OperatorLessThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) < 0;
-
-            return false;
-        }
-    }
-
-    class OperatorEqualOrLessThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
-            if (verify(obj1, obj2))
-                return ((Double) obj1).compareTo((Double) obj2) <= 0;
-
-            return false;
-        }
-    }
-
-    class OperatorMoreThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
+    static class OperatorLessThan extends OperatorNumber {
+        static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) > 0;
-            
+
             return false;
         }
     }
 
-    class OperatorEqualOrMoreThan extends OperatorNumber {
-        boolean compare(Object obj1, Object obj2) {
+    static class OperatorEqualOrLessThan extends OperatorNumber {
+        static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) >= 0;
+
+            return false;
+        }
+    }
+
+    static class OperatorMoreThan extends OperatorNumber {
+        static boolean compare(Object obj1, Object obj2) {
+            if (verify(obj1, obj2))
+                return ((Double) obj1).compareTo((Double) obj2) < 0;
             
             return false;
         }
     }
-    
-	class Ab extends org.hamcrest.BaseMatcher<Object> {
-	private Object obj;
-	    
-	public Ab(Object obj) {
-	super();
-	this.obj = obj;
-	}
-	
-	@Override
-	public boolean matches(Object arg0) {
-	return false;
-	}
-	
-	@Override
-	public void describeTo(org.hamcrest.Description arg0) {
-	arg0.appendText("Not OK");
-	}
-	}
-    
-}
 
+    static class OperatorEqualOrMoreThan extends OperatorNumber {
+        static boolean compare(Object obj1, Object obj2) {
+            if (verify(obj1, obj2))
+                return ((Double) obj1).compareTo((Double) obj2) <= 0;
+           
+           return false;
+        }
+    }
+
+    class Ab extends org.hamcrest.BaseMatcher<Object> {
+        private Object obj;
+        
+        public Ab(Object obj) {
+            super();
+            this.obj = obj;
+        }
+
+        @Override
+        public boolean matches(Object arg0) {
+            return false;
+        }
+
+        @Override
+        public void describeTo(org.hamcrest.Description arg0) {
+            arg0.appendText("Not OK");
+        }
+    }
+}

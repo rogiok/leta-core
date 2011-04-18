@@ -95,7 +95,7 @@ setClause returns [Matrix matrix]
 factComposite returns [Element element]
   @after {
     if ($element instanceof SequenceCode) {
-      this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $element);
+      //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $element);
     }
   }
   : ^('And' f=fact fc=factComposite)
@@ -173,7 +173,7 @@ term returns [ClassElement classElement]
     {
       $classElement = new ClassElement($ID.text);
       
-      this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $classElement);
+      //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $classElement);
     }
   ;
 
@@ -214,6 +214,8 @@ termWithAssociation returns [ClassElement classElement]
 	        $classElement.setIntValue(0);
 	      if (this.semanticModel.getCurrentTestCase().getMatrix().hasFloatValue($classElement.getIndexOfSet()))
 	        $classElement.setFloatValue(0.0);
+        if (this.semanticModel.getCurrentTestCase().getMatrix().hasDateValue($classElement.getIndexOfSet()))
+          $classElement.setDateValue("");
       }
     }
   ;

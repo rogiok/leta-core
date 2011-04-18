@@ -7,7 +7,7 @@ public class GeneratorTest {
     @Test
     public void testGenerator() throws Exception {
 	
-	String inputFile = ClassLoader.getSystemResource("leta/core/sample/sample.leta").toURI().getPath();
+	String inputFile = ClassLoader.getSystemResource("leta/core/sample/semantic-phase-test.leta").toURI().getPath();
 	
 	new Generator(inputFile, "./src/test/java").generate();
 	
