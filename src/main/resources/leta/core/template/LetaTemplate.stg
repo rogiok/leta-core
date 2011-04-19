@@ -42,7 +42,23 @@ bodyTest(id, verifyClause, whenClause, setClause, elements) ::=
 public abstract class <id>Test {
 
     // Gera todas as classes que correspondem aos termos
-    <elements: { element | <generateElement(element)>}>
+    <elements: { element | <generateClass(element)>}>
+    
+    
+    // TCOutput
+    <generateFactExpression(initial="Verify", element=verifyClause.element)>
+    
+    class TCOutput {
+        <generateIO(initial="Verify", instance="verify", element=verifyClause.element)>
+    }
+
+    // TCInput
+    <generateFactExpression(initial="When", element=whenClause.element)>
+    
+    class TCInput {
+        <generateIO(initial="When", instance="when", element=whenClause.element)>
+    }
+
 
     // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
@@ -53,9 +69,11 @@ public abstract class <id>Test {
     public void test() {
 
         // Verify
-        <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
-
+        TCOutput expected = new TCOutput();
+        <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)><\n>
+        
         // When
+        TCInput input = new TCInput();
         <generateInstanceDeclarations(object="input", initial="when", element=whenClause.element)>
 
         // Executa o método sendToSut
@@ -63,10 +81,6 @@ public abstract class <id>Test {
 
         // Compara os resultados com os valores esperados
         <generateAsserts(initial="verify", element=verifyClause.element)>
-        
-        //sassertEquals(expected, result);
-        
-        <generateAsserts(initial="when", element=whenClause.element)>
 
     }
     
@@ -109,7 +123,7 @@ generateAsserts(initial, element) ::=
 <<
 <if (element.composite)>
 <generateAsserts(initial=initial, element=element.left)>
-<generateAsserts(initial=element.name, element=element.right)>
+<generateAsserts(initial=element.instanceName, element=element.right)>
 <elseif (element.methodElement)>
 <generateAssertItem(initial=initial, parent=element, current=element)>
 <endif>
@@ -122,14 +136,16 @@ generateAssertItem(initial, parent, current) ::=
 <if (current.anyValue)>
 assertTrue(
     Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
-        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
     )
 );
 <endif>
 <else>
 assertTrue(
     OperatorEqual.compare(
-        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
     )
 );
 <endif>
@@ -137,7 +153,8 @@ assertTrue(
 <if (current.anyValue)>
 assertTrue(
     Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
-        expected.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>, result.<initial><generateAssertFact(parent)>.<generateAssertTerm(current)>
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
     )
 );
 <endif>
@@ -156,7 +173,7 @@ generateAssertFact(element) ::=
 generateAssertTerm(element) ::=
 <<
 <if (element.anyValue)>
-get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Int<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
+get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Integer<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
 <else>
 get<element.className>().is<element.methodElement.methodName>()
 <endif>
@@ -169,9 +186,10 @@ generateInstanceDeclarations(object, initial, element) ::=
 <if (element.composite)>
 <generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
 
-<generateInstanceDeclarations(object=object, initial=element.name, element=element.right)>
+<generateInstanceDeclarations(object=object, initial=element.instanceName, element=element.right)>
 <elseif (element.methodElement)>
-<object>.<initial><generateInstanceDeclarationMethod(element)>(<generateInstanceDeclarationParameter(element)>);
+<object>.<initial><generateInstanceDeclarationMethod(element)>(
+    <generateInstanceDeclarationParameter(element)>);
 <endif>
 >>
 
@@ -182,7 +200,8 @@ generateInstanceDeclarationMethod(element) ::=
 
 generateInstanceDeclarationParameter(element) ::=
 <<
-new <element.className>(<if (element.relationalOperator)>new Operator<element.relationalOperator>(), <endif><if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)><element.dateValue><endif>)<if (element.methodElement)><if (element.methodElement.classElement)>, <generateInstanceDeclarationParameter(element.methodElement.classElement)><endif><endif>
+<if (element.anyValue)>new <element.className>(<if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)>"<element.dateValue.original>"<endif>)<if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateInstanceDeclarationParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>true<\n><endif><endif>
 >>
 
 
@@ -210,68 +229,37 @@ generateInstanceAttributions(element) ::=
 
 
 
-generateElement(classElement) ::=
+generateClass(classElement) ::=
 <<
-<if (classElement.composite)>
-<generateComposite(classElement)>
-<else>
+<if (!classElement.composite)>
 class <classElement.className> {
-    // Existem inumeros casos que necessitam de um Operator, com excecao de quando nao houver valores
-    Operator operator = new OperatorEqual();
     
     <classElement.className>() {
     }
     
 <if (classElement.stringValue)>
-    String sValue;
+    private String sValue;
 
     <classElement.className>(String value) { this.sValue = value; }
-    <if (classElement.relationalOperator)><classElement.className>(OperatorString operator, String value) { this.operator = operator; this.sValue = value; }<endif>
-    String getStringValue() { return this.sValue; }<\n>
+    String getStringValue() { return this.sValue; }
 <elseif (classElement.floatValue)>
-    Double dValue;
+    private Double dValue;
 
-    <classElement.className>(<if (classElement.relationalOperator)>OperatorNumber operator, <endif>Double value) { <if (classElement.relationalOperator)>this.operator = operator; <endif>this.dValue = value; }
-    Double getDoubleValue() { return this.dValue; }<\n>
+    <classElement.className>(Double value) { this.dValue = value; }
+    Double getDoubleValue() { return this.dValue; }
 <elseif (classElement.intValue)>
-    Integer iValue;
+    private Integer iValue;
 
-    <classElement.className>(<if (classElement.relationalOperator)>OperatorNumber operator, <endif>Integer value) { <if (classElement.relationalOperator)>this.operator = operator; <endif>this.iValue = value; }
-    Integer getIntegerValue() { return this.iValue; }<\n>
+    <classElement.className>(Integer value) { this.iValue = value; }
+    Integer getIntegerValue() { return this.iValue; }
+<elseif (classElement.dateValue)>
+    private String dtValue;
+    
+    <classElement.className>(String value) { this.dtValue = value; }
+    String getDateValue() { return this.dtValue; }
 <endif>
 
 <classElement.methodElements: { m | <generateMethod(m)>}>
-
-    public boolean equals(Object obj) {
-        if (obj instanceof <classElement.className>) {
-        <if (classElement.methodElements)>
-            <classElement.className> o = (<classElement.className>) obj;
-            boolean validValue = true;
-            boolean valid = true;
-
-            <if (classElement.stringValue)>
-            if (this.sValue != null && o.sValue != null && !operator.compare(this.sValue, o.sValue))
-                validValue = false;
-            <endif>
-            <if (classElement.floatValue)>
-            if (this.dValue != null && o.dValue != null && !operator.compare(this.dValue, o.dValue))
-                validValue = false;
-            <endif>
-            <if (classElement.intValue)>
-            if (this.iValue != null && o.iValue != null && !operator.compare(this.iValue, o.iValue))
-                validValue = false;
-            <endif>
-            
-            <classElement.methodElements: { m | <generateEqualsByMethodElement(m)>}>
-            
-            return validValue && valid;
-        <else>
-            return true;
-        <endif>
-        }
-        
-        return false;
-    }
 
 }<\n>
 <endif>
@@ -281,7 +269,7 @@ generateMethod(methodElement) ::=
 <<
 <if (methodElement.classElement.quantifier)>
     // List\<Class> instance = new ArrayList\<Class>();
-    java.util.List\<<methodElement.classElement.className>\> <methodInstanceName(methodElement)> = new java.util.ArrayList\<<methodElement.classElement.className>\>();
+    private java.util.List\<<methodElement.classElement.className>\> <methodInstanceName(methodElement)> = new java.util.ArrayList\<<methodElement.classElement.className>\>();
 
     // List\<Class> getInstanceQuantifierValueClass() { return instance; }
     java.util.List\<<methodElement.classElement.className>\> get<methodNameAndQuantifier(methodElement)>() {
@@ -299,7 +287,7 @@ generateMethod(methodElement) ::=
     }
 <elseif (methodElement.classElement)>
     // Class methodClass;
-    <methodElement.classElement.className> <methodInstanceName(methodElement)>;
+    private <methodElement.classElement.className> <methodInstanceName(methodElement)>;
     
     // Class getMethodClass() { return instance; }
     <methodElement.classElement.className> get<methodClassName(methodElement)>() {
@@ -314,16 +302,20 @@ generateMethod(methodElement) ::=
     // Class methodClassClass(String value) { this.instance = new Class(value); }
     <if (methodElement.classElement.anyValue)>
     <if (methodElement.classElement.stringValue)>
-    <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorString operator, <endif>String value) {
-        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>(String value) {
+        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(value);
     }
     <elseif (methodElement.classElement.floatValue)>
-    <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorNumber operator, <endif>Double value) {
-        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>(Double value) {
+        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(value);
     }
     <elseif (methodElement.classElement.intValue)>
-    <methodElement.classElement.className> <methodInstanceName(methodElement)>(<if (methodElement.classElement.relationalOperator)>OperatorNumber operator, <endif>Integer value) {
-        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(<if (methodElement.classElement.relationalOperator)>operator, <endif>value);
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>(Integer value) {
+        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(value);
+    }
+    <elseif (methodElement.classElement.dateValue)>
+    <methodElement.classElement.className> <methodInstanceName(methodElement)>(String value) {
+        return this.<methodInstanceName(methodElement)> = new <methodElement.classElement.className>(value);
     }
     <endif>
   <else>
@@ -333,7 +325,7 @@ generateMethod(methodElement) ::=
   <endif>
 <else>
     // boolean instance;
-    boolean <methodElement.instanceName> = true;
+    private boolean <methodElement.instanceName> = true;
     
     // boolean isInstance() { return instance; }
     boolean is<methodElement.methodName>() {
@@ -343,7 +335,7 @@ generateMethod(methodElement) ::=
     // void setInstance(boolean instance) { this.instance = instance; }
     void set<methodElement.methodName>(boolean <methodElement.instanceName>) {
         this.<methodElement.instanceName> = <methodElement.instanceName>;
-    }
+    }<\n>
 <endif>
 
 >>
@@ -363,37 +355,111 @@ methodClassName(methodElement) ::=
 <methodElement.methodName><methodElement.classElement.className>
 >>
 
-generateComposite(compositeElement) ::=
+
+// TCInput and TCOutput
+generateIO(initial, instance, element) ::=
 <<
-class <compositeElement.className> {
-    <compositeElement.className>() {
-    }<\n>
-    <compositeElement.elements: { n | <n.className> <n.instanceName>;<\n>}>
-    <compositeElement.constructors: { composite | <generateCompositeConstructor(composite)>}>
-    <compositeElement.elements: { n | 
-<n.className> get<n.instanceClassName>() {
-    return <n.instanceName>;
-}
-
-void set<n.instanceClassName>(<n.className> <n.instanceName>) {
-    this.<n.instanceName> = <n.instanceName>;
-}
-}>
-
-    public boolean equals(Object obj) {
-        if (obj instanceof <compositeElement.className>) {
-            <element.className> o = (<element.className>) obj;
-            boolean valid = true;
-            
-            <compositeElement.elements: { n | <generateEqualsByClassElement(n)>}>
-            return valid;
-        }
-        
-        return false;
-    }
-
-}<\n>
+<if (element.composite)>
+<generateIOClass(initial=initial, instance=instance, element=element.left)>
+<generateIO(initial=element.className, instance=element.instanceName, element=element.right)>
+<else>
+<generateIOClass(initial=initial, instance=instance, element=element)>
+<endif>
 >>
+
+generateIOClass(initial, instance, element) ::=
+<<
+private <initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>;
+
+<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>(
+        <generateIOClassParameter(element)>
+        ) {
+    return this.<instance><generateFactExpressionName(element)> = new
+        <initial><generateFactExpressionName(element)>(
+            <generateIOClassInstance(element)>
+            );
+}
+<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>() {
+    return this.<instance><generateFactExpressionName(element)>;
+}
+
+>>
+
+generateIOClassParameter(element) ::=
+<<
+<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+>>
+
+generateIOClassInstance(element) ::=
+<<
+<if (element.anyValue)><element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassInstance(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>value<\n><endif><endif>
+>>
+
+
+generateFactExpression(initial, element) ::=
+<<
+<if (element.composite)>
+<generateFactExpressionClass(initial=initial, element=element.left)>
+
+<generateFactExpression(initial=element.className, element=element.right)>
+<else>
+<generateFactExpressionClass(initial=initial, element=element)>
+<endif>
+
+>>
+
+generateFactExpressionClass(initial, element) ::=
+<<
+class <initial><generateFactExpressionName(element)> {
+
+    <generateFactExpressionDeclaration(element)>
+    <initial><generateFactExpressionName(element)>(
+        <generateFactExpressionParameter(element)>
+        ) {
+        <generateFactExpressionAttribution(element)>
+        <generateFactExpressionSetter(element)>
+    }
+}
+>>
+
+generateFactExpressionDeclaration(element) ::=
+<<
+private <element.className> <element.instanceName> = new <element.className>();
+<element.className> get<element.className>() { return this.<element.instanceName>; }
+<if (element.methodElement)><if (element.methodElement.classElement)><generateFactExpressionDeclaration(element.methodElement.classElement)><endif><endif>
+>>
+
+generateFactExpressionName(element) ::=
+<<
+<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateFactExpressionName(element.methodElement.classElement)><endif><endif>
+>>
+
+generateFactExpressionParameter(element) ::=
+<<
+<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateFactExpressionParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+>>
+
+generateFactExpressionAttribution(element) ::=
+<<
+<if (element.anyValue)>this.<element.instanceName> = <element.instanceName>;<endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateFactExpressionAttribution(element.methodElement.classElement)><endif><endif>
+>>
+
+generateFactExpressionSetter(element) ::=
+<<
+<if (element.methodElement)><if (element.methodElement.classElement)>
+this.<element.instanceName>.set<element.methodElement.className><element.methodElement.classElement.className>(this.<element.methodElement.classElement.instanceName>);
+<generateFactExpressionSetter(element.methodElement.classElement)>
+<else>
+this.<element.instanceName>.set<element.methodElement.className>(value);
+<endif><endif>
+>>
+
+
+
 
 generateCompositeConstructor(composite) ::=
 <<
@@ -404,86 +470,67 @@ generateCompositeConstructor(composite) ::=
 >>
 
 
+
 operators() ::=
 <<
-abstract class Operator {
-    abstract boolean compare(Object obj1, Object obj2);
+static abstract class Operator {
 }
 
-abstract class OperatorString extends Operator {
+static abstract class OperatorString extends Operator {
 }
 
-abstract class OperatorNumber extends Operator {
-    boolean verify(Object obj1, Object obj2) {
+static abstract class OperatorNumber extends Operator {
+    static boolean verify(Object obj1, Object obj2) {
         return ((obj1 instanceof Integer || obj1 instanceof Double)
             && (obj2 instanceof Integer || obj2 instanceof Double));
     }
 }
 
-class OperatorEqual extends OperatorString {
-    boolean compare(Object obj1, Object obj2) {
+static class OperatorEqual extends OperatorString {
+    static boolean compare(Object obj1, Object obj2) {
         return obj1.equals(obj2);
     }
 }
 
-class OperatorNotEqual extends OperatorString {
-    boolean compare(Object obj1, Object obj2) {
+static class OperatorNotEqual extends Operator {
+    static boolean compare(Object obj1, Object obj2) {
         return !obj1.equals(obj2);
     }
 }
 
-class OperatorLessThan extends OperatorNumber {
-    boolean compare(Object obj1, Object obj2) {
-        if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \< 0;
-
-        return false;
-    }
-}
-
-class OperatorEqualOrLessThan extends OperatorNumber {
-    boolean compare(Object obj1, Object obj2) {
-        if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \<= 0;
-
-        return false;
-    }
-}
-
-class OperatorMoreThan extends OperatorNumber {
-    boolean compare(Object obj1, Object obj2) {
+static class OperatorLessThan extends OperatorNumber {
+    static boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \> 0;
+
+        return false;
+    }
+}
+
+static class OperatorEqualOrLessThan extends OperatorNumber {
+    static boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \>= 0;
+
+        return false;
+    }
+}
+
+static class OperatorMoreThan extends OperatorNumber {
+    static boolean compare(Object obj1, Object obj2) {
+        if (verify(obj1, obj2))
+            return ((Double) obj1).compareTo((Double) obj2) \< 0;
         
         return false;
     }
 }
 
-class OperatorEqualOrMoreThan extends OperatorNumber {
-    boolean compare(Object obj1, Object obj2) {
+static class OperatorEqualOrMoreThan extends OperatorNumber {
+    static boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
-            return ((Double) obj1).compareTo((Double) obj2) \>= 0;
+            return ((Double) obj1).compareTo((Double) obj2) \<= 0;
        
        return false;
-    }
-}
-
-class Ab extends org.hamcrest.BaseMatcher\<Object\> {
-    private Object obj;
-    
-    public Ab(Object obj) {
-        super();
-        this.obj = obj;
-    }
-
-    @Override
-    public boolean matches(Object arg0) {
-        return false;
-    }
-
-    @Override
-    public void describeTo(org.hamcrest.Description arg0) {
-        arg0.appendText("Not OK");
     }
 }
 >>
@@ -515,6 +562,41 @@ generateEqualsByClassElement(classElement) ::=
 if (this.<classElement.instanceName> != null &&
     o.<classElement.instanceName> != null)
     valid = valid & this.<classElement.instanceName>.equals(o.<classElement.instanceName>);<\n>
+    
+    
+    
+
+    public boolean equals(Object obj) {
+        if (obj instanceof <classElement.className>) {
+        <if (classElement.methodElements)>
+            <classElement.className> o = (<classElement.className>) obj;
+            boolean validValue = true;
+            boolean valid = true;
+
+            <if (classElement.stringValue)>
+            if (this.sValue != null && o.sValue != null && !operator.compare(this.sValue, o.sValue))
+                validValue = false;
+            <endif>
+            <if (classElement.floatValue)>
+            if (this.dValue != null && o.dValue != null && !operator.compare(this.dValue, o.dValue))
+                validValue = false;
+            <endif>
+            <if (classElement.intValue)>
+            if (this.iValue != null && o.iValue != null && !operator.compare(this.iValue, o.iValue))
+                validValue = false;
+            <endif>
+            
+            <classElement.methodElements: { m | <generateEqualsByMethodElement(m)>}>
+            
+            return validValue && valid;
+        <else>
+            return true;
+        <endif>
+        }
+        
+        return false;
+    }
+        
 >>
 
 

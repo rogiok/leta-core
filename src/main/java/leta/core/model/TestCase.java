@@ -12,7 +12,7 @@ public class TestCase {
     private Matrix matrix;
 
     private List<ClassElement> classElements;
-    private List<JunctionElement> junctionElements;
+//    private List<JunctionElement> junctionElements;
 
     
     public TestCase(String id) {
@@ -24,7 +24,7 @@ public class TestCase {
 	
 	this.elements = new ArrayList<Element>();
 	this.classElements = new ArrayList<ClassElement>();
-	this.junctionElements = new ArrayList<JunctionElement>();
+//	this.junctionElements = new ArrayList<JunctionElement>();
     }
 
     public TestCase() {
@@ -66,6 +66,9 @@ public class TestCase {
 	    }
 	    if (classElement.getIntValue() != null) {
 		newClassElement.setIntValue(new Integer(0));
+	    }
+	    if (classElement.getDateValue() != null) {
+		newClassElement.setDateValue("");
 	    }
 
 	    // Here too
@@ -115,13 +118,15 @@ public class TestCase {
     
     public void addSequenceCode(SequenceCode sequenceCode) {
 	
-	if (sequenceCode instanceof JunctionElement) {
+	/*if (sequenceCode instanceof JunctionElement) {
 	    int seq = this.getSequenceOfJunctionElement(((JunctionElement) sequenceCode).getName());
 		      
 	    sequenceCode.setSequence(seq);
 		      
 	    this.junctionElements.add((JunctionElement) sequenceCode);
-	} else if (sequenceCode instanceof ClassElement) {
+	} else*/
+	
+	if (sequenceCode instanceof ClassElement) {
 	    int seq = this.getSequenceOfClassElement(((ClassElement) sequenceCode).getName());
 		      
 	    sequenceCode.setSequence(seq);
@@ -144,6 +149,7 @@ public class TestCase {
 	return result;
     }
 
+    /*
     private int getSequenceOfJunctionElement(String id) {
 
 	int result = 0;
@@ -155,7 +161,7 @@ public class TestCase {
 	}
 	
 	return result;
-    }
+    }*/
 
     
     

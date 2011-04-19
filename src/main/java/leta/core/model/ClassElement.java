@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ClassElement extends Element implements SequenceCode, ClassCode {
 
-    private Integer sequence;
+    private Integer sequence = 0;
     private Quantifier quantifier;
     private String relationalOperator;
     private Integer indexOfSet;
@@ -14,7 +14,7 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
     private String stringValue;
     private Integer intValue;
     private Double floatValue;
-    private String dateValue;
+    private Date dateValue;
 
     private List<MethodElement> methodElements;
     private MethodElement methodElement;
@@ -145,12 +145,12 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
         this.floatValue = floatValue;
     }
     
-    public String getDateValue() {
+    public Date getDateValue() {
         return dateValue;
     }
 
     public void setDateValue(String dateValue) {
-        this.dateValue = dateValue;
+        this.dateValue = new Date(dateValue);
     }
 
     public boolean isAnyValue() {

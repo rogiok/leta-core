@@ -67,6 +67,16 @@ public class Matrix {
 	return false;
     }
 
+    public boolean hasDateValue(int column) {
+	for (MatrixItem item : this.content) {
+	    if (item.getColumn(column - 1) instanceof Date) {
+		return true;
+	    }
+	}
+	
+	return false;
+    }
+
     public ArrayList<MatrixItem> getContent() {
         return content;
     }

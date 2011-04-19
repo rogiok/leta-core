@@ -14,9 +14,9 @@ public class OperatorElement extends CompositeElement implements ClassCode {
 	return this.getName().substring(0, 1).toLowerCase() + this.getName().substring(1);
     }
 
-    public String getMethodName() {
-	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
-    }
+//    public String getMethodName() {
+//	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
+//    }
 
     public String getClassName() {
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
