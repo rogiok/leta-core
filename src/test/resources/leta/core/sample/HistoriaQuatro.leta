@@ -1,0 +1,13 @@
+Package leta.core.sample.generated
+
+Test MudarQuantidadeDeUmLivro
+Verify
+Cesta tem Total @1 And
+Cesta tem Livro @2
+When
+Livro @2 possui Quantidade @3
+Set
+{
+	{10, "Livro A", 10},
+	{20, "Livro A", 20}
+}

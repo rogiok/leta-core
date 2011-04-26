@@ -101,15 +101,18 @@ bodyMatrixTest(verifyClause, whenClause, matrix) ::=
 void test<matrix.sequence>() {
 
     // Verify
-    <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
-
+    TCOutput expected = new TCOutput();
+    <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)><\n>
+        
     // When
+    TCInput input = new TCInput();
     <generateInstanceDeclarations(object="input", initial="when", element=whenClause.element)>
 
-
+    // Executa o método sendToSut
     TCOutput result = sendToSut(input);
 
-    //assertEquals(expected, result);
+    // Compara os resultados com os valores esperados
+    <generateAsserts(initial="verify", element=verifyClause.element)>
 
 }
     

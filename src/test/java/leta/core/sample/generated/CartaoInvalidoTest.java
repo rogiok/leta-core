@@ -42,6 +42,23 @@ public abstract class CartaoInvalidoTest {
             return this.temNome = new Nome(value);
         }
         // Class methodClass;
+        private Tipo temTipo;
+        
+        // Class getMethodClass() { return instance; }
+        Tipo getTemTipo() {
+            return this.temTipo; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setTemTipo(Tipo temTipo) {
+            this.temTipo = temTipo;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Tipo temTipo(String value) {
+            return this.temTipo = new Tipo(value);
+        }
+        // Class methodClass;
         private Numero temNumero;
         
         // Class getMethodClass() { return instance; }
@@ -55,36 +72,25 @@ public abstract class CartaoInvalidoTest {
         }
         
         // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Numero temNumero(Integer value) {
+        Numero temNumero(String value) {
             return this.temNumero = new Numero(value);
         }
         // Class methodClass;
-        private Vencimento temVencimento;
+        private Vecimento temVecimento;
         
         // Class getMethodClass() { return instance; }
-        Vencimento getTemVencimento() {
-            return this.temVencimento; 
+        Vecimento getTemVecimento() {
+            return this.temVecimento; 
         }
         
         // void setMethodClass(Class instance) { this.instance = instance; }
-        void setTemVencimento(Vencimento temVencimento) {
-            this.temVencimento = temVencimento;
+        void setTemVecimento(Vecimento temVecimento) {
+            this.temVecimento = temVecimento;
         }
         
         // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Vencimento temVencimento(String value) {
-            return this.temVencimento = new Vencimento(value);
-        }    // boolean instance;
-        private boolean ok = true;
-        
-        // boolean isInstance() { return instance; }
-        boolean isOk() {
-            return this.ok; 
-        }
-        
-        // void setInstance(boolean instance) { this.instance = instance; }
-        void setOk(boolean ok) {
-            this.ok = ok;
+        Vecimento temVecimento(String value) {
+            return this.temVecimento = new Vecimento(value);
         }
 
 
@@ -99,47 +105,17 @@ public abstract class CartaoInvalidoTest {
         Nome(String value) { this.sValue = value; }
         String getStringValue() { return this.sValue; }
 
-        // Class methodClass;
-        private Sobrenome possuiSobrenome;
-        
-        // Class getMethodClass() { return instance; }
-        Sobrenome getPossuiSobrenome() {
-            return this.possuiSobrenome; 
-        }
-        
-        // void setMethodClass(Class instance) { this.instance = instance; }
-        void setPossuiSobrenome(Sobrenome possuiSobrenome) {
-            this.possuiSobrenome = possuiSobrenome;
-        }
-        
-        // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Sobrenome possuiSobrenome(String value) {
-            return this.possuiSobrenome = new Sobrenome(value);
-        }
 
     }
-    class Sobrenome {
+    class Tipo {
         
-        Sobrenome() {
+        Tipo() {
         }
         
         private String sValue;
 
-        Sobrenome(String value) { this.sValue = value; }
+        Tipo(String value) { this.sValue = value; }
         String getStringValue() { return this.sValue; }
-
-        // boolean instance;
-        private boolean abc = true;
-        
-        // boolean isInstance() { return instance; }
-        boolean isAbc() {
-            return this.abc; 
-        }
-        
-        // void setInstance(boolean instance) { this.instance = instance; }
-        void setAbc(boolean abc) {
-            this.abc = abc;
-        }
 
 
     }
@@ -148,21 +124,24 @@ public abstract class CartaoInvalidoTest {
         Numero() {
         }
         
-        private Integer iValue;
+        private String sValue;
 
-        Numero(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Numero(String value) { this.sValue = value; }
+        String getStringValue() { return this.sValue; }
+
 
     }
-    class Vencimento {
+    class Vecimento {
         
-        Vencimento() {
+        Vecimento() {
         }
         
-        private String dtValue;
-        
-        Vencimento(String value) { this.dtValue = value; }
-        String getDateValue() { return this.dtValue; }
+        private String sValue;
+
+        Vecimento(String value) { this.sValue = value; }
+        String getStringValue() { return this.sValue; }
+
+
     }
 
     
@@ -201,27 +180,39 @@ public abstract class CartaoInvalidoTest {
     }
 
     // TCInput
-    class WhenCartaoTemNomePossuiSobrenomeAbc {
+    class WhenCartaoTemNome {
 
         private Cartao cartao = new Cartao();
         Cartao getCartao() { return this.cartao; }
         private Nome nome = new Nome();
         Nome getNome() { return this.nome; }
-        private Sobrenome sobrenome = new Sobrenome();
-        Sobrenome getSobrenome() { return this.sobrenome; }
 
-        WhenCartaoTemNomePossuiSobrenomeAbc(
-            Nome nome, 
-            Sobrenome sobrenome
-            , boolean value
+        WhenCartaoTemNome(
+            Nome nome
 
             ) {
             this.nome = nome;
-            this.sobrenome = sobrenome;
 
             this.cartao.setTemNome(this.nome);
-            this.nome.setPossuiSobrenome(this.sobrenome);
-            this.sobrenome.setAbc(value);
+
+        }
+    }
+
+    class AndCartaoTemTipo {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+        private Tipo tipo = new Tipo();
+        Tipo getTipo() { return this.tipo; }
+
+        AndCartaoTemTipo(
+            Tipo tipo
+
+            ) {
+            this.tipo = tipo;
+
+            this.cartao.setTemTipo(this.tipo);
+
         }
     }
 
@@ -243,56 +234,55 @@ public abstract class CartaoInvalidoTest {
         }
     }
 
-    class AndCartaoTemVencimento {
+    class AndCartaoTemVecimento {
 
         private Cartao cartao = new Cartao();
         Cartao getCartao() { return this.cartao; }
-        private Vencimento vencimento = new Vencimento();
-        Vencimento getVencimento() { return this.vencimento; }
+        private Vecimento vecimento = new Vecimento();
+        Vecimento getVecimento() { return this.vecimento; }
 
-        AndCartaoTemVencimento(
-            Vencimento vencimento
-
-            ) {
-            this.vencimento = vencimento;
-
-            this.cartao.setTemVencimento(this.vencimento);
-
-        }
-    }
-
-    class AndCartaoOk {
-
-        private Cartao cartao = new Cartao();
-        Cartao getCartao() { return this.cartao; }
-
-        AndCartaoOk(
-            boolean value
+        AndCartaoTemVecimento(
+            Vecimento vecimento
 
             ) {
-            this.cartao.setOk(value);
+            this.vecimento = vecimento;
+
+            this.cartao.setTemVecimento(this.vecimento);
+
         }
     }
     
     class TCInput {
-        private WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc;
+        private WhenCartaoTemNome whenCartaoTemNome;
 
-        WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc(
-                Nome nome, 
-                Sobrenome sobrenome
-                , boolean value
+        WhenCartaoTemNome whenCartaoTemNome(
+                Nome nome
 
                 ) {
-            return this.whenCartaoTemNomePossuiSobrenomeAbc = new
-                WhenCartaoTemNomePossuiSobrenomeAbc(
-                    nome, 
-                    sobrenome
-                    , value
+            return this.whenCartaoTemNome = new
+                WhenCartaoTemNome(
+                    nome
 
                     );
         }
-        WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc() {
-            return this.whenCartaoTemNomePossuiSobrenomeAbc;
+        WhenCartaoTemNome whenCartaoTemNome() {
+            return this.whenCartaoTemNome;
+        }
+
+        private AndCartaoTemTipo andCartaoTemTipo;
+
+        AndCartaoTemTipo andCartaoTemTipo(
+                Tipo tipo
+
+                ) {
+            return this.andCartaoTemTipo = new
+                AndCartaoTemTipo(
+                    tipo
+
+                    );
+        }
+        AndCartaoTemTipo andCartaoTemTipo() {
+            return this.andCartaoTemTipo;
         }
 
         private AndCartaoTemNumero andCartaoTemNumero;
@@ -311,36 +301,20 @@ public abstract class CartaoInvalidoTest {
             return this.andCartaoTemNumero;
         }
 
-        private AndCartaoTemVencimento andCartaoTemVencimento;
+        private AndCartaoTemVecimento andCartaoTemVecimento;
 
-        AndCartaoTemVencimento andCartaoTemVencimento(
-                Vencimento vencimento
+        AndCartaoTemVecimento andCartaoTemVecimento(
+                Vecimento vecimento
 
                 ) {
-            return this.andCartaoTemVencimento = new
-                AndCartaoTemVencimento(
-                    vencimento
+            return this.andCartaoTemVecimento = new
+                AndCartaoTemVecimento(
+                    vecimento
 
                     );
         }
-        AndCartaoTemVencimento andCartaoTemVencimento() {
-            return this.andCartaoTemVencimento;
-        }
-
-        private AndCartaoOk andCartaoOk;
-
-        AndCartaoOk andCartaoOk(
-                boolean value
-
-                ) {
-            return this.andCartaoOk = new
-                AndCartaoOk(
-                    value
-
-                    );
-        }
-        AndCartaoOk andCartaoOk() {
-            return this.andCartaoOk;
+        AndCartaoTemVecimento andCartaoTemVecimento() {
+            return this.andCartaoTemVecimento;
         }
 
     }
@@ -362,19 +336,17 @@ public abstract class CartaoInvalidoTest {
         
         // When
         TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
+        input.whenCartaoTemNome(
+            new Nome("Joao da Silva")
+        );
+        input.andCartaoTemTipo(
+            new Tipo("American Express")
         );
         input.andCartaoTemNumero(
-            new Numero(123)
+            new Numero("344168608834057")
         );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2015-03]")
-        );
-        input.andCartaoOk(
-            true
+        input.andCartaoTemVecimento(
+            new Vecimento("01/2015")
         );
 
 
@@ -451,25 +423,6 @@ public abstract class CartaoInvalidoTest {
                 return ((Double) obj1).compareTo((Double) obj2) <= 0;
            
            return false;
-        }
-    }
-
-    class Ab extends org.hamcrest.BaseMatcher<Object> {
-        private Object obj;
-        
-        public Ab(Object obj) {
-            super();
-            this.obj = obj;
-        }
-
-        @Override
-        public boolean matches(Object arg0) {
-            return false;
-        }
-
-        @Override
-        public void describeTo(org.hamcrest.Description arg0) {
-            arg0.appendText("Not OK");
         }
     }
 }

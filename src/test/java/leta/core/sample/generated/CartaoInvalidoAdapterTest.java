@@ -1,6 +1,6 @@
 package leta.core.sample.generated;
 
-public class CartaoInvalidoAdapterTest extends CartaoInvalidoTest {
+public class CartaoInvalidoAdapterTest extends CartaoInvalidoTestOld {
 
     @Override
     TCOutput sendToSut(TCInput input) {

@@ -1,0 +1,9 @@
+Package leta.core.sample.generated
+
+Test AdicionarLivro
+Verify
+Cesta possui Livro "Livro A" And
+Cesta tem Total 1
+When
+Livro "Livro A" eAdicinadoNa Cesta
+
