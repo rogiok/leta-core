@@ -349,19 +349,15 @@ public abstract class CartaoInvalidoTest {
     // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
-    // No Matrix
+    // Matrix
     @Test
-    public void test() {
+    void test1() {
 
         // Verify
-        TCOutput expected = new TCOutput();
         expected.verifyCartaoNaoEValido(
             true
         );
-
-        
         // When
-        TCInput input = new TCInput();
         input.whenCartaoTemNomePossuiSobrenomeAbc(
             new Nome("João"), 
             new Sobrenome("Silva")
@@ -379,19 +375,238 @@ public abstract class CartaoInvalidoTest {
 
 
 
-        // Executa o método sendToSut
+
         TCOutput result = sendToSut(input);
 
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
+        //assertEquals(expected, result);
 
     }
-    
+        
+    @Test
+    void test2() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test3() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test4() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test5() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test6() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test7() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+    @Test
+    void test8() {
+
+        // Verify
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+        // When
+        input.whenCartaoTemNomePossuiSobrenomeAbc(
+            new Nome("João"), 
+            new Sobrenome("Silva")
+            , true
+        );
+        input.andCartaoTemNumero(
+            new Numero(123)
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+        input.andCartaoOk(
+            true
+        );
+
+
+
+
+        TCOutput result = sendToSut(input);
+
+        //assertEquals(expected, result);
+
+    }
+        
+
     
     static abstract class Operator {
     }
@@ -427,7 +642,7 @@ public abstract class CartaoInvalidoTest {
         }
     }
 
-    static class OperatorEqualOrLessThan extends OperatorNumber {
+    static class OperatorLessOrEqualThan extends OperatorNumber {
         static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) >= 0;
@@ -445,31 +660,12 @@ public abstract class CartaoInvalidoTest {
         }
     }
 
-    static class OperatorEqualOrMoreThan extends OperatorNumber {
+    static class OperatorMoreOrEqualThan extends OperatorNumber {
         static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) <= 0;
            
            return false;
-        }
-    }
-
-    class Ab extends org.hamcrest.BaseMatcher<Object> {
-        private Object obj;
-        
-        public Ab(Object obj) {
-            super();
-            this.obj = obj;
-        }
-
-        @Override
-        public boolean matches(Object arg0) {
-            return false;
-        }
-
-        @Override
-        public void describeTo(org.hamcrest.Description arg0) {
-            arg0.appendText("Not OK");
         }
     }
 }

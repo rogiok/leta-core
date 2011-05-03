@@ -321,9 +321,9 @@ relationalOperator returns [String operator]
   | ^(OPERATOR '<')
     { $operator = "LessThan"; }
   | ^(OPERATOR '>=')
-    { $operator = "EqualOrMoreThan"; }
+    { $operator = "MoreOrEqualThan"; }
   | ^(OPERATOR '<=')
-    { $operator = "EqualOrLessThan"; }
+    { $operator = "LessOrEqualThan"; }
   | notEqualOperator
   ;
 

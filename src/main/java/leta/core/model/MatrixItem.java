@@ -25,17 +25,42 @@ public class MatrixItem {
     }
 
     public Object getColumn(int index) {
-	if (index >= columns.size())
+	if (index >= this.columns.size())
 	    return null;
 	else
-	    return columns.get(index);
+	    return this.columns.get(index);
     }
 
     public ArrayList<Object> getColumns() {
-	return columns;
+	return this.columns;
+    }
+    
+    public int sizeColumns() {
+	return this.columns.size();
     }
 
     public void setColumns(ArrayList<Object> columns) {
 	this.columns = columns;
+    }
+    
+    public Object clone() {
+	MatrixItem result = new MatrixItem();
+	
+	for (Object column : this.columns) {
+	    if (column instanceof String)
+		result.addColumn(new String((String) column));
+	    if (column instanceof Integer)
+		result.addColumn(new Integer(((Integer) column).intValue()));
+	    if (column instanceof Double)
+		result.addColumn(new Double(((Double) column).doubleValue()));
+	    if (column instanceof Date)
+		result.addColumn(new Date(((Date) column).getOriginal()));
+	}
+	
+	return result;
+    }
+    
+    public String toString() {
+	return this.columns.toString();
     }
 }

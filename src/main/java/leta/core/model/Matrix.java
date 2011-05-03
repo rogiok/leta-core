@@ -145,5 +145,13 @@ public class Matrix {
 	}
 
     }
+
+    public int totalItems() {
+	return this.content.size();
+    }
+
+    public MatrixItem getContent(int index) {
+	return this.content.get(index);
+    }
     
 }

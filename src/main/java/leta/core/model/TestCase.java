@@ -44,6 +44,7 @@ public class TestCase {
 	    
 	    Element n = this.findElement(element);
 	    
+	    // Deprecated
 	    if (element instanceof JunctionElement) {
 		((CompositeElement) n).addConstructor(new JunctionElement(cn.getName(), cn.getLeft(), cn.getRight()));
 	    } else if (element instanceof OperatorElement) {
@@ -57,7 +58,6 @@ public class TestCase {
 	    
 	    ClassElement newClassElement = (ClassElement) this.findElement(element);
 
-	    // I see a problem here
 	    if (classElement.getStringValue() != null) {
 		newClassElement.setStringValue("");
 	    }
@@ -71,15 +71,15 @@ public class TestCase {
 		newClassElement.setDateValue("");
 	    }
 
-	    // Here too
 	    if (classElement.getRelationalOperator() != null) {
+		this.createListInMatrix(classElement);
+		
 		newClassElement.setRelationalOperator("*");
 	    }
 	    
-	    
 	    if (classElement.getMethodElement() != null) {
-		// Adiciona os m�todos numa lista para a gera��o do c�digo no template
-		// porque podem existir mais de um m�todo para a mesma classe.
+		// Adiciona os métodos numa lista para a geração do código no template
+		// porque podem existir mais de um método para a mesma classe.
 		newClassElement.addMethodElement(classElement.getMethodElement());
 
 		if (classElement.getMethodElement().getClassElement() != null) {
@@ -163,8 +163,86 @@ public class TestCase {
 	return result;
     }*/
 
-    
-    
+    private void createListInMatrix(ClassElement classElement) {
+	
+	Object value1 = null;
+	Object value2 = null;
+	
+	if (classElement.getRelationalOperator().equals("MoreOrEqualThan")) {
+	    if (classElement.getIntValue() != null) {
+		value1 = new Integer(classElement.getIntValue().intValue());
+		value2 = new Integer(classElement.getIntValue().intValue() + 1);
+	    } else if (classElement.getFloatValue() != null) {
+		value1 = new Double(classElement.getFloatValue().doubleValue());
+		value2 = new Double(classElement.getFloatValue().doubleValue() + 1);
+	    } else if (classElement.getDateValue() != null) {
+		value1 = new Date(classElement.getDateValue().getOriginal());
+		value2 = new Date(classElement.getDateValue().sum().getOriginal());
+	    }
+	    
+	} else if (classElement.getRelationalOperator().equals("LessOrEqualThan")) {
+	    if (classElement.getIntValue() != null) {
+		value1 = new Integer(classElement.getIntValue().intValue());
+		value2 = new Integer(classElement.getIntValue().intValue() - 1);
+	    } else if (classElement.getFloatValue() != null) {
+		value1 = new Double(classElement.getFloatValue().doubleValue());
+		value2 = new Double(classElement.getFloatValue().doubleValue() - 1);
+	    } else if (classElement.getDateValue() != null) {
+		value1 = new Date(classElement.getDateValue().getOriginal());
+		value2 = new Date(classElement.getDateValue().subtract().getOriginal());
+	    }
+	    
+	} else if (classElement.getRelationalOperator().equals("NotEqual")) {
+	    if (classElement.getIntValue() != null) {
+		value1 = new Integer(classElement.getIntValue().intValue() - 1);
+		value2 = new Integer(classElement.getIntValue().intValue() + 1);
+	    } else if (classElement.getFloatValue() != null) {
+		value1 = new Double(classElement.getFloatValue().doubleValue() - 1);
+		value2 = new Double(classElement.getFloatValue().doubleValue() + 1);
+	    } else if (classElement.getDateValue() != null) {
+		value1 = new Date(classElement.getDateValue().sum().getOriginal());
+		value2 = new Date(classElement.getDateValue().subtract().getOriginal());
+	    }
+	    
+	}
+	
+	updateMatrix(value1, value2);
+    }
+
+    private void updateMatrix(Object value1, Object value2) {
+	MatrixItem matrixItem = null;
+
+	if (this.matrix == null) {
+	    this.matrix = new Matrix();
+
+	    // Adiciona o primeiro item com o primeiro valor
+	    matrixItem = new MatrixItem();
+	    matrixItem.addColumn(value1);
+
+	    this.matrix.addRow(matrixItem);
+
+	    // Adiciona o segundo item com o segundo valor
+	    matrixItem = new MatrixItem();
+	    matrixItem.addColumn(value2);
+
+	    this.matrix.addRow(matrixItem);
+	} else {
+
+	    int totalItems = this.matrix.totalItems();
+
+	    for (int i = 0; i < totalItems; i++) {
+		MatrixItem item = this.matrix.getContent(i);
+		MatrixItem copy = (MatrixItem) item.clone();
+
+		// Adiciona o primeiro valor ao item existente
+		item.addColumn(value1);
+		// Adiciona o segundo valor a um novo item
+		copy.addColumn(value2);
+
+		this.matrix.addRow(copy);
+	    }
+	}
+    }
     
     public List<Element> getElements() {
         return elements;

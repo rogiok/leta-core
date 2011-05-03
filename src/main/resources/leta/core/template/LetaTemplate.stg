@@ -507,7 +507,7 @@ static class OperatorLessThan extends OperatorNumber {
     }
 }
 
-static class OperatorEqualOrLessThan extends OperatorNumber {
+static class OperatorLessOrEqualThan extends OperatorNumber {
     static boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \>= 0;
@@ -525,7 +525,7 @@ static class OperatorMoreThan extends OperatorNumber {
     }
 }
 
-static class OperatorEqualOrMoreThan extends OperatorNumber {
+static class OperatorMoreOrEqualThan extends OperatorNumber {
     static boolean compare(Object obj1, Object obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \<= 0;

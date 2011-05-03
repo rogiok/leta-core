@@ -6,6 +6,20 @@ Verify
 Cartao naoEValido
 When
 Cartao tem Nome "João" possui Sobrenome "Silva" abc And
+Cartao tem Numero >= 123 And 
+Cartao tem Vencimento >= [2015-03] And
+Cartao ok
+Set {
+	{10},
+	{20}
+}
+
+/*
+Test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+Cartao tem Nome "João" possui Sobrenome "Silva" abc And
 Cartao tem Numero 123 And 
 Cartao tem Vencimento > [2015-03] And
 Cartao ok
@@ -18,7 +32,7 @@ Cartao tem Vencimento > [2015-03] And
 Cartao ok
 When
 Cartao naoEValido
-
+*/
 /*
 // Teste de formula
 Test TestCase02
