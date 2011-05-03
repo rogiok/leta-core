@@ -4,7 +4,7 @@ package leta.core.sample.generated;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public abstract class CartaoInvalidoTest {
+public abstract class CartaoInvalidoTestOld {
 
     // Gera todas as classes que correspondem aos termos
     class Cartao {
@@ -349,9 +349,9 @@ public abstract class CartaoInvalidoTest {
     // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
-    // Matrix
+    // No Matrix
     @Test
-    void test1() {
+    public void test() {
 
         // Verify
         TCOutput expected = new TCOutput();
@@ -359,7 +359,7 @@ public abstract class CartaoInvalidoTest {
             true
         );
 
-            
+        
         // When
         TCInput input = new TCInput();
         input.whenCartaoTemNomePossuiSobrenomeAbc(
@@ -391,134 +391,7 @@ public abstract class CartaoInvalidoTest {
         );
 
     }
-        
-    @Test
-    void test2() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(124)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2015-03]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-    @Test
-    void test3() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(123)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2016-4]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-    @Test
-    void test4() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(124)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2016-4]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-
+    
     
     static abstract class Operator {
     }
@@ -554,7 +427,7 @@ public abstract class CartaoInvalidoTest {
         }
     }
 
-    static class OperatorLessOrEqualThan extends OperatorNumber {
+    static class OperatorEqualOrLessThan extends OperatorNumber {
         static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) >= 0;
@@ -572,12 +445,31 @@ public abstract class CartaoInvalidoTest {
         }
     }
 
-    static class OperatorMoreOrEqualThan extends OperatorNumber {
+    static class OperatorEqualOrMoreThan extends OperatorNumber {
         static boolean compare(Object obj1, Object obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) <= 0;
            
            return false;
+        }
+    }
+
+    class Ab extends org.hamcrest.BaseMatcher<Object> {
+        private Object obj;
+        
+        public Ab(Object obj) {
+            super();
+            this.obj = obj;
+        }
+
+        @Override
+        public boolean matches(Object arg0) {
+            return false;
+        }
+
+        @Override
+        public void describeTo(org.hamcrest.Description arg0) {
+            arg0.appendText("Not OK");
         }
     }
 }

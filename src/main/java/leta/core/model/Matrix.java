@@ -112,7 +112,7 @@ public class Matrix {
 		if (classElement.getIndexOfSet() != null && classElement.getIndexOfSet() > 0) {
 		    MatrixItem matrixItem = Matrix.this.content.get(Matrix.this.sequence - 1);
 
-		    Object value = matrixItem.getColumn(classElement.getIndexOfSet());
+		    Object value = matrixItem.getColumn(classElement.getIndexOfSet() - 1);
 
 		    if (value instanceof String)
 			classElement.setStringValue((String) value);
@@ -120,6 +120,8 @@ public class Matrix {
 			classElement.setIntValue((Integer) value);
 		    else if (value instanceof Double)
 			classElement.setFloatValue((Double) value);
+		    else if (value instanceof Date)
+			classElement.setDateValue(((Date) value).getOriginal());
 		}
 	    }
 

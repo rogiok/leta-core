@@ -9,10 +9,7 @@ Cartao tem Nome "João" possui Sobrenome "Silva" abc And
 Cartao tem Numero >= 123 And 
 Cartao tem Vencimento >= [2015-03] And
 Cartao ok
-Set {
-	{10},
-	{20}
-}
+Set {}
 
 /*
 Test CartaoInvalido

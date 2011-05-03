@@ -90,8 +90,9 @@ whenClause
   ;
 
 setClause
-  : 'Set' '{' set '}'
-    -> ^(SET set)
+  : 'Set' '{' (s=set)? '}'
+    -> {s != null}? ^(SET $s)
+    -> 
   ;
 
 factComposite
@@ -299,3 +300,4 @@ LINE_COMMENT
 WS
   : (' ' | '\t' | '\n' | '\r')+ { $channel=HIDDEN; }
   ;
+

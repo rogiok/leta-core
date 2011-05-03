@@ -62,7 +62,7 @@ testCase
       
       elements = testCase.getElements();
     }
-    -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, setClause={sc}, packageName={this.semanticModel.getPackageName()}, elements={elements})
+    -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, setClause={testCase}, packageName={this.semanticModel.getPackageName()}, elements={elements})
   ;
 
 verifyClause returns [Element element]
@@ -79,16 +79,12 @@ whenClause returns [Element element]
     }
   ;
 
-setClause returns [Matrix matrix]
+setClause
   : ^(SET set)
     {
-      Matrix m = new Matrix();
+      Matrix m = this.semanticModel.getCurrentTestCase().getMatrix();
       
       m.addRows($set.items);
-      
-      this.semanticModel.getCurrentTestCase().setMatrix(m);
-      
-      $matrix = m;
     }
   ;
 
@@ -387,3 +383,4 @@ testPackage
       this.semanticModel.setPackageName($PACKAGE_ID.text.replaceAll("'", ""));
     }
   ;
+

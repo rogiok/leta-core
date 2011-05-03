@@ -179,7 +179,8 @@ public class TestCase {
 		value1 = new Date(classElement.getDateValue().getOriginal());
 		value2 = new Date(classElement.getDateValue().sum().getOriginal());
 	    }
-	    
+
+	    updateMatrix(classElement, value1, value2);
 	} else if (classElement.getRelationalOperator().equals("LessOrEqualThan")) {
 	    if (classElement.getIntValue() != null) {
 		value1 = new Integer(classElement.getIntValue().intValue());
@@ -191,7 +192,8 @@ public class TestCase {
 		value1 = new Date(classElement.getDateValue().getOriginal());
 		value2 = new Date(classElement.getDateValue().subtract().getOriginal());
 	    }
-	    
+
+	    updateMatrix(classElement, value1, value2);
 	} else if (classElement.getRelationalOperator().equals("NotEqual")) {
 	    if (classElement.getIntValue() != null) {
 		value1 = new Integer(classElement.getIntValue().intValue() - 1);
@@ -203,18 +205,20 @@ public class TestCase {
 		value1 = new Date(classElement.getDateValue().sum().getOriginal());
 		value2 = new Date(classElement.getDateValue().subtract().getOriginal());
 	    }
-	    
+
+	    updateMatrix(classElement, value1, value2);
 	}
 	
-	updateMatrix(value1, value2);
     }
 
-    private void updateMatrix(Object value1, Object value2) {
+    private void updateMatrix(ClassElement classElement, Object value1, Object value2) {
+	
 	MatrixItem matrixItem = null;
 
 	if (this.matrix == null) {
 	    this.matrix = new Matrix();
-
+	    this.matrix.setTestCase(this);
+	    
 	    // Adiciona o primeiro item com o primeiro valor
 	    matrixItem = new MatrixItem();
 	    matrixItem.addColumn(value1);
@@ -226,22 +230,27 @@ public class TestCase {
 	    matrixItem.addColumn(value2);
 
 	    this.matrix.addRow(matrixItem);
+	    
 	} else {
 
 	    int totalItems = this.matrix.totalItems();
 
 	    for (int i = 0; i < totalItems; i++) {
-		MatrixItem item = this.matrix.getContent(i);
-		MatrixItem copy = (MatrixItem) item.clone();
+		matrixItem = this.matrix.getContent(i);
+		MatrixItem copy = (MatrixItem) matrixItem.clone();
 
 		// Adiciona o primeiro valor ao item existente
-		item.addColumn(value1);
+		matrixItem.addColumn(value1);
 		// Adiciona o segundo valor a um novo item
 		copy.addColumn(value2);
 
 		this.matrix.addRow(copy);
 	    }
 	}
+	
+	if (classElement.getIndexOfSet() == null)
+	    classElement.setIndexOfSet(matrixItem.sizeColumns());
+	
     }
     
     public List<Element> getElements() {
@@ -273,12 +282,16 @@ public class TestCase {
     }
 
     public Matrix getMatrix() {
-        return matrix;
+	if (this.matrix == null) {
+	    this.matrix = new Matrix();
+	    this.matrix.setTestCase(this);
+	}
+	
+        return this.matrix;
     }
     
     public void setMatrix(Matrix matrix) {
         this.matrix = matrix;
-        
         this.matrix.setTestCase(this);
     }
 

@@ -1,0 +1,11 @@
+Package leta.core.sample.generated
+
+Test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+Cartao tem Nome "Joao da Silva" And
+Cartao tem Tipo "American Express" And
+Cartao tem Numero "344168608834057" And
+Cartao tem Vecimento "01/2015"
+

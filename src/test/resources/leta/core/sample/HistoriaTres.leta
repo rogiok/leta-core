@@ -1,0 +1,11 @@
+Package leta.core.sample.generated
+
+Test VerificarPedidoNaBaseDados
+Verify
+Pedido estaNaBaseDados
+When
+Pedido eRealizadaPeloSite And
+Pedido com Numero 1000 And
+Pedido tem Livro "Livro A" And
+Livro tem Codigo 10
+
