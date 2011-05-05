@@ -24,7 +24,7 @@ generateStatement(testCase) ::=
 
 >>
 
-generateTestCase(id, verifyClause, whenClause, setClause, packageName, elements) ::= 
+generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements) ::= 
 <<
 \<fo name='<packageName>/<id>Test'>
 <if (packageName)>package <packageName>;<endif>
@@ -32,12 +32,12 @@ generateTestCase(id, verifyClause, whenClause, setClause, packageName, elements)
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-<bodyTest(id=id, verifyClause=verifyClause, whenClause=whenClause, setClause=setClause, elements=elements)>
+<bodyTest(id=id, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix, elements=elements)>
 
 \</fo>
 >>
 
-bodyTest(id, verifyClause, whenClause, setClause, elements) ::=
+bodyTest(id, verifyClause, whenClause, matrix, elements) ::=
 <<
 public abstract class <id>Test {
 
@@ -63,7 +63,7 @@ public abstract class <id>Test {
     // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
-    <if (!setClause.matrix)>
+    <if (!matrix)>
     // No Matrix
     @Test
     public void test() {

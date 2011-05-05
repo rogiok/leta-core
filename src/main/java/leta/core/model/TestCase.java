@@ -13,7 +13,6 @@ public class TestCase {
 
     private List<ClassElement> classElements;
 //    private List<JunctionElement> junctionElements;
-
     
     public TestCase(String id) {
 	super();
@@ -282,6 +281,10 @@ public class TestCase {
     }
 
     public Matrix getMatrix() {
+        return this.matrix;
+    }
+
+    public Matrix newMatrix() {
 	if (this.matrix == null) {
 	    this.matrix = new Matrix();
 	    this.matrix.setTestCase(this);
@@ -289,7 +292,8 @@ public class TestCase {
 	
         return this.matrix;
     }
-    
+
+    @Deprecated
     public void setMatrix(Matrix matrix) {
         this.matrix = matrix;
         this.matrix.setTestCase(this);

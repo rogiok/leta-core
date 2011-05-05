@@ -42,6 +42,23 @@ public abstract class CartaoInvalidoTest {
             return this.temNome = new Nome(value);
         }
         // Class methodClass;
+        private Tipo temTipo;
+        
+        // Class getMethodClass() { return instance; }
+        Tipo getTemTipo() {
+            return this.temTipo; 
+        }
+        
+        // void setMethodClass(Class instance) { this.instance = instance; }
+        void setTemTipo(Tipo temTipo) {
+            this.temTipo = temTipo;
+        }
+        
+        // Class methodClassClass(String value) { this.instance = new Class(value); }
+        Tipo temTipo(String value) {
+            return this.temTipo = new Tipo(value);
+        }
+        // Class methodClass;
         private Numero temNumero;
         
         // Class getMethodClass() { return instance; }
@@ -55,7 +72,7 @@ public abstract class CartaoInvalidoTest {
         }
         
         // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Numero temNumero(Integer value) {
+        Numero temNumero(String value) {
             return this.temNumero = new Numero(value);
         }
         // Class methodClass;
@@ -74,19 +91,7 @@ public abstract class CartaoInvalidoTest {
         // Class methodClassClass(String value) { this.instance = new Class(value); }
         Vencimento temVencimento(String value) {
             return this.temVencimento = new Vencimento(value);
-        }    // boolean instance;
-        private boolean ok = true;
-        
-        // boolean isInstance() { return instance; }
-        boolean isOk() {
-            return this.ok; 
         }
-        
-        // void setInstance(boolean instance) { this.instance = instance; }
-        void setOk(boolean ok) {
-            this.ok = ok;
-        }
-
 
     }
     class Nome {
@@ -99,47 +104,17 @@ public abstract class CartaoInvalidoTest {
         Nome(String value) { this.sValue = value; }
         String getStringValue() { return this.sValue; }
 
-        // Class methodClass;
-        private Sobrenome possuiSobrenome;
-        
-        // Class getMethodClass() { return instance; }
-        Sobrenome getPossuiSobrenome() {
-            return this.possuiSobrenome; 
-        }
-        
-        // void setMethodClass(Class instance) { this.instance = instance; }
-        void setPossuiSobrenome(Sobrenome possuiSobrenome) {
-            this.possuiSobrenome = possuiSobrenome;
-        }
-        
-        // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Sobrenome possuiSobrenome(String value) {
-            return this.possuiSobrenome = new Sobrenome(value);
-        }
 
     }
-    class Sobrenome {
+    class Tipo {
         
-        Sobrenome() {
+        Tipo() {
         }
         
         private String sValue;
 
-        Sobrenome(String value) { this.sValue = value; }
+        Tipo(String value) { this.sValue = value; }
         String getStringValue() { return this.sValue; }
-
-        // boolean instance;
-        private boolean abc = true;
-        
-        // boolean isInstance() { return instance; }
-        boolean isAbc() {
-            return this.abc; 
-        }
-        
-        // void setInstance(boolean instance) { this.instance = instance; }
-        void setAbc(boolean abc) {
-            this.abc = abc;
-        }
 
 
     }
@@ -148,10 +123,11 @@ public abstract class CartaoInvalidoTest {
         Numero() {
         }
         
-        private Integer iValue;
+        private String sValue;
 
-        Numero(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Numero(String value) { this.sValue = value; }
+        String getStringValue() { return this.sValue; }
+
 
     }
     class Vencimento {
@@ -201,27 +177,39 @@ public abstract class CartaoInvalidoTest {
     }
 
     // TCInput
-    class WhenCartaoTemNomePossuiSobrenomeAbc {
+    class WhenCartaoTemNome {
 
         private Cartao cartao = new Cartao();
         Cartao getCartao() { return this.cartao; }
         private Nome nome = new Nome();
         Nome getNome() { return this.nome; }
-        private Sobrenome sobrenome = new Sobrenome();
-        Sobrenome getSobrenome() { return this.sobrenome; }
 
-        WhenCartaoTemNomePossuiSobrenomeAbc(
-            Nome nome, 
-            Sobrenome sobrenome
-            , boolean value
+        WhenCartaoTemNome(
+            Nome nome
 
             ) {
             this.nome = nome;
-            this.sobrenome = sobrenome;
 
             this.cartao.setTemNome(this.nome);
-            this.nome.setPossuiSobrenome(this.sobrenome);
-            this.sobrenome.setAbc(value);
+
+        }
+    }
+
+    class AndCartaoTemTipo {
+
+        private Cartao cartao = new Cartao();
+        Cartao getCartao() { return this.cartao; }
+        private Tipo tipo = new Tipo();
+        Tipo getTipo() { return this.tipo; }
+
+        AndCartaoTemTipo(
+            Tipo tipo
+
+            ) {
+            this.tipo = tipo;
+
+            this.cartao.setTemTipo(this.tipo);
+
         }
     }
 
@@ -260,39 +248,38 @@ public abstract class CartaoInvalidoTest {
 
         }
     }
-
-    class AndCartaoOk {
-
-        private Cartao cartao = new Cartao();
-        Cartao getCartao() { return this.cartao; }
-
-        AndCartaoOk(
-            boolean value
-
-            ) {
-            this.cartao.setOk(value);
-        }
-    }
     
     class TCInput {
-        private WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc;
+        private WhenCartaoTemNome whenCartaoTemNome;
 
-        WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc(
-                Nome nome, 
-                Sobrenome sobrenome
-                , boolean value
+        WhenCartaoTemNome whenCartaoTemNome(
+                Nome nome
 
                 ) {
-            return this.whenCartaoTemNomePossuiSobrenomeAbc = new
-                WhenCartaoTemNomePossuiSobrenomeAbc(
-                    nome, 
-                    sobrenome
-                    , value
+            return this.whenCartaoTemNome = new
+                WhenCartaoTemNome(
+                    nome
 
                     );
         }
-        WhenCartaoTemNomePossuiSobrenomeAbc whenCartaoTemNomePossuiSobrenomeAbc() {
-            return this.whenCartaoTemNomePossuiSobrenomeAbc;
+        WhenCartaoTemNome whenCartaoTemNome() {
+            return this.whenCartaoTemNome;
+        }
+
+        private AndCartaoTemTipo andCartaoTemTipo;
+
+        AndCartaoTemTipo andCartaoTemTipo(
+                Tipo tipo
+
+                ) {
+            return this.andCartaoTemTipo = new
+                AndCartaoTemTipo(
+                    tipo
+
+                    );
+        }
+        AndCartaoTemTipo andCartaoTemTipo() {
+            return this.andCartaoTemTipo;
         }
 
         private AndCartaoTemNumero andCartaoTemNumero;
@@ -327,57 +314,24 @@ public abstract class CartaoInvalidoTest {
             return this.andCartaoTemVencimento;
         }
 
-        private AndCartaoOk andCartaoOk;
-
-        AndCartaoOk andCartaoOk(
-                boolean value
-
-                ) {
-            return this.andCartaoOk = new
-                AndCartaoOk(
-                    value
-
-                    );
-        }
-        AndCartaoOk andCartaoOk() {
-            return this.andCartaoOk;
-        }
-
     }
 
 
-    // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
-    // Matrix
     @Test
-    void test1() {
+    public void test() {
 
         // Verify
         TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
+        expected.verifyCartaoNaoEValido(true);
+        
         // When
         TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(123)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2015-03]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
+        input.whenCartaoTemNome(new Nome("João Silva"));
+        input.andCartaoTemTipo(new Tipo("American Express"));
+        input.andCartaoTemNumero(new Numero("344168608834057"));
+        input.andCartaoTemVencimento(new Vencimento("[2015-03]"));
 
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);
@@ -391,134 +345,7 @@ public abstract class CartaoInvalidoTest {
         );
 
     }
-        
-    @Test
-    void test2() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(124)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2015-03]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-    @Test
-    void test3() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(123)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2016-4]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-    @Test
-    void test4() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(
-            true
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenCartaoTemNomePossuiSobrenomeAbc(
-            new Nome("João"), 
-            new Sobrenome("Silva")
-            , true
-        );
-        input.andCartaoTemNumero(
-            new Numero(124)
-        );
-        input.andCartaoTemVencimento(
-            new Vencimento("[2016-4]")
-        );
-        input.andCartaoOk(
-            true
-        );
-
-
-
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue(
-            OperatorEqual.compare(
-                expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
-                result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
-            )
-        );
-
-    }
-        
-
+    
     
     static abstract class Operator {
     }
