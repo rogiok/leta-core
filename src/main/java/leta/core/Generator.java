@@ -5,6 +5,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URISyntaxException;
 
@@ -26,11 +27,13 @@ import leta.core.runner.SyntaxException;
 
 public class Generator {
 
+    private boolean verbose;
     private String inputFile;
     private String outputDir;
     
-    public Generator(String inputFile, String outputDir) {
+    public Generator(boolean verbose, String inputFile, String outputDir) {
 	super();
+	this.verbose = verbose;
 	this.inputFile = inputFile;
 	this.outputDir = outputDir;
     }
@@ -41,16 +44,19 @@ public class Generator {
 
     public static void main(String[] args) {
 
+	boolean verbose = false;
 	String inputFile = "";
 	String outputDir = "";
-
-	for (int i = 0; i < args.length - 1; i++) {
+	
+	for (int i = 0; i < args.length; i++) {
 	    String arg = args[i];
-	    
+
 	    if (arg.equals("-file")) {
-//		inputFile = args[i+1];
 		try {
-		    inputFile = ClassLoader.getSystemResource(args[i+1]).toURI().getPath();
+		    if (ClassLoader.getSystemResource(args[i + 1]) != null)
+			inputFile = ClassLoader.getSystemResource(args[i + 1]).toURI().getPath();
+		    else
+			inputFile = args[i + 1];
 		} catch (URISyntaxException e) {
 		    e.printStackTrace();
 		    
@@ -58,10 +64,17 @@ public class Generator {
 		}
 	    } else if (arg.equals("-outputDir")) {
 		outputDir = args[i+1];
+	    } else if (arg.equals("-verbose")) {
+		verbose = true;
 	    }
 	}
 
-	new Generator(inputFile, outputDir).generate();
+	if (args.length == 0 || inputFile.equals("")) {
+	    System.out.println("Usage: -file <file name> [-outputDir <dir name> -verbose]");
+	    System.out.println();
+	} else {
+	    new Generator(verbose, inputFile, outputDir).generate();
+	}
 	
     }
     
@@ -120,23 +133,33 @@ public class Generator {
 	    throw new SyntaxException();
 	}
 	
-	System.out.println(ast.toStringTree());
+	if (verbose) {
+	    System.out.println("AST:");
+	    System.out.println(ast.toStringTree());
+	    System.out.println();
+	}
 	
 	CommonTreeNodeStream nodes = new CommonTreeNodeStream(ast);
 	LetaTreeGrammar semanticParser = new LetaTreeGrammar(nodes);
 
-	Reader templatesIn = new FileReader(ClassLoader.getSystemResource("leta/core/template/LetaTemplate.stg").toURI().getPath());
+	Reader templatesIn = null;
+	
+	if (ClassLoader.getSystemResource("leta/core/template/LetaTemplate.stg") != null)
+	    templatesIn = new InputStreamReader(ClassLoader.getSystemClassLoader().getResourceAsStream("leta/core/template/LetaTemplate.stg"));
+	
 	StringTemplateGroup templates = new StringTemplateGroup(templatesIn);
 
 	semanticParser.setTemplateLib(templates);
 	
 	StringTemplate t = (StringTemplate) semanticParser.leta().getTemplate();
 
-
-	for (TestCase tc : semanticParser.getSemanticModel().getTestCases()) {
-	    System.out.println(tc.getStructure());
+	if (verbose) {
+	    System.out.println("Semantic Model:");
+	    for (TestCase tc : semanticParser.getSemanticModel().getTestCases()) {
+		System.out.println(tc.getStructure());
+		System.out.println();
+	    }
 	}
-
 	
 	if (semanticParser.hasFoundErrors()) {
 	    throw new SemanticException();
@@ -159,7 +182,8 @@ public class Generator {
 	
 	CommonTree ast = (CommonTree) parser.leta().getTree();
 
-	System.out.println(ast.toStringTree());
+	if (verbose)
+	    System.out.println(ast.toStringTree());
 
 	if (parser.hasFoundErrors()) {
 	    throw new SyntaxException();
@@ -180,9 +204,10 @@ public class Generator {
 
 	LetaTreeGrammar.leta_return l = semanticParser.leta();
 
-	for (TestCase tc : semanticParser.getSemanticModel().getTestCases()) {
-	    System.out.println(tc.getStructure());
-	}
+	if (verbose)
+	    for (TestCase tc : semanticParser.getSemanticModel().getTestCases()) {
+		System.out.println(tc.getStructure());
+	    }
 
 	if (semanticParser.hasFoundErrors()) {
 	    throw new SemanticException();

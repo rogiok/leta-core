@@ -317,21 +317,36 @@ public abstract class CartaoInvalidoTest {
     }
 
 
+    // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
+    // No Matrix
     @Test
     public void test() {
 
         // Verify
         TCOutput expected = new TCOutput();
-        expected.verifyCartaoNaoEValido(true);
+        expected.verifyCartaoNaoEValido(
+            true
+        );
+
         
         // When
         TCInput input = new TCInput();
-        input.whenCartaoTemNome(new Nome("João Silva"));
-        input.andCartaoTemTipo(new Tipo("American Express"));
-        input.andCartaoTemNumero(new Numero("344168608834057"));
-        input.andCartaoTemVencimento(new Vencimento("[2015-03]"));
+        input.whenCartaoTemNome(
+            new Nome("João Silva")
+        );
+        input.andCartaoTemTipo(
+            new Tipo("American Express")
+        );
+        input.andCartaoTemNumero(
+            new Numero("344168608834057")
+        );
+        input.andCartaoTemVencimento(
+            new Vencimento("[2015-03]")
+        );
+
+
 
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);

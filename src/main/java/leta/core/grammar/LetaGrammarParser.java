@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g 2011-05-05 08:24:37
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g 2011-05-08 10:55:23
 
   package leta.core.grammar;
   
@@ -356,7 +356,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: verifyClause, whenClause, setClause, ID
+            // elements: setClause, ID, whenClause, verifyClause
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -819,7 +819,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: f, fc, f, 56, 56, 55, fo, fc, 55, fo, f, fc, fo, fc
+                    // elements: 56, f, 55, fc, fc, fc, 56, fo, f, fc, f, fo, 55, fo
                     // token labels: 
                     // rule labels: f, retval, fo, fc
                     // token list labels: 
@@ -966,7 +966,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: fc2, fc1, 55, fc2, fc1, 56, fc1
+                    // elements: fc1, 55, fc1, fc2, fc1, fc2, 56
                     // token labels: 
                     // rule labels: retval, fc1, fc2
                     // token list labels: 
@@ -1225,17 +1225,17 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: tc2, tc, fe, c
+            // elements: c, tc, tc2, fe
             // token labels: 
-            // rule labels: retval, c, tc, tc2, fe
+            // rule labels: retval, tc, c, tc2, fe
             // token list labels: 
             // rule list labels: 
             // wildcard labels: 
             if ( state.backtracking==0 ) {
             retval.tree = root_0;
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
-            RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.tree:null);
             RewriteRuleSubtreeStream stream_tc=new RewriteRuleSubtreeStream(adaptor,"rule tc",tc!=null?tc.tree:null);
+            RewriteRuleSubtreeStream stream_c=new RewriteRuleSubtreeStream(adaptor,"rule c",c!=null?c.tree:null);
             RewriteRuleSubtreeStream stream_tc2=new RewriteRuleSubtreeStream(adaptor,"rule tc2",tc2!=null?tc2.tree:null);
             RewriteRuleSubtreeStream stream_fe=new RewriteRuleSubtreeStream(adaptor,"rule fe",fe!=null?fe.tree:null);
 
@@ -1529,7 +1529,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: quantifier, quantifier, quantifier, term, termWithAssociation, termInstance
+            // elements: quantifier, quantifier, termInstance, term, quantifier, termWithAssociation
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -1774,7 +1774,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: term, notEqualOperator, stringLiteral
+                    // elements: stringLiteral, term, notEqualOperator
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -1846,7 +1846,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: otherLiteral, relationalOperator, term
+                    // elements: relationalOperator, term, otherLiteral
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2109,7 +2109,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: 58, INT
+                    // elements: INT, 58
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2191,7 +2191,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: 60, INT
+                    // elements: INT, 60
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2235,7 +2235,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: i2, i1, 61
+                    // elements: i1, i2, 61
                     // token labels: i2, i1
                     // rule labels: retval
                     // token list labels: 
@@ -2550,7 +2550,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: mathOperator, formulaItem, formulaExpression
+                    // elements: formulaItem, mathOperator, formulaExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2629,7 +2629,7 @@ public class LetaGrammarParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: formulaExpression, mathOperator, formulaExpression
+                    // elements: mathOperator, formulaExpression, formulaExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -2760,7 +2760,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: termInstance, termWithAssociation, term
+            // elements: termWithAssociation, termInstance, term
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3546,7 +3546,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: set, list
+            // elements: list, set
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3690,7 +3690,7 @@ public class LetaGrammarParser extends Parser {
 
 
             // AST REWRITE
-            // elements: otherLiteral, list, stringLiteral
+            // elements: stringLiteral, otherLiteral, list
             // token labels: 
             // rule labels: retval
             // token list labels: 
