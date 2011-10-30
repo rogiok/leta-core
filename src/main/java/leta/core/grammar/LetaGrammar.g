@@ -91,8 +91,7 @@ whenClause
 
 setClause
   : 'Set' '{' (s=set)? '}'
-    -> {s != null}? ^(SET $s)
-    -> 
+    -> ^(SET $s)
   ;
 
 factComposite
@@ -278,15 +277,15 @@ MINUS_FLOAT
   ;
 
 STRING
-  : '"' (~('"' | '\\'))* '"'
+  : '"' (ESC_SEQ | ~('"' | '\\'))* '"'
   ;
 
 DATE_TIME
   : '[' DIGIT+ ('-' DIGIT+ ('-' DIGIT+)?)? (' ' DIGIT+ ':' DIGIT+ (':' DIGIT+ ('.' DIGIT+)?)? ('AM' | 'PM')? (('+' | '-') DIGIT+ ':' DIGIT+)?)? ']'
   ;
-  
+
 PACKAGE_ID
-  : ('a'..'z' | 'A'..'Z') ('a'..'z' | 'A'..'Z' | '_' | '.' | '0'..'9')* ('a'..'z' | 'A'..'Z' | '0'..'9')
+  : ID ('.' ID)*
   ;
 
 COMMENT
@@ -301,3 +300,27 @@ WS
   : (' ' | '\t' | '\n' | '\r')+ { $channel=HIDDEN; }
   ;
 
+fragment  
+HEX_DIGIT 
+  : ('0'..'9'|'a'..'f'|'A'..'F');  
+  
+fragment  
+ESC_SEQ 
+  : '\\' ('b'|'t'|'n'|'f'|'r'|'\"'|'\''|'\\') 
+  | UNICODE_ESC 
+  | OCTAL_ESC
+  ;  
+  
+fragment  
+OCTAL_ESC
+  : '\\' ('0'..'3') ('0'..'7') ('0'..'7')
+  | '\\' ('0'..'7') ('0'..'7')
+  | '\\' ('0'..'7')
+  ;  
+  
+fragment  
+UNICODE_ESC 
+  : '\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+  ;
+
+  

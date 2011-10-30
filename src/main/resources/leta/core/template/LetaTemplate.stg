@@ -18,12 +18,6 @@ generateLeta(testCases) ::=
 <testCases; separator="\n">
 >>
 
-generateStatement(testCase) ::= 
-<<
-<testCase>
-
->>
-
 generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements) ::= 
 <<
 \<fo name='<packageName>/<id>Test'>
@@ -45,17 +39,19 @@ public abstract class <id>Test {
     <elements: { element | <generateClass(element)>}>
     
     
-    // TCOutput
+    // Gera as combinações de fatos para o TCOutput
     <generateFactExpression(initial="Verify", element=verifyClause.element)>
     
     class TCOutput {
+        // Gera os métodos com as combinações definidas anteriormente
         <generateIO(initial="Verify", instance="verify", element=verifyClause.element)>
     }
 
-    // TCInput
+    // Gera as combinações de fatos para o TCInput
     <generateFactExpression(initial="When", element=whenClause.element)>
     
     class TCInput {
+        // Gera os métodos com as combinações definidas anteriormente
         <generateIO(initial="When", instance="when", element=whenClause.element)>
     }
 
@@ -86,7 +82,7 @@ public abstract class <id>Test {
     
     <else>
     // Matrix
-    <bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=setClause.matrix)>
+    <bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
     <endif>
     
     <operators()>
@@ -98,7 +94,7 @@ bodyMatrixTest(verifyClause, whenClause, matrix) ::=
 <<
 <if (matrix.iterator.hasNext)>
 @Test
-void test<matrix.sequence>() {
+public void test<matrix.sequence>() {
 
     // Verify
     TCOutput expected = new TCOutput();
@@ -137,7 +133,10 @@ generateAssertItem(initial, parent, current) ::=
 <if (current.methodElement)>
 <if (current.methodElement.classElement)>
 <if (current.anyValue)>
-assertTrue(
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
     Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
         expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
         result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
@@ -145,7 +144,10 @@ assertTrue(
 );
 <endif>
 <else>
-assertTrue(
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
     OperatorEqual.compare(
         expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
         result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
@@ -154,7 +156,10 @@ assertTrue(
 <endif>
 <else>
 <if (current.anyValue)>
-assertTrue(
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
     Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
         expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
         result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
@@ -462,18 +467,6 @@ this.<element.instanceName>.set<element.methodElement.className>(value);
 >>
 
 
-
-
-generateCompositeConstructor(composite) ::=
-<<
-<composite.className>(<composite.left.className> <composite.left.instanceName>, <composite.right.className> <composite.right.instanceName>) {
-    this.<composite.left.instanceName> = <composite.left.instanceName>;
-    this.<composite.right.instanceName> = <composite.right.instanceName>;
-}
->>
-
-
-
 operators() ::=
 <<
 static abstract class Operator {
@@ -502,7 +495,14 @@ static class OperatorNotEqual extends Operator {
 }
 
 static class OperatorLessThan extends OperatorNumber {
-    static boolean compare(Object obj1, Object obj2) {
+    static boolean compare(Integer obj1, Integer obj2) {
+        if (verify(obj1, obj2))
+            return ((Integer) obj1).compareTo((Integer) obj2) \> 0;
+
+        return false;
+    }
+    
+    static boolean compare(Double obj1, Double obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \> 0;
 
@@ -511,7 +511,14 @@ static class OperatorLessThan extends OperatorNumber {
 }
 
 static class OperatorLessOrEqualThan extends OperatorNumber {
-    static boolean compare(Object obj1, Object obj2) {
+    static boolean compare(Integer obj1, Integer obj2) {
+        if (verify(obj1, obj2))
+            return ((Integer) obj1).compareTo((Integer) obj2) \>= 0;
+
+        return false;
+    }
+    
+    static boolean compare(Double obj1, Double obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \>= 0;
 
@@ -520,7 +527,14 @@ static class OperatorLessOrEqualThan extends OperatorNumber {
 }
 
 static class OperatorMoreThan extends OperatorNumber {
-    static boolean compare(Object obj1, Object obj2) {
+    static boolean compare(Integer obj1, Integer obj2) {
+        if (verify(obj1, obj2))
+            return ((Integer) obj1).compareTo((Integer) obj2) \< 0;
+        
+        return false;
+    }
+    
+    static boolean compare(Double obj1, Double obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \< 0;
         
@@ -529,7 +543,14 @@ static class OperatorMoreThan extends OperatorNumber {
 }
 
 static class OperatorMoreOrEqualThan extends OperatorNumber {
-    static boolean compare(Object obj1, Object obj2) {
+    static boolean compare(Integer obj1, Integer obj2) {
+        if (verify(obj1, obj2))
+            return ((Integer) obj1).compareTo((Integer) obj2) \<= 0;
+       
+       return false;
+    }
+    
+    static boolean compare(Double obj1, Double obj2) {
         if (verify(obj1, obj2))
             return ((Double) obj1).compareTo((Double) obj2) \<= 0;
        
@@ -604,6 +625,20 @@ if (this.<classElement.instanceName> != null &&
 
 
 
+generateStatement(testCase) ::= 
+<<
+<testCase>
 
+>>
+
+
+
+generateCompositeConstructor(composite) ::=
+<<
+<composite.className>(<composite.left.className> <composite.left.instanceName>, <composite.right.className> <composite.right.instanceName>) {
+    this.<composite.left.instanceName> = <composite.left.instanceName>;
+    this.<composite.right.instanceName> = <composite.right.instanceName>;
+}
+>>
 
 

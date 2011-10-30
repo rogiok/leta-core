@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2011-05-08 10:55:26
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2011-10-30 11:47:10
 
   package leta.core.grammar;
   
@@ -16,13 +16,9 @@ import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
 public class LetaTreeGrammar extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "COMMENT", "LINE_COMMENT", "WS", "'Test'", "'Verify'", "'When'", "'Set'", "'{'", "'}'", "'('", "')'", "'And'", "'Or'", "'@'", "'atLeast'", "'atMost'", "'exactly'", "'atLeastAndAtMost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "ESC_SEQ", "COMMENT", "LINE_COMMENT", "WS", "HEX_DIGIT", "UNICODE_ESC", "OCTAL_ESC", "'Test'", "'Verify'", "'When'", "'Set'", "'{'", "'}'", "'('", "')'", "'And'", "'Or'", "'@'", "'atLeast'", "'atMost'", "'exactly'", "'atLeastAndAtMost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
     };
     public static final int EOF=-1;
-    public static final int T__47=47;
-    public static final int T__48=48;
-    public static final int T__49=49;
-    public static final int T__50=50;
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
@@ -49,6 +45,10 @@ public class LetaTreeGrammar extends TreeParser {
     public static final int T__74=74;
     public static final int T__75=75;
     public static final int T__76=76;
+    public static final int T__77=77;
+    public static final int T__78=78;
+    public static final int T__79=79;
+    public static final int T__80=80;
     public static final int LETA=4;
     public static final int STMT=5;
     public static final int TESTCASE=6;
@@ -89,9 +89,13 @@ public class LetaTreeGrammar extends TreeParser {
     public static final int DATE_TIME=41;
     public static final int PACKAGE_ID=42;
     public static final int DIGIT=43;
-    public static final int COMMENT=44;
-    public static final int LINE_COMMENT=45;
-    public static final int WS=46;
+    public static final int ESC_SEQ=44;
+    public static final int COMMENT=45;
+    public static final int LINE_COMMENT=46;
+    public static final int WS=47;
+    public static final int HEX_DIGIT=48;
+    public static final int UNICODE_ESC=49;
+    public static final int OCTAL_ESC=50;
 
     // delegates
     // delegators
@@ -545,7 +549,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 1 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:97:5: ^( 'And' f= fact fc= factComposite )
                     {
-                    match(input,55,FOLLOW_55_in_factComposite276); if (state.failed) return retval;
+                    match(input,59,FOLLOW_59_in_factComposite276); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_fact_in_factComposite280);
@@ -569,7 +573,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 2 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:99:5: ^( 'Or' f= fact fc= factComposite )
                     {
-                    match(input,56,FOLLOW_56_in_factComposite298); if (state.failed) return retval;
+                    match(input,60,FOLLOW_60_in_factComposite298); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_fact_in_factComposite302);
@@ -593,7 +597,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 3 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:101:5: ^( 'And' fo= formula fc= factComposite )
                     {
-                    match(input,55,FOLLOW_55_in_factComposite320); if (state.failed) return retval;
+                    match(input,59,FOLLOW_59_in_factComposite320); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_formula_in_factComposite324);
@@ -617,7 +621,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 4 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:103:5: ^( 'Or' fo= formula fc= factComposite )
                     {
-                    match(input,56,FOLLOW_56_in_factComposite342); if (state.failed) return retval;
+                    match(input,60,FOLLOW_60_in_factComposite342); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_formula_in_factComposite346);
@@ -641,7 +645,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 5 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:105:5: ^( 'And' fc= factComposite fc2= factComposite )
                     {
-                    match(input,55,FOLLOW_55_in_factComposite364); if (state.failed) return retval;
+                    match(input,59,FOLLOW_59_in_factComposite364); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_factComposite_in_factComposite368);
@@ -665,7 +669,7 @@ public class LetaTreeGrammar extends TreeParser {
                 case 6 :
                     // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:107:5: ^( 'Or' fc= factComposite fc2= factComposite )
                     {
-                    match(input,56,FOLLOW_56_in_factComposite386); if (state.failed) return retval;
+                    match(input,60,FOLLOW_60_in_factComposite386); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
                     pushFollow(FOLLOW_factComposite_in_factComposite390);
@@ -747,9 +751,9 @@ public class LetaTreeGrammar extends TreeParser {
             }
             if ( state.backtracking==0 ) {
 
-                  if (retval.element instanceof SequenceCode) {
+                  //if (retval.element instanceof SequenceCode) {
                     //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) retval.element);
-                  }
+                  //}
                 
             }
         }
@@ -1496,22 +1500,22 @@ public class LetaTreeGrammar extends TreeParser {
 
                 if ( (LA17_1==DOWN) ) {
                     switch ( input.LA(3) ) {
-                    case 58:
+                    case 62:
                         {
                         alt17=1;
                         }
                         break;
-                    case 59:
+                    case 63:
                         {
                         alt17=2;
                         }
                         break;
-                    case 60:
+                    case 64:
                         {
                         alt17=3;
                         }
                         break;
-                    case 61:
+                    case 65:
                         {
                         alt17=4;
                         }
@@ -1547,7 +1551,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier734); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,58,FOLLOW_58_in_quantifier736); if (state.failed) return retval;
+                    match(input,62,FOLLOW_62_in_quantifier736); if (state.failed) return retval;
                     INT5=(CommonTree)match(input,INT,FOLLOW_INT_in_quantifier738); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
@@ -1563,7 +1567,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier752); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,59,FOLLOW_59_in_quantifier754); if (state.failed) return retval;
+                    match(input,63,FOLLOW_63_in_quantifier754); if (state.failed) return retval;
                     INT6=(CommonTree)match(input,INT,FOLLOW_INT_in_quantifier756); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
@@ -1579,7 +1583,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier770); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,60,FOLLOW_60_in_quantifier772); if (state.failed) return retval;
+                    match(input,64,FOLLOW_64_in_quantifier772); if (state.failed) return retval;
                     INT7=(CommonTree)match(input,INT,FOLLOW_INT_in_quantifier774); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
@@ -1595,7 +1599,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier788); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,61,FOLLOW_61_in_quantifier790); if (state.failed) return retval;
+                    match(input,65,FOLLOW_65_in_quantifier790); if (state.failed) return retval;
                     v1=(CommonTree)match(input,INT,FOLLOW_INT_in_quantifier794); if (state.failed) return retval;
                     v2=(CommonTree)match(input,INT,FOLLOW_INT_in_quantifier798); if (state.failed) return retval;
 
@@ -2067,32 +2071,32 @@ public class LetaTreeGrammar extends TreeParser {
 
                 if ( (LA24_1==DOWN) ) {
                     switch ( input.LA(3) ) {
-                    case 63:
+                    case 67:
                         {
                         alt24=1;
                         }
                         break;
-                    case 64:
+                    case 68:
                         {
                         alt24=2;
                         }
                         break;
-                    case 65:
+                    case 69:
                         {
                         alt24=3;
                         }
                         break;
-                    case 66:
+                    case 70:
                         {
                         alt24=4;
                         }
                         break;
-                    case 67:
+                    case 71:
                         {
                         alt24=5;
                         }
                         break;
-                    case 68:
+                    case 72:
                         {
                         alt24=6;
                         }
@@ -2128,7 +2132,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator992); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,63,FOLLOW_63_in_mathOperator994); if (state.failed) return retval;
+                    match(input,67,FOLLOW_67_in_mathOperator994); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2143,7 +2147,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1008); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,64,FOLLOW_64_in_mathOperator1010); if (state.failed) return retval;
+                    match(input,68,FOLLOW_68_in_mathOperator1010); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2158,7 +2162,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1024); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,65,FOLLOW_65_in_mathOperator1026); if (state.failed) return retval;
+                    match(input,69,FOLLOW_69_in_mathOperator1026); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2173,7 +2177,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1040); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,66,FOLLOW_66_in_mathOperator1042); if (state.failed) return retval;
+                    match(input,70,FOLLOW_70_in_mathOperator1042); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2188,7 +2192,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1056); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,67,FOLLOW_67_in_mathOperator1058); if (state.failed) return retval;
+                    match(input,71,FOLLOW_71_in_mathOperator1058); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2203,7 +2207,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_mathOperator1072); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,68,FOLLOW_68_in_mathOperator1074); if (state.failed) return retval;
+                    match(input,72,FOLLOW_72_in_mathOperator1074); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2248,27 +2252,27 @@ public class LetaTreeGrammar extends TreeParser {
 
                 if ( (LA25_1==DOWN) ) {
                     switch ( input.LA(3) ) {
-                    case 69:
+                    case 73:
                         {
                         alt25=1;
                         }
                         break;
-                    case 70:
+                    case 74:
                         {
                         alt25=2;
                         }
                         break;
-                    case 71:
+                    case 75:
                         {
                         alt25=3;
                         }
                         break;
-                    case 72:
+                    case 76:
                         {
                         alt25=4;
                         }
                         break;
-                    case 73:
+                    case 77:
                         {
                         alt25=5;
                         }
@@ -2304,7 +2308,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1099); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,69,FOLLOW_69_in_relationalOperator1101); if (state.failed) return retval;
+                    match(input,73,FOLLOW_73_in_relationalOperator1101); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2319,7 +2323,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1115); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,70,FOLLOW_70_in_relationalOperator1117); if (state.failed) return retval;
+                    match(input,74,FOLLOW_74_in_relationalOperator1117); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2334,7 +2338,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1131); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,71,FOLLOW_71_in_relationalOperator1133); if (state.failed) return retval;
+                    match(input,75,FOLLOW_75_in_relationalOperator1133); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2349,7 +2353,7 @@ public class LetaTreeGrammar extends TreeParser {
                     match(input,OPERATOR,FOLLOW_OPERATOR_in_relationalOperator1147); if (state.failed) return retval;
 
                     match(input, Token.DOWN, null); if (state.failed) return retval;
-                    match(input,72,FOLLOW_72_in_relationalOperator1149); if (state.failed) return retval;
+                    match(input,76,FOLLOW_76_in_relationalOperator1149); if (state.failed) return retval;
 
                     match(input, Token.UP, null); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
@@ -2402,7 +2406,7 @@ public class LetaTreeGrammar extends TreeParser {
             match(input,OPERATOR,FOLLOW_OPERATOR_in_notEqualOperator1180); if (state.failed) return retval;
 
             match(input, Token.DOWN, null); if (state.failed) return retval;
-            match(input,73,FOLLOW_73_in_notEqualOperator1182); if (state.failed) return retval;
+            match(input,77,FOLLOW_77_in_notEqualOperator1182); if (state.failed) return retval;
 
             match(input, Token.UP, null); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
@@ -3060,20 +3064,20 @@ public class LetaTreeGrammar extends TreeParser {
     static final String DFA4_minS =
         "\1\12\3\2\3\12\17\uffff";
     static final String DFA4_maxS =
-        "\1\70\3\2\3\70\17\uffff";
+        "\1\74\3\2\3\74\17\uffff";
     static final String DFA4_acceptS =
         "\7\uffff\1\1\1\3\1\5\2\uffff\1\2\1\4\1\6\2\uffff\1\7\1\10\1\11\2"+
         "\uffff";
     static final String DFA4_specialS =
         "\26\uffff}>";
     static final String[] DFA4_transitionS = {
-            "\1\3\54\uffff\1\1\1\2",
+            "\1\3\60\uffff\1\1\1\2",
             "\1\4",
             "\1\5",
             "\1\6",
-            "\1\11\2\uffff\1\7\5\uffff\1\10\43\uffff\2\11",
-            "\1\16\2\uffff\1\14\5\uffff\1\15\43\uffff\2\16",
-            "\1\23\2\uffff\1\21\5\uffff\1\22\43\uffff\2\23",
+            "\1\11\2\uffff\1\7\5\uffff\1\10\47\uffff\2\11",
+            "\1\16\2\uffff\1\14\5\uffff\1\15\47\uffff\2\16",
+            "\1\23\2\uffff\1\21\5\uffff\1\22\47\uffff\2\23",
             "",
             "",
             "",
@@ -3226,23 +3230,23 @@ public class LetaTreeGrammar extends TreeParser {
     public static final BitSet FOLLOW_factComposite_in_whenClause221 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SET_in_setClause242 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_set_in_setClause244 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_55_in_factComposite276 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_fact_in_factComposite280 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_59_in_factComposite276 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_fact_in_factComposite280 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite284 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_56_in_factComposite298 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_fact_in_factComposite302 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_60_in_factComposite298 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_fact_in_factComposite302 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite306 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_55_in_factComposite320 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formula_in_factComposite324 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_59_in_factComposite320 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formula_in_factComposite324 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite328 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_56_in_factComposite342 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_formula_in_factComposite346 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_60_in_factComposite342 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_formula_in_factComposite346 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite350 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_55_in_factComposite364 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_factComposite_in_factComposite368 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_59_in_factComposite364 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_factComposite_in_factComposite368 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite372 = new BitSet(new long[]{0x0000000000000008L});
-    public static final BitSet FOLLOW_56_in_factComposite386 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_factComposite_in_factComposite390 = new BitSet(new long[]{0x0180000000000400L});
+    public static final BitSet FOLLOW_60_in_factComposite386 = new BitSet(new long[]{0x0000000000000004L});
+    public static final BitSet FOLLOW_factComposite_in_factComposite390 = new BitSet(new long[]{0x1800000000000400L});
     public static final BitSet FOLLOW_factComposite_in_factComposite394 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_FACTCOMPOSITE_in_factComposite408 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_fact_in_factComposite412 = new BitSet(new long[]{0x0000000000000008L});
@@ -3279,16 +3283,16 @@ public class LetaTreeGrammar extends TreeParser {
     public static final BitSet FOLLOW_relationalOperator_in_termWithAssociation704 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_termWithAssociation707 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_QUANTIFIER_in_quantifier734 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_58_in_quantifier736 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_62_in_quantifier736 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier738 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_QUANTIFIER_in_quantifier752 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_59_in_quantifier754 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_63_in_quantifier754 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier756 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_QUANTIFIER_in_quantifier770 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_60_in_quantifier772 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_64_in_quantifier772 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier774 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_QUANTIFIER_in_quantifier788 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_61_in_quantifier790 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_65_in_quantifier790 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier794 = new BitSet(new long[]{0x0000001000000000L});
     public static final BitSet FOLLOW_INT_in_quantifier798 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_COMPLEMENT_in_complement823 = new BitSet(new long[]{0x0000000000000004L});
@@ -3309,28 +3313,28 @@ public class LetaTreeGrammar extends TreeParser {
     public static final BitSet FOLLOW_termInstance_in_formulaItem961 = new BitSet(new long[]{0x0000000000400008L});
     public static final BitSet FOLLOW_termWithAssociation_in_formulaItem966 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator992 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_63_in_mathOperator994 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_67_in_mathOperator994 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator1008 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_64_in_mathOperator1010 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_68_in_mathOperator1010 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator1024 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_65_in_mathOperator1026 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_69_in_mathOperator1026 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator1040 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_66_in_mathOperator1042 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_70_in_mathOperator1042 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator1056 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_67_in_mathOperator1058 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_71_in_mathOperator1058 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_mathOperator1072 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_68_in_mathOperator1074 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_72_in_mathOperator1074 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_relationalOperator1099 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_69_in_relationalOperator1101 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_73_in_relationalOperator1101 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_relationalOperator1115 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_70_in_relationalOperator1117 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_74_in_relationalOperator1117 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_relationalOperator1131 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_71_in_relationalOperator1133 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_75_in_relationalOperator1133 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_OPERATOR_in_relationalOperator1147 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_72_in_relationalOperator1149 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_76_in_relationalOperator1149 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_notEqualOperator_in_relationalOperator1162 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_OPERATOR_in_notEqualOperator1180 = new BitSet(new long[]{0x0000000000000004L});
-    public static final BitSet FOLLOW_73_in_notEqualOperator1182 = new BitSet(new long[]{0x0000000000000008L});
+    public static final BitSet FOLLOW_77_in_notEqualOperator1182 = new BitSet(new long[]{0x0000000000000008L});
     public static final BitSet FOLLOW_SET_in_set1207 = new BitSet(new long[]{0x0000000000000004L});
     public static final BitSet FOLLOW_list_in_set1211 = new BitSet(new long[]{0x0000000000000208L});
     public static final BitSet FOLLOW_set_in_set1215 = new BitSet(new long[]{0x0000000000000008L});

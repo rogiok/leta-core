@@ -1,6 +1,22 @@
 // Teste de pacote
 Package leta.core.sample.generated
 
+Test ValidarDesconto
+Verify
+NotaFiscal tem Desconto 10
+When
+NotaFiscal tem ValorTotal >= 200
+
+
+/*
+
+Test DescontoCompra
+Verify
+Pedido tem Test >= 10
+When
+Pedido tem Total >= 100
+
+
 Test CartaoInvalido
 Verify
 Cartao naoEValido
@@ -10,7 +26,6 @@ Cartao tem Tipo "American Express" And
 Cartao tem Numero "344168608834057" And 
 Cartao tem Vencimento [2015-03]
 
-/*
 Test CartaoInvalido
 Verify
 Cartao naoEValido

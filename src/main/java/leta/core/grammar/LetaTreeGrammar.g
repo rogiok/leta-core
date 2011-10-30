@@ -90,9 +90,9 @@ setClause
 
 factComposite returns [Element element]
   @after {
-    if ($element instanceof SequenceCode) {
+    //if ($element instanceof SequenceCode) {
       //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $element);
-    }
+    //}
   }
   : ^('And' f=fact fc=factComposite)
     { $element = new JunctionElement("And", $f.element, $fc.element); }
