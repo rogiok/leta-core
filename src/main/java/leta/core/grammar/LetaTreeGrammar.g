@@ -62,7 +62,7 @@ testCase
       
       elements = testCase.getElements();
     }
-    -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, matrix={testCase.getMatrix()}, packageName={this.semanticModel.getPackageName()}, elements={elements})
+    -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, matrix={testCase.getMatrix()}, packageName={this.semanticModel.getPackageName()}, elements={elements}, date={new java.util.Date()})
   ;
 
 verifyClause returns [Element element]
@@ -89,11 +89,6 @@ setClause
   ;
 
 factComposite returns [Element element]
-  @after {
-    //if ($element instanceof SequenceCode) {
-      //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $element);
-    //}
-  }
   : ^('And' f=fact fc=factComposite)
     { $element = new JunctionElement("And", $f.element, $fc.element); }
   | ^('Or' f=fact fc=factComposite)
@@ -168,8 +163,6 @@ term returns [ClassElement classElement]
   : ^(TERM ID)
     {
       $classElement = new ClassElement($ID.text);
-      
-      //this.semanticModel.getCurrentTestCase().addSequenceCode((SequenceCode) $classElement);
     }
   ;
 

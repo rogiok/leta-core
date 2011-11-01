@@ -3,7 +3,7 @@ package leta.core.model;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClassElement extends Element implements SequenceCode, ClassCode {
+public class ClassElement extends Element implements SequenceCode {
 
     private Integer sequence = 0;
     private Quantifier quantifier;
@@ -19,9 +19,6 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
     private List<MethodElement> methodElements;
     private MethodElement methodElement;
     private boolean usedInstance;
-
-//    @Deprecated
-//    private ClassElement next;
 
     public ClassElement() {
 	this(null);
@@ -174,64 +171,10 @@ public class ClassElement extends Element implements SequenceCode, ClassCode {
     }
 
     public String toString() {
-//	if (this.next == null)
-	    return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + (this.methodElement != null ? " " +this.methodElement.toString() : "") + "}";
-//	else
-//	    return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + "}, " + this.next.toString();
+	return "C{" + (quantifier != null ? quantifier.getType() + " " + quantifier.getValue() + " " : "") + this.getName() + (this.methodElement != null ? " " +this.methodElement.toString() : "") + "}";
     }
 
     public String getStructure() {
-//	if (this.next == null)
-	    return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + "";
-//	else
-//	    return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + ", " + this.next.getStructure();
+	return "" + this.getName() + (this.methodElement != null ? " " +this.methodElement.getStructure() : "") + "";
     }
-
-    
-    
-    /*
-    @Deprecated
-    public void addMethodElements(MethodElement methodElement, List<ClassElement> classElements) {
-	for (ClassElement cl : classElements) {
-	    this.methodElements.add(new MethodElement(methodElement.getName(), cl));
-	}
-    }
-
-    @Deprecated
-    public ClassElement getNext() {
-        return this.next;
-    }
-
-    @Deprecated
-    public void setNext(ClassElement next) {
-        this.next = next;
-    }
-    
-    @Deprecated
-    public List<ClassElement> getAllNext() {
-	List<ClassElement> result = new ArrayList<ClassElement>();
-
-	this.addNext(this, result);
-	
-	return result;
-    }
-    
-    @Deprecated
-    public boolean getHasNext() {
-	if (this.next != null) {
-	    return true;
-	}
-	
-	return false;
-    }
-    
-    @Deprecated
-    private void addNext(ClassElement classNode, List<ClassElement> classNodeList) {
-	classNodeList.add(classNode);
-	
-	if (classNode.getNext() != null) {
-	    this.addNext(classNode.getNext(), classNodeList);
-	}
-    }*/
-    
 }

@@ -1,6 +1,6 @@
 package leta.core.model;
 
-public class OperatorElement extends CompositeElement implements ClassCode {
+public class OperatorElement extends CompositeElement {
 
     public OperatorElement(String name, Element left, Element right) {
 	super();
@@ -13,10 +13,6 @@ public class OperatorElement extends CompositeElement implements ClassCode {
     public String getInstanceName() {
 	return this.getName().substring(0, 1).toLowerCase() + this.getName().substring(1);
     }
-
-//    public String getMethodName() {
-//	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
-//    }
 
     public String getClassName() {
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);

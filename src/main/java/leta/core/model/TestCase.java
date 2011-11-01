@@ -12,7 +12,6 @@ public class TestCase {
     private Matrix matrix;
 
     private List<ClassElement> classElements;
-//    private List<JunctionElement> junctionElements;
     
     public TestCase(String id) {
 	super();
@@ -23,7 +22,6 @@ public class TestCase {
 	
 	this.elements = new ArrayList<Element>();
 	this.classElements = new ArrayList<ClassElement>();
-//	this.junctionElements = new ArrayList<JunctionElement>();
     }
 
     public TestCase() {
@@ -32,12 +30,12 @@ public class TestCase {
 
     public void generateElements() {
 	
-	this.walk(this.verifyClause);
-	this.walk(this.whenClause);
+	this.walk(this.verifyClause, false);
+	this.walk(this.whenClause, true);
 	
     }
     
-    private void walk(Element element) {
+    private void walk(Element element, boolean processRelationalOperator) {
 	if (element instanceof CompositeElement) {
 	    CompositeElement cn = (CompositeElement) element;
 	    
@@ -50,8 +48,8 @@ public class TestCase {
 		((CompositeElement) n).addConstructor(new OperatorElement(cn.getName(), cn.getLeft(), cn.getRight()));
 	    }
 	    
-	    walk(cn.getLeft());
-	    walk(cn.getRight());
+	    walk(cn.getLeft(), processRelationalOperator);
+	    walk(cn.getRight(), processRelationalOperator);
 	} else if (element instanceof ClassElement) {
 	    ClassElement classElement = (ClassElement) element;
 	    
@@ -71,9 +69,13 @@ public class TestCase {
 	    }
 
 	    if (classElement.getRelationalOperator() != null) {
-		this.createListInMatrix(classElement);
-		
-		newClassElement.setRelationalOperator("*");
+		if (processRelationalOperator) {
+		    this.createListInMatrix(classElement);
+
+		    newClassElement.setRelationalOperator("*");
+		} else {
+		    this.changeValue(classElement);
+		}
 	    }
 	    
 	    if (classElement.getMethodElement() != null) {
@@ -82,11 +84,7 @@ public class TestCase {
 		newClassElement.addMethodElement(classElement.getMethodElement());
 
 		if (classElement.getMethodElement().getClassElement() != null) {
-		    walk(classElement.getMethodElement().getClassElement());
-		    
-//		    for (ClassElement next : classElement.getMethodElement().getClassElement().getAllNext()) {
-//			walk(next);
-//		    }
+		    walk(classElement.getMethodElement().getClassElement(), processRelationalOperator);
 		}
 	    }
 	}
@@ -115,15 +113,8 @@ public class TestCase {
 	return newElement;
     }
     
+    @Deprecated
     public void addSequenceCode(SequenceCode sequenceCode) {
-	
-	/*if (sequenceCode instanceof JunctionElement) {
-	    int seq = this.getSequenceOfJunctionElement(((JunctionElement) sequenceCode).getName());
-		      
-	    sequenceCode.setSequence(seq);
-		      
-	    this.junctionElements.add((JunctionElement) sequenceCode);
-	} else*/
 	
 	if (sequenceCode instanceof ClassElement) {
 	    int seq = this.getSequenceOfClassElement(((ClassElement) sequenceCode).getName());
@@ -147,20 +138,6 @@ public class TestCase {
 	
 	return result;
     }
-
-    /*
-    private int getSequenceOfJunctionElement(String id) {
-
-	int result = 0;
-	
-	for (JunctionElement c : this.junctionElements) {
-	    if (c.getName().equals(id)) {
-		result = c.getSequence() + 1;
-	    }
-	}
-	
-	return result;
-    }*/
 
     private void createListInMatrix(ClassElement classElement) {
 	
@@ -206,6 +183,28 @@ public class TestCase {
 	    }
 
 	    updateMatrix(classElement, value1, value2);
+	}
+	
+    }
+    
+    private void changeValue(ClassElement classElement) {
+
+	if (classElement.getRelationalOperator().equals("MoreOrEqualThan")) {
+	    if (classElement.getIntValue() != null) {
+		classElement.setIntValue(new Integer(classElement.getIntValue().intValue() + 1));
+	    } else if (classElement.getFloatValue() != null) {
+		classElement.setFloatValue(new Double(classElement.getFloatValue().doubleValue() + 1));
+	    } else if (classElement.getDateValue() != null) {
+		classElement.getDateValue().sum();
+	    }
+	} else if (classElement.getRelationalOperator().equals("LessOrEqualThan") || classElement.getRelationalOperator().equals("NotEqual")) {
+	    if (classElement.getIntValue() != null) {
+		classElement.setIntValue(new Integer(classElement.getIntValue().intValue() - 1));
+	    } else if (classElement.getFloatValue() != null) {
+		classElement.setFloatValue(classElement.getFloatValue().doubleValue() - 1);
+	    } else if (classElement.getDateValue() != null) {
+		classElement.getDateValue().subtract();
+	    }
 	}
 	
     }

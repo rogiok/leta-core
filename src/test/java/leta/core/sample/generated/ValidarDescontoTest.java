@@ -1,4 +1,5 @@
 
+// Version: 0.6 - Sun Oct 30 15:30:22 BRST 2011
 package leta.core.sample.generated;
 
 import org.junit.Test;
@@ -73,7 +74,7 @@ public abstract class ValidarDescontoTest {
 
     
     
-    // TCOutput
+    // Gera as combinações de fatos para o TCOutput
     class VerifyNotaFiscalTemDesconto {
 
         private NotaFiscal notaFiscal = new NotaFiscal();
@@ -93,6 +94,7 @@ public abstract class ValidarDescontoTest {
     }
     
     class TCOutput {
+        // Gera os métodos com as combinações definidas anteriormente
         private VerifyNotaFiscalTemDesconto verifyNotaFiscalTemDesconto;
 
         VerifyNotaFiscalTemDesconto verifyNotaFiscalTemDesconto(
@@ -111,7 +113,7 @@ public abstract class ValidarDescontoTest {
 
     }
 
-    // TCInput
+    // Gera as combinações de fatos para o TCInput
     class WhenNotaFiscalTemValorTotal {
 
         private NotaFiscal notaFiscal = new NotaFiscal();
@@ -131,6 +133,7 @@ public abstract class ValidarDescontoTest {
     }
     
     class TCInput {
+        // Gera os métodos com as combinações definidas anteriormente
         private WhenNotaFiscalTemValorTotal whenNotaFiscalTemValorTotal;
 
         WhenNotaFiscalTemValorTotal whenNotaFiscalTemValorTotal(
@@ -160,10 +163,8 @@ public abstract class ValidarDescontoTest {
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyNotaFiscalTemDesconto(
-            new Desconto(10)
-        );
-
-            
+            new Desconto(9)
+        );        
         // When
         TCInput input = new TCInput();
         input.whenNotaFiscalTemValorTotal(
@@ -173,11 +174,11 @@ public abstract class ValidarDescontoTest {
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [" 
+        assertTrue("Valor esperado [LessOrEqualThan " 
             + expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "] - "
             + "Valor obtido ["
             + result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorEqual.compare(
+            OperatorLessOrEqualThan.compare(
                 expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue(), 
                 result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue()
             )
@@ -191,24 +192,22 @@ public abstract class ValidarDescontoTest {
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyNotaFiscalTemDesconto(
-            new Desconto(10)
-        );
-
-            
+            new Desconto(9)
+        );        
         // When
         TCInput input = new TCInput();
         input.whenNotaFiscalTemValorTotal(
-            new ValorTotal(201)
+            new ValorTotal(199)
         );
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [" 
+        assertTrue("Valor esperado [LessOrEqualThan " 
             + expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "] - "
             + "Valor obtido ["
             + result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorEqual.compare(
+            OperatorLessOrEqualThan.compare(
                 expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue(), 
                 result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue()
             )

@@ -8,17 +8,9 @@ public class SemanticModel {
     private String packageName;
     private List<TestCase> testCases;
     private TestCase currentTestCase;
-    
-//    @Deprecated
-//    private List<ClassElement> classElements;
-//    @Deprecated
-//    private List<JunctionElement> junctionElements;
-    
 
     public SemanticModel() {
 	this.testCases = new ArrayList<TestCase>();
-//	this.classElements = new ArrayList<ClassElement>();
-//	this.junctionElements = new ArrayList<JunctionElement>();
     }
     
     /**
@@ -73,85 +65,4 @@ public class SemanticModel {
         return currentTestCase;
     }
     
-    
-    /*
-    @Deprecated
-    public void resetSequence() {
-	this.classElements.clear();
-	this.junctionElements.clear();
-    }
-    
-    @Deprecated
-    public boolean hasTestCase(String id) {
-	
-	for (TestCase tc : this.testCases) {
-	    if (tc.getId() != null && tc.getId().equals(id)) {
-		return true;
-	    }
-	}
-	
-	return false;
-    }
-
-    @Deprecated
-    public void addSequenceCode(SequenceCode sequenceCode) {
-	
-	if (sequenceCode instanceof JunctionElement) {
-	    int seq = this.getSequenceOfJunctionElement(((JunctionElement) sequenceCode).getName());
-		      
-	    sequenceCode.setSequence(seq);
-		      
-	    this.junctionElements.add((JunctionElement) sequenceCode);
-	} else if (sequenceCode instanceof ClassElement) {
-	    int seq = this.getSequenceOfClassElement(((ClassElement) sequenceCode).getName());
-		      
-	    sequenceCode.setSequence(seq);
-		      
-	    this.classElements.add((ClassElement) sequenceCode);
-	}
-	
-    }
-
-    @Deprecated
-    private int getSequenceOfClassElement(String id) {
-
-	int result = 0;
-	
-	for (ClassElement c : this.classElements) {
-	    if (c.getName().equals(id)) {
-		result = c.getSequence() + 1;
-	    }
-	}
-	
-	return result;
-    }
-
-    @Deprecated
-    private int getSequenceOfJunctionElement(String id) {
-
-	int result = 0;
-	
-	for (JunctionElement c : this.junctionElements) {
-	    if (c.getName().equals(id)) {
-		result = c.getSequence() + 1;
-	    }
-	}
-	
-	return result;
-    }
-
-    @Deprecated
-    public ClassElement findClassElement(ClassElement classNode) {
-	
-	for (ClassElement cl : this.classElements) {
-	    if (cl.getName().equals(classNode.getName())) {
-		return cl;
-	    }
-	}
-	
-	this.classElements.add(classNode);
-	
-	return classNode;
-    }*/
-
 }

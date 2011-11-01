@@ -18,9 +18,12 @@ generateLeta(testCases) ::=
 <testCases; separator="\n">
 >>
 
-generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements) ::= 
+// BEGIN - CASO DE TESTE
+// Gera a definição de pacote da classe do teste e aciona outros modelos
+generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements, date) ::= 
 <<
 \<fo name='<packageName>/<id>Test'>
+// Version: 0.6 - <date>
 <if (packageName)>package <packageName>;<endif>
 
 import org.junit.Test;
@@ -30,7 +33,11 @@ import static org.junit.Assert.*;
 
 \</fo>
 >>
+// END - CASO DE TESTE
 
+
+// BEGIN - CORPO
+// Gera o corpo da classe do teste concreto
 bodyTest(id, verifyClause, whenClause, matrix, elements) ::=
 <<
 public abstract class <id>Test {
@@ -66,7 +73,7 @@ public abstract class <id>Test {
 
         // Verify
         TCOutput expected = new TCOutput();
-        <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)><\n>
+        <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
         
         // When
         TCInput input = new TCInput();
@@ -88,8 +95,11 @@ public abstract class <id>Test {
     <operators()>
 }
 >>
+// END - CORPO
 
 
+// BEGIN - MATRIZ
+// Gera os diversos métodos test quando é definido uma matriz ou na geração de 2 ou mais casos de teste
 bodyMatrixTest(verifyClause, whenClause, matrix) ::=
 <<
 <if (matrix.iterator.hasNext)>
@@ -98,7 +108,7 @@ public void test<matrix.sequence>() {
 
     // Verify
     TCOutput expected = new TCOutput();
-    <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)><\n>
+    <generateInstanceDeclarations(object="expected", initial="verify", element=verifyClause.element)>
         
     // When
     TCInput input = new TCInput();
@@ -115,128 +125,11 @@ public void test<matrix.sequence>() {
 <bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
 <endif>
 >>
+// END - MATRIZ
 
 
-
-generateAsserts(initial, element) ::=
-<<
-<if (element.composite)>
-<generateAsserts(initial=initial, element=element.left)>
-<generateAsserts(initial=element.instanceName, element=element.right)>
-<elseif (element.methodElement)>
-<generateAssertItem(initial=initial, parent=element, current=element)>
-<endif>
->>
-
-generateAssertItem(initial, parent, current) ::=
-<<
-<if (current.methodElement)>
-<if (current.methodElement.classElement)>
-<if (current.anyValue)>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
-    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
-    + "Valor obtido ["
-    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
-    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
-        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
-        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
-    )
-);
-<endif>
-<else>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
-    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
-    + "Valor obtido ["
-    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
-    OperatorEqual.compare(
-        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
-        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
-    )
-);
-<endif>
-<else>
-<if (current.anyValue)>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
-    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
-    + "Valor obtido ["
-    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
-    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
-        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
-        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
-    )
-);
-<endif>
-<endif>
-
-<if (current.methodElement)><if (current.methodElement.classElement)>
-<generateAssertItem(initial=initial, parent=parent, current=current.methodElement.classElement)>
-<endif><endif>
->>
-
-generateAssertFact(element) ::=
-<<
-<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateAssertFact(element.methodElement.classElement)><endif><endif>
->>
-
-generateAssertTerm(element) ::=
-<<
-<if (element.anyValue)>
-get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Integer<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
-<else>
-get<element.className>().is<element.methodElement.methodName>()
-<endif>
->>
-
-
-// Generate instances
-generateInstanceDeclarations(object, initial, element) ::=
-<<
-<if (element.composite)>
-<generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
-
-<generateInstanceDeclarations(object=object, initial=element.instanceName, element=element.right)>
-<elseif (element.methodElement)>
-<object>.<initial><generateInstanceDeclarationMethod(element)>(
-    <generateInstanceDeclarationParameter(element)>);
-<endif>
->>
-
-generateInstanceDeclarationMethod(element) ::=
-<<
-<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateInstanceDeclarationMethod(element.methodElement.classElement)><endif><endif>
->>
-
-generateInstanceDeclarationParameter(element) ::=
-<<
-<if (element.anyValue)>new <element.className>(<if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)>"<element.dateValue.original>"<endif>)<if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateInstanceDeclarationParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>true<\n><endif><endif>
->>
-
-
-
-generateInstanceAttributions(element) ::=
-<<
-<if (element.composite)>
-<element.instanceName>.set<element.left.instanceClassName>(<element.left.instanceName>);
-<element.instanceName>.set<element.right.instanceClassName>(<element.right.instanceName>);
-<generateInstanceAttributions(element.left)>
-<generateInstanceAttributions(element.right)>
-<else>
-<if (element.methodElement)>
-<if (element.methodElement.classElement)>
-<if (element.methodElement.classElement.quantifier)>
-<element.instanceName>.add<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
-<else> 
-<element.instanceName>.set<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
-<endif>
-<endif>
-<endif>
-<endif>
->>
-
-
-
-
+// BEGIN - CLASSES
+// Gera as classes correspondentes aos termos de um fato
 generateClass(classElement) ::=
 <<
 <if (!classElement.composite)>
@@ -362,49 +255,132 @@ methodClassName(methodElement) ::=
 <<
 <methodElement.methodName><methodElement.classElement.className>
 >>
+// END - CLASSES
 
 
-// TCInput and TCOutput
-generateIO(initial, instance, element) ::=
+// BEGIN - INSTÂNCIAS
+// Genera as instâncias
+// Generate instances
+generateInstanceDeclarations(object, initial, element) ::=
 <<
 <if (element.composite)>
-<generateIOClass(initial=initial, instance=instance, element=element.left)>
-<generateIO(initial=element.className, instance=element.instanceName, element=element.right)>
-<else>
-<generateIOClass(initial=initial, instance=instance, element=element)>
+<generateInstanceDeclarations(object=object, initial=initial, element=element.left)>
+
+<generateInstanceDeclarations(object=object, initial=element.instanceName, element=element.right)>
+<elseif (element.methodElement)>
+<object>.<initial><generateInstanceDeclarationMethod(element)>(
+    <generateInstanceDeclarationParameter(element)>);
 <endif>
 >>
 
-generateIOClass(initial, instance, element) ::=
+generateInstanceDeclarationMethod(element) ::=
 <<
-private <initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>;
-
-<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>(
-        <generateIOClassParameter(element)>
-        ) {
-    return this.<instance><generateFactExpressionName(element)> = new
-        <initial><generateFactExpressionName(element)>(
-            <generateIOClassInstance(element)>
-            );
-}
-<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>() {
-    return this.<instance><generateFactExpressionName(element)>;
-}
-
+<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateInstanceDeclarationMethod(element.methodElement.classElement)><endif><endif>
 >>
 
-generateIOClassParameter(element) ::=
+generateInstanceDeclarationParameter(element) ::=
 <<
-<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+<if (element.anyValue)>new <element.className>(<if (element.stringValue)><element.stringValue><elseif (element.floatValue)><element.floatValue><elseif (element.intValue)><element.intValue><elseif (element.dateValue)>"<element.dateValue.original>"<endif>)<if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateInstanceDeclarationParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>true<\n><endif><endif>
 >>
 
-generateIOClassInstance(element) ::=
+generateInstanceAttributions(element) ::=
 <<
-<if (element.anyValue)><element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassInstance(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>value<\n><endif><endif>
+<if (element.composite)>
+<element.instanceName>.set<element.left.instanceClassName>(<element.left.instanceName>);
+<element.instanceName>.set<element.right.instanceClassName>(<element.right.instanceName>);
+<generateInstanceAttributions(element.left)>
+<generateInstanceAttributions(element.right)>
+<else>
+<if (element.methodElement)>
+<if (element.methodElement.classElement)>
+<if (element.methodElement.classElement.quantifier)>
+<element.instanceName>.add<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
+<else> 
+<element.instanceName>.set<element.methodElement.className><element.methodElement.classElement.className>(<element.methodElement.classElement.instanceName>);<\n><generateInstanceAttributions(element.methodElement.classElement)>
+<endif>
+<endif>
+<endif>
+<endif>
+>>
+// END - INSTÂNCIAS
+
+
+// BEGIN - ASSERTIVAS
+// Gera as assertivas para as comparações
+generateAsserts(initial, element) ::=
+<<
+<if (element.composite)>
+<generateAsserts(initial=initial, element=element.left)>
+<generateAsserts(initial=element.instanceName, element=element.right)>
+<elseif (element.methodElement)>
+<generateAssertItem(initial=initial, parent=element, current=element)>
+<endif>
 >>
 
+generateAssertItem(initial, parent, current) ::=
+<<
+<if (current.methodElement)>
+<if (current.methodElement.classElement)>
+<if (current.anyValue)>
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
+    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
+    )
+);
+<endif>
+<else>
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
+    OperatorEqual.compare(
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
+    )
+);
+<endif>
+<else>
+<if (current.anyValue)>
+assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+    + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
+    + "Valor obtido ["
+    + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
+    Operator<if (current.relationalOperator)><current.relationalOperator><else>Equal<endif>.compare(
+        expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>, 
+        result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)>
+    )
+);
+<endif>
+<endif>
+
+<if (current.methodElement)><if (current.methodElement.classElement)>
+<generateAssertItem(initial=initial, parent=parent, current=current.methodElement.classElement)>
+<endif><endif>
+>>
+
+generateAssertFact(element) ::=
+<<
+<element.className><if (element.methodElement)><element.methodElement.methodName><if (element.methodElement.classElement)><generateAssertFact(element.methodElement.classElement)><endif><endif>
+>>
+
+generateAssertTerm(element) ::=
+<<
+<if (element.anyValue)>
+get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Integer<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
+<else>
+get<element.className>().is<element.methodElement.methodName>()
+<endif>
+>>
+// END - ASSERTIVAS
+
+
+// BEGIN - COMBINAÇÕES
+// Gera as combinações de fatos para o TCOutput e TCInput 
 
 generateFactExpression(initial, element) ::=
 <<
@@ -465,8 +441,54 @@ this.<element.instanceName>.set<element.methodElement.className><element.methodE
 this.<element.instanceName>.set<element.methodElement.className>(value);
 <endif><endif>
 >>
+// END - COMBINAÇÕES
 
 
+// BEGIN - TCOUTPUT E TCINPUT
+// Gera os métodos com as combinações de fatos
+generateIO(initial, instance, element) ::=
+<<
+<if (element.composite)>
+<generateIOClass(initial=initial, instance=instance, element=element.left)>
+<generateIO(initial=element.className, instance=element.instanceName, element=element.right)>
+<else>
+<generateIOClass(initial=initial, instance=instance, element=element)>
+<endif>
+>>
+
+generateIOClass(initial, instance, element) ::=
+<<
+private <initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>;
+
+<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>(
+        <generateIOClassParameter(element)>
+        ) {
+    return this.<instance><generateFactExpressionName(element)> = new
+        <initial><generateFactExpressionName(element)>(
+            <generateIOClassInstance(element)>
+            );
+}
+<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>() {
+    return this.<instance><generateFactExpressionName(element)>;
+}
+
+>>
+
+generateIOClassParameter(element) ::=
+<<
+<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+>>
+
+generateIOClassInstance(element) ::=
+<<
+<if (element.anyValue)><element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
+<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassInstance(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>value<\n><endif><endif>
+>>
+// END - TCOUTPUT E TCINPUT
+
+
+// BEGIN - OPERADORES
 operators() ::=
 <<
 static abstract class Operator {
@@ -558,87 +580,5 @@ static class OperatorMoreOrEqualThan extends OperatorNumber {
     }
 }
 >>
-
-
-
-
-
-
-
-generateEqualsByMethodElement(methodElement) ::=
-<<
-<if (methodElement.classElement.quantifier)>
-if (this.<methodElement.instanceName><methodElement.classElement.className> != null &&
-    o.<methodElement.instanceName><methodElement.classElement.className> != null)
-    valid = valid & (o.<methodElement.instanceName><methodElement.classElement.className>.size() <methodElement.classElement.quantifier.operator> <methodElement.classElement.quantifier.value>);
-<elseif (methodElement.classElement)>
-if (this.<methodElement.instanceName><methodElement.classElement.className> != null &&
-    o.<methodElement.instanceName><methodElement.classElement.className> != null)
-    valid = valid & this.<methodElement.instanceName><methodElement.classElement.className>.equals(o.<methodElement.instanceName><methodElement.classElement.className>);<\n>
-<else>
-valid = valid & (this.is<methodElement.methodName>() == o.is<methodElement.methodName>());<\n>
-<endif>
-
->>
-
-generateEqualsByClassElement(classElement) ::=
-<<
-if (this.<classElement.instanceName> != null &&
-    o.<classElement.instanceName> != null)
-    valid = valid & this.<classElement.instanceName>.equals(o.<classElement.instanceName>);<\n>
-    
-    
-    
-
-    public boolean equals(Object obj) {
-        if (obj instanceof <classElement.className>) {
-        <if (classElement.methodElements)>
-            <classElement.className> o = (<classElement.className>) obj;
-            boolean validValue = true;
-            boolean valid = true;
-
-            <if (classElement.stringValue)>
-            if (this.sValue != null && o.sValue != null && !operator.compare(this.sValue, o.sValue))
-                validValue = false;
-            <endif>
-            <if (classElement.floatValue)>
-            if (this.dValue != null && o.dValue != null && !operator.compare(this.dValue, o.dValue))
-                validValue = false;
-            <endif>
-            <if (classElement.intValue)>
-            if (this.iValue != null && o.iValue != null && !operator.compare(this.iValue, o.iValue))
-                validValue = false;
-            <endif>
-            
-            <classElement.methodElements: { m | <generateEqualsByMethodElement(m)>}>
-            
-            return validValue && valid;
-        <else>
-            return true;
-        <endif>
-        }
-        
-        return false;
-    }
-        
->>
-
-
-
-generateStatement(testCase) ::= 
-<<
-<testCase>
-
->>
-
-
-
-generateCompositeConstructor(composite) ::=
-<<
-<composite.className>(<composite.left.className> <composite.left.instanceName>, <composite.right.className> <composite.right.instanceName>) {
-    this.<composite.left.instanceName> = <composite.left.instanceName>;
-    this.<composite.right.instanceName> = <composite.right.instanceName>;
-}
->>
-
+// END - OPERADORES
 
