@@ -8,6 +8,18 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.List;
+
+import leta.core.grammar.LetaGrammarLexer;
+import leta.core.grammar.LetaGrammarParser;
+import leta.core.grammar.LetaTreeGrammar;
+import leta.core.grammar.SyntaxMessage;
+import leta.core.grammar.SyntaxMessageManager;
+import leta.core.model.SaveFiles;
+import leta.core.model.TestCase;
+import leta.core.runner.SemanticException;
+import leta.core.runner.SyntaxException;
 
 import org.antlr.runtime.ANTLRInputStream;
 import org.antlr.runtime.CommonTokenStream;
@@ -16,14 +28,6 @@ import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeNodeStream;
 import org.antlr.stringtemplate.StringTemplate;
 import org.antlr.stringtemplate.StringTemplateGroup;
-
-import leta.core.grammar.LetaGrammarLexer;
-import leta.core.grammar.LetaGrammarParser;
-import leta.core.grammar.LetaTreeGrammar;
-import leta.core.model.SaveFiles;
-import leta.core.model.TestCase;
-import leta.core.runner.SemanticException;
-import leta.core.runner.SyntaxException;
 
 public class Generator {
 
@@ -129,7 +133,7 @@ public class Generator {
 	
 	CommonTree ast = (CommonTree) parser.leta().getTree();
 
-	if (parser.hasFoundErrors()) {
+	if (SyntaxMessageManager.getInstance().hasFoundErrors()) {
 	    throw new SyntaxException();
 	}
 	
@@ -185,7 +189,7 @@ public class Generator {
 	if (verbose)
 	    System.out.println(ast.toStringTree());
 
-	if (parser.hasFoundErrors()) {
+	if (SyntaxMessageManager.getInstance().hasFoundErrors()) {
 	    throw new SyntaxException();
 	}
 	
@@ -224,4 +228,31 @@ public class Generator {
 
 	return result;
     }
+    
+    public List<SyntaxMessage> checkSyntax(byte[] content) throws IOException, RecognitionException {
+
+	SyntaxMessageManager.getInstance().clear();
+	
+	ByteArrayInputStream atddStream = new ByteArrayInputStream(content);
+
+	ANTLRInputStream source = new ANTLRInputStream(atddStream);
+	LetaGrammarLexer lexer = new LetaGrammarLexer(source);
+	CommonTokenStream tokens = new CommonTokenStream(lexer);
+
+	LetaGrammarParser parser = new LetaGrammarParser(tokens);
+
+	CommonTree ast = (CommonTree) parser.leta().getTree();
+
+	if (verbose)
+	    System.out.println(ast.toStringTree());
+
+	List<SyntaxMessage> errors = new ArrayList<SyntaxMessage>();
+
+	if (SyntaxMessageManager.getInstance().hasFoundErrors()) {
+	    errors.addAll(SyntaxMessageManager.getInstance().getErrorMessages());
+	}
+
+	return errors;
+    }
+    
 }

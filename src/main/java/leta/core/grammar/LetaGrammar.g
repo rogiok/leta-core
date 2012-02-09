@@ -55,19 +55,72 @@ tokens {
 }
 
 @members {
-  private boolean foundErrors = false;
 
-  public boolean hasFoundErrors() {
-    return this.foundErrors;
+  private SyntaxMessageManager syntaxMessageManager = SyntaxMessageManager.getInstance();
+
+  public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
+    String msg = getErrorMessage(e, tokenNames);
+    msg = ErrorMessage.getErrorMessage(e, tokenNames, msg);
+    syntaxMessageManager.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token != null ? e.token.getText() : null, msg));
+  }
+
+  /*
+  public void reportError(RecognitionException e) {
+    displayRecognitionError(this.getTokenNames(), e);
+  }
+  
+  public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
+    String msg = getErrorMessage(e, tokenNames);
+    errorMessages.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token.getText(), msg));
   }
   
   public String getErrorMessage(RecognitionException e, String[] tokenNames) {
-    foundErrors = true;
-
     String msg = super.getErrorMessage(e, tokenNames);
+    
+    System.out.println("error message");
+    
+    errorMessages.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token.getText(), msg));
+    
     return msg;
   }
+  
+  public void reportError(RecognitionException e) {
+    state.syntaxErrors++; // don't count spurious
+    state.errorRecovery = true;
+
+    displayRecognitionError(this.getTokenNames(), e);
+  }
+
+  public void reportError(RecognitionException e) {
+    errorMessages.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token.getText(), e.getMessage()));
+    
+    super.reportError(e);
+  }*/
+
 }
+
+@lexer::members {
+
+  private SyntaxMessageManager syntaxMessageManager = SyntaxMessageManager.getInstance();
+
+  public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
+    String msg = getErrorMessage(e, tokenNames);
+    msg = ErrorMessage.getErrorMessage(e, tokenNames, msg);
+    syntaxMessageManager.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token != null ? e.token.getText() : null, msg));
+  }
+
+}
+
+//@rulecatch {
+//  catch (RecognitionException re) {
+//    reportError(re);
+//    
+//    errorMessages.add(new SyntaxMessage(re.line, re.charPositionInLine, re.token.getText(), null));
+//    
+//    recover(input,re);
+//    retval.tree = (Object)adaptor.errorNode(input, retval.start, input.LT(-1), re);
+//  }
+//}
 
 leta
   : testPackage? testCase+ 

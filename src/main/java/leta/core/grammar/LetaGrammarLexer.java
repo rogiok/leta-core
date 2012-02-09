@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g 2011-10-30 14:07:28
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g 2012-02-01 22:59:13
 
   package leta.core.grammar;
   
@@ -90,6 +90,17 @@ public class LetaGrammarLexer extends Lexer {
     public static final int UNICODE_ESC=49;
     public static final int OCTAL_ESC=50;
 
+
+      private SyntaxMessageManager syntaxMessageManager = SyntaxMessageManager.getInstance();
+
+      public void displayRecognitionError(String[] tokenNames, RecognitionException e) {
+        String msg = getErrorMessage(e, tokenNames);
+        msg = ErrorMessage.getErrorMessage(e, tokenNames, msg);
+        syntaxMessageManager.add(new SyntaxMessage(e.line, e.charPositionInLine, e.token != null ? e.token.getText() : null, msg));
+      }
+
+
+
     // delegates
     // delegators
 
@@ -108,8 +119,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:13:7: ( 'Test' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:13:9: 'Test'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:24:7: ( 'Test' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:24:9: 'Test'
             {
             match("Test"); 
 
@@ -129,8 +140,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:14:7: ( 'Verify' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:14:9: 'Verify'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:25:7: ( 'Verify' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:25:9: 'Verify'
             {
             match("Verify"); 
 
@@ -150,8 +161,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:15:7: ( 'When' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:15:9: 'When'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:26:7: ( 'When' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:26:9: 'When'
             {
             match("When"); 
 
@@ -171,8 +182,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:16:7: ( 'Set' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:16:9: 'Set'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:27:7: ( 'Set' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:27:9: 'Set'
             {
             match("Set"); 
 
@@ -192,8 +203,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:17:7: ( '{' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:17:9: '{'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:28:7: ( '{' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:28:9: '{'
             {
             match('{'); 
 
@@ -212,8 +223,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:18:7: ( '}' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:18:9: '}'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:29:7: ( '}' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:29:9: '}'
             {
             match('}'); 
 
@@ -232,8 +243,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:19:7: ( '(' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:19:9: '('
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:30:7: ( '(' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:30:9: '('
             {
             match('('); 
 
@@ -252,8 +263,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:20:7: ( ')' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:20:9: ')'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:31:7: ( ')' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:31:9: ')'
             {
             match(')'); 
 
@@ -272,8 +283,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:21:7: ( 'And' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:21:9: 'And'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:32:7: ( 'And' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:32:9: 'And'
             {
             match("And"); 
 
@@ -293,8 +304,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:22:7: ( 'Or' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:22:9: 'Or'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:33:7: ( 'Or' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:33:9: 'Or'
             {
             match("Or"); 
 
@@ -314,8 +325,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:23:7: ( '@' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:23:9: '@'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:34:7: ( '@' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:34:9: '@'
             {
             match('@'); 
 
@@ -334,8 +345,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:24:7: ( 'atLeast' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:24:9: 'atLeast'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:35:7: ( 'atLeast' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:35:9: 'atLeast'
             {
             match("atLeast"); 
 
@@ -355,8 +366,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:25:7: ( 'atMost' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:25:9: 'atMost'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:36:7: ( 'atMost' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:36:9: 'atMost'
             {
             match("atMost"); 
 
@@ -376,8 +387,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:26:7: ( 'exactly' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:26:9: 'exactly'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:37:7: ( 'exactly' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:37:9: 'exactly'
             {
             match("exactly"); 
 
@@ -397,8 +408,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:27:7: ( 'atLeastAndAtMost' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:27:9: 'atLeastAndAtMost'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:38:7: ( 'atLeastAndAtMost' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:38:9: 'atLeastAndAtMost'
             {
             match("atLeastAndAtMost"); 
 
@@ -418,8 +429,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:28:7: ( '=' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:28:9: '='
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:39:7: ( '=' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:39:9: '='
             {
             match('='); 
 
@@ -438,8 +449,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:29:7: ( '+' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:29:9: '+'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:40:7: ( '+' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:40:9: '+'
             {
             match('+'); 
 
@@ -458,8 +469,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:30:7: ( '-' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:30:9: '-'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:41:7: ( '-' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:41:9: '-'
             {
             match('-'); 
 
@@ -478,8 +489,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:31:7: ( '/' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:31:9: '/'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:42:7: ( '/' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:42:9: '/'
             {
             match('/'); 
 
@@ -498,8 +509,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:32:7: ( '*' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:32:9: '*'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:43:7: ( '*' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:43:9: '*'
             {
             match('*'); 
 
@@ -518,8 +529,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:33:7: ( '%' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:33:9: '%'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:44:7: ( '%' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:44:9: '%'
             {
             match('%'); 
 
@@ -538,8 +549,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:34:7: ( '**' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:34:9: '**'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:45:7: ( '**' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:45:9: '**'
             {
             match("**"); 
 
@@ -559,8 +570,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:35:7: ( '>' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:35:9: '>'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:46:7: ( '>' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:46:9: '>'
             {
             match('>'); 
 
@@ -579,8 +590,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:36:7: ( '<' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:36:9: '<'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:47:7: ( '<' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:47:9: '<'
             {
             match('<'); 
 
@@ -599,8 +610,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:37:7: ( '>=' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:37:9: '>='
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:48:7: ( '>=' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:48:9: '>='
             {
             match(">="); 
 
@@ -620,8 +631,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:38:7: ( '<=' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:38:9: '<='
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:49:7: ( '<=' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:49:9: '<='
             {
             match("<="); 
 
@@ -641,8 +652,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:39:7: ( '!=' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:39:9: '!='
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:50:7: ( '!=' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:50:9: '!='
             {
             match("!="); 
 
@@ -662,8 +673,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:40:7: ( ',' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:40:9: ','
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:51:7: ( ',' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:51:9: ','
             {
             match(','); 
 
@@ -682,8 +693,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:41:7: ( 'null' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:41:9: 'null'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:52:7: ( 'null' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:52:9: 'null'
             {
             match("null"); 
 
@@ -703,8 +714,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:42:7: ( 'Package' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:42:9: 'Package'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:53:7: ( 'Package' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:53:9: 'Package'
             {
             match("Package"); 
 
@@ -724,8 +735,8 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:255:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:255:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:308:3: ( ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )* )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:308:5: ( 'a' .. 'z' | 'A' .. 'Z' | '_' ) ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -736,7 +747,7 @@ public class LetaGrammarLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:255:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:308:33: ( 'a' .. 'z' | 'A' .. 'Z' | '_' | '0' .. '9' )*
             loop1:
             do {
                 int alt1=2;
@@ -783,8 +794,8 @@ public class LetaGrammarLexer extends Lexer {
     // $ANTLR start "DIGIT"
     public final void mDIGIT() throws RecognitionException {
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:260:3: ( '0' .. '9' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:260:5: '0' .. '9'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:313:3: ( '0' .. '9' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:313:5: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -801,10 +812,10 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:264:3: ( ( DIGIT )+ )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:264:5: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:3: ( ( DIGIT )+ )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:5: ( DIGIT )+
             {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:264:5: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:5: ( DIGIT )+
             int cnt2=0;
             loop2:
             do {
@@ -818,7 +829,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:264:5: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:5: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -850,11 +861,11 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = MINUS_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:268:3: ( '-' ( DIGIT )+ )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:268:5: '-' ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:321:3: ( '-' ( DIGIT )+ )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:321:5: '-' ( DIGIT )+
             {
             match('-'); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:268:9: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:321:9: ( DIGIT )+
             int cnt3=0;
             loop3:
             do {
@@ -868,7 +879,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:268:9: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:321:9: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -900,10 +911,10 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:3: ( ( DIGIT )+ '\\.' ( DIGIT )* )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:5: ( DIGIT )+ '\\.' ( DIGIT )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:3: ( ( DIGIT )+ '\\.' ( DIGIT )* )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:5: ( DIGIT )+ '\\.' ( DIGIT )*
             {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:5: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:5: ( DIGIT )+
             int cnt4=0;
             loop4:
             do {
@@ -917,7 +928,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:5: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:5: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -934,7 +945,7 @@ public class LetaGrammarLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:17: ( DIGIT )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:17: ( DIGIT )*
             loop5:
             do {
                 int alt5=2;
@@ -947,7 +958,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:272:17: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:325:17: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -975,11 +986,11 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = MINUS_FLOAT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:3: ( '-' ( DIGIT )+ '\\.' ( DIGIT )* )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:5: '-' ( DIGIT )+ '\\.' ( DIGIT )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:3: ( '-' ( DIGIT )+ '\\.' ( DIGIT )* )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:5: '-' ( DIGIT )+ '\\.' ( DIGIT )*
             {
             match('-'); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:9: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:9: ( DIGIT )+
             int cnt6=0;
             loop6:
             do {
@@ -993,7 +1004,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:9: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:9: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1010,7 +1021,7 @@ public class LetaGrammarLexer extends Lexer {
             } while (true);
 
             match('.'); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:21: ( DIGIT )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:21: ( DIGIT )*
             loop7:
             do {
                 int alt7=2;
@@ -1023,7 +1034,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:276:21: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:329:21: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1051,11 +1062,11 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:280:3: ( '\"' ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )* '\"' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:280:5: '\"' ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )* '\"'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:333:3: ( '\"' ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )* '\"' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:333:5: '\"' ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )* '\"'
             {
             match('\"'); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:280:9: ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:333:9: ( ESC_SEQ | ~ ( '\"' | '\\\\' ) )*
             loop8:
             do {
                 int alt8=3;
@@ -1071,14 +1082,14 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:280:10: ESC_SEQ
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:333:10: ESC_SEQ
             	    {
             	    mESC_SEQ(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:280:20: ~ ( '\"' | '\\\\' )
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:333:20: ~ ( '\"' | '\\\\' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1115,11 +1126,11 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = DATE_TIME;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:3: ( '[' ( DIGIT )+ ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )? ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )? ']' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:5: '[' ( DIGIT )+ ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )? ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )? ']'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:3: ( '[' ( DIGIT )+ ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )? ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )? ']' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:5: '[' ( DIGIT )+ ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )? ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )? ']'
             {
             match('['); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:9: ( DIGIT )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:9: ( DIGIT )+
             int cnt9=0;
             loop9:
             do {
@@ -1133,7 +1144,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:9: DIGIT
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:9: DIGIT
             	    {
             	    mDIGIT(); 
 
@@ -1149,7 +1160,7 @@ public class LetaGrammarLexer extends Lexer {
                 cnt9++;
             } while (true);
 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:16: ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:16: ( '-' ( DIGIT )+ ( '-' ( DIGIT )+ )? )?
             int alt13=2;
             int LA13_0 = input.LA(1);
 
@@ -1158,10 +1169,10 @@ public class LetaGrammarLexer extends Lexer {
             }
             switch (alt13) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:17: '-' ( DIGIT )+ ( '-' ( DIGIT )+ )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:17: '-' ( DIGIT )+ ( '-' ( DIGIT )+ )?
                     {
                     match('-'); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:21: ( DIGIT )+
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:21: ( DIGIT )+
                     int cnt10=0;
                     loop10:
                     do {
@@ -1175,7 +1186,7 @@ public class LetaGrammarLexer extends Lexer {
 
                         switch (alt10) {
                     	case 1 :
-                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:21: DIGIT
+                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:21: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -1191,7 +1202,7 @@ public class LetaGrammarLexer extends Lexer {
                         cnt10++;
                     } while (true);
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:28: ( '-' ( DIGIT )+ )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:28: ( '-' ( DIGIT )+ )?
                     int alt12=2;
                     int LA12_0 = input.LA(1);
 
@@ -1200,10 +1211,10 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     switch (alt12) {
                         case 1 :
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:29: '-' ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:29: '-' ( DIGIT )+
                             {
                             match('-'); 
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:33: ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:33: ( DIGIT )+
                             int cnt11=0;
                             loop11:
                             do {
@@ -1217,7 +1228,7 @@ public class LetaGrammarLexer extends Lexer {
 
                                 switch (alt11) {
                             	case 1 :
-                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:33: DIGIT
+                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:33: DIGIT
                             	    {
                             	    mDIGIT(); 
 
@@ -1245,7 +1256,7 @@ public class LetaGrammarLexer extends Lexer {
 
             }
 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:44: ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )?
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:44: ( ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )? )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
@@ -1254,10 +1265,10 @@ public class LetaGrammarLexer extends Lexer {
             }
             switch (alt24) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:45: ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:45: ' ' ( DIGIT )+ ':' ( DIGIT )+ ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )? ( 'AM' | 'PM' )? ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )?
                     {
                     match(' '); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:49: ( DIGIT )+
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:49: ( DIGIT )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -1271,7 +1282,7 @@ public class LetaGrammarLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:49: DIGIT
+                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:49: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -1288,7 +1299,7 @@ public class LetaGrammarLexer extends Lexer {
                     } while (true);
 
                     match(':'); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:60: ( DIGIT )+
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:60: ( DIGIT )+
                     int cnt15=0;
                     loop15:
                     do {
@@ -1302,7 +1313,7 @@ public class LetaGrammarLexer extends Lexer {
 
                         switch (alt15) {
                     	case 1 :
-                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:60: DIGIT
+                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:60: DIGIT
                     	    {
                     	    mDIGIT(); 
 
@@ -1318,7 +1329,7 @@ public class LetaGrammarLexer extends Lexer {
                         cnt15++;
                     } while (true);
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:67: ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:67: ( ':' ( DIGIT )+ ( '.' ( DIGIT )+ )? )?
                     int alt19=2;
                     int LA19_0 = input.LA(1);
 
@@ -1327,10 +1338,10 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     switch (alt19) {
                         case 1 :
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:68: ':' ( DIGIT )+ ( '.' ( DIGIT )+ )?
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:68: ':' ( DIGIT )+ ( '.' ( DIGIT )+ )?
                             {
                             match(':'); 
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:72: ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:72: ( DIGIT )+
                             int cnt16=0;
                             loop16:
                             do {
@@ -1344,7 +1355,7 @@ public class LetaGrammarLexer extends Lexer {
 
                                 switch (alt16) {
                             	case 1 :
-                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:72: DIGIT
+                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:72: DIGIT
                             	    {
                             	    mDIGIT(); 
 
@@ -1360,7 +1371,7 @@ public class LetaGrammarLexer extends Lexer {
                                 cnt16++;
                             } while (true);
 
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:79: ( '.' ( DIGIT )+ )?
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:79: ( '.' ( DIGIT )+ )?
                             int alt18=2;
                             int LA18_0 = input.LA(1);
 
@@ -1369,10 +1380,10 @@ public class LetaGrammarLexer extends Lexer {
                             }
                             switch (alt18) {
                                 case 1 :
-                                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:80: '.' ( DIGIT )+
+                                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:80: '.' ( DIGIT )+
                                     {
                                     match('.'); 
-                                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:84: ( DIGIT )+
+                                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:84: ( DIGIT )+
                                     int cnt17=0;
                                     loop17:
                                     do {
@@ -1386,7 +1397,7 @@ public class LetaGrammarLexer extends Lexer {
 
                                         switch (alt17) {
                                     	case 1 :
-                                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:84: DIGIT
+                                    	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:84: DIGIT
                                     	    {
                                     	    mDIGIT(); 
 
@@ -1414,7 +1425,7 @@ public class LetaGrammarLexer extends Lexer {
 
                     }
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:95: ( 'AM' | 'PM' )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:95: ( 'AM' | 'PM' )?
                     int alt20=3;
                     int LA20_0 = input.LA(1);
 
@@ -1426,7 +1437,7 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     switch (alt20) {
                         case 1 :
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:96: 'AM'
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:96: 'AM'
                             {
                             match("AM"); 
 
@@ -1434,7 +1445,7 @@ public class LetaGrammarLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:103: 'PM'
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:103: 'PM'
                             {
                             match("PM"); 
 
@@ -1444,7 +1455,7 @@ public class LetaGrammarLexer extends Lexer {
 
                     }
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:110: ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )?
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:110: ( ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+ )?
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
@@ -1453,7 +1464,7 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     switch (alt23) {
                         case 1 :
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:111: ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:111: ( '+' | '-' ) ( DIGIT )+ ':' ( DIGIT )+
                             {
                             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                                 input.consume();
@@ -1464,7 +1475,7 @@ public class LetaGrammarLexer extends Lexer {
                                 recover(mse);
                                 throw mse;}
 
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:123: ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:123: ( DIGIT )+
                             int cnt21=0;
                             loop21:
                             do {
@@ -1478,7 +1489,7 @@ public class LetaGrammarLexer extends Lexer {
 
                                 switch (alt21) {
                             	case 1 :
-                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:123: DIGIT
+                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:123: DIGIT
                             	    {
                             	    mDIGIT(); 
 
@@ -1495,7 +1506,7 @@ public class LetaGrammarLexer extends Lexer {
                             } while (true);
 
                             match(':'); 
-                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:134: ( DIGIT )+
+                            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:134: ( DIGIT )+
                             int cnt22=0;
                             loop22:
                             do {
@@ -1509,7 +1520,7 @@ public class LetaGrammarLexer extends Lexer {
 
                                 switch (alt22) {
                             	case 1 :
-                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:284:134: DIGIT
+                            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:337:134: DIGIT
                             	    {
                             	    mDIGIT(); 
 
@@ -1554,11 +1565,11 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = PACKAGE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:288:3: ( ID ( '.' ID )* )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:288:5: ID ( '.' ID )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:341:3: ( ID ( '.' ID )* )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:341:5: ID ( '.' ID )*
             {
             mID(); 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:288:8: ( '.' ID )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:341:8: ( '.' ID )*
             loop25:
             do {
                 int alt25=2;
@@ -1571,7 +1582,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:288:9: '.' ID
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:341:9: '.' ID
             	    {
             	    match('.'); 
             	    mID(); 
@@ -1600,12 +1611,12 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:292:3: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:292:5: '/*' ( options {greedy=false; } : . )* '*/'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:345:3: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:345:5: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:292:10: ( options {greedy=false; } : . )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:345:10: ( options {greedy=false; } : . )*
             loop26:
             do {
                 int alt26=2;
@@ -1630,7 +1641,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:292:37: .
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:345:37: .
             	    {
             	    matchAny(); 
 
@@ -1661,12 +1672,12 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:296:3: ( '//' (~ '\\n' )* '\\n' )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:296:5: '//' (~ '\\n' )* '\\n'
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:349:3: ( '//' (~ '\\n' )* '\\n' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:349:5: '//' (~ '\\n' )* '\\n'
             {
             match("//"); 
 
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:296:10: (~ '\\n' )*
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:349:10: (~ '\\n' )*
             loop27:
             do {
                 int alt27=2;
@@ -1679,7 +1690,7 @@ public class LetaGrammarLexer extends Lexer {
 
                 switch (alt27) {
             	case 1 :
-            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:296:11: ~ '\\n'
+            	    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:349:11: ~ '\\n'
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1717,10 +1728,10 @@ public class LetaGrammarLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:300:3: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:300:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:353:3: ( ( ' ' | '\\t' | '\\n' | '\\r' )+ )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:353:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
             {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:300:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:353:5: ( ' ' | '\\t' | '\\n' | '\\r' )+
             int cnt28=0;
             loop28:
             do {
@@ -1773,8 +1784,8 @@ public class LetaGrammarLexer extends Lexer {
     // $ANTLR start "HEX_DIGIT"
     public final void mHEX_DIGIT() throws RecognitionException {
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:305:3: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:305:5: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:358:3: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:358:5: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -1797,7 +1808,7 @@ public class LetaGrammarLexer extends Lexer {
     // $ANTLR start "ESC_SEQ"
     public final void mESC_SEQ() throws RecognitionException {
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:309:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:362:3: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESC | OCTAL_ESC )
             int alt29=3;
             int LA29_0 = input.LA(1);
 
@@ -1848,7 +1859,7 @@ public class LetaGrammarLexer extends Lexer {
             }
             switch (alt29) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:309:5: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:362:5: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1864,14 +1875,14 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:310:5: UNICODE_ESC
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:363:5: UNICODE_ESC
                     {
                     mUNICODE_ESC(); 
 
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:311:5: OCTAL_ESC
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:364:5: OCTAL_ESC
                     {
                     mOCTAL_ESC(); 
 
@@ -1888,7 +1899,7 @@ public class LetaGrammarLexer extends Lexer {
     // $ANTLR start "OCTAL_ESC"
     public final void mOCTAL_ESC() throws RecognitionException {
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:3: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt30=3;
             int LA30_0 = input.LA(1);
 
@@ -1934,25 +1945,25 @@ public class LetaGrammarLexer extends Lexer {
             }
             switch (alt30) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:5: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:5: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:10: ( '0' .. '3' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:11: '0' .. '3'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:10: ( '0' .. '3' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:11: '0' .. '3'
                     {
                     matchRange('0','3'); 
 
                     }
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:21: ( '0' .. '7' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:22: '0' .. '7'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:21: ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:22: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:32: ( '0' .. '7' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:316:33: '0' .. '7'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:32: ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:369:33: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -1962,18 +1973,18 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:5: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:370:5: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:10: ( '0' .. '7' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:11: '0' .. '7'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:370:10: ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:370:11: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:21: ( '0' .. '7' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:317:22: '0' .. '7'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:370:21: ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:370:22: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -1983,11 +1994,11 @@ public class LetaGrammarLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:318:5: '\\\\' ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:371:5: '\\\\' ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:318:10: ( '0' .. '7' )
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:318:11: '0' .. '7'
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:371:10: ( '0' .. '7' )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:371:11: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -2007,8 +2018,8 @@ public class LetaGrammarLexer extends Lexer {
     // $ANTLR start "UNICODE_ESC"
     public final void mUNICODE_ESC() throws RecognitionException {
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:323:3: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:323:5: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:376:3: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaGrammar.g:376:5: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             {
             match('\\'); 
             match('u'); 
