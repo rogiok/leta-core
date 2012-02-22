@@ -15,6 +15,7 @@
 	</properties>
 
 	<build>
+		<finalName>leta-core-${project.version}</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -46,21 +47,24 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-assembly-plugin</artifactId>
-				<version>2.2.1</version>
+				<version>2.3</version>
 				<configuration>
-					<archive>
-						<manifest>
-							<mainClass>leta.core.Generator</mainClass>
-							<packageName>leta.core</packageName>
-						</manifest>
-						<manifestEntries>
-							<originalName>${project.name}</originalName>
-							<creator>Rogerio Iokoi</creator>
-						</manifestEntries>
-					</archive>
-					<descriptorRefs>
-						<descriptorRef>jar-with-dependencies</descriptorRef>
-					</descriptorRefs>
+					<descriptors>
+						<descriptor>src/main/assembly/binary.xml</descriptor>
+					</descriptors>
+<!-- 					<archive> -->
+<!-- 						<manifest> -->
+<!-- 							<mainClass>leta.core.Generator</mainClass> -->
+<!-- 							<packageName>leta.core</packageName> -->
+<!-- 						</manifest> -->
+<!-- 						<manifestEntries> -->
+<!-- 							<originalName>${project.name}</originalName> -->
+<!-- 							<creator>Rogerio Iokoi</creator> -->
+<!-- 						</manifestEntries> -->
+<!-- 					</archive> -->
+<!-- 					<descriptorRefs> -->
+<!-- 						<descriptorRef>jar-with-dependencies</descriptorRef> -->
+<!-- 					</descriptorRefs> -->
 				</configuration>
 				<executions>
 					<execution>
