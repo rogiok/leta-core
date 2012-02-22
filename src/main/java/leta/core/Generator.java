@@ -98,6 +98,10 @@ public class Generator {
 	} catch (RecognitionException e) {
 	    e.printStackTrace();
 	} catch (SyntaxException e) {
+	    
+	    for (SyntaxMessage message : SyntaxMessageManager.getInstance().getErrorMessages())
+		System.out.println(message.getLine() + ": " + message.getToken() + " - " + message.getMessage());
+	    
 	    e.printStackTrace();
 	} catch (URISyntaxException e) {
 	    e.printStackTrace();

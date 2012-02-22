@@ -22,7 +22,7 @@ generateLeta(testCases) ::=
 // Gera a definição de pacote da classe do teste e aciona outros modelos
 generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements, date) ::= 
 <<
-\<fo name='<packageName>/<id>Test'>
+\<fo name='<id>Test'>
 // Version: 0.6 - <date>
 <if (packageName)>package <packageName>;<endif>
 
@@ -69,7 +69,7 @@ public abstract class <id>Test {
     <if (!matrix)>
     // No Matrix
     @Test
-    public void test() {
+    public void <id>Test() {
 
         // Verify
         TCOutput expected = new TCOutput();
@@ -89,7 +89,7 @@ public abstract class <id>Test {
     
     <else>
     // Matrix
-    <bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
+    <bodyMatrixTest(id=id, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
     <endif>
     
     <operators()>
@@ -100,11 +100,11 @@ public abstract class <id>Test {
 
 // BEGIN - MATRIZ
 // Gera os diversos métodos test quando é definido uma matriz ou na geração de 2 ou mais casos de teste
-bodyMatrixTest(verifyClause, whenClause, matrix) ::=
+bodyMatrixTest(id, verifyClause, whenClause, matrix) ::=
 <<
 <if (matrix.iterator.hasNext)>
 @Test
-public void test<matrix.sequence>() {
+public void <id>Test<matrix.sequence>() {
 
     // Verify
     TCOutput expected = new TCOutput();
@@ -122,7 +122,7 @@ public void test<matrix.sequence>() {
 
 }
     
-<bodyMatrixTest(verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
+<bodyMatrixTest(id=id, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
 <endif>
 >>
 // END - MATRIZ
@@ -142,22 +142,22 @@ class <classElement.className> {
     private String sValue;
 
     <classElement.className>(String value) { this.sValue = value; }
-    String getStringValue() { return this.sValue; }
+    String stringValue() { return this.sValue; }
 <elseif (classElement.floatValue)>
     private Double dValue;
 
     <classElement.className>(Double value) { this.dValue = value; }
-    Double getDoubleValue() { return this.dValue; }
+    Double doubleValue() { return this.dValue; }
 <elseif (classElement.intValue)>
     private Integer iValue;
 
     <classElement.className>(Integer value) { this.iValue = value; }
-    Integer getIntegerValue() { return this.iValue; }
+    Integer intValue() { return this.iValue; }
 <elseif (classElement.dateValue)>
     private String dtValue;
     
     <classElement.className>(String value) { this.dtValue = value; }
-    String getDateValue() { return this.dtValue; }
+    String dateValue() { return this.dtValue; }
 <endif>
 
 <classElement.methodElements: { m | <generateMethod(m)>}>
@@ -371,7 +371,7 @@ generateAssertFact(element) ::=
 generateAssertTerm(element) ::=
 <<
 <if (element.anyValue)>
-get<element.className>()<if (element.anyValue)>.get<if (element.stringValue)>String<elseif (element.intValue)>Integer<elseif (element.floatValue)>Float<elseif (element.dateValue)>Date<endif>Value()<endif>
+get<element.className>()<if (element.anyValue)>.<if (element.stringValue)>string<elseif (element.intValue)>int<elseif (element.floatValue)>double<elseif (element.dateValue)>date<endif>Value()<endif>
 <else>
 get<element.className>().is<element.methodElement.methodName>()
 <endif>

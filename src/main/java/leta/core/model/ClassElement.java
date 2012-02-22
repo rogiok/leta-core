@@ -41,7 +41,8 @@ public class ClassElement extends Element implements SequenceCode {
 	boolean found = false;
 	
 	for (MethodElement m : this.methodElements) {
-	    if (m.getName().equals(methodElement.getName()) && m.getClassElement() == methodElement.getClassElement()) {
+	    if (m.getName().equals(methodElement.getName()) 
+		    && m.getClassElement().getClassName().equals(methodElement.getClassElement().getClassName())) {
 		found = true;
 		    
 		break;
