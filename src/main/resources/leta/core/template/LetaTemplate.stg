@@ -20,7 +20,7 @@ generateLeta(testCases) ::=
 
 // BEGIN - CASO DE TESTE
 // Gera a definição de pacote da classe do teste e aciona outros modelos
-generateTestCase(id, verifyClause, whenClause, matrix, packageName, elements, date) ::= 
+generateTestCase(id, objectId, verifyClause, whenClause, matrix, packageName, elements, date) ::= 
 <<
 \<fo name='<id>Test'>
 // Version: 0.6 - <date>
@@ -69,7 +69,7 @@ public abstract class <id>Test {
     <if (!matrix)>
     // No Matrix
     @Test
-    public void <id>Test() {
+    public void <objectId>Test() {
 
         // Verify
         TCOutput expected = new TCOutput();
@@ -89,7 +89,7 @@ public abstract class <id>Test {
     
     <else>
     // Matrix
-    <bodyMatrixTest(id=id, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
+    <bodyMatrixTest(id=id, objectId=objectId, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
     <endif>
     
     <operators()>
@@ -100,11 +100,11 @@ public abstract class <id>Test {
 
 // BEGIN - MATRIZ
 // Gera os diversos métodos test quando é definido uma matriz ou na geração de 2 ou mais casos de teste
-bodyMatrixTest(id, verifyClause, whenClause, matrix) ::=
+bodyMatrixTest(id, objectId, verifyClause, whenClause, matrix) ::=
 <<
 <if (matrix.iterator.hasNext)>
 @Test
-public void <id>Test<matrix.sequence>() {
+public void <objectId>Test<matrix.sequence>() {
 
     // Verify
     TCOutput expected = new TCOutput();
@@ -122,7 +122,7 @@ public void <id>Test<matrix.sequence>() {
 
 }
     
-<bodyMatrixTest(id=id, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
+<bodyMatrixTest(id=id, objectId=objectId, verifyClause=verifyClause, whenClause=whenClause, matrix=matrix)>
 <endif>
 >>
 // END - MATRIZ

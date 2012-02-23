@@ -62,7 +62,7 @@ testCase
       
       elements = testCase.getElements();
     }
-    -> generateTestCase(id={$ID.text}, verifyClause={vc}, whenClause={wc}, matrix={testCase.getMatrix()}, packageName={this.semanticModel.getPackageName()}, elements={elements}, date={new java.util.Date()})
+    -> generateTestCase(id={$ID.text}, objectId={$ID.text.substring(0,1).toLowerCase() + $ID.text.substring(1)}, verifyClause={vc}, whenClause={wc}, matrix={testCase.getMatrix()}, packageName={this.semanticModel.getPackageName()}, elements={elements}, date={new java.util.Date()})
   ;
 
 verifyClause returns [Element element]
