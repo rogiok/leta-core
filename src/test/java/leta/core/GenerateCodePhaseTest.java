@@ -13,7 +13,7 @@ public class GenerateCodePhaseTest {
 	
 	Generator gen = new Generator();
 	
-	byte[] content = gen.readFile(inputFile);
+	char[] content = gen.readFile(inputFile, null).toString().toCharArray();
 	
 	String result = gen.generateCode(gen.semanticPhase(gen.syntacticPhase(content)));
 	

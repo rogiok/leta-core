@@ -128,43 +128,43 @@ leta
   ;
 
 testCase
-  : 'Test' ID verifyClause whenClause setClause?
+  : 'test' ID verifyClause whenClause setClause?
     -> ^(TESTCASE ID setClause? verifyClause whenClause)
   ;
 
 verifyClause
-  : 'Verify' factComposite
+  : 'verify' factComposite
     -> ^(VERIFY factComposite)
   ;
 
 whenClause
-  : 'When' factComposite
+  : 'when' factComposite
     -> ^(WHEN factComposite)
   ;
 
 setClause
-  : 'Set' '{' (s=set)? '}'
+  : 'set' '{' (s=set)? '}'
     -> ^(SET $s)
   ;
 
 factComposite
   : (f=fact | fo=formula) (op=logicalOperator fc=factComposite)?
-    -> {op != null && op.value.equals("And") && f != null}? ^('And' $f $fc)
-    -> {op != null && op.value.equals("Or") && f != null}? ^('Or' $f $fc)
-    -> {op != null && op.value.equals("And") && fo != null}? ^('And' $fo $fc)
-    -> {op != null && op.value.equals("Or") && fo != null}? ^('Or' $fo $fc)
+    -> {op != null && op.value.equals("And") && f != null}? ^('and' $f $fc)
+    -> {op != null && op.value.equals("Or") && f != null}? ^('or' $f $fc)
+    -> {op != null && op.value.equals("And") && fo != null}? ^('and' $fo $fc)
+    -> {op != null && op.value.equals("Or") && fo != null}? ^('or' $fo $fc)
     -> {f != null}? ^(FACTCOMPOSITE $f)
     -> ^(FACTCOMPOSITE $fo)
   | '(' fc1=factComposite ')' (op=logicalOperator fc2=factComposite)?
-    -> {op != null && op.value.equals("And")}? ^('And' $fc1 $fc2)
-    -> {op != null && op.value.equals("Or")}? ^('Or' $fc1 $fc2)
+    -> {op != null && op.value.equals("And")}? ^('and' $fc1 $fc2)
+    -> {op != null && op.value.equals("Or")}? ^('or' $fc1 $fc2)
     -> ^(FACTCOMPOSITE $fc1)
   ;
 
 logicalOperator returns [String value]
-  : 'And'
+  : 'and'
     { $value = "And"; }
-  | 'Or'
+  | 'or'
     { $value = "Or"; }
   ;
 
@@ -203,14 +203,14 @@ termWithAssociation
   ;
   
 quantifier
-  : 'atLeast' INT
-    -> ^(QUANTIFIER 'atLeast' INT)
-  | 'atMost' INT
-    -> ^(QUANTIFIER 'atMost' INT)
+  : 'atleast' INT
+    -> ^(QUANTIFIER 'atleast' INT)
+  | 'atmost' INT
+    -> ^(QUANTIFIER 'atmost' INT)
   | 'exactly' INT
     -> ^(QUANTIFIER 'exactly' INT)
-  | 'atLeastAndAtMost' i1=INT i2=INT
-    -> ^(QUANTIFIER 'atLeastAndAtMost' $i1 $i2)
+  | 'atleastandatmost' i1=INT i2=INT
+    -> ^(QUANTIFIER 'atleastandatmost' $i1 $i2)
   ;
 
 complement
@@ -300,7 +300,7 @@ otherLiteral
   ;
 
 testPackage
-  : 'Package' PACKAGE_ID
+  : 'package' PACKAGE_ID
     -> ^(PACKAGE PACKAGE_ID)
   ;
 

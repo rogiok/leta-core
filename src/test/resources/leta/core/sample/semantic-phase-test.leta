@@ -3,9 +3,9 @@ Package leta.core.sample.generated
 
 Test ValidarDesconto
 Verify
-NotaFiscal tem Desconto <= 10
+NotaFiscal tem Desconto <= 10 Or NotaFiscal Tem Desconto <= 10
 When
-NotaFiscal tem ValorTotal <= 200
+notaFiscal tem ValorTotal <= 200 And TTTest isReady
 
 
 /*

@@ -89,17 +89,17 @@ setClause
   ;
 
 factComposite returns [Element element]
-  : ^('And' f=fact fc=factComposite)
+  : ^('and' f=fact fc=factComposite)
     { $element = new JunctionElement("And", $f.element, $fc.element); }
-  | ^('Or' f=fact fc=factComposite)
+  | ^('or' f=fact fc=factComposite)
     { $element = new JunctionElement("Or", $f.element, $fc.element); }
-  | ^('And' fo=formula fc=factComposite)
+  | ^('and' fo=formula fc=factComposite)
     { $element = new JunctionElement("And", $fo.element, $fc.element); }
-  | ^('Or' fo=formula fc=factComposite)
+  | ^('or' fo=formula fc=factComposite)
     { $element = new JunctionElement("Or", $fo.element, $fc.element); }
-  | ^('And' fc=factComposite fc2=factComposite)
+  | ^('and' fc=factComposite fc2=factComposite)
     { $element = new JunctionElement("And", $fc.element, $fc2.element); }
-  | ^('Or' fc=factComposite fc2=factComposite)
+  | ^('or' fc=factComposite fc2=factComposite)
     { $element = new JunctionElement("Or", $fc.element, $fc2.element); }
   | ^(FACTCOMPOSITE f=fact)
     { $element = $f.element; }
@@ -210,13 +210,13 @@ termWithAssociation returns [ClassElement classElement]
   ;
   
 quantifier returns [String type, String operator, Integer value, Integer value2]
-  : ^(QUANTIFIER 'atLeast' INT)
+  : ^(QUANTIFIER 'atleast' INT)
     { $type = "atLeast"; $operator = ">="; $value = Integer.parseInt($INT.text); }
-  | ^(QUANTIFIER 'atMost' INT)
+  | ^(QUANTIFIER 'atmost' INT)
     { $type = "atMost"; $operator = "<="; $value = Integer.parseInt($INT.text); }
   | ^(QUANTIFIER 'exactly' INT)
     { $type = "exactly"; $operator = "=="; $value = Integer.parseInt($INT.text); }
-  | ^(QUANTIFIER 'atLeastAndAtMost' v1=INT v2=INT)
+  | ^(QUANTIFIER 'atleastandatmost' v1=INT v2=INT)
     { $type = "atLeastAndAtMost"; $operator = ">=&<="; $value = Integer.parseInt($v1.text); $value2 = Integer.parseInt($v2.text); }
   ;
 

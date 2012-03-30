@@ -11,7 +11,7 @@ public class SemanticPhaseTest {
 	
 	Generator gen = new Generator();
 	
-	byte[] content = gen.readFile(inputFile);
+	char[] content = gen.readFile(inputFile, null).toString().toCharArray();
 	
 	gen.semanticPhase(gen.syntacticPhase(content));
 	

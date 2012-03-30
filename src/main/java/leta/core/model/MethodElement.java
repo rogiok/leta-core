@@ -37,10 +37,12 @@ public class MethodElement extends Element implements MethodCode {
     }
 
     public String getMethodName() {
+//	return this.getName();
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
     }
 
     public String getClassName() {
+//	return this.getName();
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
     }
 

@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2012-02-22 23:30:15
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2012-03-29 22:10:20
 
   package leta.core.grammar;
   
@@ -16,7 +16,7 @@ import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
 public class LetaTreeGrammar extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "ESC_SEQ", "COMMENT", "LINE_COMMENT", "WS", "HEX_DIGIT", "UNICODE_ESC", "OCTAL_ESC", "'Test'", "'Verify'", "'When'", "'Set'", "'{'", "'}'", "'('", "')'", "'And'", "'Or'", "'@'", "'atLeast'", "'atMost'", "'exactly'", "'atLeastAndAtMost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "ESC_SEQ", "COMMENT", "LINE_COMMENT", "WS", "HEX_DIGIT", "UNICODE_ESC", "OCTAL_ESC", "'test'", "'verify'", "'when'", "'set'", "'{'", "'}'", "'('", "')'", "'and'", "'or'", "'@'", "'atleast'", "'atmost'", "'exactly'", "'atleastandatmost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
     };
     public static final int EOF=-1;
     public static final int T__51=51;
@@ -527,7 +527,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "factComposite"
-    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:91:1: factComposite returns [Element element] : ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:91:1: factComposite returns [Element element] : ( ^( 'and' f= fact fc= factComposite ) | ^( 'or' f= fact fc= factComposite ) | ^( 'and' fo= formula fc= factComposite ) | ^( 'or' fo= formula fc= factComposite ) | ^( 'and' fc= factComposite fc2= factComposite ) | ^( 'or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );
     public final LetaTreeGrammar.factComposite_return factComposite() throws RecognitionException {
         LetaTreeGrammar.factComposite_return retval = new LetaTreeGrammar.factComposite_return();
         retval.start = input.LT(1);
@@ -542,12 +542,12 @@ public class LetaTreeGrammar extends TreeParser {
 
 
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:92:3: ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:92:3: ( ^( 'and' f= fact fc= factComposite ) | ^( 'or' f= fact fc= factComposite ) | ^( 'and' fo= formula fc= factComposite ) | ^( 'or' fo= formula fc= factComposite ) | ^( 'and' fc= factComposite fc2= factComposite ) | ^( 'or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) )
             int alt4=9;
             alt4 = dfa4.predict(input);
             switch (alt4) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:92:5: ^( 'And' f= fact fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:92:5: ^( 'and' f= fact fc= factComposite )
                     {
                     match(input,59,FOLLOW_59_in_factComposite279); if (state.failed) return retval;
 
@@ -571,7 +571,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:94:5: ^( 'Or' f= fact fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:94:5: ^( 'or' f= fact fc= factComposite )
                     {
                     match(input,60,FOLLOW_60_in_factComposite301); if (state.failed) return retval;
 
@@ -595,7 +595,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 3 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:96:5: ^( 'And' fo= formula fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:96:5: ^( 'and' fo= formula fc= factComposite )
                     {
                     match(input,59,FOLLOW_59_in_factComposite323); if (state.failed) return retval;
 
@@ -619,7 +619,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:98:5: ^( 'Or' fo= formula fc= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:98:5: ^( 'or' fo= formula fc= factComposite )
                     {
                     match(input,60,FOLLOW_60_in_factComposite345); if (state.failed) return retval;
 
@@ -643,7 +643,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 5 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:100:5: ^( 'And' fc= factComposite fc2= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:100:5: ^( 'and' fc= factComposite fc2= factComposite )
                     {
                     match(input,59,FOLLOW_59_in_factComposite367); if (state.failed) return retval;
 
@@ -667,7 +667,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 6 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:102:5: ^( 'Or' fc= factComposite fc2= factComposite )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:102:5: ^( 'or' fc= factComposite fc2= factComposite )
                     {
                     match(input,60,FOLLOW_60_in_factComposite389); if (state.failed) return retval;
 
@@ -1470,7 +1470,7 @@ public class LetaTreeGrammar extends TreeParser {
     };
 
     // $ANTLR start "quantifier"
-    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:212:1: quantifier returns [String type, String operator, Integer value, Integer value2] : ( ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) );
+    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:212:1: quantifier returns [String type, String operator, Integer value, Integer value2] : ( ^( QUANTIFIER 'atleast' INT ) | ^( QUANTIFIER 'atmost' INT ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'atleastandatmost' v1= INT v2= INT ) );
     public final LetaTreeGrammar.quantifier_return quantifier() throws RecognitionException {
         LetaTreeGrammar.quantifier_return retval = new LetaTreeGrammar.quantifier_return();
         retval.start = input.LT(1);
@@ -1482,7 +1482,7 @@ public class LetaTreeGrammar extends TreeParser {
         CommonTree INT7=null;
 
         try {
-            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:213:3: ( ^( QUANTIFIER 'atLeast' INT ) | ^( QUANTIFIER 'atMost' INT ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT ) )
+            // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:213:3: ( ^( QUANTIFIER 'atleast' INT ) | ^( QUANTIFIER 'atmost' INT ) | ^( QUANTIFIER 'exactly' INT ) | ^( QUANTIFIER 'atleastandatmost' v1= INT v2= INT ) )
             int alt17=4;
             int LA17_0 = input.LA(1);
 
@@ -1537,7 +1537,7 @@ public class LetaTreeGrammar extends TreeParser {
             }
             switch (alt17) {
                 case 1 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:213:5: ^( QUANTIFIER 'atLeast' INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:213:5: ^( QUANTIFIER 'atleast' INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier737); if (state.failed) return retval;
 
@@ -1553,7 +1553,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 2 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:215:5: ^( QUANTIFIER 'atMost' INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:215:5: ^( QUANTIFIER 'atmost' INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier755); if (state.failed) return retval;
 
@@ -1585,7 +1585,7 @@ public class LetaTreeGrammar extends TreeParser {
                     }
                     break;
                 case 4 :
-                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:5: ^( QUANTIFIER 'atLeastAndAtMost' v1= INT v2= INT )
+                    // /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g:219:5: ^( QUANTIFIER 'atleastandatmost' v1= INT v2= INT )
                     {
                     match(input,QUANTIFIER,FOLLOW_QUANTIFIER_in_quantifier791); if (state.failed) return retval;
 
@@ -3116,7 +3116,7 @@ public class LetaTreeGrammar extends TreeParser {
             this.transition = DFA4_transition;
         }
         public String getDescription() {
-            return "91:1: factComposite returns [Element element] : ( ^( 'And' f= fact fc= factComposite ) | ^( 'Or' f= fact fc= factComposite ) | ^( 'And' fo= formula fc= factComposite ) | ^( 'Or' fo= formula fc= factComposite ) | ^( 'And' fc= factComposite fc2= factComposite ) | ^( 'Or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );";
+            return "91:1: factComposite returns [Element element] : ( ^( 'and' f= fact fc= factComposite ) | ^( 'or' f= fact fc= factComposite ) | ^( 'and' fo= formula fc= factComposite ) | ^( 'or' fo= formula fc= factComposite ) | ^( 'and' fc= factComposite fc2= factComposite ) | ^( 'or' fc= factComposite fc2= factComposite ) | ^( FACTCOMPOSITE f= fact ) | ^( FACTCOMPOSITE fo= formula ) | ^( FACTCOMPOSITE fc= factComposite ) );";
         }
     }
     static final String DFA27_eotS =

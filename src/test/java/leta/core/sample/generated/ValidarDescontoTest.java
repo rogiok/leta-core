@@ -1,5 +1,5 @@
 
-// Version: 0.6 - Sun Oct 30 15:30:22 BRST 2011
+// Version: 0.6 - Thu Mar 29 22:14:14 BRT 2012
 package leta.core.sample.generated;
 
 import org.junit.Test;
@@ -57,7 +57,7 @@ public abstract class ValidarDescontoTest {
         private Integer iValue;
 
         Desconto(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Integer intValue() { return this.iValue; }
 
     }
     class ValorTotal {
@@ -68,7 +68,27 @@ public abstract class ValidarDescontoTest {
         private Integer iValue;
 
         ValorTotal(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Integer intValue() { return this.iValue; }
+
+    }
+    class TTTest {
+        
+        TTTest() {
+        }
+        
+        // boolean instance;
+        private boolean isReady = true;
+        
+        // boolean isInstance() { return instance; }
+        boolean isIsReady() {
+            return this.isReady; 
+        }
+        
+        // void setInstance(boolean instance) { this.instance = instance; }
+        void setIsReady(boolean isReady) {
+            this.isReady = isReady;
+        }
+
 
     }
 
@@ -83,6 +103,24 @@ public abstract class ValidarDescontoTest {
         Desconto getDesconto() { return this.desconto; }
 
         VerifyNotaFiscalTemDesconto(
+            Desconto desconto
+
+            ) {
+            this.desconto = desconto;
+
+            this.notaFiscal.setTemDesconto(this.desconto);
+
+        }
+    }
+
+    class OrNotaFiscalTemDesconto {
+
+        private NotaFiscal notaFiscal = new NotaFiscal();
+        NotaFiscal getNotaFiscal() { return this.notaFiscal; }
+        private Desconto desconto = new Desconto();
+        Desconto getDesconto() { return this.desconto; }
+
+        OrNotaFiscalTemDesconto(
             Desconto desconto
 
             ) {
@@ -111,6 +149,22 @@ public abstract class ValidarDescontoTest {
             return this.verifyNotaFiscalTemDesconto;
         }
 
+        private OrNotaFiscalTemDesconto orNotaFiscalTemDesconto;
+
+        OrNotaFiscalTemDesconto orNotaFiscalTemDesconto(
+                Desconto desconto
+
+                ) {
+            return this.orNotaFiscalTemDesconto = new
+                OrNotaFiscalTemDesconto(
+                    desconto
+
+                    );
+        }
+        OrNotaFiscalTemDesconto orNotaFiscalTemDesconto() {
+            return this.orNotaFiscalTemDesconto;
+        }
+
     }
 
     // Gera as combinações de fatos para o TCInput
@@ -129,6 +183,19 @@ public abstract class ValidarDescontoTest {
 
             this.notaFiscal.setTemValorTotal(this.valorTotal);
 
+        }
+    }
+
+    class AndTTTestIsReady {
+
+        private TTTest tTTest = new TTTest();
+        TTTest getTTTest() { return this.tTTest; }
+
+        AndTTTestIsReady(
+            boolean value
+
+            ) {
+            this.tTTest.setIsReady(value);
         }
     }
     
@@ -150,6 +217,22 @@ public abstract class ValidarDescontoTest {
             return this.whenNotaFiscalTemValorTotal;
         }
 
+        private AndTTTestIsReady andTTTestIsReady;
+
+        AndTTTestIsReady andTTTestIsReady(
+                boolean value
+
+                ) {
+            return this.andTTTestIsReady = new
+                AndTTTestIsReady(
+                    value
+
+                    );
+        }
+        AndTTTestIsReady andTTTestIsReady() {
+            return this.andTTTestIsReady;
+        }
+
     }
 
 
@@ -158,58 +241,92 @@ public abstract class ValidarDescontoTest {
     
     // Matrix
     @Test
-    public void test1() {
+    public void validarDescontoTest1() {
 
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyNotaFiscalTemDesconto(
             new Desconto(9)
-        );        
+        );
+        expected.orNotaFiscalTemDesconto(
+            new Desconto(9)
+        );
+            
         // When
         TCInput input = new TCInput();
         input.whenNotaFiscalTemValorTotal(
             new ValorTotal(200)
         );
+        input.andTTTestIsReady(
+            true
+        );
+
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
         assertTrue("Valor esperado [LessOrEqualThan " 
-            + expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "] - "
+            + expected.verifyNotaFiscalTemDesconto().getDesconto().intValue() + "] - "
             + "Valor obtido ["
-            + result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "]",
+            + result.verifyNotaFiscalTemDesconto().getDesconto().intValue() + "]",
             OperatorLessOrEqualThan.compare(
-                expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue()
+                expected.verifyNotaFiscalTemDesconto().getDesconto().intValue(), 
+                result.verifyNotaFiscalTemDesconto().getDesconto().intValue()
+            )
+        );
+        assertTrue("Valor esperado [LessOrEqualThan " 
+            + expected.orNotaFiscalTemDesconto().getDesconto().intValue() + "] - "
+            + "Valor obtido ["
+            + result.orNotaFiscalTemDesconto().getDesconto().intValue() + "]",
+            OperatorLessOrEqualThan.compare(
+                expected.orNotaFiscalTemDesconto().getDesconto().intValue(), 
+                result.orNotaFiscalTemDesconto().getDesconto().intValue()
             )
         );
 
     }
         
     @Test
-    public void test2() {
+    public void validarDescontoTest2() {
 
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyNotaFiscalTemDesconto(
             new Desconto(9)
-        );        
+        );
+        expected.orNotaFiscalTemDesconto(
+            new Desconto(9)
+        );
+            
         // When
         TCInput input = new TCInput();
         input.whenNotaFiscalTemValorTotal(
             new ValorTotal(199)
         );
+        input.andTTTestIsReady(
+            true
+        );
+
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
         assertTrue("Valor esperado [LessOrEqualThan " 
-            + expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "] - "
+            + expected.verifyNotaFiscalTemDesconto().getDesconto().intValue() + "] - "
             + "Valor obtido ["
-            + result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue() + "]",
+            + result.verifyNotaFiscalTemDesconto().getDesconto().intValue() + "]",
             OperatorLessOrEqualThan.compare(
-                expected.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyNotaFiscalTemDesconto().getDesconto().getIntegerValue()
+                expected.verifyNotaFiscalTemDesconto().getDesconto().intValue(), 
+                result.verifyNotaFiscalTemDesconto().getDesconto().intValue()
+            )
+        );
+        assertTrue("Valor esperado [LessOrEqualThan " 
+            + expected.orNotaFiscalTemDesconto().getDesconto().intValue() + "] - "
+            + "Valor obtido ["
+            + result.orNotaFiscalTemDesconto().getDesconto().intValue() + "]",
+            OperatorLessOrEqualThan.compare(
+                expected.orNotaFiscalTemDesconto().getDesconto().intValue(), 
+                result.orNotaFiscalTemDesconto().getDesconto().intValue()
             )
         );
 

@@ -41,8 +41,8 @@ public class ClassElement extends Element implements SequenceCode {
 	boolean found = false;
 	
 	for (MethodElement m : this.methodElements) {
-	    if (m.getName().equals(methodElement.getName()) 
-		    && m.getClassElement().getClassName().equals(methodElement.getClassElement().getClassName())) {
+	    if (m.getName().toLowerCase().equals(methodElement.getName().toLowerCase()) 
+		    && m.getClassElement().getClassName().toLowerCase().equals(methodElement.getClassElement().getClassName().toLowerCase())) {
 		found = true;
 		    
 		break;
@@ -160,6 +160,7 @@ public class ClassElement extends Element implements SequenceCode {
     }
     
     public String getClassName() {
+//	return this.getName();
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
     }
 

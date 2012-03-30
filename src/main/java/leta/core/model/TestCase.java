@@ -93,7 +93,8 @@ public class TestCase {
     public Element findElement(Element element) {
 	
 	for (Element n : this.elements) {
-	    if (n.getName().equals(element.getName())) {
+//	    if (n.getName().equals(element.getName())) {
+	    if (n.getName().toLowerCase().equals(element.getName().toLowerCase())) {
 		return n;
 	    }
 	}

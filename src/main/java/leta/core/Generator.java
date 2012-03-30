@@ -1,8 +1,8 @@
 package leta.core;
 
+import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.FileInputStream;
+import java.io.CharArrayReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,6 +10,8 @@ import java.io.Reader;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import leta.core.grammar.LetaGrammarLexer;
 import leta.core.grammar.LetaGrammarParser;
@@ -22,6 +24,7 @@ import leta.core.runner.SemanticException;
 import leta.core.runner.SyntaxException;
 
 import org.antlr.runtime.ANTLRInputStream;
+import org.antlr.runtime.ANTLRReaderStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
@@ -85,10 +88,23 @@ public class Generator {
     public void generate() {
 	
 	try {
-	    byte[] result = this.readFile(this.inputFile);
+	    StringBuffer result = this.readFile(this.inputFile, null);
 	    
 	    if (result != null) {
-		String outputContent = this.generate(result);
+	
+		convert(result, "[ \n\r\t]test[ \n\r\t]", "test", 1, 1);
+		convert(result, "[ \n\r\t]verify[ \n\r\t]", "verify", 1, 1);
+		convert(result, "[ \n\r\t]when[ \n\r\t]", "when", 1, 1);
+		convert(result, "[ \n\r\t]set[ \n\r\t]", "set", 1, 1);
+		convert(result, "[ \n\r\t]and[ \n\r\t]", "and", 1, 1);
+		convert(result, "[ \n\r\t]or[ \n\r\t]", "or", 1, 1);
+		convert(result, "[ \n\r\t]atleast[ \n\r\t]", "atleast", 1, 1);
+		convert(result, "[ \n\r\t]atmost[ \n\r\t]", "atmost", 1, 1);
+		convert(result, "[ \n\r\t]exactly[ \n\r\t]", "exactly", 1, 1);
+		convert(result, "[ \n\r\t]atleastandatmost[ \n\r\t]", "atleastandatmost", 1, 1);
+		convert(result, "[ \n\r\t]package[ \n\r\t]", "package", 1, 1);
+		
+		String outputContent = this.generate(result.toString().toCharArray());
 	    
 		new SaveFiles(outputContent, this.outputDir).execute();
 	    }
@@ -111,25 +127,42 @@ public class Generator {
 	
     }
     
-    protected byte[] readFile(String inputFile) throws IOException {
-	ByteArrayOutputStream baos = new ByteArrayOutputStream();
+    protected void convert(StringBuffer sb, String expression, String replace, int charBefore, int charAfter) {
 	
-	byte[] line = new byte[1024];
-	int length = 0;
+	String s = sb.toString().toLowerCase();
 	
-	FileInputStream fis = new FileInputStream(inputFile);
+	Pattern p = Pattern.compile(expression);
 	
-	while ((length = fis.read(line)) != -1) {
-	    baos.write(line, 0, length);
+	Matcher m = p.matcher(s);
+	
+	while (m.find()) {
+	    sb.replace(m.start() + charBefore, m.end() - charAfter, replace);
 	}
 	
-	return baos.toByteArray();
     }
     
-    private String generate(byte[] content) throws IOException, RecognitionException, SyntaxException, URISyntaxException, SemanticException {
-	ByteArrayInputStream atddStream = new ByteArrayInputStream(content);
-
-	ANTLRInputStream source = new ANTLRInputStream(atddStream);
+    protected StringBuffer readFile(String inputFile, String encoding) throws IOException {
+	
+	BufferedReader in = new BufferedReader(new FileReader(inputFile));
+	
+	char[] line = new char[1024];
+	int length = 0;
+	
+	StringBuffer sb = new StringBuffer("");
+	
+	while ((length = in.read(line)) != -1) {
+	    sb.append(line, 0, length);
+	}
+	
+	return sb;
+    }
+    
+    private String generate(char[] content) throws IOException, RecognitionException, SyntaxException, URISyntaxException, SemanticException {
+	
+//	ByteArrayInputStream letaStream = new ByteArrayInputStream(content);
+	
+	CharArrayReader reader = new CharArrayReader(content);
+	ANTLRReaderStream source = new ANTLRReaderStream(reader);
 	LetaGrammarLexer lexer = new LetaGrammarLexer(source);
 	CommonTokenStream tokens = new CommonTokenStream(lexer);
 
@@ -178,11 +211,10 @@ public class Generator {
 	return result;
     }
     
-    protected CommonTree syntacticPhase(byte[] content) throws RecognitionException, SyntaxException, IOException {
+    protected CommonTree syntacticPhase(char[] content) throws RecognitionException, SyntaxException, IOException {
 
-	ByteArrayInputStream atddStream = new ByteArrayInputStream(content);
-
-	ANTLRInputStream source = new ANTLRInputStream(atddStream);
+	CharArrayReader reader = new CharArrayReader(content);
+	ANTLRReaderStream source = new ANTLRReaderStream(reader);
 	LetaGrammarLexer lexer = new LetaGrammarLexer(source);
 	CommonTokenStream tokens = new CommonTokenStream(lexer);
 

@@ -9,7 +9,7 @@ public class GeneratorTest {
 	
 	String inputFile = ClassLoader.getSystemResource("leta/core/sample/semantic-phase-test.leta").toURI().getPath();
 	
-	new Generator(true, inputFile, "./src/test/java").generate();
+	new Generator(true, inputFile, "./src/test/java/leta/core/sample/generated").generate();
 	
     }
 }
