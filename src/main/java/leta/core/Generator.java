@@ -92,6 +92,7 @@ public class Generator {
 	    
 	    if (result != null) {
 	
+		convert(result, "test[ \n\r\t]", "test", 0, 1);
 		convert(result, "[ \n\r\t]test[ \n\r\t]", "test", 1, 1);
 		convert(result, "[ \n\r\t]verify[ \n\r\t]", "verify", 1, 1);
 		convert(result, "[ \n\r\t]when[ \n\r\t]", "when", 1, 1);
@@ -102,6 +103,7 @@ public class Generator {
 		convert(result, "[ \n\r\t]atmost[ \n\r\t]", "atmost", 1, 1);
 		convert(result, "[ \n\r\t]exactly[ \n\r\t]", "exactly", 1, 1);
 		convert(result, "[ \n\r\t]atleastandatmost[ \n\r\t]", "atleastandatmost", 1, 1);
+		convert(result, "package[ \n\r\t]", "package", 0, 1);
 		convert(result, "[ \n\r\t]package[ \n\r\t]", "package", 1, 1);
 		
 		String outputContent = this.generate(result.toString().toCharArray());

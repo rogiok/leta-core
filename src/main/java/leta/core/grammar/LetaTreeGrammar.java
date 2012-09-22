@@ -1,4 +1,4 @@
-// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2012-03-29 22:10:20
+// $ANTLR 3.3 Nov 30, 2010 12:46:29 /Users/Rogerio/Projects/LetaCore/src/main/java/leta/core/grammar/LetaTreeGrammar.g 2012-05-16 19:28:13
 
   package leta.core.grammar;
   
@@ -16,7 +16,7 @@ import org.antlr.stringtemplate.language.*;
 import java.util.HashMap;
 public class LetaTreeGrammar extends TreeParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "ESC_SEQ", "COMMENT", "LINE_COMMENT", "WS", "HEX_DIGIT", "UNICODE_ESC", "OCTAL_ESC", "'test'", "'verify'", "'when'", "'set'", "'{'", "'}'", "'('", "')'", "'and'", "'or'", "'@'", "'atleast'", "'atmost'", "'exactly'", "'atleastandatmost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'Package'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "LETA", "STMT", "TESTCASE", "WHEN", "VERIFY", "SET", "FACTCOMPOSITE", "CONJUNCTION", "DISJUNCTION", "FACT", "FACTEXT", "FACTUNARY", "FACTBINARY", "FACTNARY", "TERMCOMPOSITE", "FORMULA", "TERM", "TERMINSTANCE", "TERMWITHASSOCIATION", "COMPLEMENT", "NULL", "LITERAL", "QUANTIFIER", "FORMULAEXPRESSION", "FORMULAEXPRESSIONCOMPOSITE", "FORMULAITEM", "OPERATOR", "LIST", "AND", "OR", "PACKAGE", "ID", "INT", "STRING", "FLOAT", "MINUS_FLOAT", "MINUS_INT", "DATE_TIME", "PACKAGE_ID", "DIGIT", "ESC_SEQ", "COMMENT", "LINE_COMMENT", "WS", "HEX_DIGIT", "UNICODE_ESC", "OCTAL_ESC", "'test'", "'verify'", "'when'", "'set'", "'{'", "'}'", "'('", "')'", "'and'", "'or'", "'@'", "'atleast'", "'atmost'", "'exactly'", "'atleastandatmost'", "'='", "'+'", "'-'", "'/'", "'*'", "'%'", "'**'", "'>'", "'<'", "'>='", "'<='", "'!='", "','", "'null'", "'package'"
     };
     public static final int EOF=-1;
     public static final int T__51=51;

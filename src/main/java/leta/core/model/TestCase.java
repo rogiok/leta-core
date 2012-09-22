@@ -2,6 +2,7 @@ package leta.core.model;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TestCase {
 
@@ -74,7 +75,7 @@ public class TestCase {
 
 		    newClassElement.setRelationalOperator("*");
 		} else {
-		    this.changeValue(classElement);
+//		    this.changeValue(classElement);
 		}
 	    }
 	    
@@ -145,13 +146,15 @@ public class TestCase {
 	Object value1 = null;
 	Object value2 = null;
 	
+	int v = new Random().nextInt(100);
+	
 	if (classElement.getRelationalOperator().equals("MoreOrEqualThan")) {
 	    if (classElement.getIntValue() != null) {
 		value1 = new Integer(classElement.getIntValue().intValue());
-		value2 = new Integer(classElement.getIntValue().intValue() + 1);
+		value2 = new Integer(classElement.getIntValue().intValue() + v);
 	    } else if (classElement.getFloatValue() != null) {
 		value1 = new Double(classElement.getFloatValue().doubleValue());
-		value2 = new Double(classElement.getFloatValue().doubleValue() + 1);
+		value2 = new Double(classElement.getFloatValue().doubleValue() + v);
 	    } else if (classElement.getDateValue() != null) {
 		value1 = new Date(classElement.getDateValue().getOriginal());
 		value2 = new Date(classElement.getDateValue().sum().getOriginal());
@@ -161,10 +164,10 @@ public class TestCase {
 	} else if (classElement.getRelationalOperator().equals("LessOrEqualThan")) {
 	    if (classElement.getIntValue() != null) {
 		value1 = new Integer(classElement.getIntValue().intValue());
-		value2 = new Integer(classElement.getIntValue().intValue() - 1);
+		value2 = new Integer(classElement.getIntValue().intValue() - v);
 	    } else if (classElement.getFloatValue() != null) {
 		value1 = new Double(classElement.getFloatValue().doubleValue());
-		value2 = new Double(classElement.getFloatValue().doubleValue() - 1);
+		value2 = new Double(classElement.getFloatValue().doubleValue() - v);
 	    } else if (classElement.getDateValue() != null) {
 		value1 = new Date(classElement.getDateValue().getOriginal());
 		value2 = new Date(classElement.getDateValue().subtract().getOriginal());
@@ -173,11 +176,11 @@ public class TestCase {
 	    updateMatrix(classElement, value1, value2);
 	} else if (classElement.getRelationalOperator().equals("NotEqual")) {
 	    if (classElement.getIntValue() != null) {
-		value1 = new Integer(classElement.getIntValue().intValue() - 1);
-		value2 = new Integer(classElement.getIntValue().intValue() + 1);
+		value1 = new Integer(classElement.getIntValue().intValue() - v);
+		value2 = new Integer(classElement.getIntValue().intValue() + v);
 	    } else if (classElement.getFloatValue() != null) {
-		value1 = new Double(classElement.getFloatValue().doubleValue() - 1);
-		value2 = new Double(classElement.getFloatValue().doubleValue() + 1);
+		value1 = new Double(classElement.getFloatValue().doubleValue() - v);
+		value2 = new Double(classElement.getFloatValue().doubleValue() + v);
 	    } else if (classElement.getDateValue() != null) {
 		value1 = new Date(classElement.getDateValue().sum().getOriginal());
 		value2 = new Date(classElement.getDateValue().subtract().getOriginal());

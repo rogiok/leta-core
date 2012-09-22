@@ -1,14 +1,58 @@
 // Teste de pacote
 Package leta.core.sample.generated
 
+Test DescontoCompra
+Verify
+Pedido tem Desconto 10
+When
+Pedido tem Total > 100
+
+/*
+Test TestCase02
+Verify
+Calculator has Result@1
+When
+Result@2 = ValueA@3 + ValueB@4 * ValueC @5
+Set
+{
+	{10, 30, 10, 50, 4}, 
+	{"20", 4, 2, 18, 1}
+}
+
+test CartaoInvalido
+Verify
+Cartao naoEValido
+When
+(Cartao tem Nome "João" and 
+Cartao tem Numero < 123) And 
+Cartao tem Vencimento "03/2015"
+
+
 Test ValidarDesconto
 Verify
-NotaFiscal tem Desconto <= 10 Or NotaFiscal Tem Desconto <= 10
+NotaFiscal tem Desconto <= 10 Or NotaFiscal Tem Desconto > 10
 When
 notaFiscal tem ValorTotal <= 200 And TTTest isReady
 
 
-/*
+tesT VerificarTotalDeLivros
+Verify
+Cesta tem Total @1 And
+Cesta tem Livro @2
+When
+Livro @2 possui Quantidade @3
+Set
+{
+	{10, "Livro A", 10},
+	{20, "Livro B", 20}
+}
+
+Test DescontoCompra
+Verify
+Pedido tem Desconto >= 10
+When
+Pedido tem Total > 100
+
 
 Test DescontoCompra
 Verify

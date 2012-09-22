@@ -104,4 +104,4 @@ OCTAL_ESC=50
 '!='=77
 ','=78
 'null'=79
-'Package'=80
+'package'=80

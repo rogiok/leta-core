@@ -1,4 +1,5 @@
 
+// Version: 0.6 - Wed May 16 19:28:56 BRT 2012
 package leta.core.sample.generated;
 
 import org.junit.Test;
@@ -12,6 +13,7 @@ public abstract class DescontoCompraTest {
         Pedido() {
         }
         
+
         // Class methodClass;
         private Desconto temDesconto;
         
@@ -56,7 +58,8 @@ public abstract class DescontoCompraTest {
         private Integer iValue;
 
         Desconto(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Integer intValue() { return this.iValue; }
+
 
     }
     class Total {
@@ -67,13 +70,14 @@ public abstract class DescontoCompraTest {
         private Integer iValue;
 
         Total(Integer value) { this.iValue = value; }
-        Integer getIntegerValue() { return this.iValue; }
+        Integer intValue() { return this.iValue; }
+
 
     }
 
     
     
-    // TCOutput
+    // Gera as combinações de fatos para o TCOutput
     class VerifyPedidoTemDesconto {
 
         private Pedido pedido = new Pedido();
@@ -81,10 +85,7 @@ public abstract class DescontoCompraTest {
         private Desconto desconto = new Desconto();
         Desconto getDesconto() { return this.desconto; }
 
-        VerifyPedidoTemDesconto(
-            Desconto desconto
-
-            ) {
+        VerifyPedidoTemDesconto(Desconto desconto) {
             this.desconto = desconto;
 
             this.pedido.setTemDesconto(this.desconto);
@@ -93,17 +94,12 @@ public abstract class DescontoCompraTest {
     }
     
     class TCOutput {
+        // Gera os métodos com as combinações definidas anteriormente
         private VerifyPedidoTemDesconto verifyPedidoTemDesconto;
 
-        VerifyPedidoTemDesconto verifyPedidoTemDesconto(
-                Desconto desconto
-
-                ) {
+        VerifyPedidoTemDesconto verifyPedidoTemDesconto(Desconto desconto) {
             return this.verifyPedidoTemDesconto = new
-                VerifyPedidoTemDesconto(
-                    desconto
-
-                    );
+                VerifyPedidoTemDesconto(desconto);
         }
         VerifyPedidoTemDesconto verifyPedidoTemDesconto() {
             return this.verifyPedidoTemDesconto;
@@ -111,7 +107,7 @@ public abstract class DescontoCompraTest {
 
     }
 
-    // TCInput
+    // Gera as combinações de fatos para o TCInput
     class WhenPedidoTemTotal {
 
         private Pedido pedido = new Pedido();
@@ -119,10 +115,7 @@ public abstract class DescontoCompraTest {
         private Total total = new Total();
         Total getTotal() { return this.total; }
 
-        WhenPedidoTemTotal(
-            Total total
-
-            ) {
+        WhenPedidoTemTotal(Total total) {
             this.total = total;
 
             this.pedido.setTemTotal(this.total);
@@ -131,17 +124,12 @@ public abstract class DescontoCompraTest {
     }
     
     class TCInput {
+        // Gera os métodos com as combinações definidas anteriormente
         private WhenPedidoTemTotal whenPedidoTemTotal;
 
-        WhenPedidoTemTotal whenPedidoTemTotal(
-                Total total
-
-                ) {
+        WhenPedidoTemTotal whenPedidoTemTotal(Total total) {
             return this.whenPedidoTemTotal = new
-                WhenPedidoTemTotal(
-                    total
-
-                    );
+                WhenPedidoTemTotal(total);
         }
         WhenPedidoTemTotal whenPedidoTemTotal() {
             return this.whenPedidoTemTotal;
@@ -153,16 +141,15 @@ public abstract class DescontoCompraTest {
     // Método que será implementado e enviará os dados ao SUT
     abstract TCOutput sendToSut(TCInput input);
     
-    // Matrix
+    // No Matrix
     @Test
-    public void test1() {
+    public void descontoCompraTest() {
 
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyPedidoTemDesconto(
             new Desconto(10)
-        );
-
+        );        
         // When
         TCInput input = new TCInput();
         input.whenPedidoTemTotal(
@@ -172,112 +159,18 @@ public abstract class DescontoCompraTest {
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [MoreOrEqualThan " 
-            + expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "] - "
+        assertTrue("Valor esperado [ " 
+            + expected.verifyPedidoTemDesconto().getDesconto().intValue() + "] - "
             + "Valor obtido ["
-            + result.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorMoreOrEqualThan.compare(
-                expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyPedidoTemDesconto().getDesconto().getIntegerValue()
+            + result.verifyPedidoTemDesconto().getDesconto().intValue() + "]",
+            OperatorEqual.compare(
+                expected.verifyPedidoTemDesconto().getDesconto().intValue(), 
+                result.verifyPedidoTemDesconto().getDesconto().intValue()
             )
         );
 
     }
-        
-    @Test
-    public void test2() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyPedidoTemDesconto(
-            new Desconto(11)
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenPedidoTemTotal(
-            new Total(100)
-        );
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [MoreOrEqualThan " 
-            + expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "] - "
-            + "Valor obtido ["
-            + result.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorMoreOrEqualThan.compare(
-                expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyPedidoTemDesconto().getDesconto().getIntegerValue()
-            )
-        );
-
-    }
-        
-    @Test
-    public void test3() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyPedidoTemDesconto(
-            new Desconto(10)
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenPedidoTemTotal(
-            new Total(101)
-        );
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [MoreOrEqualThan " 
-            + expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "] - "
-            + "Valor obtido ["
-            + result.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorMoreOrEqualThan.compare(
-                expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyPedidoTemDesconto().getDesconto().getIntegerValue()
-            )
-        );
-
-    }
-        
-    @Test
-    public void test4() {
-
-        // Verify
-        TCOutput expected = new TCOutput();
-        expected.verifyPedidoTemDesconto(
-            new Desconto(11)
-        );
-
-            
-        // When
-        TCInput input = new TCInput();
-        input.whenPedidoTemTotal(
-            new Total(101)
-        );
-        // Executa o método sendToSut
-        TCOutput result = sendToSut(input);
-
-        // Compara os resultados com os valores esperados
-        assertTrue("Valor esperado [MoreOrEqualThan " 
-            + expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "] - "
-            + "Valor obtido ["
-            + result.verifyPedidoTemDesconto().getDesconto().getIntegerValue() + "]",
-            OperatorMoreOrEqualThan.compare(
-                expected.verifyPedidoTemDesconto().getDesconto().getIntegerValue(), 
-                result.verifyPedidoTemDesconto().getDesconto().getIntegerValue()
-            )
-        );
-
-    }
-        
-
+    
     
     static abstract class Operator {
     }

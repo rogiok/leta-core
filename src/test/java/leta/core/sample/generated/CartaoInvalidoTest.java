@@ -1,4 +1,5 @@
 
+// Version: 0.6 - Wed May 16 00:23:25 BRT 2012
 package leta.core.sample.generated;
 
 import org.junit.Test;
@@ -12,6 +13,7 @@ public abstract class CartaoInvalidoTest {
         Cartao() {
         }
         
+
         // boolean instance;
         private boolean naoEValido = true;
         
@@ -42,23 +44,6 @@ public abstract class CartaoInvalidoTest {
             return this.temNome = new Nome(value);
         }
         // Class methodClass;
-        private Tipo temTipo;
-        
-        // Class getMethodClass() { return instance; }
-        Tipo getTemTipo() {
-            return this.temTipo; 
-        }
-        
-        // void setMethodClass(Class instance) { this.instance = instance; }
-        void setTemTipo(Tipo temTipo) {
-            this.temTipo = temTipo;
-        }
-        
-        // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Tipo temTipo(String value) {
-            return this.temTipo = new Tipo(value);
-        }
-        // Class methodClass;
         private Numero temNumero;
         
         // Class getMethodClass() { return instance; }
@@ -72,7 +57,7 @@ public abstract class CartaoInvalidoTest {
         }
         
         // Class methodClassClass(String value) { this.instance = new Class(value); }
-        Numero temNumero(String value) {
+        Numero temNumero(Integer value) {
             return this.temNumero = new Numero(value);
         }
         // Class methodClass;
@@ -93,6 +78,7 @@ public abstract class CartaoInvalidoTest {
             return this.temVencimento = new Vencimento(value);
         }
 
+
     }
     class Nome {
         
@@ -102,19 +88,7 @@ public abstract class CartaoInvalidoTest {
         private String sValue;
 
         Nome(String value) { this.sValue = value; }
-        String getStringValue() { return this.sValue; }
-
-
-    }
-    class Tipo {
-        
-        Tipo() {
-        }
-        
-        private String sValue;
-
-        Tipo(String value) { this.sValue = value; }
-        String getStringValue() { return this.sValue; }
+        String stringValue() { return this.sValue; }
 
 
     }
@@ -123,10 +97,10 @@ public abstract class CartaoInvalidoTest {
         Numero() {
         }
         
-        private String sValue;
+        private Integer iValue;
 
-        Numero(String value) { this.sValue = value; }
-        String getStringValue() { return this.sValue; }
+        Numero(Integer value) { this.iValue = value; }
+        Integer intValue() { return this.iValue; }
 
 
     }
@@ -135,40 +109,34 @@ public abstract class CartaoInvalidoTest {
         Vencimento() {
         }
         
-        private String dtValue;
-        
-        Vencimento(String value) { this.dtValue = value; }
-        String getDateValue() { return this.dtValue; }
+        private String sValue;
+
+        Vencimento(String value) { this.sValue = value; }
+        String stringValue() { return this.sValue; }
+
+
     }
 
     
     
-    // TCOutput
+    // Gera as combinações de fatos para o TCOutput
     class VerifyCartaoNaoEValido {
 
         private Cartao cartao = new Cartao();
         Cartao getCartao() { return this.cartao; }
 
-        VerifyCartaoNaoEValido(
-            boolean value
-
-            ) {
+        VerifyCartaoNaoEValido(boolean value) {
             this.cartao.setNaoEValido(value);
         }
     }
     
     class TCOutput {
+        // Gera os métodos com as combinações definidas anteriormente
         private VerifyCartaoNaoEValido verifyCartaoNaoEValido;
 
-        VerifyCartaoNaoEValido verifyCartaoNaoEValido(
-                boolean value
-
-                ) {
+        VerifyCartaoNaoEValido verifyCartaoNaoEValido(boolean value) {
             return this.verifyCartaoNaoEValido = new
-                VerifyCartaoNaoEValido(
-                    value
-
-                    );
+                VerifyCartaoNaoEValido(value);
         }
         VerifyCartaoNaoEValido verifyCartaoNaoEValido() {
             return this.verifyCartaoNaoEValido;
@@ -176,7 +144,7 @@ public abstract class CartaoInvalidoTest {
 
     }
 
-    // TCInput
+    // Gera as combinações de fatos para o TCInput
     class WhenCartaoTemNome {
 
         private Cartao cartao = new Cartao();
@@ -184,31 +152,10 @@ public abstract class CartaoInvalidoTest {
         private Nome nome = new Nome();
         Nome getNome() { return this.nome; }
 
-        WhenCartaoTemNome(
-            Nome nome
-
-            ) {
+        WhenCartaoTemNome(Nome nome) {
             this.nome = nome;
 
             this.cartao.setTemNome(this.nome);
-
-        }
-    }
-
-    class AndCartaoTemTipo {
-
-        private Cartao cartao = new Cartao();
-        Cartao getCartao() { return this.cartao; }
-        private Tipo tipo = new Tipo();
-        Tipo getTipo() { return this.tipo; }
-
-        AndCartaoTemTipo(
-            Tipo tipo
-
-            ) {
-            this.tipo = tipo;
-
-            this.cartao.setTemTipo(this.tipo);
 
         }
     }
@@ -220,10 +167,7 @@ public abstract class CartaoInvalidoTest {
         private Numero numero = new Numero();
         Numero getNumero() { return this.numero; }
 
-        AndCartaoTemNumero(
-            Numero numero
-
-            ) {
+        AndCartaoTemNumero(Numero numero) {
             this.numero = numero;
 
             this.cartao.setTemNumero(this.numero);
@@ -238,10 +182,7 @@ public abstract class CartaoInvalidoTest {
         private Vencimento vencimento = new Vencimento();
         Vencimento getVencimento() { return this.vencimento; }
 
-        AndCartaoTemVencimento(
-            Vencimento vencimento
-
-            ) {
+        AndCartaoTemVencimento(Vencimento vencimento) {
             this.vencimento = vencimento;
 
             this.cartao.setTemVencimento(this.vencimento);
@@ -250,49 +191,22 @@ public abstract class CartaoInvalidoTest {
     }
     
     class TCInput {
+        // Gera os métodos com as combinações definidas anteriormente
         private WhenCartaoTemNome whenCartaoTemNome;
 
-        WhenCartaoTemNome whenCartaoTemNome(
-                Nome nome
-
-                ) {
+        WhenCartaoTemNome whenCartaoTemNome(Nome nome) {
             return this.whenCartaoTemNome = new
-                WhenCartaoTemNome(
-                    nome
-
-                    );
+                WhenCartaoTemNome(nome);
         }
         WhenCartaoTemNome whenCartaoTemNome() {
             return this.whenCartaoTemNome;
         }
 
-        private AndCartaoTemTipo andCartaoTemTipo;
-
-        AndCartaoTemTipo andCartaoTemTipo(
-                Tipo tipo
-
-                ) {
-            return this.andCartaoTemTipo = new
-                AndCartaoTemTipo(
-                    tipo
-
-                    );
-        }
-        AndCartaoTemTipo andCartaoTemTipo() {
-            return this.andCartaoTemTipo;
-        }
-
         private AndCartaoTemNumero andCartaoTemNumero;
 
-        AndCartaoTemNumero andCartaoTemNumero(
-                Numero numero
-
-                ) {
+        AndCartaoTemNumero andCartaoTemNumero(Numero numero) {
             return this.andCartaoTemNumero = new
-                AndCartaoTemNumero(
-                    numero
-
-                    );
+                AndCartaoTemNumero(numero);
         }
         AndCartaoTemNumero andCartaoTemNumero() {
             return this.andCartaoTemNumero;
@@ -300,15 +214,9 @@ public abstract class CartaoInvalidoTest {
 
         private AndCartaoTemVencimento andCartaoTemVencimento;
 
-        AndCartaoTemVencimento andCartaoTemVencimento(
-                Vencimento vencimento
-
-                ) {
+        AndCartaoTemVencimento andCartaoTemVencimento(Vencimento vencimento) {
             return this.andCartaoTemVencimento = new
-                AndCartaoTemVencimento(
-                    vencimento
-
-                    );
+                AndCartaoTemVencimento(vencimento);
         }
         AndCartaoTemVencimento andCartaoTemVencimento() {
             return this.andCartaoTemVencimento;
@@ -322,37 +230,34 @@ public abstract class CartaoInvalidoTest {
     
     // No Matrix
     @Test
-    public void test() {
+    public void cartaoInvalidoTest() {
 
         // Verify
         TCOutput expected = new TCOutput();
         expected.verifyCartaoNaoEValido(
             true
-        );
-
-        
+        );        
         // When
         TCInput input = new TCInput();
         input.whenCartaoTemNome(
-            new Nome("João Silva")
-        );
-        input.andCartaoTemTipo(
-            new Tipo("American Express")
+            new Nome("João")
         );
         input.andCartaoTemNumero(
-            new Numero("344168608834057")
+            new Numero(123)
         );
+
         input.andCartaoTemVencimento(
-            new Vencimento("[2015-03]")
+            new Vencimento("03/2015")
         );
-
-
 
         // Executa o método sendToSut
         TCOutput result = sendToSut(input);
 
         // Compara os resultados com os valores esperados
-        assertTrue(
+        assertTrue("Valor esperado [ " 
+            + expected.verifyCartaoNaoEValido().getCartao().isNaoEValido() + "] - "
+            + "Valor obtido ["
+            + result.verifyCartaoNaoEValido().getCartao().isNaoEValido() + "]",
             OperatorEqual.compare(
                 expected.verifyCartaoNaoEValido().getCartao().isNaoEValido(), 
                 result.verifyCartaoNaoEValido().getCartao().isNaoEValido()
@@ -388,7 +293,14 @@ public abstract class CartaoInvalidoTest {
     }
 
     static class OperatorLessThan extends OperatorNumber {
-        static boolean compare(Object obj1, Object obj2) {
+        static boolean compare(Integer obj1, Integer obj2) {
+            if (verify(obj1, obj2))
+                return ((Integer) obj1).compareTo((Integer) obj2) > 0;
+
+            return false;
+        }
+        
+        static boolean compare(Double obj1, Double obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) > 0;
 
@@ -397,7 +309,14 @@ public abstract class CartaoInvalidoTest {
     }
 
     static class OperatorLessOrEqualThan extends OperatorNumber {
-        static boolean compare(Object obj1, Object obj2) {
+        static boolean compare(Integer obj1, Integer obj2) {
+            if (verify(obj1, obj2))
+                return ((Integer) obj1).compareTo((Integer) obj2) >= 0;
+
+            return false;
+        }
+        
+        static boolean compare(Double obj1, Double obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) >= 0;
 
@@ -406,7 +325,14 @@ public abstract class CartaoInvalidoTest {
     }
 
     static class OperatorMoreThan extends OperatorNumber {
-        static boolean compare(Object obj1, Object obj2) {
+        static boolean compare(Integer obj1, Integer obj2) {
+            if (verify(obj1, obj2))
+                return ((Integer) obj1).compareTo((Integer) obj2) < 0;
+            
+            return false;
+        }
+        
+        static boolean compare(Double obj1, Double obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) < 0;
             
@@ -415,7 +341,14 @@ public abstract class CartaoInvalidoTest {
     }
 
     static class OperatorMoreOrEqualThan extends OperatorNumber {
-        static boolean compare(Object obj1, Object obj2) {
+        static boolean compare(Integer obj1, Integer obj2) {
+            if (verify(obj1, obj2))
+                return ((Integer) obj1).compareTo((Integer) obj2) <= 0;
+           
+           return false;
+        }
+        
+        static boolean compare(Double obj1, Double obj2) {
             if (verify(obj1, obj2))
                 return ((Double) obj1).compareTo((Double) obj2) <= 0;
            

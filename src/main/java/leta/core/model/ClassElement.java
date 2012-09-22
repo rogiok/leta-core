@@ -159,8 +159,23 @@ public class ClassElement extends Element implements SequenceCode {
 	return false;
     }
     
+    public boolean isOperatorEqualsLessOrEqualThan() {
+	return this.relationalOperator != null && this.relationalOperator.equals("LessOrEqualThan");
+    }
+
+    public boolean isOperatorEqualsMoreOrEqualThan() {
+	return this.relationalOperator != null && this.relationalOperator.equals("MoreOrEqualThan");
+    }
+
+    public boolean isOperatorEqualsLessThan() {
+	return this.relationalOperator != null && this.relationalOperator.equals("LessThan");
+    }
+
+    public boolean isOperatorEqualsMoreThan() {
+	return this.relationalOperator != null && this.relationalOperator.equals("MoreThan");
+    }
+
     public String getClassName() {
-//	return this.getName();
 	return this.getName().substring(0, 1).toUpperCase() + this.getName().substring(1);
     }
 

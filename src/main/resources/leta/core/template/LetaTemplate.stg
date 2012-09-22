@@ -143,21 +143,28 @@ class <classElement.className> {
 
     <classElement.className>(String value) { this.sValue = value; }
     String stringValue() { return this.sValue; }
-<elseif (classElement.floatValue)>
+
+<endif>
+<if (classElement.floatValue)>
     private Double dValue;
 
     <classElement.className>(Double value) { this.dValue = value; }
     Double doubleValue() { return this.dValue; }
-<elseif (classElement.intValue)>
+
+<endif>
+<if (classElement.intValue)>
     private Integer iValue;
 
     <classElement.className>(Integer value) { this.iValue = value; }
     Integer intValue() { return this.iValue; }
-<elseif (classElement.dateValue)>
+
+<endif>
+<if (classElement.dateValue)>
     private String dtValue;
     
     <classElement.className>(String value) { this.dtValue = value; }
     String dateValue() { return this.dtValue; }
+
 <endif>
 
 <classElement.methodElements: { m | <generateMethod(m)>}>
@@ -323,7 +330,7 @@ generateAssertItem(initial, parent, current) ::=
 <if (current.methodElement)>
 <if (current.methodElement.classElement)>
 <if (current.anyValue)>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+assertTrue("Valor esperado [<if (current.operatorEqualsLessOrEqualThan)>\<=<elseif (current.operatorEqualsMoreOrEqualThan)>\>=<elseif (current.operatorEqualsLessThan)>\<<elseif (current.operatorEqualsMoreThan)>\><endif> " 
     + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
     + "Valor obtido ["
     + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
@@ -334,7 +341,7 @@ assertTrue("Valor esperado [<if (current.relationalOperator)><current.relational
 );
 <endif>
 <else>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+assertTrue("Valor esperado [<if (current.operatorEqualsLessOrEqualThan)>\<=<elseif (current.operatorEqualsMoreOrEqualThan)>\>=<elseif (current.operatorEqualsLessThan)>\<<elseif (current.operatorEqualsMoreThan)>\><endif> " 
     + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
     + "Valor obtido ["
     + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
@@ -346,7 +353,7 @@ assertTrue("Valor esperado [<if (current.relationalOperator)><current.relational
 <endif>
 <else>
 <if (current.anyValue)>
-assertTrue("Valor esperado [<if (current.relationalOperator)><current.relationalOperator> <endif>" 
+assertTrue("Valor esperado [<if (current.operatorEqualsLessOrEqualThan)>\<=<elseif (current.operatorEqualsMoreOrEqualThan)>\>=<elseif (current.operatorEqualsLessThan)>\<<elseif (current.operatorEqualsMoreThan)>\><endif> " 
     + expected.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "] - "
     + "Valor obtido ["
     + result.<initial><generateAssertFact(parent)>().<generateAssertTerm(current)> + "]",
@@ -385,7 +392,7 @@ get<element.className>().is<element.methodElement.methodName>()
 generateFactExpression(initial, element) ::=
 <<
 <if (element.composite)>
-<generateFactExpressionClass(initial=initial, element=element.left)>
+<generateFactExpression(initial=initial, element=element.left)>
 
 <generateFactExpression(initial=element.className, element=element.right)>
 <else>
@@ -399,9 +406,7 @@ generateFactExpressionClass(initial, element) ::=
 class <initial><generateFactExpressionName(element)> {
 
     <generateFactExpressionDeclaration(element)>
-    <initial><generateFactExpressionName(element)>(
-        <generateFactExpressionParameter(element)>
-        ) {
+    <initial><generateFactExpressionName(element)>(<generateFactExpressionParameter(element)>) {
         <generateFactExpressionAttribution(element)>
         <generateFactExpressionSetter(element)>
     }
@@ -422,8 +427,7 @@ generateFactExpressionName(element) ::=
 
 generateFactExpressionParameter(element) ::=
 <<
-<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateFactExpressionParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif><if (element.methodElement)><if (element.methodElement.classElement)><generateFactExpressionParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<endif><endif>
 >>
 
 generateFactExpressionAttribution(element) ::=
@@ -449,7 +453,7 @@ this.<element.instanceName>.set<element.methodElement.className>(value);
 generateIO(initial, instance, element) ::=
 <<
 <if (element.composite)>
-<generateIOClass(initial=initial, instance=instance, element=element.left)>
+<generateIO(initial=initial, instance=instance, element=element.left)>
 <generateIO(initial=element.className, instance=element.instanceName, element=element.right)>
 <else>
 <generateIOClass(initial=initial, instance=instance, element=element)>
@@ -460,13 +464,9 @@ generateIOClass(initial, instance, element) ::=
 <<
 private <initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>;
 
-<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>(
-        <generateIOClassParameter(element)>
-        ) {
+<initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>(<generateIOClassParameter(element)>) {
     return this.<instance><generateFactExpressionName(element)> = new
-        <initial><generateFactExpressionName(element)>(
-            <generateIOClassInstance(element)>
-            );
+        <initial><generateFactExpressionName(element)>(<generateIOClassInstance(element)>);
 }
 <initial><generateFactExpressionName(element)> <instance><generateFactExpressionName(element)>() {
     return this.<instance><generateFactExpressionName(element)>;
@@ -476,14 +476,12 @@ private <initial><generateFactExpressionName(element)> <instance><generateFactEx
 
 generateIOClassParameter(element) ::=
 <<
-<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<\n><endif><endif>
+<if (element.anyValue)><element.className> <element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif><if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassParameter(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>boolean value<endif><endif>
 >>
 
 generateIOClassInstance(element) ::=
 <<
-<if (element.anyValue)><element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif>
-<if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassInstance(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>value<\n><endif><endif>
+<if (element.anyValue)><element.instanceName><if (element.methodElement)><if (element.methodElement.classElement)><if (element.methodElement.classElement.anyValue)>, <endif><endif><endif><endif><if (element.methodElement)><if (element.methodElement.classElement)><generateIOClassInstance(element.methodElement.classElement)><else><if (element.anyValue)>, <endif>value<endif><endif>
 >>
 // END - TCOUTPUT E TCINPUT
 

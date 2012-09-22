@@ -3,10 +3,7 @@ package leta.core.model;
 public class JunctionElement extends CompositeElement {
 
     public JunctionElement(String name, Element left, Element right) {
-	super();
-	this.setName(name);
-	this.setLeft(left);
-	this.setRight(right);
+	super(name, left, right);
     }
 
     public String getClassName() {
